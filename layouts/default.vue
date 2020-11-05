@@ -5,7 +5,7 @@
       <HeaderSticky />
     </client-only>
     <Header />
-    <Nuxt />
+    <Nuxt keep-alive />
     <Footer :page="$store.state._page" />
     <client-only placeholder="Загрузка...">
       <ScrollEvents />

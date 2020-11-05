@@ -5,7 +5,7 @@
       <HeaderSticky />
     </client-only>
     <Header />
-    <Nuxt />
+    <Nuxt keep-alive />
     <client-only placeholder="Загрузка...">
       <ScrollEvents />
       <ButtonEvents />

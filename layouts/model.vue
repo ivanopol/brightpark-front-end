@@ -5,7 +5,7 @@
       <HeaderStickyModel />
     </client-only>
     <Header :line="true" :head_class="'header-model'" :car="$store.state.car" />
-    <Nuxt />
+    <Nuxt keep-alive />
     <Footer :page="$store.state._page" />
     <client-only placeholder="Загрузка...">
       <ScrollEvents />
