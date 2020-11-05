@@ -3,7 +3,7 @@
     <section class="main-screen">
       <MainHooper></MainHooper>
     </section>
-    <plate :bold='true' :text="'Внимание! В октябре отдаем все LADA с&nbsp;максимальной выгодой!'" />
+    <plate :bold='true' :text="'Обменяем ваш авто на&nbsp;новую LADA без доплаты, Подробности по&nbsp;телефону: <a href=\'tel:' + $store.state.city.phone + '\' class=\'callibri_tel event\'>' + $store.state.city.phone_format + '</a>'" />
 
     <ModelsList/>
     <MegaTeasers/>

@@ -1,6 +1,24 @@
 <template>
   <section>
     <hooper class="main-screen-wrap" :autoPlay="true" :playSpeed="6000" :wheelControl="false" :transition="600" :infiniteScroll="true">
+      <slide class="odd">
+        <div class="asset-container">
+          <picture>
+            <source srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_granta_red.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/main_granta_red.jpg, ~static/images/main/tablet/main_granta_red.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/main_granta_red.jpg, ~static/images/main/desktop/main_granta_red.jpg 2x" media="(min-width: 1366px)">
+            <img class="asset-image" src="~static/images/main/mobile/main_granta_red.jpg" srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_granta_red.jpg 2x" alt="Брайт Парк: Обмен на LADA без доплаты" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold">Обмен<br> на&nbsp;LADA<br> без доплаты</p>
+          <div class="item-buttons">
+            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__benefit-40000-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
+            <nuxt-link :to="$store.state.city.value + '/stocks/doplata-40-000-rublej-pri-obmene-na-lada-granta'" id="main__slider__benefit-40000-action" class="btn btn-secondary event">Условия акции</nuxt-link>
+          </div>
+        </div>
+      </slide>
+
       <slide class="even">
         <div class="asset-container">
           <picture>
@@ -32,24 +50,6 @@
           <p class="title-tagline bold">Каждую неделю!<br>10 LADA GRANTA на&nbsp;спец.условиях!</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__zolotaya-osenv-brajt-parke" class="btn btn-primary event">Подробнее о модели</a>
-          </div>
-        </div>
-      </slide>
-      <slide class="even">
-        <div class="asset-container">
-          <picture>
-            <source srcset="~static/images/main/mobile/main_vesta_red.jpg, ~static/images/main/mobile/main_vesta_red.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/main_vesta_red.jpg, ~static/images/main/tablet/main_vesta_red.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/main_vesta_red.jpg, ~static/images/main/desktop/main_vesta_red.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/main_vesta_red.jpg"
-                 srcset="~static/images/main/mobile/main_vesta_red.jpg, ~static/images/main/mobile/main_vesta_red.jpg 2x" alt="Брайт Парк: Обмен на LADA Vesta выше рыночной цены" />
-          </picture>
-        </div>
-        <div class="product-content">
-          <p class="title-tagline bold">Выгода&nbsp;10% по&nbsp;госпрограмме на&nbsp;LADA в&nbsp;октябре</p>
-          <div class="item-buttons">
-            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__exchange-lada-vesta-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
-            <nuxt-link :to="$store.state.city.value + '/stocks/obmen-na-lada-vesta-vyshe-rynochnoj-ceny'" id="main__slider__exchange-lada-vesta-action" class="btn btn-secondary event">Условия акции</nuxt-link>
           </div>
         </div>
       </slide>
@@ -89,21 +89,21 @@
           </div>
         </div>
       </slide>
-
-      <slide class="odd">
+      <slide class="even">
         <div class="asset-container">
           <picture>
-            <source srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_granta_red.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/main_granta_red.jpg, ~static/images/main/tablet/main_granta_red.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/main_granta_red.jpg, ~static/images/main/desktop/main_granta_red.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/main_granta_red.jpg" srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_granta_red.jpg 2x" alt="Брайт Парк: Доплата 40 000 рублей при обмене на Lada Granta" />
+            <source srcset="~static/images/main/mobile/main_vesta_red.jpg, ~static/images/main/mobile/main_vesta_red.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/main_vesta_red.jpg, ~static/images/main/tablet/main_vesta_red.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/main_vesta_red.jpg, ~static/images/main/desktop/main_vesta_red.jpg 2x" media="(min-width: 1366px)">
+            <img class="asset-image" src="~static/images/main/mobile/main_vesta_red.jpg"
+                 srcset="~static/images/main/mobile/main_vesta_red.jpg, ~static/images/main/mobile/main_vesta_red.jpg 2x" alt="Брайт Парк: 40 000 рублей выгода при обмене на LADA" />
           </picture>
         </div>
         <div class="product-content">
           <p class="title-tagline bold">40&nbsp;000 рублей<br>выгода при обмене на&nbsp;LADA</p>
           <div class="item-buttons">
-            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__benefit-40000-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
-            <nuxt-link :to="$store.state.city.value + '/stocks/doplata-40-000-rublej-pri-obmene-na-lada-granta'" id="main__slider__benefit-40000-action" class="btn btn-secondary event">Условия акции</nuxt-link>
+            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__exchange-lada-vesta-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
+            <nuxt-link :to="$store.state.city.value + '/stocks/obmen-na-lada-vesta-vyshe-rynochnoj-ceny'" id="main__slider__exchange-lada-vesta-action" class="btn btn-secondary event">Условия акции</nuxt-link>
           </div>
         </div>
       </slide>
