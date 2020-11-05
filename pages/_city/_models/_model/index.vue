@@ -21,7 +21,7 @@
       <Reviews v-if="model.reviews.length !== 0"
                :reviews='model.reviews'
                :model_name="model.model_full"/>
-      <Plate :text="'Выбрали LADA ' + $store.state.car.model_full +'? Узнайте все дополнительные выгоды октября!'"/>
+      <Plate :text="'Выбрали LADA ' + $store.state.car.model_full +'? Узнайте все дополнительные выгоды ноября!'"/>
       <NextAction />
       <Feedback :model_full="model.model_full" />
     </div>

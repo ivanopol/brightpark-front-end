@@ -31,7 +31,7 @@
         </span>
       </div>
     </div>
-    <plate :text="'До&nbsp;31&nbsp;октября&nbsp;&mdash; акция &laquo;' + action + '&raquo;! Согласуем спец.выгоды, доплатим при обмене'"
+    <plate :text="'До&nbsp;30&nbsp;ноября&nbsp;&mdash; акция &laquo;' + action + '&raquo;! Согласуем спец.выгоды, доплатим при обмене'"
            :disclaimer="'Подробности<span class=\'show_desktop\'> по телефону</span>: <a href=\'tel:' + $store.state.city.phone + '\' class=\'callibri_tel event\'>' + $store.state.city.phone_format + '</a>'"
     ></plate>
   </div>
