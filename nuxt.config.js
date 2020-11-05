@@ -24,7 +24,7 @@ export default {
     apiUrl: process.env.API_URL || 'http://localhost:8080'
   },
   head: {
-    title: process.env.npm_package_name || '',
+    title: '',
     htmlAttrs: {
       lang: 'ru',
       amp: true
