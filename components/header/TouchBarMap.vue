@@ -10,9 +10,7 @@
         props: ['coordinates'],
         methods: {
             createMap: function(coords) {
-              if (typeof ymaps === 'undefined') {
-                getYmaps()
-              }
+              getYmaps()
 
               function getYmaps() {
                 setTimeout(() => {

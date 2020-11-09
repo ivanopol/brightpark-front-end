@@ -27,13 +27,11 @@
             </p>
 
         </div>
-        <client-only placeholder="Загружается...">
-          <YandexMapComponent v-if="with_map"
+        <YandexMapComponent v-if="with_map"
                                 :button="ym_button"
                                 :btn_class="ym_btn_class"
                                 :prefix="'service__'"
-          ></YandexMapComponent>
-        </client-only>
+        ></YandexMapComponent>
         <modal name="form-callback-footer" height="auto" :adaptive="true" @before-open="beforeOpen">
             <div class="close" @click="hide"></div>
             <FormBuy2Component :cities="cities"

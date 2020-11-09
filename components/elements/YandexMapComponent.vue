@@ -113,9 +113,7 @@
         mounted() {
             this.coordinates = this.$store.state.city.coords.split(',');
 
-            if (typeof ymaps === 'undefined') {
-              getYmaps()
-            }
+            getYmaps()
 
             function getYmaps() {
               setTimeout(() => {
