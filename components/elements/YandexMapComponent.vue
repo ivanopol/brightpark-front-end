@@ -110,43 +110,21 @@
                 }
             },
         },
-
-        created() {
+        mounted() {
             this.coordinates = this.$store.state.city.coords.split(',');
 
             if (typeof ymaps === 'undefined') {
-                var fired = false;
-                const time = this.lazy_load ? 1000 : 0;
-
-                if (this.lazy_load) {
-                    window.addEventListener('scroll', () => {
-                        if (fired === false) {
-                            fired = true;
-                            setTimeout(() => {
-                                load_map();
-                            }, time);
-                        }
-                    });
-                } else {
-                    load_map();
-                }
-            } else {
-                ymaps.ready(init);
+              getYmaps()
             }
 
-            function load_map () {
-                var tag_body = document.getElementsByTagName("body")[0];
-
-                // Yandex Maps
-                var ya_maps = document.createElement('script');
-                ya_maps.src = "https://api-maps.yandex.ru/2.1/?apikey=e65fea9d-e8a0-479d-b21a-35637fdc6c6c&lang=ru_RU&init=onload";
-                ya_maps.type = "text/javascript";
-                // / Yandex Maps
-
-                tag_body.appendChild(ya_maps);
-                setTimeout(() => {
-                    ymaps.ready(init);
-                }, 500);
+            function getYmaps() {
+              setTimeout(() => {
+                if (typeof ymaps !== 'undefined') {
+                  ymaps.ready(init);
+                } else {
+                  getYmaps()
+                }
+              }, 100)
             }
 
             const init = () => {

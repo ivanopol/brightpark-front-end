@@ -108,7 +108,9 @@
         <section id="map_window" :class="{ active: openMap }">
             <div class="map_wrap">
                 <div id="common__route__window-close" class="close event" @click="close"></div>
-                <TouchBarMap :coordinates="$store.state.city.coords.split(', ')" />
+                <client-only placeholder="Загружается...">
+                  <TouchBarMap :coordinates="$store.state.city.coords.split(', ')" />
+                </client-only>
             </div>
         </section>
     </div>
