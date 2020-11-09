@@ -6,6 +6,7 @@
     </client-only>
     <Header />
     <Nuxt />
+    <Scripts keep-alive/>
     <client-only placeholder="Загрузка...">
       <ScrollEvents />
       <ButtonEvents />

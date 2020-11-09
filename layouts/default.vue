@@ -7,6 +7,8 @@
     <Header />
     <Nuxt keep-alive />
     <Footer :page="$store.state._page" />
+    <Scripts keep-alive/>
+
     <client-only placeholder="Загрузка...">
       <ScrollEvents />
       <ButtonEvents />

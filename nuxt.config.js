@@ -62,13 +62,6 @@ export default {
       { rel: 'manifest', href: '/favicon/manifest.json' }
     ]
   },
-  bodyAppend: {
-    script: [
-      {
-        hid: 'google-analytics', src: 'https://www.googletagmanager.com/gtag/js?id=UA-144189432-5'
-      }
-    ],
-  },
   rootDir: __dirname,
 
   /*
