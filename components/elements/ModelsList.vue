@@ -8,7 +8,7 @@
                      :id="'main__models__' + model.slug"
                      class="event">
               <div class="img_wrap">
-                  <img :src="model.preview" :alt="model.title">
+                  <img loading=lazy :src="model.preview" :alt="model.title">
               </div>
               <div class="title">{{model.title}}</div>
           </nuxt-link>

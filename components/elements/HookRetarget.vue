@@ -3,7 +3,7 @@
         <div class="retarget-warning">
             <div class="retarget-warning-row">
                 <div class="retarget-warning-icon">
-                    <img src="/images/icons/icon-warning.svg" :alt="'Автомобили сильно подорожают до конца ' + nextYear + ' года'">
+                    <img loading=lazy src="/images/icons/icon-warning.svg" :alt="'Автомобили сильно подорожают до конца ' + nextYear + ' года'">
                 </div>
                 <div class="retarget-warning-title">Автомобили сильно подорожают до конца {{nextYear}} года</div>
             </div>

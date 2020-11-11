@@ -53,18 +53,18 @@
 
         <div class="option-text" v-if="triggers[0]">
              <ul>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="5 банков партнеров LADA Finance прямо в салоне"><span>5&nbsp;банков партнеров LADA Finance прямо в&nbsp;салоне</span></li>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="1 год КАСКО в подарок"><span>1&nbsp;год КАСКО в&nbsp;подарок</span></li>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Скидка до 40000 рублей на новую LADA"><span>Скидка до&nbsp;40&nbsp;000 рублей на&nbsp;новую LADA</span></li>
+                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="5 банков партнеров LADA Finance прямо в салоне"><span>5&nbsp;банков партнеров LADA Finance прямо в&nbsp;салоне</span></li>
+                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="1 год КАСКО в подарок"><span>1&nbsp;год КАСКО в&nbsp;подарок</span></li>
+                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="Скидка до 40000 рублей на новую LADA"><span>Скидка до&nbsp;40&nbsp;000 рублей на&nbsp;новую LADA</span></li>
             </ul>
         </div>
 
         <div class="option-text" v-if="triggers[1]">
             <p>До {{date}} в Брайт парке уникальное предложение от банков-партнеров</p>
             <ul>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Кредитные каникулы от Брайт парка до конца 2020 года"><span>Кредитные каникулы от Брайт парка до конца 2020 года</span></li>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Кредит без КАСКО на весь срок!"><span>Кредит без КАСКО на весь срок!</span></li>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Возможность совмещения с LADA Finance"><span>Возможность совмещения с LADA Finance</span></li>
+                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="Кредитные каникулы от Брайт парка до конца 2020 года"><span>Кредитные каникулы от Брайт парка до конца 2020 года</span></li>
+                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="Кредит без КАСКО на весь срок!"><span>Кредит без КАСКО на весь срок!</span></li>
+                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="Возможность совмещения с LADA Finance"><span>Возможность совмещения с LADA Finance</span></li>
             </ul>
         </div>
 

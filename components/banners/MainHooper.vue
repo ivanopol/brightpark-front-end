@@ -7,7 +7,7 @@
             <source srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_granta_red.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/main_granta_red.jpg, ~static/images/main/tablet/main_granta_red.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/main_granta_red.jpg, ~static/images/main/desktop/main_granta_red.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/main_granta_red.jpg" srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_granta_red.jpg 2x" alt="Брайт Парк: Обмен на LADA без доплаты" />
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/main_granta_red.jpg" srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_granta_red.jpg 2x" alt="Брайт Парк: Обмен на LADA без доплаты" />
           </picture>
         </div>
         <div class="product-content">
@@ -25,7 +25,7 @@
             <source srcset="~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/tablet/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/desktop/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg"
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg"
                  srcset="~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" alt="Брайт Парк: выгода 10%  для всех клиентов Брайт Парка" />
           </picture>
         </div>
@@ -42,7 +42,7 @@
             <source srcset="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/tablet/zolotaya-osenv-brajt-parke.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/desktop/zolotaya-osenv-brajt-parke.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg"
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg"
                  srcset="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg 2x" alt="Брайт Парк: Обмен на LADA Vesta выше рыночной цены" />
           </picture>
         </div>
@@ -59,7 +59,7 @@
             <source srcset="~static/images/main/mobile/main_vesta_gray.jpg, ~static/images/main/mobile/main_vesta_gray.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/main_vesta_gray.jpg, ~static/images/main/tablet/main_vesta_gray.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/main_vesta_gray.jpg, ~static/images/main/desktop/main_vesta_gray.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/main_vesta_gray.jpg"
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/main_vesta_gray.jpg"
                  srcset="~static/images/main/mobile/main_vesta_gray.jpg, ~static/images/main/mobile/main_vesta_gray.jpg 2x" alt="Брайт Парк: LADA Vesta по обновленной госпрограмме" />
           </picture>
         </div>
@@ -77,7 +77,7 @@
             <source srcset="~static/images/main/mobile/main_granta_gray.jpg, ~static/images/main/mobile/main_granta_gray.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/main_granta_gray.jpg, ~static/images/main/tablet/main_granta_gray.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/main_granta_gray.jpg, ~static/images/main/desktop/main_granta_gray.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/main_granta_gray.jpg"
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/main_granta_gray.jpg"
                  srcset="~static/images/main/mobile/main_granta_gray.jpg, ~static/images/main/mobile/main_granta_gray.jpg 2x" alt="Брайт Парк: LADA Granta 0% первоначальный взнос" />
           </picture>
         </div>
@@ -95,7 +95,7 @@
             <source srcset="~static/images/main/mobile/main_vesta_red.jpg, ~static/images/main/mobile/main_vesta_red.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/main_vesta_red.jpg, ~static/images/main/tablet/main_vesta_red.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/main_vesta_red.jpg, ~static/images/main/desktop/main_vesta_red.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/main_vesta_red.jpg"
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/main_vesta_red.jpg"
                  srcset="~static/images/main/mobile/main_vesta_red.jpg, ~static/images/main/mobile/main_vesta_red.jpg 2x" alt="Брайт Парк: 40 000 рублей выгода при обмене на LADA" />
           </picture>
         </div>

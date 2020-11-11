@@ -3,40 +3,40 @@
         <h2><span class="c_orange">Марки</span> автомобилей,<br> которые мы обслуживаем</h2>
         <ul>
             <li>
-                <img src="/images/car_logos/lada.png" alt="Lada">
+                <img loading=lazy src="/images/car_logos/lada.png" alt="Lada">
             </li>
             <li>
-                <img src="/images/car_logos/skoda.png" alt="Skoda">
+                <img loading=lazy src="/images/car_logos/skoda.png" alt="Skoda">
             </li>
             <li>
-                <img src="/images/car_logos/renault.png" alt="Renault">
+                <img loading=lazy src="/images/car_logos/renault.png" alt="Renault">
             </li>
             <li>
-                <img src="/images/car_logos/volcwagen.png" alt="Volcwagen">
+                <img loading=lazy src="/images/car_logos/volcwagen.png" alt="Volcwagen">
             </li>
             <li>
-                <img src="/images/car_logos/kia.png" alt="Kia">
+                <img loading=lazy src="/images/car_logos/kia.png" alt="Kia">
             </li>
             <li>
-                <img src="/images/car_logos/nissan.png" alt="Nissan">
+                <img loading=lazy src="/images/car_logos/nissan.png" alt="Nissan">
             </li>
             <li>
-                <img src="/images/car_logos/toyota.png" alt="Toyota">
+                <img loading=lazy src="/images/car_logos/toyota.png" alt="Toyota">
             </li>
             <li>
-                <img src="/images/car_logos/mazda.png" alt="Mazda">
+                <img loading=lazy src="/images/car_logos/mazda.png" alt="Mazda">
             </li>
             <li>
-                <img src="/images/car_logos/hyundai.png" alt="Hyundai">
+                <img loading=lazy src="/images/car_logos/hyundai.png" alt="Hyundai">
             </li>
             <li>
-                <img src="/images/car_logos/mitsubishi.png" alt="Mitsubishi">
+                <img loading=lazy src="/images/car_logos/mitsubishi.png" alt="Mitsubishi">
             </li>
             <li>
-                <img src="/images/car_logos/ford.png" alt="Ford">
+                <img loading=lazy src="/images/car_logos/ford.png" alt="Ford">
             </li>
             <li>
-                <img src="/images/car_logos/uaz.png" alt="УАЗ">
+                <img loading=lazy src="/images/car_logos/uaz.png" alt="УАЗ">
             </li>
         </ul>
     </section>

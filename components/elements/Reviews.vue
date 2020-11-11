@@ -17,7 +17,7 @@
         <div class="block-info">
             <div class="trigger">
                 <div class="trigger-wrap2">
-                    <img src="/images/icons/checkbox-green.svg" />
+                    <img loading=lazy src="/images/icons/checkbox-green.svg" />
                     <p>98% клиентов оставили положительные отзывы о&nbsp;{{model_name}}</p>
                 </div>
             </div>

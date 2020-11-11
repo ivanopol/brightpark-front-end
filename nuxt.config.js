@@ -21,7 +21,7 @@ export default {
   */
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    apiUrl: process.env.API_URL || 'http://localhost:8080'
+    apiUrl: process.env.API_URL || 'http://localhost:8081'
   },
   head: {
     title: '',

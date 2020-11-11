@@ -12,7 +12,7 @@
       </div>
       <div class="trigger" v-if="block.trigger">
         <div class="trigger-wrap2">
-          <img src="/images/icons/checkbox-green.svg" />
+          <img loading=lazy src="/images/icons/checkbox-green.svg" />
           <p>{{block.trigger}}</p>
         </div>
       </div>
@@ -27,7 +27,7 @@
         <div class="block-info-img" v-if="block.url">
           <picture>
             <source :srcset="get_source(block.url)" media="(min-width: 580px)">
-            <img :src="block.url" alt="">
+            <img loading=lazy :src="block.url" alt="">
           </picture>
           <Plate v-if="n===1" :text="'В&nbsp;наличии все комплектации LADA&nbsp;' + $store.state.car.model_full + '! Успевайте забронировать с&nbsp;золотыми условиями'"/>
         </div>
@@ -37,7 +37,7 @@
               <slide v-for="slide in block.slider" :key="slide.id">
                 <picture>
                   <source :srcset="get_source(slide.image)" media="(min-width: 580px)">
-                  <img :src="slide.image" alt="">
+                  <img loading=lazy :src="slide.image" alt="">
                 </picture>
                 <p v-text="slide.text"></p>
               </slide>

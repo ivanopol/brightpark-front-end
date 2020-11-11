@@ -2,20 +2,20 @@
   <section class="buttons-block container">
     <ul class="buttons-block-list">
       <li>
-        <img id="main__image-buttons__profitable-credit" class="buttons-block-list-credit event" src="~static/images/main/buttons_block/profitable_credit.png" alt="Брайт Парк: выгодный кредит"
+        <img loading=lazy id="main__image-buttons__profitable-credit" class="buttons-block-list-credit event" src="~static/images/main/buttons_block/profitable_credit.png" alt="Брайт Парк: выгодный кредит"
              v-on:click.prevent="show('Узнать про кредит', 'main__modal-image-buttons-profitable-credit_', 'Отправить', 1, 'credit')"/>
       </li>
       <li>
-        <img id="main__image-buttons__exchange" class="buttons-block-list-exchange event" src="~static/images/main/buttons_block/exchange.png" alt="Брайт Парк: обмен"
+        <img loading=lazy id="main__image-buttons__exchange" class="buttons-block-list-exchange event" src="~static/images/main/buttons_block/exchange.png" alt="Брайт Парк: обмен"
              v-on:click.prevent="show('Узнать про обмен', 'main__modal-image-buttons-exchange_', 'Отправить', 1, 'obmen')"/>
       </li>
       <li>
         <a id="main__image-buttons__service" :href="'/' + $store.state.city.value + '/service'" class="event">
-          <img class="buttons-block-list-maintenance bubble" src="~static/images/main/buttons_block/maintenance.png" alt="Брайт Парк: техническое обслуживание"/>
+          <img loading=lazy class="buttons-block-list-maintenance bubble" src="~static/images/main/buttons_block/maintenance.png" alt="Брайт Парк: техническое обслуживание"/>
         </a>
       </li>
       <li>
-        <img id="main__image-buttons__test-drive" class="buttons-block-list-test-drive event" src="~static/images/main/buttons_block/test_drive.png" alt="Брайт Парк: тест-драйв"
+        <img loading=lazy id="main__image-buttons__test-drive" class="buttons-block-list-test-drive event" src="~static/images/main/buttons_block/test_drive.png" alt="Брайт Парк: тест-драйв"
              v-on:click.prevent="show('Записаться на тест-драйв', 'main__modal-image-buttons-test-drive_', 'Записаться', 1, 'test_drive')"/>
       </li>
     </ul>

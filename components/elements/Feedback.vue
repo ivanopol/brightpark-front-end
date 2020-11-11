@@ -9,7 +9,7 @@
         <picture>
           <source srcset="/images/photos/feedback/feedback-desktop.jpg"
                   media="(min-width: 660px)">
-          <img src="/images/photos/feedback/feedback_04.jpg" :alt="'На вашу новенькую' + model_full + ' действует расширенная гарантия 3 года.'">
+          <img loading=lazy src="/images/photos/feedback/feedback_04.jpg" :alt="'На вашу новенькую' + model_full + ' действует расширенная гарантия 3 года.'">
         </picture>
       </div>
     </div>

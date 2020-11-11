@@ -11,7 +11,7 @@
             <nuxt-link :to="'/' + $store.state.city.value + '/news/' + item.slug"
                        :id="'news__news-one__image-' + item.id"
                        class="event">
-              <img :src="item.preview" :alt="item.text_short" />
+              <img loading=lazy :src="item.preview" :alt="item.text_short" />
             </nuxt-link>
           </div>
           <div class="news-text-wrap">

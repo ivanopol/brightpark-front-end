@@ -4,7 +4,7 @@
       <h1 v-html="data.title" />
       <div class="news-one">
         <div class="news-one-img">
-          <img :src="data.preview" :alt="data.text_short">
+          <img loading=lazy :src="data.preview" :alt="data.text_short">
         </div>
         <div class="news-one-body" v-html="data.text" />
       </div>

@@ -2,7 +2,7 @@
     <footer class="block footer" v-bind:class="[ footer_class ]" itemscope itemtype="http://schema.org/Organization">
         <span class="hidden" itemprop="name">Брайт Парк</span>
         <span class="hidden" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <img itemprop="contentUrl" src="~static/images/logo_bright_park_02.svg" alt="Logo">
+            <img loading=lazy itemprop="contentUrl" src="~static/images/logo_bright_park_02.svg" alt="Logo">
             <meta itemprop="width" content="1007">
             <meta itemprop="height" content="125">
         </span>

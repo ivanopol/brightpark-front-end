@@ -7,7 +7,7 @@
             <div class="color-name" v-text="title"></div>
             <div class="car-color">
                 <div class="backlight"></div>
-                <img :src="image" :alt="title">
+                <img loading=lazy :src="image" :alt="title">
             </div>
             <div class="palette">
                 <ul>

@@ -46,9 +46,9 @@
         <div class="option-text step-null" v-if="!grade">
             <p>Имеете ли вы автомобиль на обмен?</p>
             <ul>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Обмен для всех. Принимаем автомобили любых марок и в любом состоянии."><span>Обмен для всех. Принимаем автомобили любых марок и&nbsp;в&nbsp;любом состоянии</span></li>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="У нас все честно. Справедливая цена и никаких скрытых комиссий."><span>У&nbsp;нас все честно. Справедливая цена и&nbsp;никаких скрытых комиссий</span></li>
-              <li><img src="/build/images/icons/checkbox-green.svg" class="check check-green" alt="АВТОВАЗ отменил субсидию при обмене, но мы доплатим от автоцентра до 40 000 рублей"><span>АВТОВАЗ отменил субсидию при обмене, но&nbsp;мы&nbsp;доплатим от&nbsp;автоцентра до&nbsp;40&nbsp;000 рублей</span></li>
+                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="Обмен для всех. Принимаем автомобили любых марок и в любом состоянии."><span>Обмен для всех. Принимаем автомобили любых марок и&nbsp;в&nbsp;любом состоянии</span></li>
+                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="У нас все честно. Справедливая цена и никаких скрытых комиссий."><span>У&nbsp;нас все честно. Справедливая цена и&nbsp;никаких скрытых комиссий</span></li>
+              <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="АВТОВАЗ отменил субсидию при обмене, но мы доплатим от автоцентра до 40 000 рублей"><span>АВТОВАЗ отменил субсидию при обмене, но&nbsp;мы&nbsp;доплатим от&nbsp;автоцентра до&nbsp;40&nbsp;000 рублей</span></li>
             </ul>
         </div>
 

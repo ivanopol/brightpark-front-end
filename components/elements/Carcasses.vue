@@ -11,7 +11,7 @@
                        :id="'models__carcass-list__' + carcasses.slug + '-' + carcass.slug"
                        class="event" >
               <div class="carcasses-list-img bubble">
-                <img class="bubble" itemprop="image" :src="carcass.pivot.image" :alt="carcasses.title + ' ' + carcass.title_ru">
+                <img loading=lazy class="bubble" itemprop="image" :src="carcass.pivot.image" :alt="carcasses.title + ' ' + carcass.title_ru">
               </div>
               <div class="carcasses-list-description bubble" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                 <div class="carcasses-list-title bubble">

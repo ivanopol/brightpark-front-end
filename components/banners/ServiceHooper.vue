@@ -5,7 +5,7 @@
                 <source srcset="/images/main/mobile/service.jpg, /images/main/mobile/service.jpg 2x" media="(max-width: 580px)">
                 <source srcset="/images/main/tablet/service.jpg, /images/main/tablet/service.jpg 2x" media="(max-width: 960px)">
                 <source srcset="/images/main/desktop/service.jpg, /images/main/desktop/service.jpg 2x" media="(min-width: 961px)">
-                <img class="asset-image" src="/images/main/mobile/service.jpg" srcset="/images/main/mobile/service.jpg, /images/main/mobile/service.jpg 2x" alt="Сервис Брайт Парка" />
+                <img loading=lazy class="asset-image" src="/images/main/mobile/service.jpg" srcset="/images/main/mobile/service.jpg, /images/main/mobile/service.jpg 2x" alt="Сервис Брайт Парка" />
             </picture>
         </div>
         <div class="banner-content bottom-left">
