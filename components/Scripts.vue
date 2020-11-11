@@ -6,7 +6,7 @@
 export default {
   data: function () {
     return {
-      isProduction: process.env.NODE_ENV === 'production'
+      isProduction: false// process.env.NODE_ENV === 'production'
     }
   }
 }
