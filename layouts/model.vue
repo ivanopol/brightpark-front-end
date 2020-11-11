@@ -7,8 +7,8 @@
     <Header :line="true" :head_class="'header-model'" :car="$store.state.car" />
     <Nuxt keep-alive />
     <Footer :page="$store.state._page" />
-    <Scripts keep-alive/>
     <client-only placeholder="Загрузка...">
+      <Scripts keep-alive/>
       <ScrollEvents />
       <ButtonEvents />
     </client-only>

@@ -14,19 +14,19 @@
 
               function getYmaps() {
                 setTimeout(() => {
-                  if (typeof ymaps !== 'undefined') {
+                   if (typeof ymaps !== 'undefined') {
                     ymaps.ready(init);
                   } else {
                     getYmaps()
                   }
-                }, 100)
+                }, 1500)
               }
 
               let _self = this;
 
               function init() {
-                  var geolocation = ymaps.geolocation,
-                      myMap = new ymaps.Map('touchBarMap', {
+                  var geolocation = ymaps.geolocation
+                  var myMap = new ymaps.Map('touchBarMap', {
                           center: coords,
                           zoom: 10,
                           controls: ['zoomControl']

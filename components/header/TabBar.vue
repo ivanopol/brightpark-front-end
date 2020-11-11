@@ -108,7 +108,7 @@
         <section id="map_window" :class="{ active: openMap }">
             <div class="map_wrap">
                 <div id="common__route__window-close" class="close event" @click="close"></div>
-                <TouchBarMap :coordinates="$store.state.city.coords.split(', ')" />
+                <TouchBarMap keep-alive :coordinates="$store.state.city.coords.split(', ')" />
             </div>
         </section>
     </div>
@@ -241,10 +241,10 @@ export default {
              //   this.scrolled = window.scrollY > 60;
             },
             loadScript: async function() {
-                let jivoScript = document.createElement('script');
+/*                let jivoScript = document.createElement('script');
                 jivoScript.setAttribute('src', '//code-ya.jivosite.com/widget/' + $store.state.city.jivosite_token);
                 jivoScript.setAttribute('async', '');
-                document.body.appendChild(jivoScript);
+                document.body.appendChild(jivoScript);*/
             },
             fixBody: function (state) {
                 var body = document.body;
