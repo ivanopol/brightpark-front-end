@@ -2,7 +2,7 @@
   <div>
     <div class="scripts-common">
     </div>
-    <div class="scripts-city" v-html="$store.state.city.begin_script" v-if="isProduction"/>
+    <div class="scripts-city" v-html="$store.state.city.begin_script" v-if="loadScripts"/>
   </div>
 </template>
 
@@ -10,10 +10,31 @@
 export default {
   data: function () {
     return {
-      isProduction: process.env.NODE_ENV === 'production'
+      isProduction: process.env.NODE_ENV === 'production',
+      loadScripts: false,
+      bots: [
+          'rambler','googlebot','aport','yahoo','msnbot','turtle','mail.ru','omsktele',
+          'yetibot','picsearch','sape.bot','sape_context','gigabot','snapbot','alexa.com',
+          'megadownload.net','askpeter.info','igde.ru','ask.com','qwartabot','yanga.co.uk',
+          'scoutjet','similarpages','oozbot','shrinktheweb.com','aboutusbot','followsite.com',
+          'dataparksearch','google-sitemaps','appEngine-google','feedfetcher-google',
+          'liveinternet.ru','xml-sitemaps.com','agama','metadatalabs.com','h1.hrn.ru',
+          'googlealert.com','seo-rus.com','yaDirectBot','yandeG','yandex',
+          'yandexSomething','Copyscape.com','AdsBot-Google','domaintools.com',
+          'Nigma.ru','bing.com','dotnetdotcom'
+      ]
     }
   },
   mounted() {
+    let bots = this.bots.filter(function(item) {
+      return window.navigator.userAgent.indexOf(item) + 1
+    })
+
+    let isBot = bots.length > 0
+
+    if (!this.isProduction && isBot) {
+      return false
+    }
 
     setTimeout(() => {
       var tag_body = document.getElementsByTagName("body")[0];
@@ -23,7 +44,7 @@ export default {
       this.googleAnalytics(tag_body)
       this.yClients(tag_body)
 
-      this.isProduction = true
+      this.loadScripts = true
     }, 2000)
   },
   methods: {
