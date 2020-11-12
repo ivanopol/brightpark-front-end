@@ -19,7 +19,7 @@ export default {
           'liveinternet.ru','xml-sitemaps.com','agama','metadatalabs.com','h1.hrn.ru',
           'googlealert.com','seo-rus.com','yaDirectBot','yandeG','yandex',
           'yandexSomething','Copyscape.com','AdsBot-Google','domaintools.com',
-          'Nigma.ru','bing.com','dotnetdotcom'
+          'Nigma.ru','bing.com','dotnetdotcom', 'Chrome-Lighthouse'
       ]
     }
   },
