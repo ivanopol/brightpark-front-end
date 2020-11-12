@@ -32,7 +32,7 @@ export default {
 
     let isBot = bots.length > 0
 
-    if (!this.isProduction && isBot) {
+    if (!this.isProduction || isBot) {
       return false
     }
 
