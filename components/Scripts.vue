@@ -42,7 +42,7 @@ export default {
 
      // this.loadScripts = true
       tag_body.insertAdjacentHTML('afterend', this.$store.state.city.begin_script)
-       }, 2300)
+       }, 2000)
     }
   },
   methods: {
