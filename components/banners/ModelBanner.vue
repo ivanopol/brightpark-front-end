@@ -31,8 +31,8 @@
         </span>
       </div>
     </div>
-    <plate :text="'До&nbsp;30&nbsp;ноября&nbsp;&mdash; акция &laquo;' + action + '&raquo;! Согласуем спец.выгоды, доплатим при обмене'"
-           :disclaimer="'Подробности<span class=\'show_desktop\'> по телефону</span>: <a href=\'tel:' + $store.state.city.phone + '\' class=\'callibri_tel event\'>' + $store.state.city.phone_format + '</a>'"
+    <plate :text="'Обменяем ваш авто на&nbsp;новую LADA без доплаты, подробности<span class=\'show_desktop\'> по телефону</span>: <a href=\'tel:' + phone + '\' class=\'callibri_tel event\'>' + phone_formatted + '</a>'"
+           :bold='true'
     ></plate>
   </div>
 </template>
