@@ -1,6 +1,24 @@
 <template>
   <section>
     <hooper class="main-screen-wrap" :autoPlay="true" :playSpeed="6000" :wheelControl="false" :transition="600" :infiniteScroll="true">
+
+      <slide class="odd">
+        <div class="asset-container">
+          <picture>
+            <source srcset="~static/images/main/mobile/nuzhno-uspet-do-povysheniya-cen.jpg, ~static/images/main/mobile/nuzhno-uspet-do-povysheniya-cen.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/nuzhno-uspet-do-povysheniya-cen.jpg, ~static/images/main/tablet/nuzhno-uspet-do-povysheniya-cen.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/nuzhno-uspet-do-povysheniya-cen.jpg, ~static/images/main/desktop/nuzhno-uspet-do-povysheniya-cen.jpg 2x" media="(min-width: 1366px)">
+            <img class="asset-image" src="~static/images/main/mobile/nuzhno-uspet-do-povysheniya-cen.jpg" srcset="~static/images/main/mobile/nuzhno-uspet-do-povysheniya-cen.jpg, ~static/images/main/mobile/nuzhno-uspet-do-povysheniya-cen.jpg 2x" alt="Акция Брайт Парк: нужно успеть до  повышения цен" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold title-uppercase"><span class="crossed">Можно</span> <span class="c_orange">Нужно</span> успеть до повышения цен</p>
+          <div class="item-buttons">
+            <a :href="$store.state.city.value + '/stocks/nuzhno-uspet-do-povysheniya-cen'" id="main__slider__nuzhno-uspet-do-povysheniya-cen" class="btn btn-primary event">Условия акции</a>
+          </div>
+        </div>
+      </slide>
+
       <slide class="odd">
         <div class="asset-container">
           <picture>
@@ -22,6 +40,23 @@
       <slide class="even">
         <div class="asset-container">
           <picture>
+            <source srcset="~static/images/main/mobile/black-friday.jpg, ~static/images/main/mobile/black-friday.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/black-friday.jpg, ~static/images/main/tablet/black-friday.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/black-friday.jpg, ~static/images/main/desktop/black-friday.jpg 2x" media="(min-width: 1366px)">
+            <img class="asset-image" src="~static/images/main/mobile/black-friday.jpg" srcset="~static/images/main/mobile/black-friday.jpg, ~static/images/main/mobile/black-friday.jpg 2x" alt="Акция Брайт Парк: скидки на мксимум черная пятница" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold title-uppercase"><span class="action-bold">Скидки на максимум</span> черная пятница</p>
+          <div class="item-buttons">
+            <a :href="$store.state.city.value + '/stocks/black-friday'" id="main__slider__black-friday" class="btn btn-primary event">Условия акции</a>
+          </div>
+        </div>
+      </slide>
+
+      <slide class="even">
+        <div class="asset-container">
+          <picture>
             <source srcset="~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/tablet/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/desktop/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(min-width: 1366px)">
@@ -36,6 +71,7 @@
           </div>
         </div>
       </slide>
+
       <slide class="even">
         <div class="asset-container">
           <picture>
@@ -53,24 +89,7 @@
           </div>
         </div>
       </slide>
-      <slide class="even">
-        <div class="asset-container">
-          <picture>
-            <source srcset="~static/images/main/mobile/main_vesta_gray.jpg, ~static/images/main/mobile/main_vesta_gray.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/main_vesta_gray.jpg, ~static/images/main/tablet/main_vesta_gray.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/main_vesta_gray.jpg, ~static/images/main/desktop/main_vesta_gray.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/main_vesta_gray.jpg"
-                 srcset="~static/images/main/mobile/main_vesta_gray.jpg, ~static/images/main/mobile/main_vesta_gray.jpg 2x" alt="Брайт Парк: LADA Vesta по обновленной госпрограмме" />
-          </picture>
-        </div>
-        <div class="product-content">
-          <p class="title-tagline bold">LADA Vesta<br> по&nbsp;обновлённой<br> госпрограмме</p>
-          <div class="item-buttons">
-            <nuxt-link :to="$store.state.city.value + '/vesta/sedan'" id="main__slider__lada-vesta-benefit-10-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
-            <nuxt-link :to="$store.state.city.value + '/stocks/lada-vesta-vygoda-10-po-gosprogramme'" id="main__slider__lada-vesta-benefit-10-action" class="btn btn-secondary event">Условия акции</nuxt-link>
-          </div>
-        </div>
-      </slide>
+
       <slide class="odd">
         <div class="asset-container">
           <picture>
@@ -212,6 +231,19 @@ export default {
 
     }
 
+    .crossed {
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #FF8351;
+        top: 40%;
+      }
+    }
+
     .title-model {
       font-family: PragmaticaLightCBold, Helvetica, sans-serif;
       font-size: 213%;
@@ -223,6 +255,11 @@ export default {
     .title-tagline {
       &.dark {
         color: #000
+      }
+
+      .action-bold {
+        font-weight: bold;
+        display: block;
       }
 
       font-size: 26px;

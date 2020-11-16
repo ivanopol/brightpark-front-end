@@ -106,9 +106,6 @@ export default Vue.extend({
       return this.exceptions.indexOf(this.$route.params.stock_item) >= 0
     }
   },
-  mounted() {
-    console.log(this.isException)
-  },
 })
 </script>
 
