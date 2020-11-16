@@ -14,10 +14,20 @@
         :type="model.type_id"
       />
      <ColorChoose :colors="model.colors" :model="model.model_slug" :type="model.type_slug" v-if="model.colors.length !== 0"/>
-      <FormModel :form_id="'model__try-it-yourself_'"
-                      :form_title="'Расширенный тест-драйв в Брайт парке'"
-                      :goal="'test_drive'">
-      </FormModel>
+
+      <section class="model-details">
+        <div class="trigger-wrap">
+         <p class="trigger-wrap-text">Осталось <span class="model-count-text">{{count}}</span> {{model.model_full}} по цене лучше, чем на сайте</p>
+        </div>
+        <steps  :car_model='model.car_model'
+                :car_type='model.car_type'
+                :car_attrs='model.car_attrs'
+                :form_id="$store.state._page + '__fill-form_'"
+                :goal="'fixconditions'"
+                :prefix="$store.state._page + '__'">
+        </steps>
+      </section>
+
       <Reviews v-if="model.reviews.length !== 0"
                :reviews='model.reviews'
                :model_name="model.model_full"/>
@@ -40,6 +50,7 @@ export default Vue.extend({
     return {
       model: '',
       seo: {},
+      count: 0,
     }
   },
   layout: 'model',
@@ -115,6 +126,23 @@ export default Vue.extend({
         breadcrumbs.push({url: this.model.model_slug + '/' + this.model.type_slug, title: this.model.model_full})
       }
       return breadcrumbs
+    }
+  },
+  methods: {
+    getRandomInt: function (min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+  },
+  created() {
+    if(this.$cookies.get('count') === undefined) {
+      this.count = this.getRandomInt(7, 15)
+
+      this.$cookies.set('count', this.count, {
+        path: '/',
+        maxAge: 60 * 60 * 24
+      })
+    } else {
+      this.count = this.$cookies.get('count')
     }
   }
 })
