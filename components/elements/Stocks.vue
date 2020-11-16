@@ -1,7 +1,7 @@
 <template>
   <div class="container p-top-90">
     <div class="news">
-      <h1>Акции Брайт Парка в {{ $store.state.city.city_dative }}</h1>
+      <h1>Акции Брайт Парка в {{ $store.state.city.dative }}</h1>
       <div v-for="item in stocks" :key="item.id" class="stocks-row">
         <nuxt-link :to="'/' + $store.state.city.value + '/stocks/' + item.slug"
                    :id="'stocks__stocks-one__title-' + item.id"
@@ -40,7 +40,7 @@ export default {
     this.stocks = await fetch(
       process.env.apiUrl + `/api/stocks?&city_id=` + this.$store.state.city.city_id
     ).then(res => res.json())
-  }
+  },
 }
 </script>
 
