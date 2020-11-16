@@ -4,6 +4,20 @@
       <BreadCrumbs :breadcrumbs="makeBreadcrumbs"/>
     </div>
     <StockItem :data="data"/>
+    <div v-if="isException">
+      <ModelsList/>
+      <MegaTeasers/>
+      <div class="container">
+        <Advantages />
+        <div class="advantages_form">
+          <FormBuyComponent :form_id="'main__advantages_'"
+                            :button_text="'Отправить'"
+                            :form_title="'Оставьте заявку, мы вам перезвоним'"
+                            :goal="'about_model'" />
+
+        </div>
+      </div>
+    </div>
     <nuxt-child/>
   </div>
 </template>
@@ -16,6 +30,9 @@ export default Vue.extend({
     return {
       data: {},
       seo: {},
+      exceptions: [
+        'zimnyaya-rezina'
+      ]
     }
   },
   validate: function ({params, store}) {
@@ -84,7 +101,13 @@ export default Vue.extend({
       breadcrumbs.push({url: "stocks", title: "Акции"})
       breadcrumbs.push({url: "stocks/" + this.data.slug , title: this.data.title})
       return breadcrumbs
+    },
+    isException: function() {
+      return this.exceptions.indexOf(this.$route.params.stock_item) >= 0
     }
+  },
+  mounted() {
+    console.log(this.isException)
   },
 })
 </script>
