@@ -23,8 +23,8 @@
         <div class="trigger-wrap">
           <p class="trigger-wrap-text">Осталось <span class="model-count-text">{{count}}</span> {{model.car_model.title}} {{model.car_type.title_ru}} по цене лучше, чем на сайте</p>
         </div>
-         <steps  :car_model='model.car_model'
-                 :car_type='model.car_type'
+         <steps  :car_model='model.car_model.title'
+                 :car_type='model.car_type.title_ru'
                  :car_attrs='model.car_attrs'
                  :form_id="$store.state._page + '__fill-form_'"
                  :goal="'fixconditions'"
@@ -75,6 +75,7 @@ export default Vue.extend({
     const model = await context.$axios.$get(
       process.env.apiUrl + `/api/model_details?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
     )
+    console.log(model)
 
     const seo = await context.$axios.$post(process.env.apiUrl + `/api/get_meta_tags`, {
       route: context.route.fullPath

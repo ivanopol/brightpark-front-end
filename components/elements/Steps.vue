@@ -1,7 +1,7 @@
 <template>
     <section class="steps-wrap">
         <div class="model-choose-text">
-            <h1 v-if="car_model">Подберите выгодные условия на LADA {{car_model.title}} {{car_type.title_ru}} в {{$store.state.city.dative}}</h1>
+            <h1 v-if="car_model">Подберите выгодные условия на LADA {{car_model}} {{car_type}} в {{$store.state.city.dative}}</h1>
             <p v-else-if="!car_model">Подберите выгодные условия на LADA в {{$store.state.city.dative}}</p>
         </div>
 
