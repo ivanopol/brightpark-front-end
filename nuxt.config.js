@@ -1,4 +1,4 @@
-
+import serveStatic from 'serve-static'
 const isDev = process.env.NODE_ENV !== 'production'
 
 export default {
@@ -154,6 +154,7 @@ export default {
     middleware: [
       'location',
       'trailingSlashRedirect',
+      'redirects'
     ]
   },
 
@@ -186,7 +187,9 @@ export default {
       "@nuxtjs/style-resources",
       "@nuxtjs/axios",
   ],
-
+  serverMiddleware: [
+    //'~/serverMiddleware/redirects.js'
+  ],
 
   axios: {
 /*    proxy: true,

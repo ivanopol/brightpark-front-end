@@ -75,7 +75,6 @@ export default Vue.extend({
       process.env.apiUrl + `/api/model?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
     )
 
-    console.log(model)
     let car = {
       model_full: model.model_full,
       url: '/' + context.route.params.city + '/' + model.model_slug + '/' + model.type_slug + '/model-details'

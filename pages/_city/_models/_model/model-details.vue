@@ -75,7 +75,6 @@ export default Vue.extend({
     const model = await context.$axios.$get(
       process.env.apiUrl + `/api/model_details?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
     )
-    console.log(model)
 
     const seo = await context.$axios.$post(process.env.apiUrl + `/api/get_meta_tags`, {
       route: context.route.fullPath
