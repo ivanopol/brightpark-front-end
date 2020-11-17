@@ -61,45 +61,65 @@ export default {
       {rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png'},
       {rel: 'manifest', href: '/favicon/manifest.json'}
     ],
-/*    script: [
+    script: [
       {
         hid: 'calltouch',
         body: true,
         charset: 'utf-8',
         innerHTML: `
-(function(w,d,n,c){
-w.CalltouchDataObject=n;
-w[n]=function(){
-w[n]['callbacks'].push(arguments)
-};
-if(!w[n]['callbacks']){
-w[n]['callbacks']=[]
-}
-w[n]['loaded']=false;
-if(typeof c!=='object'){
-c=[c]
-}
-w[n]['counters']=c;
-for(var i=0;i<c.length;i+=1){
-p(c[i])
-}
-function p(cId){
-var a=d.getElementsByTagName('script')[0],s=d.createElement('script'),i=function(){
-a.parentNode.insertBefore(s,a)
-};
-s.type='text/javascript';
-s.async=true;
-s.src='https://mod.calltouch.ru/init.js?id='+cId;
-if(w.opera=='[object Opera]'){
-d.addEventListener('DOMContentLoaded',i,false)
-}else{
-i()
-}}})(window,document,'ct','t14l517r');
+        var path = window.location.pathname.substr(1);
+        var city = path.split('/', 1);
+        var this_city = '';
+        var keys_arr = {
+          perm: 't14l517r',
+          moscow: '9f1rg9h6',
+          magnitogorsk: '8tyke07v',
+          'rostov-na-donu': '9fgxhgc0',
+          yekaterinburg: '7acf9qow',
+          volgograd: 'q7xgnhor'
+        };
+
+        for (var key in keys_arr) {
+          if (key === city) {
+            this_city = keys_arr[key];
+          }
+        }
+
+        if (this_city) {
+          (function(w,d,n,c){
+          w.CalltouchDataObject=n;
+          w[n]=function(){
+          w[n]['callbacks'].push(arguments)
+          };
+          if(!w[n]['callbacks']){
+          w[n]['callbacks']=[]
+          }
+          w[n]['loaded']=false;
+          if(typeof c!=='object'){
+          c=[c]
+          }
+          w[n]['counters']=c;
+          for(var i=0;i<c.length;i+=1){
+          p(c[i])
+          }
+          function p(cId){
+          var a=d.getElementsByTagName('script')[0],s=d.createElement('script'),i=function(){
+          a.parentNode.insertBefore(s,a)
+          };
+          s.type='text/javascript';
+          s.async=true;
+          s.src='https://mod.calltouch.ru/init.js?id='+cId;
+          if(w.opera=='[object Opera]'){
+          d.addEventListener('DOMContentLoaded',i,false)
+          }else{
+          i()
+          }}})(window,document,'ct', this_city);
+        }
       `
       }
     ],
 
-    __dangerouslyDisableSanitizers: ['script', 'noscript'],*/
+    __dangerouslyDisableSanitizers: ['script', 'noscript'],
   },
   rootDir: __dirname,
 
