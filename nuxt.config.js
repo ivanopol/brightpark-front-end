@@ -68,7 +68,8 @@ export default {
         charset: 'utf-8',
         innerHTML: `
         var path = window.location.pathname.substr(1);
-        var city = path.split('/', 1);
+        var segment_arr = path.split('/', 1);
+        var city = segment_arr[0];
         var this_city = '';
         var keys_arr = {
           perm: 't14l517r',
