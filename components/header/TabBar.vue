@@ -255,17 +255,20 @@ export default {
                 }
             }
         },
-    mounted() {},
+    mounted() {
+      var body = document.body;
+      if (body.classList.contains('fix-body')) {
+        body.classList.remove("fix-body");
+      }
+    },
     created () {
       this.cities = this.$store.state.cities
       this.city_active = {
         value: this.$store.state.city.value,
         label: this.$store.state.city.label,
       }
-      //  window.addEventListener('scroll', this.handleScroll);
     },
     destroyed () {
-     //   window.removeEventListener('scroll', this.handleScroll);
     }
 }
 </script>
