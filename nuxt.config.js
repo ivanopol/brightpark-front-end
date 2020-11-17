@@ -61,7 +61,7 @@ export default {
       {rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png'},
       {rel: 'manifest', href: '/favicon/manifest.json'}
     ],
-    script: [
+/*    script: [
       {
         hid: 'calltouch',
         body: true,
@@ -93,14 +93,13 @@ s.src='https://mod.calltouch.ru/init.js?id='+cId;
 if(w.opera=='[object Opera]'){
 d.addEventListener('DOMContentLoaded',i,false)
 }else{
-console.log(a);
 i()
 }}})(window,document,'ct','t14l517r');
       `
       }
     ],
 
-    __dangerouslyDisableSanitizers: ['script', 'noscript'],
+    __dangerouslyDisableSanitizers: ['script', 'noscript'],*/
   },
   rootDir: __dirname,
 

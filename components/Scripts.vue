@@ -34,17 +34,17 @@ export default {
        setTimeout(() => {
       var tag_body = document.getElementsByTagName("body")[0];
 
-/*
+
       this.yaMetrika(tag_body)
       this.yaMaps(tag_body)
       this.jivosite(tag_body)
       this.googleAnalytics(tag_body)
       this.yClients(tag_body)
-*/
+
 
      // this.loadScripts = true
-     // tag_body.insertAdjacentHTML('afterend', this.$store.state.city.begin_script)
-       }, 10)
+      tag_body.insertAdjacentHTML('afterend', this.$store.state.city.begin_script)
+       }, 2300)
     }
   },
   methods: {
