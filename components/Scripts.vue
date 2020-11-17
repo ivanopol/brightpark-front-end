@@ -1,7 +1,4 @@
 <template>
-  <div>
-    <div class="scripts-city" v-html="$store.state.city.begin_script" v-if="loadScripts"/>
-  </div>
 </template>
 
 <script>
@@ -31,19 +28,19 @@ export default {
     let isBot = bots.length > 0
 
     if (!isBot) {
-       setTimeout(() => {
-      var tag_body = document.getElementsByTagName("body")[0];
+      setTimeout(() => {
+        var tag_body = document.getElementsByTagName("body")[0];
 
+        this.yaMaps(tag_body)
 
-      this.yaMetrika(tag_body)
-      this.yaMaps(tag_body)
-      this.jivosite(tag_body)
-      this.googleAnalytics(tag_body)
-      this.yClients(tag_body)
+        if (this.isProduction) {
+          this.yaMetrika(tag_body)
+          this.jivosite(tag_body)
+          this.googleAnalytics(tag_body)
+          this.yClients(tag_body)
 
-
-     // this.loadScripts = true
-      //tag_body.insertAdjacentHTML('beforeend', this.$store.state.city.begin_script)
+          tag_body.insertAdjacentHTML('beforeend', this.$store.state.city.begin_script)
+        }
        }, 2300)
     }
   },

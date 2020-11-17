@@ -61,6 +61,8 @@ export default {
       {rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png'},
       {rel: 'manifest', href: '/favicon/manifest.json'}
     ],
+
+    ...(!isDev && {
     script: [
       {
         hid: 'calltouch',
@@ -87,41 +89,43 @@ export default {
         }
 
         if (this_city) {
-          console.log('this_city: ' + this_city);
-          (function(w,d,n,c){
-          w.CalltouchDataObject=n;
-          w[n]=function(){
-          w[n]['callbacks'].push(arguments)
-          };
-          if(!w[n]['callbacks']){
-          w[n]['callbacks']=[]
-          }
-          w[n]['loaded']=false;
-          if(typeof c!=='object'){
-          c=[c]
-          }
-          w[n]['counters']=c;
-          for(var i=0;i<c.length;i+=1){
-          p(c[i])
-          }
-          function p(cId){
-          var a=d.getElementsByTagName('script')[0],s=d.createElement('script'),i=function(){
-          a.parentNode.insertBefore(s,a)
-          };
-          s.type='text/javascript';
-          s.async=true;
-          s.src='https://mod.calltouch.ru/init.js?id='+cId;
-          if(w.opera=='[object Opera]'){
-          d.addEventListener('DOMContentLoaded',i,false)
-          }else{
-          i()
-          }}})(window,document,'ct', this_city);
+          setTimeout(() => {
+            (function(w,d,n,c){
+            w.CalltouchDataObject=n;
+            w[n]=function(){
+            w[n]['callbacks'].push(arguments)
+            };
+            if(!w[n]['callbacks']){
+            w[n]['callbacks']=[]
+            }
+            w[n]['loaded']=false;
+            if(typeof c!=='object'){
+            c=[c]
+            }
+            w[n]['counters']=c;
+            for(var i=0;i<c.length;i+=1){
+            p(c[i])
+            }
+            function p(cId){
+            var a=d.getElementsByTagName('script')[0],s=d.createElement('script'),i=function(){
+            a.parentNode.insertBefore(s,a)
+            };
+            s.type='text/javascript';
+            s.async=true;
+            s.src='https://mod.calltouch.ru/init.js?id='+cId;
+            if(w.opera=='[object Opera]'){
+            d.addEventListener('DOMContentLoaded',i,false)
+            }else{
+            i()
+            }}})(window,document,'ct', this_city);
+          }, 2000)
         }
       `
       }
     ],
 
-    __dangerouslyDisableSanitizers: ['script', 'noscript'],
+    __dangerouslyDisableSanitizers: ['script'],
+    }),
   },
   rootDir: __dirname,
 
