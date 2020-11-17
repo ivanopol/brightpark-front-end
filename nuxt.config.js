@@ -86,6 +86,7 @@ export default {
         }
 
         if (this_city) {
+          console.log('this_city: ' + this_city);
           (function(w,d,n,c){
           w.CalltouchDataObject=n;
           w[n]=function(){
