@@ -6,10 +6,13 @@
                     <LogoBrightParkSun />
                 </nuxt-link>
             </div>
-            <span v-if="!this.switch">{{ $store.state.car.model_full | formating }}</span>
-            <span v-else>{{ $store.state.city.label }}</span>
+            <span class="logo-wrap__city" v-if="!this.switch">{{ $store.state.car.model_full | formating }}</span>
+            <span class="logo-wrap__city" v-else>
+              {{ $store.state.city.label }}
+            </span>
             <nuxt-link id="model__header-sticky__find-price"
                        class="event btn-small green"
+                       style="margin-left: auto;"
                        :to="$store.state.car.url">Узнать цену</nuxt-link>
         </div>
     </header>
@@ -95,8 +98,8 @@
 
         .logo-wrap {
             padding: 10px 10px 6px;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             align-items: center;
             opacity: 0;
             -webkit-transition: opacity ease-in 0.1s;
@@ -218,4 +221,8 @@
             }
         }
     }
+
+  .logo-wrap__city {
+    text-align: center;
+  }
 </style>
