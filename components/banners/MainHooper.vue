@@ -14,7 +14,7 @@
         <div class="product-content">
           <p class="title-tagline bold title-uppercase"><span class="crossed title-bold">Можно</span> <span class="c_orange title-bold">Нужно</span> успеть до повышения цен</p>
           <div class="item-buttons">
-            <a :href="$store.state.city.value + '/stocks/nuzhno-uspet-do-povysheniya-cen'" id="main__slider__nuzhno-uspet-do-povysheniya-cen" class="btn btn-primary event">Условия акции</a>
+            <nuxt-link :to="$store.state.city.value + '/stocks/nuzhno-uspet-do-povysheniya-cen'" id="main__slider__nuzhno-uspet-do-povysheniya-cen" class="btn btn-primary event">Условия акции</nuxt-link>
           </div>
         </div>
       </slide>
@@ -31,8 +31,8 @@
         <div class="product-content">
           <p class="title-tagline bold title-uppercase"><span class="title-bold">Дорого</span><br> выкупим ваш авто</p>
           <div class="item-buttons">
-            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__benefit-40000-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
-            <nuxt-link :to="$store.state.city.value + '/stocks/doplata-40-000-rublej-pri-obmene-na-lada-granta'" id="main__slider__benefit-40000-action" class="btn btn-secondary event">Условия акции</nuxt-link>
+            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__dorogo-vykupim-vash-avto-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
+            <nuxt-link :to="$store.state.city.value + '/stocks/dorogo-vykupim-vash-avto'" id="main__slider__dorogo-vykupim-vash-avto-action" class="btn btn-secondary event">Условия акции</nuxt-link>
           </div>
         </div>
       </slide>
@@ -57,6 +57,25 @@
       <slide class="even">
         <div class="asset-container">
           <picture>
+            <source srcset="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/tablet/zolotaya-osenv-brajt-parke.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/desktop/zolotaya-osenv-brajt-parke.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg"
+                 srcset="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg 2x" alt="Брайт Парк: Гарантируем подарок при покупке LADA GRANTA" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">Гарантируем подарок</span><br> при покупке LADA GRANTA</p>
+          <div class="item-buttons">
+            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__garantiruem-podarok-pri-pokupke-lada-granta-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
+            <nuxt-link :to="$store.state.city.value + '/stocks/garantiruem-podarok-pri-pokupke-lada-granta'" id="main__slider__garantiruem-podarok-pri-pokupke-lada-granta-action" class="btn btn-secondary event">Условия акции</nuxt-link>
+          </div>
+        </div>
+      </slide>
+
+      <slide class="even">
+        <div class="asset-container">
+          <picture>
             <source srcset="~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/tablet/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/desktop/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(min-width: 1366px)">
@@ -65,27 +84,9 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold dark title-uppercase"><span class="title-bold">Выгода&nbsp;10%</span><br> для всех клиентов Брайт&nbsp;Парка</p>
+          <p class="title-tagline bold dark title-uppercase">ГОСПРОГРАММА БРАЙТ ПАРКА:<br> <span class="title-bold">СКИДКА 10% ВСЕМ!</span></p>
           <div class="item-buttons">
-            <a :href="$store.state.city.value + '/stocks/rasshirennye-usloviya-programmy-gosudarstvennoj-podderzhki'" id="main__slider__ygoda-10-dlya-vsekh-klientov-brajt-parka" class="btn btn-primary event">Условия акции</a>
-          </div>
-        </div>
-      </slide>
-
-      <slide class="even">
-        <div class="asset-container">
-          <picture>
-            <source srcset="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/tablet/zolotaya-osenv-brajt-parke.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/desktop/zolotaya-osenv-brajt-parke.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg"
-                 srcset="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg 2x" alt="Брайт Парк: Обмен на LADA Vesta выше рыночной цены" />
-          </picture>
-        </div>
-        <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">Каждую неделю!</span><br>10 LADA GRANTA на&nbsp;спец.условиях!</p>
-          <div class="item-buttons">
-            <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__zolotaya-osenv-brajt-parke" class="btn btn-primary event">Подробнее о модели</a>
+            <nuxt-link :to="$store.state.city.value + '/stocks/gosprogramma-brajt-parka-skidka-10-vsem'" id="main__slider__gosprogramma-brajt-parka-skidka-10-vsem-details" class="btn btn-primary event">Условия акции</nuxt-link>
           </div>
         </div>
       </slide>
@@ -97,14 +98,14 @@
             <source srcset="~static/images/main/tablet/main_granta_gray.jpg, ~static/images/main/tablet/main_granta_gray.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/main_granta_gray.jpg, ~static/images/main/desktop/main_granta_gray.jpg 2x" media="(min-width: 1366px)">
             <img loading=lazy class="asset-image" src="~static/images/main/mobile/main_granta_gray.jpg"
-                 srcset="~static/images/main/mobile/main_granta_gray.jpg, ~static/images/main/mobile/main_granta_gray.jpg 2x" alt="Брайт Парк: LADA Granta 0% первоначальный взнос" />
+                 srcset="~static/images/main/mobile/main_granta_gray.jpg, ~static/images/main/mobile/main_granta_gray.jpg 2x" alt="Брайт Парк: КРЕДИТ В БРАЙТ ПАРКЕ Новогодняя рассрочка + Первый взнос 0%" />
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">0%&nbsp;первоначальный взнос</span> при покупке LADA</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">КРЕДИТ&nbsp;В&nbsp;БРАЙТ&nbsp;ПАРКЕ</span><br>Новогодняя рассрочка +&nbsp;Первый&nbsp;взнос&nbsp;0%</p>
           <div class="item-buttons">
-            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__lada-granta-0-firstpay-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
-            <nuxt-link :to="$store.state.city.value + '/stocks/lada-granta-0-pervonachalnyj-vznos'" id="main__slider__lada-granta-0-firstpay-action" class="btn btn-secondary event">Условия акции</nuxt-link>
+            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
+            <nuxt-link :to="$store.state.city.value + '/stocks/kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0'" id="main__slider__kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0-action" class="btn btn-secondary event">Условия акции</nuxt-link>
           </div>
         </div>
       </slide>
@@ -119,10 +120,10 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">40&nbsp;000 рублей</span><br>выгода при обмене на&nbsp;LADA</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">WOW ТРЕЙД-ИН</span><br> доплатим 40&nbsp;000 рублей к&nbsp;вашей цене</p>
           <div class="item-buttons">
-            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__exchange-lada-vesta-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
-            <nuxt-link :to="$store.state.city.value + '/stocks/obmen-na-lada-vesta-vyshe-rynochnoj-ceny'" id="main__slider__exchange-lada-vesta-action" class="btn btn-secondary event">Условия акции</nuxt-link>
+            <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__wow-trejd-in-doplatim-40-000-r-k-vashej-cene-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
+            <nuxt-link :to="$store.state.city.value + '/stocks/wow-trejd-in-doplatim-40-000-r-k-vashej-cene'" id="main__slider__wow-trejd-in-doplatim-40-000-r-k-vashej-cene-action" class="btn btn-secondary event">Условия акции</nuxt-link>
           </div>
         </div>
       </slide>
