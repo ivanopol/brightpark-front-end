@@ -106,7 +106,6 @@
                       data: formData
                     })
                     .then((response) => {
-                      console.log(response);
                       this.clearInput();
                       this.success = true;
                       this.isLoading = false;
