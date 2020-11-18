@@ -32,13 +32,12 @@ export default {
         var tag_body = document.getElementsByTagName("body")[0];
 
         this.yaMaps(tag_body)
-        this.yClients(tag_body)
+
         if (this.isProduction) {
           this.yaMetrika(tag_body)
-          this.jivosite(tag_body)
           this.googleAnalytics(tag_body)
-
-
+          this.jivosite(tag_body)
+          this.yClients(tag_body)
           tag_body.insertAdjacentHTML('beforeend', this.$store.state.city.begin_script)
         }
        }, 2300)
