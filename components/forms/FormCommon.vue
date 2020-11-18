@@ -9,7 +9,8 @@
                     <div class="control_indicator"></div>
                 </label>
             </div>
-            <button :id="form_id + '_button'" :click="send" class="event" :class="{preloader : blocked}" v-bind:disabled="isButtonDisabled">{{button_text}}</button>
+            <button :id="form_id + '_button'" :click="send" class="event" :class="{preloader : isLoading}"
+                    v-bind:disabled="isButtonDisabled">{{button_text}}</button>
             <a :id="form_id + '_call'" :href="'tel:' + $store.state.city.phone" :data-goal="goal_call" @click="sendGoals(goal_call)" class="btn btn-primary callibri_phone btn-position green event">Позвонить</a>
 
             <div class="validation-message-wrap">
@@ -63,7 +64,7 @@
                 name: '',
                 phone: '',
                 status: true,
-                blocked: false,
+                isLoading: false,
                 comment: '',
                 bitrix_responsible: '', // $store.state.city.bitrix_responsible_id,
                 city: '',// $store.state.city.value,
@@ -74,14 +75,17 @@
                 return window.location;
             },
             isButtonDisabled: function () {
-                return !this.status;
+                if (this.isLoading) {
+                  return true;
+                } else {
+                  return !this.status;
+                }
             },
         },
         methods: {
             send: function (event) {
                 event.preventDefault();
-                this.blocked = true;
-                this.status = false;
+                this.isLoading = true;
 
                 let formData = {
                     "phone": this.clearMask(this.phone),
@@ -102,12 +106,17 @@
                       data: formData
                     })
                     .then((response) => {
+                      console.log(response);
                       this.clearInput();
                       this.success = true;
-                      this.blocked = false;
+                      this.isLoading = false;
                       this.status = true;
                       //console.log(window);
-                      this.sendGoals(this.goal);
+                      try {
+                        this.sendGoals(this.goal);
+                      } catch(err) {
+                        console.log(err);
+                      }
                       return {};
                     }).catch((error) => {
                       this.error = true;
