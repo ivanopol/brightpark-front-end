@@ -12,7 +12,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="crossed">Можно</span> <span class="c_orange">Нужно</span> успеть до повышения цен</p>
+          <p class="title-tagline bold title-uppercase"><span class="crossed title-bold">Можно</span> <span class="c_orange title-bold">Нужно</span> успеть до повышения цен</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/stocks/nuzhno-uspet-do-povysheniya-cen'" id="main__slider__nuzhno-uspet-do-povysheniya-cen" class="btn btn-primary event">Условия акции</a>
           </div>
@@ -29,7 +29,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold">Обмен<br> на&nbsp;LADA<br> без доплаты</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">Дорого</span><br> выкупим ваш авто</p>
           <div class="item-buttons">
             <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__benefit-40000-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
             <nuxt-link :to="$store.state.city.value + '/stocks/doplata-40-000-rublej-pri-obmene-na-lada-granta'" id="main__slider__benefit-40000-action" class="btn btn-secondary event">Условия акции</nuxt-link>
@@ -47,7 +47,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="action-bold">Скидки на максимум</span> черная пятница</p>
+          <p class="title-tagline bold title-uppercase"><span class="action-bold title-bold">Скидки на максимум</span> черная пятница</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/stocks/black-friday'" id="main__slider__black-friday" class="btn btn-primary event">Условия акции</a>
           </div>
@@ -65,7 +65,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold dark">Выгода&nbsp;10%<br> для всех клиентов Брайт&nbsp;Парка</p>
+          <p class="title-tagline bold dark title-uppercase"><span class="title-bold">Выгода&nbsp;10%</span><br> для всех клиентов Брайт&nbsp;Парка</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/stocks/rasshirennye-usloviya-programmy-gosudarstvennoj-podderzhki'" id="main__slider__ygoda-10-dlya-vsekh-klientov-brajt-parka" class="btn btn-primary event">Условия акции</a>
           </div>
@@ -83,7 +83,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold">Каждую неделю!<br>10 LADA GRANTA на&nbsp;спец.условиях!</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">Каждую неделю!</span><br>10 LADA GRANTA на&nbsp;спец.условиях!</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__zolotaya-osenv-brajt-parke" class="btn btn-primary event">Подробнее о модели</a>
           </div>
@@ -101,7 +101,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold">0%&nbsp;первоначальный взнос при покупке LADA</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">0%&nbsp;первоначальный взнос</span> при покупке LADA</p>
           <div class="item-buttons">
             <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__lada-granta-0-firstpay-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
             <nuxt-link :to="$store.state.city.value + '/stocks/lada-granta-0-pervonachalnyj-vznos'" id="main__slider__lada-granta-0-firstpay-action" class="btn btn-secondary event">Условия акции</nuxt-link>
@@ -119,7 +119,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold">40&nbsp;000 рублей<br>выгода при обмене на&nbsp;LADA</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">40&nbsp;000 рублей</span><br>выгода при обмене на&nbsp;LADA</p>
           <div class="item-buttons">
             <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__exchange-lada-vesta-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
             <nuxt-link :to="$store.state.city.value + '/stocks/obmen-na-lada-vesta-vyshe-rynochnoj-ceny'" id="main__slider__exchange-lada-vesta-action" class="btn btn-secondary event">Условия акции</nuxt-link>
@@ -155,7 +155,10 @@ export default {
  .title-uppercase {
    font-family: PragmaticaLightCBold, Helvetica, sans-serif;
    text-transform: uppercase;
-   font-weight: bold;
+}
+
+.title-bold {
+  font-weight: bold;
 }
 
 .item-buttons {
