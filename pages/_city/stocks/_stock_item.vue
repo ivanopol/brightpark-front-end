@@ -4,11 +4,10 @@
       <BreadCrumbs :breadcrumbs="makeBreadcrumbs"/>
     </div>
     <StockItem :data="data"/>
-    <div v-if="isException">
+    <div>
       <ModelsList/>
       <MegaTeasers/>
       <div class="container">
-        <Advantages />
         <div class="advantages_form">
           <FormBuyComponent :form_id="'main__advantages_'"
                             :button_text="'Отправить'"
@@ -30,9 +29,7 @@ export default Vue.extend({
     return {
       data: {},
       seo: {},
-      exceptions: [
-        'zimnyaya-rezina'
-      ]
+      exceptions: []
     }
   },
   validate: function ({params, store}) {
