@@ -9,7 +9,7 @@
                      :class="{ current_model : slide.active}">
             <picture>
               <source :srcset="get_source(slide.image)" media="(min-width: 580px)">
-              <img loading=lazy :src="slide.image" :alt="slide.alt">
+              <img :src="slide.image" :alt="slide.alt">
             </picture>
             <span v-text="slide.title"></span>
           </nuxt-link>
