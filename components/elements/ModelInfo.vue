@@ -29,8 +29,8 @@
             <source :srcset="get_source(block.url)" media="(min-width: 580px)">
             <img loading=lazy :src="block.url" alt="">
           </picture>
-          <Plate v-if="n===1" :text="'В&nbsp;наличии все комплектации LADA&nbsp;' + $store.state.car.model_full + '! Успевайте забронировать с&nbsp;золотыми условиями'"/>
         </div>
+
         <div class="block-info-aside">
           <div class="aside_wrap" >
             <hooper class="info-aside">
@@ -48,6 +48,7 @@
           </div>
         </div>
       </div>
+      <Plate v-if="n===1" :text="'В&nbsp;наличии все комплектации LADA&nbsp;' + $store.state.car.model_full + '! Успевайте забронировать с&nbsp;золотыми условиями'"/>
     </section>
     <form-buy-component v-if="n === 1"
                         :form_id="'model__learn-about-details_'"
@@ -107,9 +108,20 @@ export default {
       return new_path + ', ' + new_path + ' 2x';
     },
     activate: function (event) {
+
+      var j = 0
+      if (this.$children.length > 1) {
+        for (let i = 0; i < this.$children.length; i++) {
+          if (this.$children[i]._name === '<Hooper>') {
+            j = i
+            break
+          }
+        }
+      }
+
       // Получаем номер слайда из класса нажатого плюса
       let activeSlide = Number (event.target.classList[1].replace('p', ''));
-      this.$children[0].slideTo(activeSlide-1);
+      this.$children[j].slideTo(activeSlide-1);
       let dots = document.querySelectorAll('#pointer_' + this.n + ' ul li span');
       dots.forEach(function(item, i, arr) {
         item.className += ' is_opacity';
