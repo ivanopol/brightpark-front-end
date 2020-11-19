@@ -118,4 +118,9 @@ a.plate-wrap {
   }
 }
 
+
+  .callibri_tel {
+    display: inline-block;
+  }
+
 </style>
