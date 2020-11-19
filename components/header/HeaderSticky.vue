@@ -95,6 +95,7 @@ header {
       font-size: 14px;
     }
     .logo-bright-park {
+      min-width: 120px;
       width: 35%;
       height: 25px;
       display: flex;
