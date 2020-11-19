@@ -29,7 +29,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">Дорого</span><br> выкупим ваш авто</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">Дорого</span> выкупим<br> ваш авто</span>
           <div class="item-buttons">
             <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__dorogo-vykupim-vash-avto-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
             <nuxt-link :to="$store.state.city.value + '/stocks/dorogo-vykupim-vash-avto'" id="main__slider__dorogo-vykupim-vash-avto-action" class="btn btn-secondary event">Условия акции</nuxt-link>
@@ -102,7 +102,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">КРЕДИТ&nbsp;В&nbsp;БРАЙТ&nbsp;ПАРКЕ</span><br>Новогодняя рассрочка +&nbsp;Первый&nbsp;взнос&nbsp;0%</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">КРЕДИТ В&nbsp;БРАЙТ&nbsp;ПАРКЕ</span><br>Новогодняя рассрочка +&nbsp;Первый&nbsp;взнос&nbsp;0%</p>
           <div class="item-buttons">
             <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
             <nuxt-link :to="$store.state.city.value + '/stocks/kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0'" id="main__slider__kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0-action" class="btn btn-secondary event">Условия акции</nuxt-link>
@@ -120,7 +120,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">WOW ТРЕЙД-ИН</span><br> доплатим 40&nbsp;000 рублей к&nbsp;вашей цене</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">WOW ТРЕЙД-ИН</span><br> доплатим 40&nbsp;000&nbsp;&#8381;  к&nbsp;вашей цене</p>
           <div class="item-buttons">
             <nuxt-link :to="$store.state.city.value + '/granta/sedan'" id="main__slider__wow-trejd-in-doplatim-40-000-r-k-vashej-cene-details" class="btn btn-primary event">Подробнее о модели</nuxt-link>
             <nuxt-link :to="$store.state.city.value + '/stocks/wow-trejd-in-doplatim-40-000-r-k-vashej-cene'" id="main__slider__wow-trejd-in-doplatim-40-000-r-k-vashej-cene-action" class="btn btn-secondary event">Условия акции</nuxt-link>
