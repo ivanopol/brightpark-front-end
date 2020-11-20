@@ -28,10 +28,15 @@ export default {
     let isBot = bots.length > 0
 
     if (!isBot) {
-      setTimeout(() => {
-        var tag_body = document.getElementsByTagName("body")[0]
+      var tag_body = document.getElementsByTagName("body")[0]
 
+      //if (this.isProduction) {
+        this.calltouchCity(this.$store.state.city.scripts.calltouch, tag_body)
+      //}
+
+      setTimeout(() => {
         this.yaMaps(tag_body)
+
         if (this.isProduction) {
           this.yaMetrika(tag_body)
           this.googleAnalytics(tag_body)
@@ -49,6 +54,7 @@ export default {
       this.facebookCity(id.facebook, tag_body)
       this.mailRuCity(id.mailru, tag_body)
       this.vkCity(id.vk, tag_body)
+
     },
     yaMapsCity (id, tag_body) {
       var ya_metrika_city = document.createElement('script')
@@ -128,6 +134,13 @@ export default {
 
       tag_body.appendChild(vk)
       tag_body.appendChild(vk_noscript)
+    },
+    calltouchCity (id, tag_body) {
+      var calltouch = document.createElement('script')
+      calltouch.charset = "UTF-8"
+      calltouch.innerHTML = '(function(w,d,n,c){w.CalltouchDataObject=n;w[n]=function(){w[n]["callbacks"].push(arguments)};if(!w[n]["callbacks"]){w[n]["callbacks"]=[]}w[n]["loaded"]=false;if(typeof c!=="object"){c=[c]}w[n]["counters"]=c;for(var i=0;i<c.length;i+=1){p(c[i])}function p(cId){var a=d.getElementsByTagName("script")[0],s=d.createElement("script"),i=function(){a.parentNode.insertBefore(s,a)};s.type="text/javascript";s.async=true;s.src="https://mod.calltouch.ru/init.js?id="+cId;if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",i,false)}else{i()}}})(window,document,"ct","' + id + '");'
+
+      tag_body.appendChild(calltouch)
     },
     yaMaps (tag_body) {
       var ya_maps = document.createElement('script')

@@ -62,7 +62,7 @@ export default {
       {rel: 'manifest', href: '/favicon/manifest.json'}
     ],
 
-    ...(!isDev && {
+/*    ...(!isDev && {
     script: [
       {
         hid: 'calltouch',
@@ -125,7 +125,7 @@ export default {
     ],
 
     __dangerouslyDisableSanitizers: ['script'],
-    }),
+    }),*/
   },
   rootDir: __dirname,
 
