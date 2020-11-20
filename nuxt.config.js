@@ -118,7 +118,7 @@ export default {
             }else{
             i()
             }}})(window,document,'ct', this_city);
-          }, 2000)
+          }, 100)
         }
       `
       }
