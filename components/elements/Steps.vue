@@ -5,6 +5,7 @@
             <p v-else-if="!car_model">Подберите выгодные условия на LADA в {{$store.state.city.dative}}</p>
         </div>
 
+
         <div class="car-choose_wrap" v-if="!car_model">
             <div class="dropdown-group">
                 <v-select id="select_auto" class="select_wrap event"
@@ -43,12 +44,55 @@
             </div>
         </div>
 
+       <div class="steps-notification">
+         <p class="steps-notification__text">
+           Оцените свой авто и рассчитайте оптимальные условия оплаты
+           <span style="display: inline-block;">(шаг {{ stepNumber }} из 3)</span>
+         </p>
+       </div>
+
+        <div class="progressbar-wrapper">
+          <div class="progressbar-line" :class="[ grade === 1 || grade === 2 || grade === 3 ? 'step2' : '', grade === 4 ? 'step4' : '' ]">
+
+            <span class="progressbar-text" v-if="!grade">
+              Осталось всего 2 шага до получения выгодных условий
+            </span>
+
+            <span class="progressbar-text" v-if="grade === 1 ">
+              Мы готовы выкупить ваш автомобиль на 10% дороже рынка при обмене на новенькую LADA
+            </span>
+
+            <span class="progressbar-text" v-if="grade === 2">
+              Вы у цели! Закрепите выгодные условия
+            </span>
+
+          </div>
+
+        </div>
+
         <div class="option-text step-null" v-if="!grade">
             <p>Имеете ли вы автомобиль на обмен?</p>
             <ul>
-                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="Обмен для всех. Принимаем автомобили любых марок и в любом состоянии."><span>Обмен для всех. Принимаем автомобили любых марок и&nbsp;в&nbsp;любом состоянии</span></li>
-                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="У нас все честно. Справедливая цена и никаких скрытых комиссий."><span>У&nbsp;нас все честно. Справедливая цена и&nbsp;никаких скрытых комиссий</span></li>
-              <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="АВТОВАЗ отменил субсидию при обмене, но мы доплатим от автоцентра до 40 000 рублей"><span>АВТОВАЗ отменил субсидию при обмене, но&nbsp;мы&nbsp;доплатим от&nbsp;автоцентра до&nbsp;40&nbsp;000 рублей</span></li>
+                <li>
+                  <img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="Обмен для всех. Принимаем автомобили любых марок и в любом состоянии.">
+                  <span>
+                    Скидка при обмене 40 000 руб.
+                  </span>
+                </li>
+
+                <li>
+                  <img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="У нас все честно. Справедливая цена и никаких скрытых комиссий.">
+                  <span>
+                    Оценка на 7% выше рынка
+                  </span>
+                </li>
+
+                <li>
+                  <img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="АВТОВАЗ отменил субсидию при обмене, но мы доплатим от автоцентра до 40 000 рублей">
+                  <span>
+                    Пакет доп.оборудования со скидкой 80%
+                  </span>
+                </li>
             </ul>
         </div>
 
@@ -79,7 +123,7 @@
 
         <div class="" v-if="grade === 3">
             <div class="model-choose-text center" v-if="surchargeText"><p>Ваша доплата составит</p></div>
-            <div class="your-surcharge">от {{surcharge | formatPrice}} руб.</div>
+            <div class="your-surcharge" v-if="surchargeText">от {{surcharge | formatPrice}} руб.</div>
             <div class="model-choose-text2"><p>В Брайт Парке выгодные условия при покупке за наличные!</p></div>
             <div class="conditions">
                 <ul>
@@ -111,12 +155,7 @@
             </div>
         </div>
 
-        <div class="progressbar-wrapper">
-            <div class="progressbar-line" :class="[ grade === 1 || grade === 2 || grade === 3 ? 'step2' : '', grade === 4 ? 'step4' : '' ]"></div>
-            <span class="progressbar-text" v-if="!grade">Осталось всего 2 шага до получения выгодных условий</span>
-            <span class="progressbar-text" v-if="grade === 1 ">Мы готовы выкупить ваш автомобиль на 10% дороже рынка при обмене на новенькую LADA</span>
-            <span class="progressbar-text" v-if="grade === 2">Вы у цели! Закрепите выгодные условия</span>
-        </div>
+
     </section>
 </template>
 
@@ -168,6 +207,27 @@
                 }
             }
         },
+
+        computed: {
+          stepNumber() {
+            switch (this.grade) {
+              case 0:
+                return 1;
+              case 1:
+                return 1;
+              case 2:
+                return 2;
+              case 3:
+                return 2;
+              case 4:
+                return 3;
+              case 5:
+                return 1;
+
+            }
+          },
+        },
+
         methods: {
             selectAuto() {
                 this.surcharge = this.selected_auto.code;
@@ -180,6 +240,10 @@
             gradeShow: function (grade) {
                 this.grade = grade;
                 this.changeHash(this.grade);
+
+                if (this.grade === 5) {
+                  this.deleteCookie('trade_in_price');
+                }
 
                 if (this.getCookie('trade_in_price') != null && this.getCookie('trade_in_price') > 0) {
                     this.surcharge = this.surcharge - this.getCookie('trade_in_price');
@@ -301,6 +365,8 @@
 
 <style lang="scss">
     .steps-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
         h1 {
             font-family: PragmaticaLightCBold, Helvetica, sans-serif;
             font-weight: bold;
@@ -439,11 +505,15 @@
 
         p {
             font-family: PragmaticaLightCBold, Helvetica, sans-serif;
-            margin: 50px 30px 25px;
+            margin: 50px 30px 10px;
             text-align: left;
             font-size: 18px;
             font-weight: bold;
             line-height: 1.4;
+
+          @media screen and (max-width: 500px) {
+            margin: 10px 0 0 15px;
+          }
         }
     }
 
@@ -453,7 +523,6 @@
                 text-align: center;
                 font-weight: normal;
                 font-size: 22px;
-                margin-bottom: 50px;
             }
         }
     }
@@ -463,12 +532,16 @@
        /* width: 75%;*/
         display: block;
         margin: 20px auto 40px;
+
+      @media screen and (max-width: 500px) {
+        margin-bottom: 10px;
+      }
     }
 
     .option-text ul li,
     .conditions ul li {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         line-height: 1.2;
         margin-bottom: 7px;
         &>span {
@@ -496,7 +569,7 @@
         .option-text,
         .conditions {
            /* width: 430px;*/
-            margin: 40px auto 60px;
+            margin: 10px auto 20px;
 
             ul {
                 li {
@@ -525,12 +598,18 @@
 
     .progressbar-wrapper {
         text-align: center;
-        max-width: 580px;
-        margin: 0 auto 80px;
+        width: 100%;
+        margin: 0px auto 30px;
+
+      @media screen and (max-width: 500px) {
+        margin-bottom: 40px;
+      }
 
         .progressbar-line {
             margin: 0 auto 10px;
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 50px;
             position: relative;
             width: 100%;
@@ -558,6 +637,10 @@
             &.step4::before {
                 width: 100%;
             }
+
+            .progressbar-text {
+              position: relative;
+            }
         }
 
         .progressbar-section-colored {
@@ -573,6 +656,7 @@
             font-size: 12px;
             line-height: 18px;
             color: #000;
+            text-shadow: 0 0 5px rgba(255, 255, 255, .6);
         }
 
         @media only screen and (min-width: 580px) and (max-width: 1099px) {
@@ -583,7 +667,7 @@
 
         @media only screen and (min-width: 1100px) {
             .progressbar-text {
-                font-size: 16px;
+                font-size: 18px;
             }
         }
     }
@@ -652,6 +736,10 @@
         color: #000000;
         text-align: center;
         height: 40px;
+
+      @media screen and (max-width: 500px) {
+        font-size: 12px;
+      }
     }
 
     .buy-steps-wrapper {
@@ -692,7 +780,7 @@
 
     @media only screen and (min-width: 800px) {
         .trigger-wrap {
-            margin: 80px auto;
+            margin: 20px auto;
         }
     }
 
@@ -712,4 +800,23 @@
         }
     }
 
+  .steps-notification {
+    width: 100%;
+    min-height: 50px;
+    background: #586470;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @media screen and (max-width: 660px) {
+      padding: 15px;
+      font-size: 14px;
+    }
+  }
+
+  #classified .option-text {
+    margin-bottom: 20px;
+  }
 </style>

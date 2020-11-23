@@ -19,35 +19,55 @@
         </div>
 
         <div class="credit-wrap">
-            <div class="credit-profit-text disabled-input">Первоначальный взнос: <span class="credit-first-payment">
-                <input v-on:input="inputChangePayment"
-                       type="number"
+            <div class="credit-profit-text disabled-input">Первоначальный взнос:
+              <span class="credit-first-payment">
+                <img src="/images/first-payment.svg" alt="">
+                <input v-on:keyup="inputChangePayment"
+                       type="text"
                        min="0"
                        :max="Math.round(car_price /2)"
-                       name="first-payment"
-                       v-model="firstPayment"/> руб.</span>
+                       name="first-payment"/>
+              </span>
             </div>
 
             <div class="range-slider-wrapper">
-                <vue-slider v-model="firstPaymentPercent" :height="6" :interval="1" :dotSize="25"
-                            :marks="sliderOne.marks" :drag-on-click="true"
-                            :min="sliderOne.min" :max="sliderOne.max" v-on:change="changeFirstPayment"/>
+                <vue-slider v-model="firstPaymentPercent"
+                            :tooltip="'always'"
+                            :tooltip-placement="'bottom'"
+                            :height="6"
+                            :interval="1"
+                            :dotSize="25"
+                            :marks="sliderOne.marks"
+                            :drag-on-click="true"
+                            :min="sliderOne.min"
+                            :max="sliderOne.max"
+                            v-on:change="changeFirstPayment"
+                            :tooltip-formatter="formatter1" />
             </div>
 
-            <div class="credit-profit-text disabled-input">Срок в месяцах: <span class="credit-period">
-                <input v-on:input="changePeriod"
-                       type="number"
+            <div class="credit-profit-text disabled-input">Срок в месяцах:
+              <span class="credit-period">
+                <img src="/images/period.svg" alt="">
+                <input v-on:keyup="changePeriod"
+                       type="text"
                        :min="sliderTwo.min"
                        :max="sliderTwo.max"
-                       name="period"
-                       v-model="period"/> мес.</span>
+                       name="period" />
+              </span>
             </div>
 
             <div class="range-slider-wrapper">
-                <vue-slider v-model="period" :height="6" :interval="1" :dotSize="25" :marks="sliderTwo.marks"
+                <vue-slider v-model="period"
+                            :height="6"
+                            :interval="1"
+                            :dotSize="25"
+                            :marks="sliderTwo.marks"
                             :drag-on-click="true"
-                            :min="sliderTwo.min" :max="sliderTwo.max" v-on:change="changePeriod"
-                            :change="changePeriod"/>
+                            :min="sliderTwo.min"
+                            :max="sliderTwo.max"
+                            v-on:change="changePeriodSlider"
+                            :tooltip="'always'"
+                            :tooltip-placement="'bottom'" />
             </div>
         </div>
 
@@ -129,6 +149,7 @@
                 annualPercent: 12,
                 firstPayment: Math.round(this.car_price/ 100 * 15),
                 period: 60,
+                formatter1: '{value}%',
             }
         },
         filters: {
@@ -162,30 +183,34 @@
             }
         },
         watch: {
-            car_price: function(val) {
-                if (val === null) {
-                    return {};
-                }
-                this.car_price = val;
-                this.carPrice= this.car_price;
+          car_price: function(val) {
+              if (val === null) {
+                  return {};
+              }
+              this.car_price = val;
+              this.carPrice= this.car_price;
 
-                if (this.getCookie('trade_in_price') != null && this.getCookie('trade_in_price') > 0) {
+              if (this.getCookie('trade_in_price') != null && this.getCookie('trade_in_price') > 0) {
 
-                    this.firstPayment = this.getCookie('trade_in_price');
+                  this.firstPayment = this.getCookie('trade_in_price');
 
-                    this.firstPaymentPercent = Math.round(this.firstPayment / this.car_price * 100);
+                  this.firstPaymentPercent = Math.round(this.firstPayment / this.car_price * 100);
 
-                    if (this.firstPaymentPercent > this.sliderOne.max) {
-                        this.firstPayment = Math.round(this.car_price / 2);
-                    }
-                } else {
-                    this.firstPayment = Math.round(this.car_price / 2);
-                    this.firstPaymentPercent = Math.round(this.firstPayment / this.car_price * 100);
-                }
+                  if (this.firstPaymentPercent > this.sliderOne.max) {
+                      this.firstPayment = Math.round(this.car_price / 2);
+                  }
+              } else {
+                  this.firstPayment = Math.round(this.car_price / 2);
+                  this.firstPaymentPercent = Math.round(this.firstPayment / this.car_price * 100);
+              }
 
-                this.changeFirstPayment();
-                this.calculateMonthlyPayment();
-            }
+              this.changeFirstPayment();
+              this.calculateMonthlyPayment();
+          },
+
+          firstPayment: function(val) {
+
+          },
         },
         methods: {
 
@@ -206,15 +231,49 @@
                         break;
                 }
             },
-            inputChangePayment() {
-                this.firstPaymentPercent = Math.round(this.firstPayment / this.car_price * 100);
+            inputChangePayment(event) {
+                const target = event.target;
+                target.value = target.value.replace(/[^\d]/g,'');
+
+                if (parseInt(target.value) > parseInt(Math.round(this.carPrice / 2))) {
+                  target.value = Number(Math.round(this.carPrice / 2)).toLocaleString('ru');
+                  this.firstPayment = target.value.replace(' ', '');
+                  this.firstPaymentPercent = Math.round(this.firstPayment / this.car_price * 100);
+                  this.calculateMonthlyPayment();
+                } else {
+                  target.value = Number(target.value).toLocaleString('ru');
+                  this.firstPayment = target.value.replace(' ', '');
+                  this.firstPaymentPercent = Math.round(this.firstPayment / this.car_price * 100);
+                  this.calculateMonthlyPayment();
+                }
+
+
             },
             changePeriod() {
+                const target = document.querySelector('input[name="period"]');
+                target.value = target.value.replace(/[^\d]/g,'');
+                this.period = target.value;
                 this.$emit('changePeriod', this.period);
+                if (this.sliderTwo.max < this.period) {
+                  this.period = this.sliderTwo.max;
+                  target.value = this.period;
+                } else if (this.sliderTwo.min > this.period) {
+                  this.period = this.sliderTwo.min;
+                  target.value = this.period;
+                }
+
                 this.calculateMonthlyPayment();
+            },
+
+            changePeriodSlider() {
+              const target = document.querySelector('input[name="period"]');
+              target.value = this.period;
+              this.calculateMonthlyPayment();
             },
             changeFirstPayment() {
                 this.firstPayment = Math.round(this.car_price / 100 * this.firstPaymentPercent);
+                const target = document.querySelector('input[name="first-payment"]');
+                target.value = Number(this.firstPayment).toLocaleString('ru');
 
                 //let percent_from_value = Math.round(this.firstPayment / this.car_price * 100);
 
@@ -247,7 +306,7 @@
             },
             selectCreditProgram(input) {
                 this.annualPercent = input.percentRate;
-            }
+            },
         },
         mounted() {
             axios.get(this.host_url + '/api/get_credit_programs')
@@ -270,6 +329,12 @@
                 }).catch(error => {
                // console.log(error)
             });
+
+
+            const periodInput = document.querySelector('input[name="period"]');
+            periodInput.value = this.period;
+            const firstpaymentInput = document.querySelector('input[name="first-payment"]');
+            firstpaymentInput.value = Math.round(this.carPrice / 2).toLocaleString('ru');
         },
     }
 </script>
@@ -277,19 +342,13 @@
 <style lang="scss">
     .credit-wrap {
         width: 90vw;
-        margin: 40px auto;
+        margin: 20px auto;
     }
 
     @media only screen and (min-width: 580px) {
         .credit-wrap {
             width: 580px;
-            margin: 60px auto;
         }
-    }
-
-    .credit-profit-text {
-        padding: 5% 0;
-        font-weight: bold;
     }
 
     .disabled-input {
@@ -297,35 +356,53 @@
         text-align: left;
         /*margin-left: 12%;*/
 
-        .credit-first-payment {
+        .credit-first-payment, .credit-period {
+          display: flex;
+          column-gap: 10px;
+            img {
+              width: 45px;
+              height: 45px;
+            }
             input {
-                width: 28%;
+                width: 100%;
                 font-size: 16px;
                 line-height: 1.2;
             }
-        }
 
-        .credit-period {
-            input {
-                width: 15%;
-                font-size: 16px;
-                line-height: 1.2;
+          @media screen and (max-width: 650px) {
+            margin-top: 20px;
+            img {
+              width: 30px;
+              height: 30px;
             }
+          }
         }
 
         input {
-            border-radius: 18px;
             box-shadow: none;
-            border: 2px solid #9d9f9e;
+            border: none;
+            border-bottom: 2px solid #F0F0F0;
             width: 20%;
             background: white;
             padding: 5px 10px;
         }
     }
 
+    .credit-profit-text {
+      padding: 5% 0;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+
+    }
+
     .range-slider-wrapper {
         width: 75vw;
         margin: 0 auto 25px;
+
+      @media screen and (max-width: 650px) {
+        margin-bottom: 45px;
+      }
     }
 
     @media only screen and (min-width: 580px) {
@@ -335,12 +412,18 @@
         }
 
         .disabled-input {
-            font-size: 18px;
+          font-size: 14px;
+          text-transform: uppercase;
 
-            .credit-first-payment input,
-            .credit-period input {
-                font-size: 18px;
-            }
+          .credit-first-payment input,
+          .credit-period input {
+              font-size: 18px;
+          }
+
+          .credit-first-payment,
+          .credit-period {
+            margin-top: 10px;
+          }
         }
     }
 
@@ -593,4 +676,39 @@
         animation-name: s-ripple-dup;
     }
 
+    .vue-slider-dot-tooltip-inner {
+      background: #fff;
+      color: gray;
+
+      &:after {
+        border-top-color: #ff8351;
+        display: none;
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+
+    .vue-slider-dot-handle-focus {
+      box-shadow: 0 0 5px rgba(255, 131, 81, .5);
+    }
+
+    .vue-slider-dot-tooltip-bottom {
+      bottom: -6px;
+    }
+
+    .vue-slider-dot-handle {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        background: white;
+        width: 12px;
+        height: 12px;
+        transform: translate(4.5px, 4.5px);
+        border-radius: 50%;
+      }
+    }
 </style>

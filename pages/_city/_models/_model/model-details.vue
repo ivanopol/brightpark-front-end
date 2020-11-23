@@ -31,7 +31,11 @@
                  :prefix="$store.state._page + '__'">
          </steps>
       </section>
-      <div class="block-note"><p>Предложение ограниченно, подробности в автосалоне</p></div>
+      <div class="block-note">
+        <p>
+          Предложение действует до 16 января
+        </p>
+      </div>
 
       <Footer :page="$store.state._page"/>
     </section>

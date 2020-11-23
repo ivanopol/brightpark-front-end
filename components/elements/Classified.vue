@@ -84,10 +84,33 @@
 
         <div class="option-text classified-fullwidth">
             <ul>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Кредит для всех. Первоначальный взнос 0%"><span>Кредит для всех. Первоначальный взнос&nbsp;0%</span></li>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Программа LADA Finance. Скидка до 40000 рублей и ставка от 3,5%"><span>Программа LADA Finance. Скидка до&nbsp;40&nbsp;000 рублей и&nbsp;ставка от&nbsp;3,5%</span></li>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Специальные программы без КАСКО дешевле потребительских кредитов"><span>Специальные программы без КАСКО дешевле потребительских кредитов</span></li>
-                <li><img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Скидка на автомобиль 10% по госпрограмме первый и семейный автомобиль"><span>Скидка на&nbsp;автомобиль&nbsp;10% по&nbsp;госпрограмме первый и&nbsp;семейный автомобиль</span></li>
+                <li>
+                  <img src="/images/icons/checkbox-green.svg" class="check check-green" alt="">
+                  <span>
+                    Программа обмена LADA на LADA
+                  </span>
+                </li>
+
+                <li>
+                  <img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Программа LADA Finance. Скидка до 40000 рублей и ставка от 3,5%">
+                  <span>
+                    При покупке в кредит КАСКО в подарок
+                  </span>
+                </li>
+
+                <li>
+                  <img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Специальные программы без КАСКО дешевле потребительских кредитов">
+                  <span>
+                    Ставки по кредиту от 3,5% годовых
+                  </span>
+                </li>
+
+                <li>
+                  <img src="/images/icons/checkbox-green.svg" class="check check-green" alt="Скидка на автомобиль 10% по госпрограмме первый и семейный автомобиль">
+                  <span>
+                    Выгода при покупке в кредит 10%
+                  </span>
+                </li>
             </ul>
         </div>
     </section>
