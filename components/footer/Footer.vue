@@ -101,15 +101,12 @@
                 this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
                 this.goal = goal;
                 this.$modal.show('form-callback-footer');
-                () => {
-                    callibriInit();
-                }
             },
             hide () {
                 this.$modal.hide('form-callback-footer');
             },
             sendGoals: function (goal) {
-/*                if (goal) {
+                if (goal) {
                     let ym_ids = this.getCountersIds();
                     let goalArr = goal.match(/^(.+?):(.+?)$/);
                     let target_goal = goalArr === null ? goal : goalArr[2];
@@ -117,14 +114,18 @@
                     ym_ids.forEach(function (item, i, arr) {
                         window["yaCounter" + item].reachGoal(target_goal);
                     });
-                }*/
+                }
             },
             getCountersIds: function () {
                 var id_list = [];
+
+              if (typeof window['ym'] !== "undefined") {
                 window.ym.a.forEach(function(item){
-                    id_list.push(item[0]);
+                  id_list.push(item[0]);
                 });
-                return id_list;
+              }
+
+              return id_list;
             },
             handleResize: function () {
                 this.mobile = document.documentElement.clientWidth <= 580;
