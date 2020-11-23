@@ -42,7 +42,7 @@ export default {
           this.yaMetrika(tag_body)
           this.googleAnalytics(tag_body)
           this.jivosite(tag_body)
-          this.yClients(tag_body)
+          //this.yClients(tag_body)
           this.appendCityScripts(this.$store.state.city.scripts, tag_body)
         }
       }, 2500)
