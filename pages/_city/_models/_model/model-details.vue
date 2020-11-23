@@ -33,7 +33,7 @@
       </section>
       <div class="block-note">
         <p>
-          Предложение действует до 16 января
+          Предложение действует до {{date}}
         </p>
       </div>
 
@@ -117,6 +117,15 @@ export default Vue.extend({
     }
   },
   computed: {
+    date: function() {
+      let date = new Date();
+      date.setDate(date.getDate() + 3);
+      date = date.toLocaleString('ru', {
+        month: 'long',
+        day: 'numeric'
+      });
+      return date;
+    },
     minimalPayment() {
       const monthly_rate = this.model.minimal_percent_rate / 12 / 100;
       return Math.ceil((this.model.car_attrs.price / 2) * ((monthly_rate * Math.pow((1 + monthly_rate), this.$store.state.max_credit_period))
