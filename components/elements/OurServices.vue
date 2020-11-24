@@ -335,9 +335,10 @@
                 margin: 80px auto;
             }
         }
-    }
 
-    .badger-accordion__header .js-badger-accordion-header .badger-accordion-toggle .badger-toggle-indicator {
+
+
+      .badger-accordion__header .js-badger-accordion-header .badger-accordion-toggle .badger-toggle-indicator {
         flex: unset;
         cursor: pointer;
         width: 25px;
@@ -346,34 +347,35 @@
         color: #fff;
 
         &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            right: 0;
-            top: 0;
-            background-color: #FF8351;
-            width: 25px;
-            height: 25px;
-            border-radius: 20px;
+          content: '';
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
+          background-color: #FF8351;
+          width: 25px;
+          height: 25px;
+          border-radius: 20px;
         }
 
         &:after {
-            content: "";
-            display: block;
-            border: 2px solid #ffffff;
-            border-left: none;
-            border-top: none;
-            width: 8px;
-            height: 8px;
-            transform: rotate(45deg);
-            z-index: 1;
-            left: 0;
-            right: 0;
-            top: 6px;
-            margin: 0 auto;
-            position: absolute;
+          content: "";
+          display: block;
+          border: 2px solid #ffffff;
+          border-left: none;
+          border-top: none;
+          width: 8px;
+          height: 8px;
+          transform: rotate(45deg);
+          z-index: 1;
+          left: 0;
+          right: 0;
+          top: 6px;
+          margin: 0 auto;
+          position: absolute;
         }
-    }
+      }
+
 
     .component-badger-accordion {
         margin: 0 30px;
@@ -427,5 +429,6 @@
                 }
             }
         }
+    }
     }
 </style>
