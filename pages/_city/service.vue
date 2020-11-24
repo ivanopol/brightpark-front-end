@@ -36,7 +36,7 @@
     </div>
     <div class="container_bg_dark">
       <div class="container">
-        <YclientsForm  v-if="$store.state.city.value === 'perm'"
+<!--        <YclientsForm  v-if="$store.state.city.value === 'perm'"
                        :form_id="$store.state._page + '__online-appointment'"
                        :button_text="'Записаться на сервис'"
                        :form_title="''"
@@ -44,9 +44,8 @@
                        :form_h1="'<span class=\'c_orange\'>Запишись</span> на сервис'"
                        :form_class="'mobile_white_bg'"
                        :form_type='2' >
-        </YclientsForm>
-        <FormService  v-else
-                      :form_id="$store.state._page + '__sign-up-for-a-service_'"
+        </YclientsForm>-->
+        <FormService  :form_id="$store.state._page + '__sign-up-for-a-service_'"
                       :button_text="'Записаться на сервис'"
                       :form_title="''"
                       :is_comment='true'
@@ -62,7 +61,7 @@
     <ReviewService />
     <div class="container_bg_dark">
       <div class="container">
-        <YclientsForm2 v-if="$store.state.city.value === 'perm'"
+<!--        <YclientsForm2 v-if="$store.state.city.value === 'perm'"
                        :form_id="$store.state._page + '__online-appointment'"
                        :button_text="'Записаться на сервис'"
                        :form_title="'<span class=\'c_orange\'>Запишись</span> к нам на сервис'"
@@ -70,9 +69,8 @@
                        :is_comment='true'
                        :form_class="'mobile_white_bg'"
                        :form_type='2'>
-        </YclientsForm2>
-        <FormRetarget v-else
-                      :form_id="$store.state._page + '__sign-up-to-our-service_'"
+        </YclientsForm2>-->
+        <FormRetarget :form_id="$store.state._page + '__sign-up-to-our-service_'"
                       :button_text="'Записаться на сервис'"
                       :form_title="'<span class=\'c_orange\'>Запишись</span> к нам на сервис'"
                       :form_pre_title="'и получи скидку 5% при визите в день обращения'"
