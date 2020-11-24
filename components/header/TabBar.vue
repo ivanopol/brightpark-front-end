@@ -835,14 +835,16 @@ export default {
             font-weight: bold;
             padding: 12px;
             box-sizing: content-box;
-            border-radius: 20px;
+            border-radius: 25px;
+            background: #fff;
+            box-shadow: 0 2px 5px -2px #000;
 
             &:before,
             &:after {
                 content: "";
                 width: 25px;
                 height: 2px;
-                background-color: #FF8351;
+                background-color: #525252;
                 display: block;
                 position: absolute;
             }
@@ -850,7 +852,7 @@ export default {
             &:before {
                 -webkit-transform: rotate(-45deg);
                 transform: rotate(-45deg);
-                top: 20px;
+                top: 21px;
                 left: 10px;
             }
 
@@ -858,7 +860,7 @@ export default {
                 -webkit-transform: rotate(45deg);
                 transform: rotate(45deg);
                 left: 10px;
-                top: 20px;
+                top: 21px;
             }
         }
 
