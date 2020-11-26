@@ -1367,6 +1367,14 @@ footer {
         margin: 0;
       }
     }
+
+    &.credit_wrap ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      li {
+        margin: 15px;
+      }
+    }
   }
 
 
