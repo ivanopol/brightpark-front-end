@@ -837,14 +837,14 @@ export default {
             box-sizing: content-box;
             border-radius: 25px;
             background: #fff;
-            box-shadow: 0 2px 5px -2px #000;
+            box-shadow: 0 1px 2px 1px rgba(0,0,0,.15), 0 2px 5px -3px rgba(0,0,0,.15);
 
             &:before,
             &:after {
                 content: "";
                 width: 25px;
-                height: 2px;
-                background-color: #525252;
+                height: 4px;
+                background-color: #666666;
                 display: block;
                 position: absolute;
             }
