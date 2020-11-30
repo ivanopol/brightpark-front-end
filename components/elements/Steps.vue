@@ -434,8 +434,12 @@
 
         .buttons_other {
             .item-buttons-other {
-                margin-bottom: 40px;
-                text-align: center;
+              text-align: center;
+              display: flex;
+              align-items: center;
+              max-width: 700px;
+              margin: 0 auto 40px;
+              flex-direction: column;
 
                 & > a {
                     margin-bottom: 15px;
@@ -444,7 +448,6 @@
                 .btn {
                     font-family: PragmaticaLightC, Helvetica, sans-serif;
                     width: 85.51vw;
-                    border-radius: 50px;
                     padding: 14px 15px 10px;
                 }
 
@@ -459,6 +462,11 @@
                     color: #000;
                     background-color: transparent;
                 }
+
+
+              @media screen and (min-width: 630px) {
+                flex-direction: row;
+              }
             }
         }
     }

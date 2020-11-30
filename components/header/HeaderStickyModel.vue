@@ -11,7 +11,7 @@
               {{ $store.state.city.label }}
             </span>
             <nuxt-link id="model__header-sticky__find-price"
-                       class="event btn-small green"
+                       class="event model__header-sticky__btn"
                        style="/*margin-left: auto;*/"
                        :to="$store.state.car.url">Узнать цену</nuxt-link>
         </div>
@@ -222,6 +222,14 @@
                 font-weight: bold;
             }
         }
+    }
+
+    .model__header-sticky__btn {
+      @include basic-button($bgColor: $secondary-color,
+                            $width: 150px,
+                            $height: 26px,
+                            $textTransform: uppercase,
+                            $fz: 14px);
     }
 
 /*  .logo-wrap__city {

@@ -14,7 +14,6 @@
     "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/proxy": "^2.0.1",
-    "@nuxtjs/style-resources": "^1.0.0",
     "cookie-universal-nuxt": "^2.1.4",
     "eslint": ">=4.12.1",
     "express-session": "^1.17.1",
@@ -40,6 +39,7 @@
   "devDependencies": {
     "@nuxt/types": "^2.14.0",
     "@nuxt/typescript-build": "^2.0.2",
+    "@nuxtjs/style-resources": "^1.0.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^9.0.3"
   }

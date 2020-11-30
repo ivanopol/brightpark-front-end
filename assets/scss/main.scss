@@ -303,15 +303,15 @@ $color-coral: #ff8250;
 .btn {
   color: #fff;
   text-decoration: none;
-  text-transform: uppercase;
-  padding: 17px 18px 13px;
   background-color: #FF8351;
-  border-radius: 50px;
-  display: inline-block;
+  border-radius: 5px;
   font-weight: bold;
-  font-size: 14px;
-  line-height: 14px;
+  font-size: 16px;
+  line-height: 1;
   cursor:pointer;
+  max-height: 48px;
+  @include basic-button();
+  margin: auto;
 }
 
 .btn-form {
@@ -536,15 +536,16 @@ form {
 
   textarea,
   input {
-    border: 2px solid #bdc3c7;
-    color: #000;
-    border-radius: 50px;
-    margin-bottom: 15px;
-    padding: 10px 12px;
+    border: 1px solid #E9E9E9;
+    color: #393840;
+    border-radius: 5px;
+    margin-bottom: 11px;
+    padding: 14px 10px;
     box-shadow: none;
-    font-size: 15px;
+    font-size: 16px;
+    background: #F8F8F8;
 
-    &:active, {
+    &:active {
       border-color: #5fbd89;
     }
 
@@ -554,9 +555,11 @@ form {
     }
   }
 
+
+
   textarea {
     font-family: PragmaticaLightC, Helvetica, sans-serif;
-    border-radius: 12px;
+    border-radius: 5px;
   }
 
   button {
@@ -564,17 +567,21 @@ form {
     color: #fff;
     font-weight: bold;
     background-color: #FF8351;
-    text-transform: uppercase;
     border: none;
-    border-radius: 50px;
-    padding: 17px 22px 13px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 48px;
     text-align: center;
     text-decoration: none;
     letter-spacing: 0.3px;
     margin-top: 30px;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 16px;
+    line-height: 1;
     cursor: pointer;
+    max-width: 340px;
 
     &:active,
     &:hover {
@@ -1118,7 +1125,6 @@ footer {
   text-align: center;
   margin: 15px auto 0;
   max-width: 340px;
-  display: block;
 }
 /*
 
@@ -1884,15 +1890,11 @@ footer {
 
     a {
       cursor: pointer;
-      display: inline-block;
       color: #fff;
       background-color: #FF8351;
       text-transform: uppercase;
       text-decoration: none;
-      border-radius: 50px;
-      padding: 17px 22px 13px;
       font-weight: bold;
-      font-size: 14px;
       line-height: 1;
       width: 80%;
       max-width: 340px;
@@ -2598,4 +2600,98 @@ footer {
   100% { box-shadow: 0 0 0 0 rgba(255,131,81,0); }
 }
 
+
+.callibri_tel {
+  text-decoration: underline;
+  transition: .2s;
+  cursor: pointer;
+  &:hover {
+    opacity: .55;
+    transition: .2s;
+  }
+}
+
+
+
+.form__input-wrapper {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  max-width: 340px;
+
+  input, textarea {
+    width: 100%;
+    padding-left: 40px;
+  }
+}
+
+.form__input-wrapper__svg {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 15px;
+  left: 11px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .feedback__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 550px;
+    column-gap: 11px;
+    row-gap: 11px;
+    grid-template-areas: "name phone" "comment comment" "submit call" "checkbox checkbox";
+    margin: auto;
+
+
+    .control-group {
+      max-width: unset;
+      grid-area: checkbox;
+    }
+
+    button {
+      grid-area: submit;
+      margin-top: 0;
+      max-width: unset;
+      width: 100%;
+    }
+
+    a {
+      grid-area: call;
+      margin-top: 0;
+      max-width: unset;
+    }
+  }
+
+  .form__input-wrapper {
+    width: 100%;
+    max-width: unset;
+
+    input, textarea {
+      width: 100%;
+      margin-bottom: 0;
+      max-width: unset;
+
+    }
+
+    &:first-child {
+      grid-area: name;
+    }
+
+    &:nth-child(2) {
+      grid-area: phone;
+    }
+
+    &:nth-child(3) {
+      grid-area: comment;
+    }
+
+
+  }
+
+}
 

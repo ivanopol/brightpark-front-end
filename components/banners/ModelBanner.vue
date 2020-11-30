@@ -141,4 +141,8 @@ export default {
 
 <style lang="scss">
   @import "~assets/scss/hooper.scss";
+
+  .btn-banner {
+    @include basic-button($fz: 14px, $width: 50%);
+  }
 </style>

@@ -31,9 +31,9 @@ export default {
     if (!isBot && !isloaded) {
       var tag_body = document.getElementsByTagName("body")[0]
 
-      //if (this.isProduction) {
+      if (this.isProduction) {
         this.calltouchCity(this.$store.state.city.scripts.calltouch, tag_body)
-      //}
+      }
 
       setTimeout(() => {
         this.yaMaps(tag_body)

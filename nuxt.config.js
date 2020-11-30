@@ -145,5 +145,8 @@ export default {
     extend(config, ctx) {
       config.resolve.alias['vue'] = 'vue/dist/vue.common'
     }
-  }
+  },
+  styleResources: {
+    scss: ['@/assets/scss/_variables.scss'],
+  },
 }

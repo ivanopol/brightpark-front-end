@@ -171,8 +171,6 @@ export default {
   }
   .btn {
     width: 100%;
-    border-radius: 50px;
-    padding: 14px 15px 10px;
 
     @media only screen and (max-width: 340px) {
       padding: 11px 15px 7px;
@@ -354,7 +352,6 @@ export default {
 
           .btn {
             width: auto;
-            display: block;
             margin: 0 0 15px 0;
           }
         }
@@ -403,7 +400,6 @@ export default {
 
           .btn {
             width: auto;
-            display: block;
             margin: 0 0 15px 0;
           }
         }
@@ -476,7 +472,6 @@ export default {
 
           .btn {
             width: 55%;
-            display: block;
             margin: 10px auto;
           }
         }
