@@ -3,7 +3,7 @@
     <div class="container">
       <BreadCrumbs :breadcrumbs="makeBreadcrumbs"/>
     </div>
-    <StockItem :data="data"/>
+    <StocksItem :data="data"/>
     <div>
       <ModelsList/>
       <MegaTeasers/>
