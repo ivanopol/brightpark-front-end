@@ -6,7 +6,7 @@ Allow: *.jpeg
 Allow: *.jpg
 Allow: *.png
 Allow: *.svg
-Allow: /build/images/
+Allow: /_nuxt/img/
 
 User-agent: Yandex
 Disallow: /*?*
@@ -16,7 +16,7 @@ Allow: *.jpeg
 Allow: *.jpg
 Allow: *.png
 Allow: *.svg
-Allow: /build/images/
+Allow: /_nuxt/img/
 
 User-agent: Googlebot
 Disallow: /*?*
@@ -26,7 +26,7 @@ Allow: *.jpeg
 Allow: *.jpg
 Allow: *.png
 Allow: *.svg
-Allow: /build/images/
+Allow: /_nuxt/img/
 
 Host: https://brightpark.ru/
 Sitemap: https://brightpark.ru/sitemap.xml

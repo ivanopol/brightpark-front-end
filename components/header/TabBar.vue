@@ -91,6 +91,9 @@
                                 <nuxt-link id="common__menu__about" :to="'/' + $store.state.city.value + '/about'" class="event" itemprop="url"><div class="title bubble">О компании</div></nuxt-link>
                             </li>
                             <li>
+                              <nuxt-link id="common__menu__credit" :to="'/' + $store.state.city.value + '/credit'" class="event" itemprop="url"><div class="title bubble">Кредит</div></nuxt-link>
+                            </li>
+                            <li>
                                 <nuxt-link id="common__menu__stocks" :to="'/' + $store.state.city.value + '/stocks'" class="event" itemprop="url"><div class="title bubble">Акции</div></nuxt-link>
                             </li>
                             <li>
@@ -141,21 +144,21 @@ export default {
         methods: {
             sendGoals: function (goal) {
                 if (goal) {
-/*                    let ym_ids = this.getCountersIds();
+                    let ym_ids = this.getCountersIds();
                     let goalArr = goal.match(/^(.+?):(.+?)$/);
                     let target_goal = goalArr === null ? goal : goalArr[2];
 
                     ym_ids.forEach(function (item, i, arr) {
                         window["yaCounter" + item].reachGoal(target_goal);
-                    });*/
+                    });
                 }
             },
             getCountersIds: function () {
-/*                var id_list = [];
+                var id_list = [];
                 window.ym.a.forEach(function(item){
                     id_list.push(item[0]);
                 });
-                return id_list;*/
+                return id_list;
             },
             toggleJivo: function() {
                 if (this.jivoOpen) {
@@ -238,7 +241,7 @@ export default {
                 this.sendGoals(this.goal_call);
             },
             handleScroll: function() {
-             //   this.scrolled = window.scrollY > 60;
+                this.scrolled = window.scrollY > 60;
             },
             loadScript: async function() {
 /*                let jivoScript = document.createElement('script');
@@ -837,14 +840,14 @@ export default {
             box-sizing: content-box;
             border-radius: 25px;
             background: #fff;
-            box-shadow: 0 2px 5px -2px #000;
+            box-shadow: 0 1px 2px 1px rgba(0,0,0,.15), 0 2px 5px -3px rgba(0,0,0,.15);
 
             &:before,
             &:after {
                 content: "";
                 width: 25px;
-                height: 2px;
-                background-color: #525252;
+                height: 4px;
+                background-color: #666666;
                 display: block;
                 position: absolute;
             }
