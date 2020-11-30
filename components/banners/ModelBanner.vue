@@ -144,5 +144,9 @@ export default {
 
   .btn-banner {
     @include basic-button($fz: 14px, $width: 50%);
+
+    @media screen and (max-width: 500px) {
+      margin: auto;
+    }
   }
 </style>
