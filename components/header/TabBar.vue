@@ -475,7 +475,7 @@ export default {
         .other_links_2 {
             ul {
                 li {
-                    padding: 5px 0 5px 0px;
+                    padding: 5px 0 5px 0;
                     a {
                         color: #fff;
 
@@ -505,7 +505,7 @@ export default {
 
                             .title {
                                 font-size: 95%;
-                                padding-left: 10px;
+                                padding-left: 20px;
                                 text-transform: none;
                                 font-family: PragmaticaLightC, Helvetica, sans-serif;
                                 font-weight: bold;
