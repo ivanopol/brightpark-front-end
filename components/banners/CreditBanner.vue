@@ -1,18 +1,23 @@
 <template>
   <section>
     <div class="main-screen-wrap" >
-      <ul>
-        <li class="retargeting-banner">
-          <div class="asset-container">
-            <picture>
-              <source :srcset="offer.img_mobile + ', ' + offer.img_mobile + ' 2x'" media="(max-width: 580px)">
-              <source :srcset="offer.img_tablet + ', ' + offer.img_tablet + ' 2x'" media="(max-width: 1365px)">
-              <source :srcset="offer.img_desktop + ', ' + offer.img_desktop + ' 2x'" media="(min-width: 1366px)">
-              <img class="asset-image" :src="offer.img_mobile" :srcset="offer.img_mobile + ', ' + offer.img_mobile + ' 2x'" :alt="offer.description" />
-            </picture>
-          </div>
-        </li>
-      </ul>
+      <div class="retargeting-banner">
+        <h1 class="title retargeting-banner__heading">
+          LADA в кредит <span style="display: inline-block;">в Брайт Парке</span>
+        </h1>
+        <div class="asset-container">
+          <picture>
+            <source :srcset="offer.img_mobile + ', ' + offer.img_mobile + ' 2x'" media="(max-width: 580px)">
+            <source :srcset="offer.img_tablet + ', ' + offer.img_tablet + ' 2x'" media="(max-width: 1365px)">
+            <source :srcset="offer.img_desktop + ', ' + offer.img_desktop + ' 2x'" media="(min-width: 1366px)">
+            <img class="asset-image" :src="offer.img_mobile" :srcset="offer.img_mobile + ', ' + offer.img_mobile + ' 2x'" :alt="offer.description" />
+          </picture>
+        </div>
+
+        <button class="retargeting-banner__button">
+          Экспресс-кредит
+        </button>
+      </div>
     </div>
   </section>
 </template>
@@ -189,6 +194,7 @@ export default {
   }
 
   .retargeting-banner {
+    position: relative;
     .product-content {
       .title-tagline {
         font-size: 7vw;
@@ -503,6 +509,39 @@ export default {
         }
       }
     }
+  }
+}
+
+.retargeting-banner__button {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  @include basic-button();
+  border: none;
+}
+
+.retargeting-banner__heading {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: white;
+  text-transform: none;
+  width: 100%;
+
+  @media screen and (min-width: 500px) {
+    top: 100px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    top: 140px;
+    font-size: 38px;
+  }
+
+  @media screen and (min-width: 1365px) {
+    top: 110px;
+    font-size: 38px;
   }
 }
 </style>
