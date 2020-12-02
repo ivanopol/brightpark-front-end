@@ -39,28 +39,38 @@ export default {
         this.yaMaps(tag_body)
 
         if (this.isProduction) {
+          if (this.$store.state.city.value === 'yekaterinburg') {
+            this.ruTarget(tag_body)
+          }
+
           this.yaMetrika(tag_body)
           this.googleAnalytics(tag_body)
           this.jivosite(tag_body)
           //this.yClients(tag_body)
           this.appendCityScripts(this.$store.state.city.scripts, tag_body)
         }
-      }, 2500)
+      }, 2000)
     }
   },
   methods: {
     appendCityScripts (id, tag_body) {
-
-      this.yaMapsCity(id.ya_metrika, tag_body)
+      setTimeout(() => {
+        this.yaMetrikaCity(id.ya_metrika, tag_body)
+      }, 200)
       this.gTagCity(id.gtag, tag_body)
       this.facebookCity(id.facebook, tag_body)
       this.mailRuCity(id.mailru, tag_body)
       this.vkCity(id.vk, tag_body)
-
     },
-    yaMapsCity (id, tag_body) {
+    ruTarget (tag_body) {
+      var ru_target = document.createElement('script')
+      ru_target.innerHTML = '(function(w, d, s, p) { var f = d.getElementsByTagName(s)[0], j = d.createElement(s); j.async = true; j.src = \'//cdn.rutarget.ru/static/tag/tag.js\'; f.parentNode.insertBefore(j, f); w[p] = {rtgNoSync: false, rtgSyncFrame: true}; })(window, document, \'script\', \'_rtgParams\');'
+      tag_body.appendChild(ru_target)
+    },
+    yaMetrikaCity (id, tag_body) {
       var ya_metrika_city = document.createElement('script')
       ya_metrika_city.className = 'loading_scripts'
+      ya_metrika_city.async = true
       ya_metrika_city.innerHTML = '(function(m, e, t, r, i, k, a) { m[i] = m[i] || function() {\n' +
         '    (m[i].a = m[i].a || []).push(arguments) };\n' +
         '    m[i].l = 1 * new Date();\n' +
@@ -82,6 +92,7 @@ export default {
 
       var google_script = document.createElement('script')
       google_script.className = 'loading_scripts'
+      google_script.async = true
       google_script.innerHTML = "window.dataLayer = window.dataLayer || [];\n" +
       "function gtag() { dataLayer.push(arguments); } gtag(\"js\", new Date());\n" +
       "gtag(\"config\", \"" + id + "\");"
@@ -92,6 +103,7 @@ export default {
     facebookCity (id, tag_body) {
       var facebook = document.createElement('script')
       facebook.className = 'loading_scripts'
+      facebook.async = true
       facebook.innerHTML = '! function(f, b, e, v, n, t, s) { if (f.fbq) return;\n' +
         '    n = f.fbq = function() { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n;\n' +
         '    n.push = n;\n' +
@@ -117,6 +129,7 @@ export default {
       var mailru = document.createElement('script')
       mailru.className = 'loading_scripts'
       mailru.type = "text/javascript"
+      mailru.async = true
       mailru.innerHTML = 'var _tmr = window._tmr || (window._tmr = []);\n' +
         '_tmr.push({ id: "' + id + '", type: "pageView", start: (new Date()).getTime(), pid: "USER_ID" });\n' +
         '(function(d, w, id) { if (d.getElementById(id)) return; var ts = d.createElement("script");\n' +
@@ -137,6 +150,7 @@ export default {
       var vk = document.createElement('script')
       vk.type = "text/javascript"
       vk.className = 'loading_scripts'
+      vk.async = true
       vk.innerHTML = '! function() { var t = document.createElement("script");\n' +
         '    t.type = "text/javascript", t.async = !0, t.src = "https://vk.com/js/api/openapi.js?167", t.onload = function() { VK.Retargeting.Init("' + id + '"), VK.Retargeting.Hit() }, document.head.appendChild(t) }();'
 
@@ -151,6 +165,7 @@ export default {
       var calltouch = document.createElement('script')
       calltouch.charset = "UTF-8"
       calltouch.className = 'loading_scripts'
+      calltouch.async = true
       calltouch.innerHTML = '(function(w,d,n,c){w.CalltouchDataObject=n;w[n]=function(){w[n]["callbacks"].push(arguments)};if(!w[n]["callbacks"]){w[n]["callbacks"]=[]}w[n]["loaded"]=false;if(typeof c!=="object"){c=[c]}w[n]["counters"]=c;for(var i=0;i<c.length;i+=1){p(c[i])}function p(cId){var a=d.getElementsByTagName("script")[0],s=d.createElement("script"),i=function(){a.parentNode.insertBefore(s,a)};s.type="text/javascript";s.async=true;s.src="https://mod.calltouch.ru/init.js?id="+cId;if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",i,false)}else{i()}}})(window,document,"ct","' + id + '");'
 
       tag_body.appendChild(calltouch)
@@ -166,6 +181,7 @@ export default {
     yaMetrika (tag_body) {
       var ya_metrika = document.createElement("script")
       ya_metrika.type = 'text/javascript';
+      ya_metrika.async = true
       ya_metrika.className = 'loading_scripts'
       ya_metrika.innerHTML = '(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n' +
         '            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n' +
