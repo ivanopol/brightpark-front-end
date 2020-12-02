@@ -88,7 +88,8 @@ export default {
     middleware: [
       'location',
       'trailingSlashRedirect',
-      'redirects'
+      'redirects',
+      'date'
     ]
   },
 
