@@ -109,15 +109,19 @@
 
         <div v-if="grade === 1">
             <div class="button-wrapper-row">
-                <a :id="prefix + 'what-is-your-car__cash'" class="btn-half-secondary event" v-on:click.prevent="gradeShow(3)">Наличный расчет</a>
-                <a :id="prefix + 'what-is-your-car__credit'" class="btn-half-primary event" v-on:click.prevent="gradeShow(2)">В кредит</a>
+                <a :id="prefix + 'what-is-your-car__cash'" class="btn btn-half-secondary event"
+                   v-on:click.prevent="gradeShow(3)">Наличный расчет</a>
+                <a :id="prefix + 'what-is-your-car__credit'" class="btn btn-half-primary event"
+                   v-on:click.prevent="gradeShow(2)">В кредит</a>
             </div>
         </div>
 
         <div v-if="grade === 5">
             <div class="button-wrapper-row">
-                <a :id="prefix + 'сhoose-favorable-conditions__cash'" class="btn-half-secondary event" v-on:click.prevent="gradeShow(3)">Наличный расчет</a>
-                <a :id="prefix + 'сhoose-favorable-conditions__credit'" class="btn-half-primary event" v-on:click.prevent="gradeShow(2)">В кредит</a>
+                <a :id="prefix + 'сhoose-favorable-conditions__cash'" class="btn btn-half-secondary event"
+                   v-on:click.prevent="gradeShow(3)">Наличный расчет</a>
+                <a :id="prefix + 'сhoose-favorable-conditions__credit'" class="btn btn-half-primary event"
+                   v-on:click.prevent="gradeShow(2)">В кредит</a>
             </div>
         </div>
 
@@ -390,19 +394,12 @@
         .btn-half-primary,
         .btn-half-secondary {
             font-family: PragmaticaLightC, Helvetica, sans-serif;
-            width: 48%;
             text-transform: uppercase;
-            padding: 14px 6px 10px;
             text-align: center;
             border: 2px solid #000;
-            border-radius: 50px;
             font-weight: bold;
             font-size: 14px;
-            max-width: 250px;
             cursor:pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .btn-half-secondary {
@@ -430,12 +427,23 @@
             margin: 50px 30px;
             display: flex;
             justify-content: space-between;
+            flex-direction: column;
+            .btn {
+              margin-bottom: 10px;
+            }
+          @media screen and (min-width: 630px) {
+            flex-direction: row;
+          }
         }
 
         .buttons_other {
             .item-buttons-other {
-                margin-bottom: 40px;
-                text-align: center;
+              text-align: center;
+              display: flex;
+              align-items: center;
+              max-width: 700px;
+              margin: 0 auto 40px;
+              flex-direction: column;
 
                 & > a {
                     margin-bottom: 15px;
@@ -444,7 +452,6 @@
                 .btn {
                     font-family: PragmaticaLightC, Helvetica, sans-serif;
                     width: 85.51vw;
-                    border-radius: 50px;
                     padding: 14px 15px 10px;
                 }
 
@@ -459,6 +466,11 @@
                     color: #000;
                     background-color: transparent;
                 }
+
+
+              @media screen and (min-width: 630px) {
+                flex-direction: row;
+              }
             }
         }
     }

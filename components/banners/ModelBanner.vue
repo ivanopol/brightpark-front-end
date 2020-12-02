@@ -121,6 +121,10 @@ export default {
       }
     },
     setIndicatorPosition: function() {
+      if (!document.getElementById('items-mini')) {
+        return false
+      }
+
       var model = document.getElementById('items-mini').getElementsByClassName('current_model')[0].getBoundingClientRect();
       var parent = document.getElementById('items-mini').getBoundingClientRect();
       var pos = model.left - parent.left + model.width / 2;
@@ -141,4 +145,12 @@ export default {
 
 <style lang="scss">
   @import "~assets/scss/hooper.scss";
+
+  .btn-banner {
+    @include basic-button($fz: 14px, $width: 50%);
+
+    @media screen and (max-width: 500px) {
+      margin: auto;
+    }
+  }
 </style>

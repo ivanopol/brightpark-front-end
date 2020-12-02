@@ -5,6 +5,9 @@ $line-height-base: 1.6;
 // Colors
 $bg_dark_desktop: #000;//#2b2a28;
 
+$main-color: #FF8351;
+$secondary-color: #5BC086;
+
 
 // context
 $context: 375;
@@ -24,4 +27,33 @@ $context: 375;
 @function get-vw($target, $context) {
     $vw-context: ($context*.01) * 1px;
     @return ($target/$vw-context) * 1vw;
+}
+
+
+
+// Elements
+
+@mixin basic-button (
+  $radius: 5px,
+  $textColor: #fff,
+  $textTransform: none,
+  $width: 250px,
+  $maxWidth: unset,
+  $height: 50px,
+  $bgColor: $main-color,
+  $fz: 1em) {
+
+  border: {
+    radius: $radius;
+  }
+  color: $textColor;
+  text-transform: $textTransform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $height;
+  background-color: $bgColor;
+  font-size: $fz;
+  min-width: $width;
+  padding: 0 15px;
 }

@@ -516,7 +516,7 @@
 
             .vs__dropdown-toggle {
                 background-color: #fff;
-                border-radius: 30px;
+                border-radius: 5px;
                 border: 2px solid #000;
                 height: 42px;
                 overflow: hidden;
@@ -534,9 +534,9 @@
             }
 
             .vs__selected {
-                padding: 8px 25px 0 14px;
+                padding-left: 15px;
                 height: 39px;
-                font-weight: bold;
+                font-weight: 700;
                 font-family: PragmaticaLightC, Helvetica, sans-serif;
 /*                width: 100%;
                 background-color: #cdefc8;*/

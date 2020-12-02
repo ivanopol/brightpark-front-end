@@ -11,8 +11,8 @@
                             <li v-for="list in service.list"><CheckIcon /> <span v-html="getPrice(list.title, list.price)"></span></li>
                         </ul>
                         <div class="service__contacts-wrap">
-                            <!--<a :id="$store.state._page + '__' + service.alias + '__button'" class="btn btn-primary btn-position event" v-on:click.prevent="show(service.title, service.alias)">Записаться</a>-->
-                            <a :id="$store.state._page + '__online-appointment__button'" class="btn btn-primary btn-position ms_booking event" >Записаться</a>
+                            <a :id="$store.state._page + '__' + service.alias + '__button'" class="btn btn-primary btn-position event" v-on:click.prevent="show(service.title, service.alias)">Записаться</a>
+                            <!-- <a :id="$store.state._page + '__online-appointment__button'" class="btn btn-primary btn-position ms_booking event" >Записаться</a> -->
                             <a :id="$store.state._page + '__' + service.alias + '_call'" :href="'tel:' + $store.state.city.phone" class="btn btn-primary callibri_phone btn-position green event">Позвонить</a>
                         </div>
                     </template>
@@ -20,14 +20,14 @@
             </BadgerAccordion>
             </client-only>
         </div>
-<!--       <modal name="form-callback3" height="auto" :adaptive="true">
+       <modal name="form-callback3" height="auto" :adaptive="true">
             <div :id="form_id + '_close'" class="close event" @click="hide"></div>
             <FormBuy2Component :form_title="form_title"
                                :form_id="form_id"
                                :button_text="button_text"
                                :is_comment="is_comment"
                                :form_type='2' />
-        </modal>-->
+        </modal>
     </section>
 </template>
 

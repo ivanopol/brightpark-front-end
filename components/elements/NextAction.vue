@@ -8,7 +8,7 @@
               <a id="model__next-action__test-drive" class="btn event" href="#" v-on:click.prevent="show('Записаться на тест-драйв', 'model__modal-next-action-test-drive_', 'test_drive')">Записаться на тест-драйв</a>
             </li>
             <li>
-                <nuxt-link id="model__next-action__count-payment" class="btn event" :to="$nuxt.$route.path + '/model-details#credit'">Рассчитать кредит</nuxt-link>
+                <nuxt-link id="model__next-action__count-payment" class="btn event" :to="'/' + $store.state.city.value + '/credit'">Рассчитать кредит</nuxt-link>
             </li>
             <li>
                 <nuxt-link id="model__next-action__estimate-car" class="btn event" :to="$nuxt.$route.path + '/model-details#estimation'">Оценить свой автомобиль</nuxt-link>

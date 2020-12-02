@@ -7,15 +7,20 @@ import axios from "axios";
 export default {
   name: "ButtonEvents",
   methods: {
-    async sendData(data, href) {
+    async sendData(data, href, blank) {
       axios({
         method: 'post',
         url:  process.env.apiUrl + '/api/write_event',
         data: data
       }).then((response) => {
 
+
         if (href !== '#' && href !== null) {
-          window.location = href;
+          if (blank) {
+            window.open(href, '_blank')
+          } else {
+            window.location = href;
+          }
         }
       });
     },
@@ -35,7 +40,7 @@ export default {
         let id = e.target.id;
         let href = null;
         let bubble = false;
-        // console.log(e);
+        let blank = false;
 
         if (e.target.classList.contains('bubble')) {
           e.path.forEach((current, index, array) => {
@@ -50,6 +55,10 @@ export default {
         if (e.target.href) {
           e.preventDefault();
           href = e.target.attributes.href.value;
+
+          if (e.target.attributes.getNamedItem('target') !== null && e.target.attributes.target.value === '_blank') {
+            blank = true
+          }
         } else if (bubble) {
           e.preventDefault();
         }
@@ -67,7 +76,7 @@ export default {
           'timestamp': new Date().toISOString(),
           'event_type': 'button'
         };
-        await this.sendData(data, href);
+        await this.sendData(data, href, blank);
       };
 
       document.addEventListener('click', handle, false);

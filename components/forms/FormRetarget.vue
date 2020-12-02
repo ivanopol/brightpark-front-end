@@ -81,8 +81,8 @@
 
         @media only screen and (min-width: 580px) {
             .form-wrapper {
-                padding: 80px 0 28px;
-                width: 450px;
+                padding: 80px 25px 28px;
+                width: 500px;
                 border-radius: 30px;
                 box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.16), 0 0 30px 10px rgba(0, 0, 0, 0.08);
             }
