@@ -88,7 +88,8 @@ export default {
     middleware: [
       'location',
       'trailingSlashRedirect',
-      'redirects'
+      'redirects',
+      'date'
     ]
   },
 
@@ -130,9 +131,11 @@ export default {
     debug:true*/
   },
 
+/*
   proxy: {
     '/api/': process.env.API_URL || 'http://localhost:8080'
   },
+*/
 
   /*
   ** Build configuration

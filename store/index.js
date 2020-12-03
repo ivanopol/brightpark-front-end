@@ -13,6 +13,7 @@ export const state = () => ({
   _background: '',
   _page: '',
   _footer: true,
+  _month: {},
 })
 
 export const mutations = {
@@ -43,5 +44,9 @@ export const mutations = {
   set_model(state, model) {
     state._model.slug = model.slug
     state._model.title = model.title
+  },
+  set_month(state, month) {
+    state._month.nominative = month.nominative
+    state._month.accusative = month.accusative
   }
 }
