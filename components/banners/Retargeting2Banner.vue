@@ -3,10 +3,9 @@
     <div class="main-screen-wrap" >
       <div class="retargeting-banner">
         <h1 class="title retargeting-banner__heading">
-          LADA в кредит <span style="display: inline-block;">в Брайт Парке</span>
+          LADA в Брайт Парке <span style="display: inline-block;">еще выгоднее</span>
         </h1>
         <div class="asset-container">
-          <div class="retargeting-banner__overlay"></div>
           <picture>
             <source :srcset="offer.img_mobile + ', ' + offer.img_mobile + ' 2x'" media="(max-width: 580px)">
             <source :srcset="offer.img_tablet + ', ' + offer.img_tablet + ' 2x'" media="(max-width: 1365px)">
@@ -15,13 +14,15 @@
           </picture>
         </div>
 
-        <button class="retargeting-banner__button" v-on:click.prevent="show('Экспресс кредит', $store.state._page + '__modal-banner_', 'Отправить', 1, 'callback')">
-          Экспресс-кредит
+        <button class="retargeting-banner__button"
+                v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__special-offers2-banner_', 'Отправить', 1, 'callback')"
+        >
+          Сохранить выгоду
         </button>
       </div>
     </div>
 
-    <modal name="form-credit-banner" height="auto" :adaptive="true" @before-open="beforeOpen">
+    <modal name="form-special-offers2-banner" height="auto" :adaptive="true" @before-open="beforeOpen">
       <div class="close" @click="hide"></div>
       <FormBuy2Component :cities="cities"
                          :form_title="form_title"
@@ -36,7 +37,7 @@
 
 <script>
 export default {
-  name: 'Credit',
+  name: 'special-offers2',
   props: {
     offer: {
       type: Object
@@ -59,7 +60,7 @@ export default {
       this.button_text = button_text;
       this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
       this.goal = goal;
-      this.$modal.show('form-credit-banner');
+      this.$modal.show('form-special-offers2-banner');
     },
   }
 };
@@ -549,7 +550,6 @@ export default {
 }
 
 .retargeting-banner__heading {
-  z-index: 1;
   position: absolute;
   top: 75px;
   left: 50%;
@@ -557,7 +557,6 @@ export default {
   color: white;
   text-transform: none;
   width: 100%;
-  font-weight: 500;
 
   @media screen and (min-width: 500px) {
     top: 100px;
@@ -569,21 +568,8 @@ export default {
   }
 
   @media screen and (min-width: 1365px) {
-    top: 180px;
-    font-size: 2.8vw;
+    top: 110px;
+    font-size: 38px;
   }
-
-  @media screen and (min-width: 1920px) {
-    font-size: 55px;
-  }
-}
-
-.retargeting-banner__overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, .35);
 }
 </style>
