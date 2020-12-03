@@ -43,9 +43,6 @@
           </li>
         </ul>
       </div>
-      <Steps :form_id="$store.state._page + '__fill-form_'"
-             :goal="'fixconditions'"
-             :prefix="$store.state._page + '__'" />
       <Baraban />
       <HookRetarget />
     </div>
