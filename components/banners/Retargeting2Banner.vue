@@ -3,7 +3,11 @@
     <div class="main-screen-wrap" >
       <div class="retargeting-banner">
         <h1 class="title retargeting-banner__heading">
+<<<<<<< HEAD
           LADA<br> <span style="display: inline-block;">в Брайт Парке</span><br> еще выгоднее
+=======
+          LADA в Брайт Парке <span style="display: inline-block;">еще выгоднее</span>
+>>>>>>> cmroonn
         </h1>
         <div class="asset-container">
           <picture>
@@ -14,11 +18,31 @@
           </picture>
         </div>
 
+<<<<<<< HEAD
         <button class="retargeting-banner__button">
+=======
+        <button class="retargeting-banner__button"
+                v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__special-offers2-banner_', 'Отправить', 1, 'callback')"
+        >
+>>>>>>> cmroonn
           Сохранить выгоду
         </button>
       </div>
     </div>
+<<<<<<< HEAD
+=======
+
+    <modal name="form-special-offers2-banner" height="auto" :adaptive="true" @before-open="beforeOpen">
+      <div class="close" @click="hide"></div>
+      <FormBuy2Component :cities="cities"
+                         :form_title="form_title"
+                         :form_id="form_id"
+                         :button_text="button_text"
+                         :form_type="form_type"
+                         :goal="goal">
+      </FormBuy2Component>
+    </modal>
+>>>>>>> cmroonn
   </section>
 </template>
 
@@ -31,9 +55,30 @@ export default {
     }
   },
   data: function () {
+<<<<<<< HEAD
     return {};
   },
   methods: {
+=======
+    return {
+      mobile: false,
+      form_id: '',
+      form_title: '',
+      button_text: '',
+      form_type: 1,
+      goal: ''
+    };
+  },
+  methods: {
+    show (title, form_id, button_text, form_type, goal) {
+      this.form_title = title;
+      this.form_id = form_id;
+      this.button_text = button_text;
+      this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
+      this.goal = goal;
+      this.$modal.show('form-special-offers2-banner');
+    },
+>>>>>>> cmroonn
   }
 };
 </script>
