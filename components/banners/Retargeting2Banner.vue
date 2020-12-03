@@ -14,18 +14,16 @@
           </picture>
         </div>
 
-        <button class="retargeting-banner__button"
-                v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__special-offers2-banner_', 'Отправить', 1, 'callback')"
-        >
+        <button class="retargeting-banner__button btn-secondary event"
+                v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__special-offers2-banner_', 'Отправить', 1, 'callback')">
           Сохранить выгоду
         </button>
       </div>
     </div>
 
-    <modal name="form-special-offers2-banner" height="auto" :adaptive="true" @before-open="beforeOpen">
+    <modal name="form-special-offers2-banner" height="auto" :adaptive="true">
       <div class="close" @click="hide"></div>
-      <FormBuy2Component :cities="cities"
-                         :form_title="form_title"
+      <FormBuy2Component :form_title="form_title"
                          :form_id="form_id"
                          :button_text="button_text"
                          :form_type="form_type"
@@ -61,6 +59,9 @@ export default {
       this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
       this.goal = goal;
       this.$modal.show('form-special-offers2-banner');
+    },
+    hide () {
+      this.$modal.hide('form-special-offers2-banner');
     },
   }
 };

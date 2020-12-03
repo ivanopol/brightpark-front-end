@@ -44,14 +44,17 @@
         </ul>
       </div>
       <Baraban />
+      <FormRetarget :form_id="$store.state._page + '__leave-request-now_'"
+                    :button_text="'Получить лучшие условия'"
+                    :form_title="'<span class=\'c_orange\'>Оставьте</span> заявку сейчас'"
+                    :goal="'specialoffer'" />
       <HookRetarget />
     </div>
     <nuxt-child/>
 
-    <modal name="form-special-offers2-advantages" height="auto" :adaptive="true" @before-open="beforeOpen">
+    <modal name="form-special-offers2-advantages" height="auto" :adaptive="true">
       <div class="close" @click="hide"></div>
-      <FormBuy2Component :cities="cities"
-                         :form_title="form_title"
+      <FormBuy2Component :form_title="form_title"
                          :form_id="form_id"
                          :button_text="button_text"
                          :form_type="form_type"
@@ -92,6 +95,9 @@ export default Vue.extend({
       this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
       this.goal = goal;
       this.$modal.show('form-special-offers2-advantages');
+    },
+    hide () {
+      this.$modal.hide('form-special-offers2-advantages');
     },
   },
 
