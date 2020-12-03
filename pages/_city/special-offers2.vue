@@ -11,18 +11,28 @@
             <div class="advantage">
               <span class="icon"><img src="/images/icons/retargeting/doplata.svg" alt="Брайт Парк: Доплатим 40000 р. при обмене вашего авто"></span>
               <span class="text">Повысить субсидию<br>при обмене на <br>40 0000</span>
+
+              <button type="button" class="advantage__button">
+                Сохранить выгоду
+              </button>
             </div>
           </li>
           <li>
             <div class="advantage">
               <span class="icon"><img src="/images/icons/retargeting/stavka.svg" alt="Брайт Парк: Ставка по кредиту от 3,5%"></span>
               <span class="text">Снизить % ставку<br> при кредите</span>
+              <button type="button" class="advantage__button">
+                Сохранить выгоду
+              </button>
             </div>
           </li>
           <li>
             <div class="advantage">
               <span class="icon"><img src="/images/icons/retargeting/pervonchalnyj_vznos.svg" alt="Брайт Парк: 0% первоначальный взнос"></span>
               <span class="text">Увеличить выгоду при покупке с 10% до 13%</span>
+              <button type="button" class="advantage__button">
+                Сохранить выгоду
+              </button>
             </div>
           </li>
         </ul>
@@ -98,4 +108,29 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 
+  .advantage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .advantage__button {
+    @include basic-button($width: 100%);
+    border: none;
+    margin-top: 15px;
+
+    @media screen and (max-width: 450px) {
+      font-size: .9em;
+    }
+
+    @media screen and (max-width: 350px) {
+      font-size: .55em;
+      height: 30px;
+      font-weight: 700;
+    }
+  }
+
+  .advantages_wrap.retargeting_wrap ul li {
+    border: none;
+  }
 </style>
