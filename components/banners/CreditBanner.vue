@@ -6,6 +6,7 @@
           LADA в кредит <span style="display: inline-block;">в Брайт Парке</span>
         </h1>
         <div class="asset-container">
+          <div class="retargeting-banner__overlay"></div>
           <picture>
             <source :srcset="offer.img_mobile + ', ' + offer.img_mobile + ' 2x'" media="(max-width: 580px)">
             <source :srcset="offer.img_tablet + ', ' + offer.img_tablet + ' 2x'" media="(max-width: 1365px)">
@@ -522,6 +523,7 @@ export default {
 }
 
 .retargeting-banner__heading {
+  z-index: 1;
   position: absolute;
   top: 75px;
   left: 50%;
@@ -529,6 +531,7 @@ export default {
   color: white;
   text-transform: none;
   width: 100%;
+  font-weight: 500;
 
   @media screen and (min-width: 500px) {
     top: 100px;
@@ -540,8 +543,21 @@ export default {
   }
 
   @media screen and (min-width: 1365px) {
-    top: 110px;
-    font-size: 38px;
+    top: 180px;
+    font-size: 2.8vw;
   }
+
+  @media screen and (min-width: 1920px) {
+    font-size: 55px;
+  }
+}
+
+.retargeting-banner__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .35);
 }
 </style>
