@@ -14,6 +14,12 @@
           </picture>
         </div>
 
+        <p class="retargeting-banner__description">
+          <span> Только сегодня </span>
+          <span> забронируйте свою </span>
+          <span> персональную выгоду </span>
+        </p>
+
         <button class="retargeting-banner__button"
                 v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__special-offers2-banner_', 'Отправить', 1, 'callback')"
         >
@@ -570,6 +576,32 @@ export default {
   @media screen and (min-width: 1365px) {
     top: 110px;
     font-size: 38px;
+  }
+}
+
+.retargeting-banner__description {
+  bottom: 135px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.8em;
+  text-align: center;
+  line-height: 1.1;
+  text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  span {
+    display: inline-block;
+  }
+
+  @media screen and (max-width: 1070px) {
+    bottom: 120px;
+    font-size: 1.2em;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 1em;
+    width: 75%;
   }
 }
 </style>
