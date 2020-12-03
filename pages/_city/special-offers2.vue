@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="main-screen">
-      <Retargeting2Banner />
+      <Retargeting2Banner :offer='offer' />
     </section>
     <div class="container">
       <div id="advantages" class="advantages_wrap retargeting_wrap">
@@ -10,7 +10,7 @@
           <li>
             <div class="advantage">
               <span class="icon"><img src="/images/icons/retargeting/doplata.svg" alt="Брайт Парк: Доплатим 40000 р. при обмене вашего авто"></span>
-              <span class="text">Повысить субсидию<br>при обмене на 40 0000</span>
+              <span class="text">Повысить субсидию<br>при обмене на <br>40 0000</span>
             </div>
           </li>
           <li>
@@ -49,7 +49,12 @@ export default Vue.extend({
   layout: 'without_footer',
   data: function () {
     return {
-      seo: {}
+      seo: {},
+      offer: {
+        img_mobile: "/images/main/mobile/retargeting2_mobile.jpg",
+        img_tablet: "/images/main/tablet/retargeting2_tablet.jpg",
+        img_desktop: "/images/main/desktop/retargeting2_desktop.jpg",
+      }
     }
   },
   async asyncData(context) {
