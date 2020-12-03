@@ -21,10 +21,9 @@
       </div>
     </div>
 
-    <modal name="form-credit-banner" height="auto" :adaptive="true" @before-open="beforeOpen">
+    <modal name="form-credit-banner" height="auto" :adaptive="true" >
       <div class="close" @click="hide"></div>
-      <FormBuy2Component :cities="cities"
-                         :form_title="form_title"
+      <FormBuy2Component :form_title="form_title"
                          :form_id="form_id"
                          :button_text="button_text"
                          :form_type="form_type"
@@ -60,6 +59,9 @@ export default {
       this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
       this.goal = goal;
       this.$modal.show('form-credit-banner');
+    },
+    hide () {
+      this.$modal.hide('form-credit-banner');
     },
   }
 };
