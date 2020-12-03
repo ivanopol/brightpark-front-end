@@ -3,7 +3,7 @@
     <div class="main-screen-wrap" >
       <div class="retargeting-banner">
         <h1 class="title retargeting-banner__heading">
-          LADA в кредит <span style="display: inline-block;">в Брайт Парке</span>
+          LADA<br> <span style="display: inline-block;">в Брайт Парке</span><br> еще выгоднее
         </h1>
         <div class="asset-container">
           <picture>
@@ -15,7 +15,7 @@
         </div>
 
         <button class="retargeting-banner__button">
-          Экспресс-кредит
+          Сохранить выгоду
         </button>
       </div>
     </div>
