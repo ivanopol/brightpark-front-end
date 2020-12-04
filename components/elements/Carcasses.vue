@@ -48,7 +48,7 @@ export default {
   },
   async fetch() {
     const carcasses = await fetch(
-      process.env.apiUrl + `/api/carcasses?model=${this.$route.params.models}`
+      process.env.apiUrl + `/api/carcasses?model=${this.$route.params.models}&city=${this.$store.state.city.value}`
     ).then(res => res.json())
     this.$store.commit('set_model', carcasses[0])
     this.carcasses = carcasses[0]
