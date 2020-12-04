@@ -12,8 +12,8 @@
               <span class="icon"><img src="/images/icons/retargeting/doplata.svg" alt="Брайт Парк: Доплатим 40000 р. при обмене вашего авто"></span>
               <span class="text">Повысить субсидию<br>при обмене на <br>40 0000</span>
 
-              <button type="button" class="advantage__button"
-                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-advantages_', 'Отправить', 1, 'callback')"
+              <button type="button" :id="$store.state._page + '__advantages-increase-subsidy__save-benefit'" class="advantage__button event"
+                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-advantages-increase-subsidy_', 'Отправить', 1, 'callback')"
               >
                 Сохранить выгоду
               </button>
@@ -23,8 +23,8 @@
             <div class="advantage">
               <span class="icon"><img src="/images/icons/retargeting/stavka.svg" alt="Брайт Парк: Ставка по кредиту от 3,5%"></span>
               <span class="text">Снизить % ставку<br> при кредите</span>
-              <button type="button" class="advantage__button"
-                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-advantages_', 'Отправить', 1, 'callback')"
+              <button type="button" :id="$store.state._page + '__advantages-reduce-rate__save-benefit'" class="advantage__button event"
+                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-advantages-reduce-rate_', 'Отправить', 1, 'callback')"
               >
                 Сохранить выгоду
               </button>
@@ -34,8 +34,8 @@
             <div class="advantage">
               <span class="icon"><img src="/images/icons/retargeting/pervonchalnyj_vznos.svg" alt="Брайт Парк: 0% первоначальный взнос"></span>
               <span class="text">Увеличить выгоду при покупке с 10% до 13%</span>
-              <button type="button" class="advantage__button"
-                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-advantages_', 'Отправить', 1, 'callback')"
+              <button type="button" :id="$store.state._page + '__advantages-increase-benefit__save-benefit'" class="advantage__button event"
+                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-advantages-increase-benefit_', 'Отправить', 1, 'callback')"
               >
                 Сохранить выгоду
               </button>
@@ -47,7 +47,7 @@
       <FormRetarget :form_id="$store.state._page + '__leave-request-now_'"
                     :button_text="'Получить лучшие условия'"
                     :form_title="'<span class=\'c_orange\'>Оставьте</span> заявку сейчас'"
-                    :goal="'specialoffer'" />
+                    :goal="'specialoffer2'" />
       <HookRetarget />
     </div>
     <nuxt-child/>
