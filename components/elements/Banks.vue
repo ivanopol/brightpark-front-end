@@ -4,40 +4,40 @@
             <h2>Банки-Партнеры</h2>
             <ul>
                 <li>
-                    <img loading=lazy id="main__banks__ph-bank" class="event" src="~static/images/main/banks/ph-bank.png" alt="PH Банк"
-                    v-on:click.prevent="show('Узнать про кредит', 'main__modal-banks-ph-bank_', 'Отправить', 1, 'credit')">
+                    <img loading=lazy :id="$store.state._page + '__banks__ph-bank'" class="event" src="~static/images/main/banks/ph-bank.png" alt="PH Банк"
+                    v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-ph-bank_', 'Отправить', 1, 'credit')">
                 </li>
                 <li>
-                    <img loading=lazy id="main__banks__vtb" class="event" src="~static/images/main/banks/vtb.png" alt="ВТБ"
-                    v-on:click.prevent="show('Узнать про кредит', 'main__modal-banks-vtb_', 'Отправить', 1, 'credit')">
+                    <img loading=lazy :id="$store.state._page + '__banks__vtb'" class="event" src="~static/images/main/banks/vtb.png" alt="ВТБ"
+                    v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-vtb_', 'Отправить', 1, 'credit')">
                 </li>
                 <li>
-                    <img loading=lazy id="main__banks__setelem" class="event" src="~static/images/main/banks/setelem.png" alt="Сетелем"
-                    v-on:click.prevent="show('Узнать про кредит', 'main__modal-banks-setelem_', 'Отправить', 1, 'credit')">
+                    <img loading=lazy :id="$store.state._page + '__banks__setelem'" class="event" src="~static/images/main/banks/setelem.png" alt="Сетелем"
+                    v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-setelem_', 'Отправить', 1, 'credit')">
                 </li>
                 <li>
-                    <img loading=lazy id="main__banks__sovkombank" class="event" src="~static/images/main/banks/sovkom-bank.png" alt="СовкомБанк"
-                    v-on:click.prevent="show('Узнать про кредит', 'main__modal-banks-sovkombank_', 'Отправить', 1, 'credit')">
+                    <img loading=lazy :id="$store.state._page + '__banks__sovkombank'" class="event" src="~static/images/main/banks/sovkom-bank.png" alt="СовкомБанк"
+                    v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-sovkombank_', 'Отправить', 1, 'credit')">
                 </li>
                 <li>
-                    <img loading=lazy id="main__banks__uralsib" class="event" src="~static/images/main/banks/uralsib.png" alt="УРАЛСИБ"
-                    v-on:click.prevent="show('Узнать про кредит', 'main__modal-banks-uralsib_', 'Отправить', 1, goal)">
+                    <img loading=lazy :id="$store.state._page + '__banks__uralsib'" class="event" src="~static/images/main/banks/uralsib.png" alt="УРАЛСИБ"
+                    v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-uralsib_', 'Отправить', 1, goal)">
                 </li>
                 <li>
-                    <img loading=lazy id="main__banks__rusfinance" class="event" src="~static/images/main/banks/rusfinance.png" alt="РУСФИНАНС БАНК"
-                    v-on:click.prevent="show('Узнать про кредит', 'main__modal-banks-rusfinance_', 'Отправить', 1, goal)">
+                    <img loading=lazy :id="$store.state._page + '__banks__rusfinance'" class="event" src="~static/images/main/banks/rusfinance.png" alt="РУСФИНАНС БАНК"
+                    v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-rusfinance_', 'Отправить', 1, goal)">
                 </li>
                 <li>
-                    <img loading=lazy id="main__banks__rosgosstrakh" class="event" src="~static/images/main/banks/rosgosstrakh.png" alt="Росгосстрах Банк"
-                    v-on:click.prevent="show('Узнать про кредит', 'main__modal-banks-rosgosstrakh_', 'Отправить', 1, goal)">
+                    <img loading=lazy :id="$store.state._page + '__banks__rosgosstrakh'" class="event" src="~static/images/main/banks/rosgosstrakh.png" alt="Росгосстрах Банк"
+                    v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-rosgosstrakh_', 'Отправить', 1, goal)">
                 </li>
                 <li>
-                    <img loading=lazy id="main__banks__tinkoff" class="event" src="~static/images/main/banks/tinkoff.png" alt="Тинькофф"
-                    v-on:click.prevent="show('Узнать про кредит', 'main__modal-banks-tinkoff_', 'Отправить', 1, goal)">
+                    <img loading=lazy :id="$store.state._page + '__banks__tinkoff'" class="event" src="~static/images/main/banks/tinkoff.png" alt="Тинькофф"
+                    v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-tinkoff_', 'Отправить', 1, goal)">
                 </li>
             </ul>
         </section>
-        <modal name="form-callback4" height="auto" :adaptive="true">
+        <modal name="form-credit-banks" height="auto" :adaptive="true">
             <div :id="form_id + '_close'" class="close event" @click="hide"></div>
             <FormBuy2Component   :form_title="form_title"
                                  :form_id="form_id"
@@ -70,13 +70,13 @@
                 this.button_text = button_text;
                 this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
                 this.goal = goal;
-                this.$modal.show('form-callback4');
+                this.$modal.show('form-credit-banks');
 /*                () => {
                     callibriInit();
                 }*/
             },
             hide () {
-                this.$modal.hide('form-callback4');
+                this.$modal.hide('form-credit-banks');
             },
         },
         created () {

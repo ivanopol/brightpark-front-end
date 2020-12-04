@@ -15,7 +15,7 @@
           </picture>
         </div>
 
-        <button class="retargeting-banner__button" v-on:click.prevent="show('Экспресс кредит', $store.state._page + '__modal-banner_', 'Отправить', 1, 'callback')">
+        <button :id="$store.state._page + '__banner__express-credit'" class="retargeting-banner__button" v-on:click.prevent="show('Экспресс кредит', $store.state._page + '__modal-banner_', 'Отправить', 1, 'callback')">
           Экспресс-кредит
         </button>
       </div>
