@@ -346,7 +346,7 @@
           if (!this.car_model && !this.car_type && !this.car_attrs) {
 
             const data = await fetch(
-              process.env.apiUrl + `/api/get_cars_list`
+              process.env.apiUrl + `/api/get_cars_list?city=` + $store.state.city.value
             ).then(res => res.json())
 
             if (data.status === 'OK') {
@@ -357,7 +357,7 @@
             }
           } else if (this.car_attrs) {
             this.surcharge = this.car_attrs.special_price
-            this.car_price = this.car_attrs.price
+            this.car_price = this.car_attrs.special_price
           } else {
             this.surcharge = 0;
             this.car_price = 0;
