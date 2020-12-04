@@ -13,7 +13,7 @@
               <span class="text">Повысить субсидию<br>при обмене на <br>40 0000</span>
 
               <button type="button" class="advantage__button"
-                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__special-offers2-advantages_', 'Отправить', 1, 'callback')"
+                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-advantages_', 'Отправить', 1, 'callback')"
               >
                 Сохранить выгоду
               </button>
@@ -24,7 +24,7 @@
               <span class="icon"><img src="/images/icons/retargeting/stavka.svg" alt="Брайт Парк: Ставка по кредиту от 3,5%"></span>
               <span class="text">Снизить % ставку<br> при кредите</span>
               <button type="button" class="advantage__button"
-                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__special-offers2-advantages_', 'Отправить', 1, 'callback')"
+                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-advantages_', 'Отправить', 1, 'callback')"
               >
                 Сохранить выгоду
               </button>
@@ -35,7 +35,7 @@
               <span class="icon"><img src="/images/icons/retargeting/pervonchalnyj_vznos.svg" alt="Брайт Парк: 0% первоначальный взнос"></span>
               <span class="text">Увеличить выгоду при покупке с 10% до 13%</span>
               <button type="button" class="advantage__button"
-                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__special-offers2-advantages_', 'Отправить', 1, 'callback')"
+                      v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-advantages_', 'Отправить', 1, 'callback')"
               >
                 Сохранить выгоду
               </button>
@@ -102,7 +102,7 @@ export default Vue.extend({
   },
 
   async asyncData(context) {
-    context.store.commit('set_page', 'retargeting')
+    context.store.commit('set_page', 'retargeting2')
     context.store.commit('set_bg', '')
     context.store.commit('show_footer', false)
 

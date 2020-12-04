@@ -20,8 +20,9 @@
           <span> персональную выгоду </span>
         </p>
 
-        <button class="retargeting-banner__button"
-                v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__special-offers2-banner_', 'Отправить', 1, 'callback')"
+        <button :id="$store.state._page + '__banner__save-benefits'"
+                class="retargeting-banner__button event"
+                v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-banner_', 'Отправить', 1, 'callback')"
         >
           Сохранить выгоду
         </button>
