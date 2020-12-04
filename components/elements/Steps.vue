@@ -346,7 +346,7 @@
           if (!this.car_model && !this.car_type && !this.car_attrs) {
 
             const data = await fetch(
-              process.env.apiUrl + `/api/get_cars_list?city=` + $store.state.city.value
+              process.env.apiUrl + `/api/get_cars_list?city=` + this.$store.state.city.value
             ).then(res => res.json())
 
             if (data.status === 'OK') {
