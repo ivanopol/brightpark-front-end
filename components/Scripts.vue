@@ -33,6 +33,7 @@ export default {
 
       if (this.isProduction) {
         this.calltouchCity(this.$store.state.city.scripts.calltouch, tag_body)
+        this.yaMetrika(tag_body)
       }
 
       setTimeout(() => {
@@ -43,7 +44,7 @@ export default {
             this.ruTarget(tag_body)
           }
 
-          this.yaMetrika(tag_body)
+
           this.googleAnalytics(tag_body)
           this.jivosite(tag_body)
           //this.yClients(tag_body)
