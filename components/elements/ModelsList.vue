@@ -5,7 +5,7 @@
       <ul>
         <li v-for="model in models" :key="model.id">
           <nuxt-link :to="'/' + $store.state.city.value + '/' + model.slug + '/' + model.types_preview[0].slug"
-                     :id="'main__models__' + model.slug"
+                     :id="$store.state._page + '__models__' + model.slug"
                      class="event">
               <div class="img_wrap">
                   <img loading=lazy :src="model.preview" :alt="model.title">

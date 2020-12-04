@@ -2,22 +2,22 @@
   <section class="buttons-block container">
     <ul class="buttons-block-list">
       <li>
-        <nuxt-link id="main__image-buttons__profitable-credit" :to="'/' + $store.state.city.value + '/credit'" class="event">
+        <nuxt-link :id="$store.state._page + '__image-buttons__profitable-credit'" :to="'/' + $store.state.city.value + '/credit'" class="event">
           <img loading=lazy class="buttons-block-list-maintenance bubble" src="~static/images/main/buttons_block/profitable_credit.png" alt="Брайт Парк: выгодный кредит"/>
         </nuxt-link>
       </li>
       <li>
-        <img loading=lazy id="main__image-buttons__exchange" class="buttons-block-list-exchange event" src="~static/images/main/buttons_block/exchange.png" alt="Брайт Парк: обмен"
-             v-on:click.prevent="show('Узнать про обмен', 'main__modal-image-buttons-exchange_', 'Отправить', 1, 'obmen')"/>
+        <img loading=lazy :id="$store.state._page + '__image-buttons__exchange'" class="buttons-block-list-exchange event" src="~static/images/main/buttons_block/exchange.png" alt="Брайт Парк: обмен"
+             v-on:click.prevent="show('Узнать про обмен', $store.state._page + '__modal-image-buttons-exchange_', 'Отправить', 1, 'obmen')"/>
       </li>
       <li>
-        <nuxt-link id="main__image-buttons__service" :to="'/' + $store.state.city.value + '/service'" class="event">
+        <nuxt-link :id="$store.state._page + '__image-buttons__service'" :to="'/' + $store.state.city.value + '/service'" class="event">
           <img loading=lazy class="buttons-block-list-maintenance bubble" src="~static/images/main/buttons_block/maintenance.png" alt="Брайт Парк: техническое обслуживание"/>
         </nuxt-link>
       </li>
       <li>
-        <img loading=lazy id="main__image-buttons__test-drive" class="buttons-block-list-test-drive event" src="~static/images/main/buttons_block/test_drive.png" alt="Брайт Парк: тест-драйв"
-             v-on:click.prevent="show('Записаться на тест-драйв', 'main__modal-image-buttons-test-drive_', 'Записаться', 1, 'test_drive')"/>
+        <img loading=lazy :id="$store.state._page + '__image-buttons__test-drive'" class="buttons-block-list-test-drive event" src="~static/images/main/buttons_block/test_drive.png" alt="Брайт Парк: тест-драйв"
+             v-on:click.prevent="show('Записаться на тест-драйв', $store.state._page + '__modal-image-buttons-test-drive_', 'Записаться', 1, 'test_drive')"/>
       </li>
     </ul>
 
