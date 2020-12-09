@@ -194,16 +194,13 @@ export default {
         '            accurateTrackBounce:true,\n' +
         '            webvisor:true\n' +
         '        });'
-      var ya_no_script = document.createElement("noscript")
-      var ya_div = document.createElement("div")
-      var ya_img = document.createElement("img")
-      ya_img.src = "https://mc.yandex.ru/watch/54496129"
-      ya_img.style = "position:absolute; left:-9999px;"
-      ya_div.appendChild(ya_img)
-      ya_no_script.appendChild(ya_div)
+
+      var ya_metrika_noscript = document.createElement('noscript')
+      ya_metrika_noscript.className = 'loading_scripts'
+      ya_metrika_noscript.innerHTML = '<div><img src="https://mc.yandex.ru/watch/54496129" style="position:absolute; left:-9999px;" alt="" /></div>'
 
       tag_body.appendChild(ya_metrika)
-      tag_body.appendChild(ya_no_script)
+      tag_body.appendChild(ya_metrika_noscript)
     },
     jivosite(tag_body) {
       var jivosite = document.createElement("script")
