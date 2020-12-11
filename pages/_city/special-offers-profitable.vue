@@ -5,12 +5,12 @@
     </section>
     <div class="container">
       <div id="advantages" class="advantages_wrap retargeting_wrap">
-        <h1><span class="c_orange">Преимущества</span> покупки сейчас</h1>
+        <h1><span class="c_orange">Ваша</span> персональная выгода</h1>
         <ul>
           <li>
             <div class="advantage">
               <span class="icon"><img src="/images/icons/retargeting/doplata.svg" alt="Брайт Парк: Повысить субсидию при обмене на 40 000 рублей"></span>
-              <span class="text">Повысить субсидию<br>при обмене на <br>40 0000</span>
+              <span class="text">Повысить субсидию<br>при обмене на <br>40&nbsp;000&nbsp;&#8381;</span>
 
               <button type="button" :id="$store.state._page + '__advantages-increase-subsidy__save-benefit'" class="advantage__button event"
                       v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-advantages-increase-subsidy_', 'Отправить', 1, 'callback')"

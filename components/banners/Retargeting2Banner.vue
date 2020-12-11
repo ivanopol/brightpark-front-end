@@ -2,9 +2,9 @@
   <section>
     <div class="main-screen-wrap" >
       <div class="retargeting-banner">
-        <h1 class="title retargeting-banner__heading">
+        <p class="title retargeting-banner__heading">
           LADA в Брайт Парке <span style="display: inline-block;">еще выгоднее</span>
-        </h1>
+        </p>
         <div class="asset-container">
           <picture>
             <source :srcset="offer.img_mobile + ', ' + offer.img_mobile + ' 2x'" media="(max-width: 580px)">
@@ -564,8 +564,14 @@ export default {
   left: 50%;
   transform: translate(-50%, 0);
   color: white;
-  text-transform: none;
   width: 100%;
+  text-align: center;
+  font-family: PragmaticaLightCBold,Helvetica,sans-serif;
+  font-size: 30px;
+  line-height: 1.1;
+  text-transform: none;
+  margin-bottom: 30px;
+  font-weight: 700;
 
   @media screen and (min-width: 500px) {
     top: 100px;
