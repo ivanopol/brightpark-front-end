@@ -48,5 +48,6 @@ export const mutations = {
   set_month(state, month) {
     state._month.nominative = month.nominative
     state._month.accusative = month.accusative
+    state._month.prepositional = month.prepositional
   }
 }
