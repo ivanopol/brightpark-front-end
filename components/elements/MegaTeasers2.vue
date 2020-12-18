@@ -11,7 +11,7 @@
       </li>
       <li>
         <img loading=lazy :id="$store.state._page + '__image-buttons__special-offer'" class="buttons-block-list-special-offer event" src="~static/images/main/buttons_block/special_offer.png" alt="Брайт Парк: Получить специальное предложение"
-             v-on:click.prevent="show('Получить специальное предложение', 'с&nbsp;максимальной выгодой в&nbsp;ноябре', 'main__modal-image-buttons-special-offer_', 'Отправить', 1, 'special_offer')"/>
+             v-on:click.prevent="show('Получить специальное предложение', 'с&nbsp;максимальной выгодой в&nbsp;' + $store.state._month.prepositional, 'main__modal-image-buttons-special-offer_', 'Отправить', 1, 'special_offer')"/>
       </li>
       <li>
         <img loading=lazy :id="$store.state._page + '__image-buttons__test-drive'" class="buttons-block-list-test-drive event" src="~static/images/main/buttons_block/test_drive.png" alt="Брайт Парк: тест-драйв"
