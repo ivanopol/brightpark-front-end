@@ -121,6 +121,7 @@ export default {
       }],
       "@nuxtjs/style-resources",
       "@nuxtjs/axios",
+      "vue-scrollto/nuxt",
   ],
   serverMiddleware: [
     //'~/serverMiddleware/redirects.js'

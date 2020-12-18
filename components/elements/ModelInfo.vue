@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="model-info">
     <section class="block-info container" >
       <div class="block-info-text">
               <span class="block-info-text-title">
