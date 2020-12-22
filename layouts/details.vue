@@ -11,6 +11,7 @@
       <ScrollEvents />
       <ButtonEvents />
     </client-only>
+    <Snow />
   </div>
 </template>
 

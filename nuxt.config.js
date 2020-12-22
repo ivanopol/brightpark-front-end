@@ -1,6 +1,10 @@
 const isDev = process.env.NODE_ENV !== 'production'
 
 export default {
+  /**
+   *  Включение/выключение снега
+   */
+  snow: false,
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
