@@ -84,7 +84,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold dark title-uppercase">ГОСПРОГРАММА БРАЙТ ПАРКА:<br> <span class="title-bold">СКИДКА 10% ВСЕМ!</span></p>
+          <p class="title-tagline bold dark title-uppercase">ПРОГРАММА БРАЙТ ПАРКА:<br> <span class="title-bold">СКИДКА 10% ВСЕМ!</span></p>
           <div class="item-buttons">
             <nuxt-link :to="$store.state.city.value + '/stocks/gosprogramma-brajt-parka-skidka-10-vsem'" id="main__slider__gosprogramma-brajt-parka-skidka-10-vsem-details" class="btn btn-primary event">Условия акции</nuxt-link>
           </div>
