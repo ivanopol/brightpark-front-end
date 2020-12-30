@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-      <Plate v-if="n===1" :text="'В&nbsp;наличии все комплектации LADA&nbsp;' + $store.state.car.model_full + '! Успевайте забронировать с&nbsp;максимальной выгодой ' + $store.state._month.accusative"/>
+      <Plate v-if="n===1" :text="'В&nbsp;наличии все комплектации LADA&nbsp;' + $store.state.car.model_full + '! Узнайте цены и выгоды января по телефону: <span itemprop=\'telephone\' class=\'block callibri_tel\'>' + $store.state.city.phone_format + '</span>'"/>
     </section>
     <form-buy-component v-if="n === 1"
                         :form_id="'model__learn-about-details_'"
