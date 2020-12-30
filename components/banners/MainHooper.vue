@@ -2,6 +2,23 @@
   <section>
     <hooper class="main-screen-wrap" :autoPlay="true" :playSpeed="6000" :wheelControl="false" :transition="600" :infiniteScroll="true">
 
+      <slide class="even">
+        <div class="asset-container">
+          <picture>
+            <source srcset="~static/images/main/mobile/black-friday.jpg, ~static/images/main/mobile/black-friday.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/black-friday.jpg, ~static/images/main/tablet/black-friday.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/black-friday.jpg, ~static/images/main/desktop/black-friday.jpg 2x" media="(min-width: 1366px)">
+            <img class="asset-image" src="~static/images/main/mobile/black-friday.jpg" srcset="~static/images/main/mobile/black-friday.jpg, ~static/images/main/mobile/black-friday.jpg 2x" alt="Акция Брайт Парк: скидки на мксимум черная пятница" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold title-uppercase"><span class="action-bold title-bold">Предложение года</span> в брайт парке</p>
+          <div class="item-buttons">
+            <a :href="$store.state.city.value + '/stocks/predlozhenie-goda-v-brayt-parke'" id="main__slider__black-friday" class="btn btn-primary event">Условия акции</a>
+          </div>
+        </div>
+
+      </slide>
       <slide class="odd">
         <div class="asset-container">
           <picture>
@@ -40,23 +57,6 @@
       <slide class="even">
         <div class="asset-container">
           <picture>
-            <source srcset="~static/images/main/mobile/black-friday.jpg, ~static/images/main/mobile/black-friday.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/black-friday.jpg, ~static/images/main/tablet/black-friday.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/black-friday.jpg, ~static/images/main/desktop/black-friday.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/black-friday.jpg" srcset="~static/images/main/mobile/black-friday.jpg, ~static/images/main/mobile/black-friday.jpg 2x" alt="Акция Брайт Парк: скидки на мксимум черная пятница" />
-          </picture>
-        </div>
-        <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="action-bold title-bold">Скидки на максимум</span> черная пятница</p>
-          <div class="item-buttons">
-            <a :href="$store.state.city.value + '/stocks/black-friday'" id="main__slider__black-friday" class="btn btn-primary event">Условия акции</a>
-          </div>
-        </div>
-      </slide>
-
-      <slide class="even">
-        <div class="asset-container">
-          <picture>
             <source srcset="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/tablet/zolotaya-osenv-brajt-parke.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/desktop/zolotaya-osenv-brajt-parke.jpg 2x" media="(min-width: 1366px)">
@@ -84,7 +84,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold dark title-uppercase">ГОСПРОГРАММА БРАЙТ ПАРКА:<br> <span class="title-bold">СКИДКА 10% ВСЕМ!</span></p>
+          <p class="title-tagline bold dark title-uppercase">ПРОГРАММА БРАЙТ ПАРКА:<br> <span class="title-bold">СКИДКА 10% ВСЕМ!</span></p>
           <div class="item-buttons">
             <nuxt-link :to="$store.state.city.value + '/stocks/gosprogramma-brajt-parka-skidka-10-vsem'" id="main__slider__gosprogramma-brajt-parka-skidka-10-vsem-details" class="btn btn-primary event">Условия акции</nuxt-link>
           </div>
