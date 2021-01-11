@@ -3,7 +3,7 @@
     <section class="main-screen">
       <MainHooper></MainHooper>
     </section>
-    <plate :bold='true' :text="'Режим работы: 31 декабря: до 14:00, 1 января выходной, в обычные дни: с ' + $store.state.city.opening_hours.hours_split.from + ' до ' + $store.state.city.opening_hours.hours_split.to " />
+    <plate :bold='true' :text="'В Брайт парке специальные цены на LADA — каждый день! Узнайте подробности по телефону: <a href=\'tel:' + $store.state.city.phone + '\' class=\'callibri_tel event\'>' + $store.state.city.phone_format + '</a>'" />
 
     <ModelsList/>
     <MegaTeasers/>

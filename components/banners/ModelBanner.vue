@@ -31,7 +31,7 @@
         </span>
       </div>
     </div>
-    <plate :text="'Обменяем ваш авто на&nbsp;новую LADA без доплаты, подробности<span class=\'show_desktop\'> по телефону</span>: <a href=\'tel:' + $store.state.city.phone + '\' class=\'callibri_tel event\'>' + $store.state.city.phone_format + '</a>'"
+    <plate :text="'В&nbsp;Брайт парке специальные цены на&nbsp;LADA&nbsp;&mdash; каждый день! Узнайте подробности<span class=\'show_desktop\'> по&nbsp;телефону</span>: <a href=\'tel:' + $store.state.city.phone + '\' class=\'callibri_tel event\'>' + $store.state.city.phone_format + '</a>'"
            :bold='true'
     ></plate>
   </div>
