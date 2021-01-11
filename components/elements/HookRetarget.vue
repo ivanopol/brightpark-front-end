@@ -5,7 +5,7 @@
                 <div class="retarget-warning-icon">
                     <img loading=lazy src="/images/icons/icon-warning.svg" :alt="'Автомобили сильно подорожают до конца ' + nextYear + ' года'">
                 </div>
-                <div class="retarget-warning-title">Автомобили сильно подорожают до конца {{nextYear}} года</div>
+                <div class="retarget-warning-title">Автомобили сильно подорожают в {{nextYear}} года</div>
             </div>
             <div class="retarget-warning-body">
                 <div class="retarget-warning-row">В {{nextYear}} году эксперты ожидают рост цен на автомобили на&nbsp;7-8%</div>
