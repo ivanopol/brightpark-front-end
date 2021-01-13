@@ -78,6 +78,9 @@ export default Vue.extend({
       "image": this.seo.images,
     }
   },
+  mounted() {
+    console.log('referrer: \'' + document.referrer + '\'')
+  },
 })
 </script>
 
