@@ -28,8 +28,9 @@ export default {
       link: [{ rel: 'canonical', href: canonical }]
     }
   },
-  created() {
-  }
+  mounted() {
+    console.log('referrer: \'' + document.referrer + '\'')
+  },
 }
 </script>
 
