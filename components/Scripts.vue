@@ -34,6 +34,7 @@ export default {
       if (this.isProduction) {
         this.calltouchCity(this.$store.state.city.scripts.calltouch, tag_body)
         this.yaMetrika(tag_body)
+        this.roiStat(tag_body)
       }
 
       setTimeout(() => {
@@ -46,7 +47,6 @@ export default {
 
           this.googleAnalytics(tag_body)
           this.jivosite(tag_body)
-          this.roiStat(tag_body)
           //this.yClients(tag_body)
           this.appendCityScripts(this.$store.state.city.scripts, tag_body)
         }
