@@ -15,7 +15,7 @@ export default async ({ req, route }) => {
     yclid: '',
   }
 
-  function filInUtm() {
+  function fillInUtm () {
     for (let key in utm) {
       if (route.query.hasOwnProperty(key)) {
         utm[key] = route.query[key]
@@ -23,12 +23,29 @@ export default async ({ req, route }) => {
     }
   }
 
-  function handleReferrer(referrer) {
+  function verifyUrl (url) {
+    let organic_domains_list = [
+      'https://yandex.ru/',
+      'https://www.google.com/',
+      'https://go.mail.ru/',
+      'https://www.bing.com/',
+      'https://nova.rambler.ru/search',
+    ]
 
+    let url_parts = url.split('?')
+    url = url_parts[0]
+
+    return organic_domains_list.includes(url)
+  }
+
+  function getOrganicSource(url) {
+    let url_parts = url.split('//')
+    let url_tmp = url_parts[1].split('/')
+    return url_tmp[0].replace(/nova\.|go\.|www\.|\.ru|\.com/g, '')
   }
 
   if (route_has_utm) {
-    filInUtm()
+    fillInUtm()
   } else {
     if (!referrer) {
       utm.utm_medium = '(none)'
@@ -40,17 +57,27 @@ export default async ({ req, route }) => {
       utm.source = '(none)'
       utm.yclid = '(none)'
     } else if (referrer) {
-      /*      referrer: 'https://yandex.ru/'
-            referrer: 'https://www.google.com/'
-            referrer: 'https://go.mail.ru/'
-            referrer: 'https://www.bing.com/'
-            referrer: 'https://nova.rambler.ru/search'*/
+      let is_organic = verifyUrl(referrer)
 
-      /*
-      ?utm_medium=cpc&utm_source=yandex&utm_campaign=PRM__Poisk__Vesta__NEW%7C57675684&utm_content=dynamics%7Cgid%7C4403639191&utm_term=aid%7C10025877640.24231883151%7CЛаде%20Веста%20Купить%7Cnone.dvc%7Cdesktop.Пермь.&block=%7Cpos%7Cpremium.3&source=%7Csrc%7Csearch.none&yclid=18254561133121790562
-      */
+      if (is_organic) {
+        utm.utm_medium = 'organic'
+        utm.utm_source = getOrganicSource(referrer)
+        utm.utm_campaign = '(none)'
+        utm.utm_content = 'organic'
+        utm.utm_term = '(none)'
+        utm.block = '(none)'
+        utm.source = '(none)'
+        utm.yclid = '(none)'
+      } else {
+        utm.utm_medium = 'referral'
+        utm.utm_source = referrer
+        utm.utm_campaign = '(none)'
+        utm.utm_content = 'referral'
+        utm.utm_term = '(none)'
+        utm.block = '(none)'
+        utm.source = '(none)'
+        utm.yclid = '(none)'
+      }
     }
   }
-
-  console.log(utm)
 }
