@@ -3,6 +3,14 @@ export default async ({ req, route }) => {
   const ip = isReq ? req.connection.remoteAddress || req.socket.remoteAddress : ''
   const referrer = isReq ? req.headers.referer : ''
   const route_has_utm = !!Object.keys(route.query).length;
+  const excludes = [
+    'localhost',
+    'brightpark.ru',
+  ]
+  const servicesRegExp = new RegExp(excludes.join('|'), 'i');
+
+  console.log('test')
+  console.log(servicesRegExp.test(referrer))
 
   let utm = {
     utm_medium: '',
