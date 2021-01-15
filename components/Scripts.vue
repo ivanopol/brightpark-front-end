@@ -44,9 +44,9 @@ export default {
             this.ruTarget(tag_body)
           }
 
-
           this.googleAnalytics(tag_body)
           this.jivosite(tag_body)
+          this.roiStat(tag_body)
           //this.yClients(tag_body)
           this.appendCityScripts(this.$store.state.city.scripts, tag_body)
         }
@@ -214,6 +214,17 @@ export default {
         '        }'
       tag_body.appendChild(jivosite)
       tag_body.appendChild(jivosite_custom)
+    },
+    roiStat(tag_body) {
+      var roiStat = document.createElement("script")
+      roiStat.className = 'loading_scripts'
+      roiStat.innerHTML = '(function(w, d, s, h, id) {\n' +
+        '    w.roistatProjectId = id; w.roistatHost = h;\n' +
+        '    var p = d.location.protocol == "https:" ? "https://" : "http://";\n' +
+        '    var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);\n' +
+        '    var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);\n' +
+        '})(window, document, \'script\', \'cloud.roistat.com\', \'1b4950a1a14d1899c2e2a4c9bb8ea4d0\');'
+      tag_body.appendChild(roiStat)
     },
     googleAnalytics(tag_body) {
       var gtag = document.createElement("script")
