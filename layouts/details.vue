@@ -31,6 +31,11 @@ export default {
   mounted() {
     console.log('referrer: \'' + document.referrer + '\'')
   },
+  watch: {
+    $route () {
+      console.log('route changed', this.$route)
+    }
+  },
 }
 </script>
 

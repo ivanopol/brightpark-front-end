@@ -1,7 +1,7 @@
-export default async ({ req, route }) => {
-  const isReq = typeof req !== 'undefined'
+export default async ({ app, req, route }) => {
+  const isReq = req !== 'undefined'
   const ip = isReq ? req.connection.remoteAddress || req.socket.remoteAddress : ''
-  const referrer = isReq ? req.headers.referer : ''
+  const referrer = req.headers.referer !== 'undefined' ? req.headers.referer : ''
   const route_has_utm = !!Object.keys(route.query).length;
   const excludes = [
     'localhost',
@@ -9,10 +9,7 @@ export default async ({ req, route }) => {
   ]
   const servicesRegExp = new RegExp(excludes.join('|'), 'i');
 
-  console.log('test')
-  console.log(servicesRegExp.test(referrer))
-
-  let utm = {
+  let utmObj = {
     utm_medium: '',
     utm_source: '',
     utm_campaign: '',
@@ -22,6 +19,17 @@ export default async ({ req, route }) => {
     source: '',
     yclid: '',
   }
+
+
+/*  if (servicesRegExp.test(referrer))  {
+    return false
+  }*/
+/*  console.log(isReq)
+  console.log(req.connection.remoteAddress)
+  console.log(referrer)
+  console.log(servicesRegExp.test(referrer))
+  console.log(createUtm(utmObj))*/
+
 
   function fillInUtm () {
     for (let key in utm) {
@@ -52,40 +60,46 @@ export default async ({ req, route }) => {
     return url_tmp[0].replace(/nova\.|go\.|www\.|\.ru|\.com/g, '')
   }
 
-  if (route_has_utm) {
-    fillInUtm()
-  } else {
-    if (!referrer) {
-      utm.utm_medium = '(none)'
-      utm.utm_source = '(direct)'
-      utm.utm_campaign = '(none)'
-      utm.utm_content = 'typein'
-      utm.utm_term = '(none)'
-      utm.block = '(none)'
-      utm.source = '(none)'
-      utm.yclid = '(none)'
-    } else if (referrer) {
-      let is_organic = verifyUrl(referrer)
+  function createUtm(utm) {
+    if (route_has_utm) {
+      fillInUtm()
+    } else {
+      if (!referrer) {
+        utm.utm_medium = '(none)'
+        utm.utm_source = '(direct)'
+        utm.utm_campaign = '(none)'
+        utm.utm_content = 'typein'
+        utm.utm_term = '(none)'
+        utm.block = '(none)'
+        utm.source = '(none)'
+        utm.yclid = '(none)'
+      } else if (referrer) {
+        let is_organic = verifyUrl(referrer)
 
-      if (is_organic) {
-        utm.utm_medium = 'organic'
-        utm.utm_source = getOrganicSource(referrer)
-        utm.utm_campaign = '(none)'
-        utm.utm_content = 'organic'
-        utm.utm_term = '(none)'
-        utm.block = '(none)'
-        utm.source = '(none)'
-        utm.yclid = '(none)'
-      } else {
-        utm.utm_medium = 'referral'
-        utm.utm_source = referrer
-        utm.utm_campaign = '(none)'
-        utm.utm_content = 'referral'
-        utm.utm_term = '(none)'
-        utm.block = '(none)'
-        utm.source = '(none)'
-        utm.yclid = '(none)'
+        if (is_organic) {
+          utm.utm_medium = 'organic'
+          utm.utm_source = getOrganicSource(referrer)
+          utm.utm_campaign = '(none)'
+          utm.utm_content = 'organic'
+          utm.utm_term = '(none)'
+          utm.block = '(none)'
+          utm.source = '(none)'
+          utm.yclid = '(none)'
+        } else {
+          utm.utm_medium = 'referral'
+          utm.utm_source = referrer
+          utm.utm_campaign = '(none)'
+          utm.utm_content = 'referral'
+          utm.utm_term = '(none)'
+          utm.block = '(none)'
+          utm.source = '(none)'
+          utm.yclid = '(none)'
+        }
       }
     }
+    return utm
   }
+
+
+  //console.log(app.$cookies.getAll())
 }

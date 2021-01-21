@@ -29,7 +29,16 @@ export default {
     }
   },
   mounted() {
-    console.log('referrer: \'' + document.referrer + '\'')
+   // console.log(this.$route)
+   // jivo_init()
+    // console.log('referrer: \'' + document.referrer + '\'')
+  },
+  watch: {
+    $route () {
+      //jivo_init()
+      jivo_onLoadCallback ("test")
+      console.log('route changed', this.$route)
+    }
   },
 }
 </script>
