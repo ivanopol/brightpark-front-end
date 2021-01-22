@@ -1,8 +1,7 @@
 <template>
   <div id="advantages" class="advantages_wrap">
-    <p class="h2-text">Брайт Парк</p>
-    <h1>Брайт Парк&nbsp;&mdash; федеральный дилер LADA. Компания работает в&nbsp;{{$store.state.city.dative}} и&nbsp;ещё 5&nbsp;регионах с&nbsp;2008&nbsp;года.
-      Команда Брайт Парка занимается реализацией автомобилей LADA от&nbsp;завода АвтоВАЗ. Главная задача&nbsp;&mdash; безопасная, быстрая и&nbsp;приятная сделка для клиента.</h1>
+    <h1>Автосалон &laquo;Брайт&nbsp;Парк&raquo;&nbsp;&mdash; официальный&nbsp;дилер LADA</h1>
+    <p class="presentation">В&nbsp;&laquo;Брайт Парк&raquo;&nbsp;&mdash; широкий выбор автомобилей LADA от&nbsp;завода АвтоВАЗ, выгодные цены и&nbsp;все условия для комфортной и&nbsp;быстрой покупки. Компания работает в&nbsp;{{$store.state.city.dative}} и&nbsp;ещё 5&nbsp;регионах с&nbsp;2008&nbsp;года.</p>
     <ul class="clarification">
       <li>
         <div class="advantage">
