@@ -729,6 +729,46 @@ form {
   }
 }
 
+.b-desciption {
+  padding: 0 0 80px;
+  width: 60%;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 32px;
+    font-family: PragmaticaLightCBold, Helvetica, sans-serif;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    text-transform: none;
+  }
+
+  p {
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+
+  @media only screen and (min-width: 581px) and (max-width: 900px) {
+    width: 80%;
+  }
+
+  @media only screen and (max-width: 580px) {
+    padding: 0 30px 60px;
+    width: auto;
+
+    h2 {
+      font-size: 26px;
+    }
+  }
+
+  @media only screen and (max-width: 380px) {
+    h2 {
+      font-size: 22px;
+    }
+  }
+}
+
+
 .block_5 {
   h2 {
     span {
