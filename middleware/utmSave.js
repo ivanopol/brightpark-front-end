@@ -1,7 +1,9 @@
 export default async ({ app, req, route }) => {
-  const isReq = req !== 'undefined'
-  const ip = isReq ? req.connection.remoteAddress || req.socket.remoteAddress : ''
-  const referrer = req.headers.referer !== 'undefined' ? req.headers.referer : ''
+
+  const isReq = typeof req !== "undefined" && req !== null
+  const ip = isReq && req.connection !== 'undefined' ? req.connection.remoteAddress || req.socket.remoteAddress : ''
+  const referrer = isReq && req.headers.referer !== 'undefined' ? req.headers.referer : ''
+
   const route_has_utm = !!Object.keys(route.query).length;
   const excludes = [
     'localhost',
@@ -20,16 +22,9 @@ export default async ({ app, req, route }) => {
     yclid: '',
   }
 
-
-/*  if (servicesRegExp.test(referrer))  {
+  if (servicesRegExp.test(referrer))  {
     return false
-  }*/
-/*  console.log(isReq)
-  console.log(req.connection.remoteAddress)
-  console.log(referrer)
-  console.log(servicesRegExp.test(referrer))
-  console.log(createUtm(utmObj))*/
-
+  }
 
   function fillInUtm () {
     for (let key in utm) {
@@ -100,6 +95,5 @@ export default async ({ app, req, route }) => {
     return utm
   }
 
-
-  //console.log(app.$cookies.getAll())
+  //console.log(createUtm(utmObj))
 }
