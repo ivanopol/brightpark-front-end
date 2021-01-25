@@ -206,7 +206,8 @@ export default {
     jivosite(tag_body) {
       var jivosite = document.createElement("script")
       jivosite.src = "//code.jivosite.com/widget/H95FUE1JmR"
-      jivosite.className = 'loading_scripts jivosite'
+      jivosite.className = 'loading_scripts'
+      jivosite.id = 'jivosite'
       jivosite.async = true
       var jivosite_custom = document.createElement("script")
       jivosite_custom.className = 'loading_scripts'

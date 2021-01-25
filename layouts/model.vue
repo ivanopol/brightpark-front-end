@@ -28,16 +28,13 @@ export default {
       link: [{ rel: 'canonical', href: canonical }]
     }
   },
-  mounted() {
-   // console.log(this.$route)
-   // jivo_init()
-    // console.log('referrer: \'' + document.referrer + '\'')
-  },
   watch: {
     $route () {
-      //jivo_init()
-      jivo_onLoadCallback ("test")
-      console.log('route changed', this.$route)
+      let is_jivo_loaded = !!document.getElementById('jivosite')
+
+      if (is_jivo_loaded) {
+        jivo_init()
+      }
     }
   },
 }
