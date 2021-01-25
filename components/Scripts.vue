@@ -52,6 +52,7 @@ export default {
         }
       }, 2000)
     }
+
   },
   methods: {
     appendCityScripts (id, tag_body) {
@@ -206,6 +207,7 @@ export default {
       var jivosite = document.createElement("script")
       jivosite.src = "//code.jivosite.com/widget/H95FUE1JmR"
       jivosite.className = 'loading_scripts'
+      jivosite.id = 'jivosite'
       jivosite.async = true
       var jivosite_custom = document.createElement("script")
       jivosite_custom.className = 'loading_scripts'
