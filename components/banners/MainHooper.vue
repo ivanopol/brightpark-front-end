@@ -14,7 +14,7 @@
         <div class="product-content">
           <p class="title-tagline bold title-uppercase"><span class="action-bold title-bold">Предложение года</span> в брайт парке</p>
           <div class="item-buttons">
-            <a :href="$store.state.city.value + '/stocks/predlozhenie-goda-v-brayt-parke'" id="main__slider__black-friday" class="btn btn-primary event">Условия акции</a>
+            <nuxt-link :to="$store.state.city.value + '/stocks/predlozhenie-goda-v-brayt-parke'" id="main__slider__black-friday" class="btn btn-primary event">Условия акции</nuxt-link>
           </div>
         </div>
 
