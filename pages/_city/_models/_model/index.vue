@@ -31,7 +31,7 @@
       <Reviews v-if="model.reviews.length !== 0"
                :reviews='model.reviews'
                :model_name="model.model_full"/>
-      <Plate :text="'Выбрали LADA Granta Седан? Тест-драйв лучше отзывов. Познакомьтесь с&nbsp;автомобилем лично!'"/>
+      <Plate :text="'Выбрали LADA ' + model.model_full + '? Тест-драйв лучше отзывов. Познакомьтесь с&nbsp;автомобилем лично!'"/>
       <NextAction />
       <Feedback :model_full="model.model_full" />
     </div>

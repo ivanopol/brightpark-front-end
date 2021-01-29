@@ -1,7 +1,7 @@
 <template>
   <div id="model-info">
     <section class="block-info container" >
-      <div class="block-info-text">
+      <div class="block-info-text" v-if="block.text">
               <span class="block-info-text-title">
                   <h2 v-html="block.price" v-if="n === 0"></h2>
                   <h2 v-html="block.title" v-else></h2>

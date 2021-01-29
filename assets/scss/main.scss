@@ -1780,6 +1780,10 @@ footer {
       background: url(/images/slider/full/4x4/lada_niva.jpg) no-repeat center center;
       background-size: cover;
     }
+    &.niva_travel {
+      background: url(/images/slider/full/niva/travel/lada_niva_travel.jpg) no-repeat center center;
+      background-size: cover;
+    }
 
     &.l4x4_5dv {
       background: url(/images/slider/full/4x4/lada_4x4_5dv.jpg) no-repeat center center;
@@ -1856,6 +1860,10 @@ footer {
 
       &.niva_1 {
         background: linear-gradient(117deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 13%, rgba(0,0,0,0) 44%), url(/images/slider/full/4x4/desktop/lada_niva.jpg) no-repeat 50% -2px;
+        background-size: cover;
+      }
+      &.niva_travel {
+        background: linear-gradient(117deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 13%, rgba(0,0,0,0) 44%), url(/images/slider/full/niva/travel/desktop/lada_niva_travel.jpg) no-repeat 50% -2px;
         background-size: cover;
       }
 
