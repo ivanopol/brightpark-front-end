@@ -16,8 +16,8 @@
      <ColorChoose :colors="model.colors" :model="model.model_slug" :type="model.type_slug" v-if="model.colors.length !== 0"/>
 
       <section class="model-details">
-        <div class="trigger-wrap">
-         <p class="trigger-wrap-text">Осталось <span class="model-count-text">{{count}}</span> {{model.model_full}} по цене лучше, чем на сайте</p>
+        <div class="trigger-wrap" >
+         <p class="trigger-wrap-text" v-if="!this.is_niva">Осталось <span class="model-count-text">{{count}}</span> {{model.model_full}} по цене лучше, чем на сайте</p>
         </div>
         <steps  :car_model='model.model'
                 :car_type='model.type'
@@ -31,7 +31,7 @@
       <Reviews v-if="model.reviews.length !== 0"
                :reviews='model.reviews'
                :model_name="model.model_full"/>
-      <Plate :text="'Выбрали LADA ' + model.model_full + '? Тест-драйв лучше отзывов. Познакомьтесь с&nbsp;автомобилем лично!'"/>
+      <Plate :text="plate"/>
       <NextAction />
       <Feedback :model_full="model.model_full" />
     </div>
@@ -127,7 +127,15 @@ export default Vue.extend({
         breadcrumbs.push({url: this.model.model_slug + '/' + this.model.type_slug, title: this.model.model_full})
       }
       return breadcrumbs
-    }
+    },
+    is_niva: function() {
+      return this.$store.state.car.model_full.toLowerCase() === 'niva travel'
+    },
+    plate: function () {
+      const textDefault = 'Выбрали LADA ' + this.model.model_full + '? Тест-драйв лучше отзывов. Познакомьтесь с&nbsp;автомобилем лично!'
+      const textNiva = ' Узнайте цены и выгоды ' + this.$store.state._month.accusative + ' по телефону: <span itemprop=\'telephone\' class=\'block callibri_tel\'>' + this.$store.state.city.phone_format + '</span>'
+      return this.$store.state.car.model_full.toLowerCase() === 'niva travel' ? textNiva : textDefault
+    },
   },
   methods: {
     getRandomInt: function (min, max) {

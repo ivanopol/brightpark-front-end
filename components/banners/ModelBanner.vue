@@ -31,7 +31,7 @@
         </span>
       </div>
     </div>
-    <plate :text="'В&nbsp;Брайт парке специальные цены на&nbsp;LADA&nbsp;&mdash; каждый день! Узнайте подробности<span class=\'show_desktop\'> по&nbsp;телефону</span>: <a href=\'tel:' + $store.state.city.phone + '\' class=\'callibri_tel event\'>' + $store.state.city.phone_format + '</a>'"
+    <plate :text="plate"
            :bold='true'
     ></plate>
   </div>
@@ -83,6 +83,13 @@ export default {
     Hooper,
     Slide,
     HooperPagination
+  },
+  computed: {
+    plate: function() {
+      const textDefault = 'В&nbsp;Брайт парке специальные цены на&nbsp;LADA&nbsp;&mdash; каждый день! Узнайте подробности<span class=\'show_desktop\'> по&nbsp;телефону</span>: <a href=\'tel:' + this.$store.state.city.phone + '\' class=\'callibri_tel event\'>' + this.$store.state.city.phone_format + '</a>'
+      const textNiva = 'Старт продаж&nbsp;&mdash; 9&nbsp;февраля! Узнайте подробности по&nbsp;телефону: <span itemprop=\'telephone\' class=\'block callibri_tel\'>' + this.$store.state.city.phone_format + '</span>'
+      return this.$store.state.car.model_full.toLowerCase() === 'niva travel' ? textNiva : textDefault
+    }
   },
   mounted: function() {
     if (window.innerWidth < 581) {

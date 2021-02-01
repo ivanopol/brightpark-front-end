@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-      <Plate v-if="n===1" :text="'В&nbsp;наличии все комплектации LADA&nbsp;' + $store.state.car.model_full + '! Узнайте цены и выгоды января по телефону: <span itemprop=\'telephone\' class=\'block callibri_tel\'>' + $store.state.city.phone_format + '</span>'"/>
+      <Plate v-if="n===1" :text="plate"/>
     </section>
     <form-buy-component v-if="n === 1"
                         :form_id="'model__learn-about-details_'"
@@ -100,7 +100,12 @@ export default {
   computed: {
     point_id: function () {
       return 'pointer_' + this.n;
-    }
+    },
+    plate: function () {
+      const textDefault = 'В&nbsp;наличии все комплектации LADA&nbsp;' + this.$store.state.car.model_full + '! Узнайте цены и выгоды января по телефону: <span itemprop=\'telephone\' class=\'block callibri_tel\'>' + this.$store.state.city.phone_format + '</span>'
+      const textNiva = 'NIVA Travel&nbsp;&mdash; уже в&nbsp;Брайт парке! Познакомьтесь с&nbsp;новинкой лично по&nbsp;адресу: ' + this.$store.state.city.address
+      return this.$store.state.car.model_full.toLowerCase() === 'niva travel' ? textNiva : textDefault
+    },
   },
   methods: {
     get_source: function(path) {
@@ -142,6 +147,9 @@ export default {
       image[0].classList.remove("show");
     }
   },
+  created: function() {
+    console.log(this.$store.state)
+  }
 };
 </script>
 
