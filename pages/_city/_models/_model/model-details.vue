@@ -21,7 +21,7 @@
 
       <section class="model-details">
         <div class="trigger-wrap">
-          <p class="trigger-wrap-text">Осталось <span class="model-count-text">{{count}}</span> {{model.car_model.title}} {{model.car_type.title_ru}} по цене лучше, чем на сайте</p>
+          <p class="trigger-wrap-text" v-if="!is_niva">Осталось <span class="model-count-text">{{count}}</span> {{model.car_model.title}} {{model.car_type.title_ru}} по цене лучше, чем на сайте</p>
         </div>
          <steps  :car_model='model.car_model.title'
                  :car_type='model.car_type.title_ru'
@@ -117,6 +117,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    is_niva: function() {
+      return this.model.car_model.slug + ' ' + this.model.car_type.slug === 'niva travel'
+    },
     date: function() {
       let date = new Date();
       date.setDate(date.getDate() + 3);
