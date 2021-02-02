@@ -22,9 +22,9 @@
       <div :class="data.slides.class">
         <div class="items-data">
           <h1 class="title" v-html="'Новая ' + data.slides.title + '<br> по&nbsp;лучшей цене в&nbsp;' + $store.state.city.dative"></h1>
-          <nuxt-link  :to="data.slides.link"
+          <a :href="data.slides.link"
                       id="model__banner__purchase-conditions"
-                      class="event btn-banner">Условия покупки</nuxt-link>
+                      class="event btn-banner">Условия покупки</a>
         </div>
         <span class="more_details" v-scroll-to="'#model-info'">
             <span>Подробнее</span>
