@@ -219,6 +219,8 @@ $context: 375;
         .pointers-1-2-1,
         .pointers-1-2-2,
         .pointers-1-2-3,
+        .pointers-1-4-1,
+        .pointers-1-4-2,
         .pointers-2-1-1,
         .pointers-2-1-2,
         .pointers-4-11-1,
@@ -362,6 +364,60 @@ $context: 375;
                 left: get-vw(319px, $context);
                 top: get-vw(129px, $context);
             }
+        }
+
+      .pointers-1-4-1 {
+        .p1 {
+          left: get-vw(185px, $context);
+          top: get-vw(90px, $context);
+        }
+
+        .p2 {
+          left: get-vw(145px, $context);
+          top: get-vw(85px, $context);
+        }
+
+        .p3 {
+          left: get-vw(95px, $context);
+          top: get-vw(100px, $context);
+        }
+
+        .p4 {
+          left: get-vw(60px, $context);
+          top: get-vw(80px, $context);
+        }
+
+        .p5 {
+          left: get-vw(220px, $context);
+          top: get-vw(130px, $context);
+        }
+      }
+
+        .pointers-1-4-2 {
+            .p1 {
+                left: get-vw(103px, $context);
+                top: get-vw(75px, $context);
+            }
+
+            .p2 {
+                left: get-vw(175px, $context);
+                top: get-vw(29px, $context);
+            }
+
+            .p3 {
+                left: get-vw(60px, $context);
+                top: get-vw(174px, $context);
+           }
+
+           .p4 {
+               left: get-vw(284px, $context);
+               top: get-vw(156px, $context);
+           }
+
+           .p5 {
+               left: get-vw(152px, $context);
+               top: get-vw(156px, $context);
+           }
         }
 
         .pointers-2-1-1 {
