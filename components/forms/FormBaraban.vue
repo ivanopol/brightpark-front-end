@@ -45,6 +45,9 @@
                     <p>Заявка отправлена!</p>
                 </div>
             </div>
+            <div class="baraban-form-bottom-title">
+              <span>при покупке автомобиля в кредит</span>
+            </div>
         </form>
 
         <div class="result" v-show="btn_disabled">
@@ -218,6 +221,12 @@
 
 
     .baraban-form {
+        &-bottom-title span {
+          text-align: center;
+          margin-top: 15px;
+          display: block;
+        }
+
         .result {
             text-align: center;
         }
