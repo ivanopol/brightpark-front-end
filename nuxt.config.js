@@ -90,7 +90,7 @@ export default {
   router: {
    // trailingSlash: false,
     middleware: [
-      //  'utmSave',
+      'utmSave',
       'location',
       'trailingSlashRedirect',
       'redirects',
