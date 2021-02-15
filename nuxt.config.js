@@ -79,6 +79,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/base64',
     '~/plugins/jsonld.js',
     '~/plugins/vue-the-mask.js',
     '~/plugins/vue-js-modal.js',

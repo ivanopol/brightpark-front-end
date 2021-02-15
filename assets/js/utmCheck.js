@@ -1,5 +1,6 @@
 export class UtmCheck {
-  constructor(req, route, excludes) {
+  constructor(app, req, route, excludes) {
+    this.app = app
     this.route = route
     this.isReq = typeof req !== "undefined" && req !== null
     this.ip = this.isReq && req.connection !== 'undefined' ? req.connection.remoteAddress || req.socket.remoteAddress : ''
@@ -97,8 +98,22 @@ export class UtmCheck {
 
   }
 
-  createUtmCookie(utm) {
+  createUtmCookie(data) {
+   // console.log(JSON.stringify(data))
+    this.app.$cookies.set('bp_uid', btoa(JSON.stringify(data)), {
+      path: '/',
+      maxAge: 60 * 30
+    })
+  }
 
+  refreshUtmCookie() {
+    if (this.app.$cookies.get('bp_uid') !== undefined) {
+      let data = this.app.$cookies.get('bp_uid')
+      this.app.$cookies.set('bp_uid', data, {
+        path: '/',
+        maxAge: 60 * 30
+      })
+    }
   }
 }
 
