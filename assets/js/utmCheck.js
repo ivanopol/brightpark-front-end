@@ -1,3 +1,6 @@
+import axios from "axios";
+var uniqid = require('uniqid');
+
 export class UtmCheck {
   constructor(app, req, route, excludes) {
     this.app = app
@@ -18,6 +21,9 @@ export class UtmCheck {
       source: '',
       yclid: '',
     }
+    this.config = {
+      headers: {'Access-Control-Allow-Origin': '*'}
+    };
   }
 
   /* Определяем тип переходаЖ внутренний или внешний */
@@ -28,7 +34,7 @@ export class UtmCheck {
   fillInUtm () {
     for (let key in this.utm) {
       if (this.route.query.hasOwnProperty(key)) {
-        this.utm[key] = this.route.query[key]
+        this.utm[key] = decodeURI(this.route.query[key])
       }
     }
   }
@@ -52,6 +58,14 @@ export class UtmCheck {
     let url_parts = url.split('//')
     let url_tmp = url_parts[1].split('/')
     return url_tmp[0].replace(/nova\.|go\.|www\.|\.ru|\.com/g, '')
+  }
+
+  encodeCookie(obj) {
+    return btoa(unescape(encodeURIComponent(obj)))
+  }
+
+  decodeCookie(obj) {
+    return JSON.parse(decodeURIComponent(escape(atob(obj))))
   }
 
   createUtm() {
@@ -100,7 +114,7 @@ export class UtmCheck {
 
   createUtmCookie(data) {
    // console.log(JSON.stringify(data))
-    this.app.$cookies.set('bp_uid', btoa(JSON.stringify(data)), {
+    this.app.$cookies.set('bp_uid', this.encodeCookie(JSON.stringify(data)), {
       path: '/',
       maxAge: 60 * 30
     })
@@ -114,6 +128,28 @@ export class UtmCheck {
         maxAge: 60 * 30
       })
     }
+  }
+
+  async saveUtm(data) {
+    await axios.post(process.env.apiUrl + '/api/save_utm', data, this.config).then((response) => {
+      console.log(response.data)
+    })
+  }
+
+  getUserId() {
+    let bp_uid = ''
+
+    if (this.app.$cookies.get('bp_uuid') === undefined) {
+      bp_uid = uniqid('bp_uid')
+      this.app.$cookies.set('bp_uuid', bp_uid, {
+        path: '/',
+        maxAge: 60 * 60 * 24 * 365
+      })
+    } else {
+      bp_uid = this.app.$cookies.get('bp_uuid')
+    }
+
+    return bp_uid
   }
 }
 
