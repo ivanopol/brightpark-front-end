@@ -24,6 +24,8 @@ export class UtmCheck {
     this.config = {
       headers: {'Access-Control-Allow-Origin': '*'}
     };
+    this.newVisit = false
+    this.cookieLifetime = 60 * 30
   }
 
   /* Определяем тип переходаЖ внутренний или внешний */
@@ -113,10 +115,9 @@ export class UtmCheck {
   }
 
   createUtmCookie(data) {
-   // console.log(JSON.stringify(data))
     this.app.$cookies.set('bp_uid', this.encodeCookie(JSON.stringify(data)), {
       path: '/',
-      maxAge: 60 * 30
+      maxAge: this.cookieLifetime
     })
   }
 
@@ -125,7 +126,7 @@ export class UtmCheck {
       let data = this.app.$cookies.get('bp_uid')
       this.app.$cookies.set('bp_uid', data, {
         path: '/',
-        maxAge: 60 * 30
+        maxAge: this.cookieLifetime
       })
     }
   }

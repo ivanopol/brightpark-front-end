@@ -6,9 +6,6 @@ export default async ({ app, req, route }) => {
     'brightpark.ru',
   ]
   let utmObj = new UtmCheck(app, req, route, excludes)
-  if (app.$cookies.get('bp_uid') !== undefined) {
-    console.log(utmObj.decodeCookie(app.$cookies.get('bp_uid')))
-  }
   let data = {}
 
   // Если внутренний переход, то выходим
@@ -18,10 +15,12 @@ export default async ({ app, req, route }) => {
   }
 
   const utm = utmObj.createUtm()
+  const now = new Date();
 
   // Если нет куки, то создаем
   if (app.$cookies.get('bp_uid') === undefined) {
     let bp_uid = utmObj.getUserId()
+    utmObj.newVisit = true
 
     data = {
       utm_medium: utm.utm_medium,
@@ -34,13 +33,13 @@ export default async ({ app, req, route }) => {
       yclid: utm.yclid,
       bp_uid: bp_uid,
       user_ip: utmObj.ip,
-      date: new Date(),
+      date: now,
       city: route.params.city,
       path: route.path,
     }
   } else {
     data = utmObj.decodeCookie(app.$cookies.get('bp_uid'))
-    data.date = new Date()
+    data.date = now
     if (utm.utm_medium !== '(none)') {
       data.utm_medium = utm.utm_medium
       data.utm_source = utm.utm_source
@@ -54,5 +53,8 @@ export default async ({ app, req, route }) => {
   }
 
   utmObj.createUtmCookie(data)
-  utmObj.saveUtm(data)
+
+  if (utmObj.newVisit) {
+    utmObj.saveUtm(data)
+  }
 }
