@@ -28,7 +28,7 @@ export class UtmCheck {
     this.cookieLifetime = 60 * 30
   }
 
-  /* Определяем тип переходаЖ внутренний или внешний */
+  /* Определяем тип перехода внутренний или внешний */
   isInternalTransition() {
     return this.servicesRegExp.test(this.referrer) //|| this.referrer === undefined
   }
@@ -132,9 +132,7 @@ export class UtmCheck {
   }
 
   async saveUtm(data) {
-    await axios.post(process.env.apiUrl + '/api/save_utm', data, this.config).then((response) => {
-      console.log(response.data)
-    })
+    await axios.post(process.env.apiUrl + '/api/save_utm', data, this.config)
   }
 
   getUserId() {
