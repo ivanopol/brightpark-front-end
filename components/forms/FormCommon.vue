@@ -139,14 +139,10 @@
                 event.preventDefault();
                 this.isLoading = true;
 
-                const config = {
-                  headers: {'Access-Control-Allow-Origin': '*'}
-                };
-
                 let formData = {
                     "phone": this.clearMask(this.phone),
                     "name": this.name,
-                    "responsible_id": this.$store.state.city.bitrix_responsible,
+                    "responsible_id": this.$store.state.city.bitrix_responsible_id,
                     "city": this.$store.state.city.value,
                     "url": this.url,
                     "caption": this.form_title,
@@ -155,7 +151,6 @@
                     "form_type": this.form_type,
                     "utm": this.utm,
                 };
-
 
                  this.$axios(
                     {
@@ -190,7 +185,7 @@
                     let goalArr = goal.match(/^(.+?):(.+?)$/);
                     let target_goal = goalArr === null ? goal : goalArr[2];
 
-                    ym_ids.forEach(function (item, i, arr) {
+                    ym_ids.forEach(function (item) {
                         window["yaCounter" + item].reachGoal(target_goal);
                     });
                 }
