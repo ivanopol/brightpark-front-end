@@ -142,7 +142,6 @@
                 let formData = {
                     "phone": this.clearMask(this.phone),
                     "name": this.name,
-                    "responsible_id": this.$store.state.city.bitrix_responsible_id,
                     "city": this.$store.state.city.value,
                     "url": this.url,
                     "caption": this.form_title,
