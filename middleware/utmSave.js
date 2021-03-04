@@ -1,99 +1,60 @@
+import { UtmCheck } from '@/assets/js/utmCheck.js'
+
 export default async ({ app, req, route }) => {
-
-  const isReq = typeof req !== "undefined" && req !== null
-  const ip = isReq && req.connection !== 'undefined' ? req.connection.remoteAddress || req.socket.remoteAddress : ''
-  const referrer = isReq && req.headers.referer !== 'undefined' ? req.headers.referer : ''
-
-  const route_has_utm = !!Object.keys(route.query).length;
   const excludes = [
     'localhost',
     'brightpark.ru',
   ]
-  const servicesRegExp = new RegExp(excludes.join('|'), 'i');
+  let utmObj = new UtmCheck(app, req, route, excludes)
+  let data = {}
 
-  let utmObj = {
-    utm_medium: '',
-    utm_source: '',
-    utm_campaign: '',
-    utm_content: '',
-    utm_term: '',
-    block: '',
-    source: '',
-    yclid: '',
-  }
-
-  if (servicesRegExp.test(referrer))  {
+  // Если внутренний переход, то выходим
+  if (utmObj.isInternalTransition() || utmObj.hasUtmCookie()) {
+    utmObj.refreshUtmCookie()
     return false
   }
 
-  function fillInUtm () {
-    for (let key in utm) {
-      if (route.query.hasOwnProperty(key)) {
-        utm[key] = route.query[key]
-      }
+  const utm = utmObj.createUtm()
+  const now = new Date();
+
+  // Если нет куки, то создаем
+  if (app.$cookies.get('bp_uid') === undefined) {
+    let bp_uid = utmObj.getUserId()
+    utmObj.newVisit = true
+
+    data = {
+      utm_medium: utm.utm_medium,
+      utm_source: utm.utm_source,
+      utm_campaign: utm.utm_campaign,
+      utm_content: utm.utm_content,
+      utm_term: utm.utm_term,
+      block: utm.block,
+      source: utm.source,
+      yclid: utm.yclid,
+      bp_uid: bp_uid,
+      user_ip: utmObj.ip,
+      date: now,
+      city: route.params.city,
+      path: route.path,
+    }
+  } else {
+    data = utmObj.decodeCookie(app.$cookies.get('bp_uid'))
+    data.date = now
+    if (utm.utm_medium !== '(none)') {
+      data.utm_medium = utm.utm_medium
+      data.utm_source = utm.utm_source
+      data.utm_campaign = utm.utm_campaign
+      data.utm_content = utm.utm_content
+      data.utm_term = utm.utm_term
+      data.block = utm.block
+      data.source = utm.source
+      data.yclid = utm.yclid
     }
   }
 
-  function verifyUrl (url) {
-    let organic_domains_list = [
-      'https://yandex.ru/',
-      'https://www.google.com/',
-      'https://go.mail.ru/',
-      'https://www.bing.com/',
-      'https://nova.rambler.ru/search',
-    ]
+  utmObj.createUtmCookie(data)
 
-    let url_parts = url.split('?')
-    url = url_parts[0]
-
-    return organic_domains_list.includes(url)
+  if (utmObj.newVisit) {
+    utmObj.saveUtm(data)
   }
-
-  function getOrganicSource(url) {
-    let url_parts = url.split('//')
-    let url_tmp = url_parts[1].split('/')
-    return url_tmp[0].replace(/nova\.|go\.|www\.|\.ru|\.com/g, '')
-  }
-
-  function createUtm(utm) {
-    if (route_has_utm) {
-      fillInUtm()
-    } else {
-      if (!referrer) {
-        utm.utm_medium = '(none)'
-        utm.utm_source = '(direct)'
-        utm.utm_campaign = '(none)'
-        utm.utm_content = 'typein'
-        utm.utm_term = '(none)'
-        utm.block = '(none)'
-        utm.source = '(none)'
-        utm.yclid = '(none)'
-      } else if (referrer) {
-        let is_organic = verifyUrl(referrer)
-
-        if (is_organic) {
-          utm.utm_medium = 'organic'
-          utm.utm_source = getOrganicSource(referrer)
-          utm.utm_campaign = '(none)'
-          utm.utm_content = 'organic'
-          utm.utm_term = '(none)'
-          utm.block = '(none)'
-          utm.source = '(none)'
-          utm.yclid = '(none)'
-        } else {
-          utm.utm_medium = 'referral'
-          utm.utm_source = referrer
-          utm.utm_campaign = '(none)'
-          utm.utm_content = 'referral'
-          utm.utm_term = '(none)'
-          utm.block = '(none)'
-          utm.source = '(none)'
-          utm.yclid = '(none)'
-        }
-      }
-    }
-    return utm
-  }
-
-  //console.log(createUtm(utmObj))
 }

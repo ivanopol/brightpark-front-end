@@ -103,7 +103,7 @@
             goal_call: {
                 default: 'zvonok',
                 type: String
-            }
+            },
         },
         data: function () {
             return {
@@ -116,11 +116,15 @@
                 comment: '',
                 bitrix_responsible: '', // $store.state.city.bitrix_responsible_id,
                 city: '',// $store.state.city.value,
+                utm: {},
             };
         },
         computed: {
             url: function () {
-                return window.location;
+                return {
+                  href: window.location.href,
+                  search: window.location.search
+                }
             },
             isButtonDisabled: function () {
                 if (this.isLoading) {
@@ -138,20 +142,21 @@
                 let formData = {
                     "phone": this.clearMask(this.phone),
                     "name": this.name,
-                    "responsible_id": this.$store.state.city.bitrix_responsible,
                     "city": this.$store.state.city.value,
                     "url": this.url,
                     "caption": this.form_title,
                     "form_id": this.form_id,
                     "comment": this.comment,
                     "form_type": this.form_type,
+                    "utm": this.utm,
                 };
 
                  this.$axios(
                     {
                       method: 'post',
                       url: process.env.apiUrl + '/api/send_contact_form',
-                      data: formData
+                      data: formData,
+
                     })
                     .then((response) => {
                       this.clearInput();
@@ -170,6 +175,8 @@
                       this.clearInput();
                       return {};
                     })
+
+
             },
             sendGoals: function (goal) {
                 if (goal) {
@@ -177,7 +184,7 @@
                     let goalArr = goal.match(/^(.+?):(.+?)$/);
                     let target_goal = goalArr === null ? goal : goalArr[2];
 
-                    ym_ids.forEach(function (item, i, arr) {
+                    ym_ids.forEach(function (item) {
                         window["yaCounter" + item].reachGoal(target_goal);
                     });
                 }
@@ -223,10 +230,15 @@
                     });
                 });
               return {};
+            },
+            decodeCookie(obj) {
+              return JSON.parse(decodeURIComponent(escape(atob(obj))))
             }
         },
         mounted() {
-
+          if (this.$cookies.get('bp_uid') !== undefined) {
+            this.utm = this.decodeCookie(this.$cookies.get('bp_uid'))
+          }
         },
         beforeMount() {
             this.attachHandler();
