@@ -1,11 +1,17 @@
 import axios from "axios";
 var uniqid = require('uniqid');
+var get_ip = require('ipware')().get_ip;
 
 export class UtmCheck {
   constructor(app, req, route, excludes) {
     this.app = app
     this.route = route
     this.isReq = typeof req !== "undefined" && req !== null
+    if (this.isReq) {
+      var ip_info = get_ip(req);
+      console.log(ip_info);
+    }
+
     this.ip = this.isReq && req.connection !== 'undefined' ? req.connection.remoteAddress || req.socket.remoteAddress : ''
     this.referrer = this.isReq && req.headers.referer !== 'undefined' ? req.headers.referer : ''
     this.route_has_utm = !!Object.keys(route.query).length
