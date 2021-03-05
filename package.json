@@ -19,7 +19,6 @@
     "eslint": ">=4.12.1",
     "express-session": "^1.17.1",
     "hooper": "^0.3.4",
-    "ipware": "^2.0.0",
     "nuxt": "^2.14.0",
     "nuxt-compress": "^3.0.0",
     "nuxt-jsonld": "^1.5.0",
