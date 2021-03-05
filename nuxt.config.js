@@ -79,7 +79,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-  //  '~/plugins/base64',
+    '~/plugins/base64',
     '~/plugins/jsonld.js',
     '~/plugins/vue-the-mask.js',
     '~/plugins/vue-js-modal.js',
@@ -91,7 +91,7 @@ export default {
   router: {
    // trailingSlash: false,
     middleware: [
-     // 'utmSave',
+      'utmSave',
       'location',
       'trailingSlashRedirect',
       'redirects',
