@@ -45,9 +45,20 @@ export default {
             this.ruTarget(tag_body)
           }
 
+          const dateNow = new Date().getTime()
+          const dateStartMessangers =  new Date('2021-03-11 09:00:00').getTime()
+
+          if (dateNow > dateStartMessangers) {
+            if (this.$store.state.city.value === 'volgograd') {
+              this.messangers(tag_body)
+            } else {
+              this.jivosite(tag_body)
+            }
+          } else {
+            this.jivosite(tag_body)
+          }
+
           this.googleAnalytics(tag_body)
-          this.jivosite(tag_body)
-          //this.yClients(tag_body)
           this.appendCityScripts(this.$store.state.city.scripts, tag_body)
         }
       }, 2000)
@@ -55,6 +66,16 @@ export default {
 
   },
   methods: {
+    messangers (tag_body) {
+      var messangers = document.createElement('script')
+      messangers.className = 'loading_scripts'
+      messangers.innerHTML = '(function(w,d,u){\n' +
+        '                var s=d.createElement(\'script\');s.async=true;s.src=u+\'?\'+(Date.now()/60000|0);\n' +
+        '                var h=d.getElementsByTagName(\'script\')[0];h.parentNode.insertBefore(s,h);\n' +
+        '        })(window,document,\'https://team.brightpark.ru/upload/crm/site_button/loader_3_ljc1n8.js\');'
+
+      tag_body.appendChild(messangers);
+    },
     appendCityScripts (id, tag_body) {
       setTimeout(() => {
         this.yaMetrikaCity(id.ya_metrika, tag_body)
