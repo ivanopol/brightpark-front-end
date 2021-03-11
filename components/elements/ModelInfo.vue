@@ -102,7 +102,7 @@ export default {
       return 'pointer_' + this.n;
     },
     plate: function () {
-      const textDefault = 'В&nbsp;наличии все комплектации LADA&nbsp;' + this.$store.state.car.model_full + '! Узнайте цены и выгоды января по телефону: <span itemprop=\'telephone\' class=\'block callibri_tel\'>' + this.$store.state.city.phone_format + '</span>'
+      const textDefault = 'В&nbsp;наличии все комплектации LADA&nbsp;' + this.$store.state.car.model_full + '! Узнайте цены и выгоды ' + this.$store.state._month.accusative + ' по телефону: <span itemprop=\'telephone\' class=\'block callibri_tel\'>' + this.$store.state.city.phone_format + '</span>'
       const textNiva = 'NIVA Travel&nbsp;&mdash; уже в&nbsp;Брайт парке! Познакомьтесь с&nbsp;новинкой лично по&nbsp;адресу: ' + this.$store.state.city.address
       return this.$store.state.car.model_full.toLowerCase() === 'niva travel' ? textNiva : textDefault
     },
@@ -147,6 +147,9 @@ export default {
       image[0].classList.remove("show");
     }
   },
+  created() {
+    console.log(this.$store.state)
+  }
 };
 </script>
 
