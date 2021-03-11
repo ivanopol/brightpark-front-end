@@ -45,15 +45,8 @@ export default {
             this.ruTarget(tag_body)
           }
 
-          const dateNow = new Date().getTime()
-          const dateStartMessangers =  new Date('2021-03-11 09:00:00').getTime()
-
-          if (dateNow > dateStartMessangers) {
-            if (this.$store.state.city.value === 'volgograd') {
-              this.messangers(tag_body)
-            } else {
-              this.jivosite(tag_body)
-            }
+          if (this.$store.state.city.value === 'volgograd') {
+            this.messangers(tag_body)
           } else {
             this.jivosite(tag_body)
           }
