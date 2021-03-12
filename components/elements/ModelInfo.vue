@@ -147,9 +147,6 @@ export default {
       image[0].classList.remove("show");
     }
   },
-  created() {
-    console.log(this.$store.state)
-  }
 };
 </script>
 
