@@ -25,6 +25,8 @@ export default {
       return window.navigator.userAgent.indexOf(item) + 1
     })
 
+    const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent)
+
     let isBot = bots.length > 0
     let isloaded = document.querySelectorAll(".loading_scripts").length > 0;
 
@@ -46,7 +48,11 @@ export default {
           }
 
           if (this.$store.state.city.value === 'volgograd') {
-            this.messangers(tag_body)
+            if (isMobile) {
+              this.messangersMobile(tag_body)
+            } else {
+              this.messangers(tag_body)
+            }
           } else {
             this.jivosite(tag_body)
           }
@@ -68,6 +74,16 @@ export default {
         '        })(window,document,\'https://team.brightpark.ru/upload/crm/site_button/loader_3_ljc1n8.js\');'
 
       tag_body.appendChild(messangers);
+    },
+    messangersMobile (tag_body) {
+      var messangersMobile = document.createElement('script')
+      messangersMobile.className = 'loading_scripts'
+      messangersMobile.innerHTML = '(function(w,d,u){\n' +
+        '                var s=d.createElement(\'script\');s.async=true;s.src=u+\'?\'+(Date.now()/60000|0);\n' +
+        '                var h=d.getElementsByTagName(\'script\')[0];h.parentNode.insertBefore(s,h);\n' +
+        '        })(window,document,\'https://team.brightpark.ru/upload/crm/site_button/loader_4_20je00.js\');'
+
+      tag_body.appendChild(messangersMobile);
     },
     appendCityScripts (id, tag_body) {
       setTimeout(() => {
