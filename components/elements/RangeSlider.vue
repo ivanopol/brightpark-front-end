@@ -82,7 +82,7 @@
         <div class="option-text" v-if="triggers[1]">
             <p>До {{date}} в Брайт парке уникальное предложение от банков-партнеров</p>
             <ul>
-                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="Кредитные каникулы от Брайт парка до конца 2020 года"><span>Кредитные каникулы от Брайт парка до конца 2020 года</span></li>
+                <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" :alt='"Кредитные каникулы от Брайт парка до конца " + year + " года"'><span>Кредитные каникулы от Брайт парка до конца {{year}} года</span></li>
                 <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="Кредит без КАСКО на весь срок!"><span>Кредит без КАСКО на весь срок!</span></li>
                 <li><img loading=lazy src="/images/icons/checkbox-green.svg" class="check check-green" alt="Возможность совмещения с LADA Finance"><span>Возможность совмещения с LADA Finance</span></li>
             </ul>
@@ -180,6 +180,10 @@
                     day: 'numeric'
                 });
                 return date;
+            },
+            year: function() {
+              let date = new Date();
+              return date.getFullYear()
             }
         },
         watch: {
