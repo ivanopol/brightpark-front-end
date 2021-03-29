@@ -10,7 +10,7 @@
               <div class="img_wrap">
                   <img loading=lazy :src="model.preview" :alt="model.title">
               </div>
-              <div class="title">{{model.title}}</div>
+              <div class="title">{{model.title | correction}}</div>
           </nuxt-link>
         </li>
       </ul>
@@ -24,6 +24,16 @@ export default {
   data: function () {
     return {
       models: []
+    }
+  },
+  filters: {
+    correction: function (value) {
+      let tmp_value = value
+      if (tmp_value === '4x4 | Legend') {
+        tmp_value = 'Legend'
+      }
+
+      return tmp_value
     }
   },
   async fetch() {

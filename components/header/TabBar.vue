@@ -61,7 +61,7 @@
                         <ul class="" itemscope itemtype="http://schema.org/SiteNavigationElement">
                             <li v-for="model in $store.state.models_full" v-bind:key="model.id">
                                 <nuxt-link :id="'common__menu__' + model.model_slug" class="event" :to="'/' + $store.state.city.value + '/' + model.model_slug + '/' + model.type_slug" itemprop="url">
-                                    <div class="title bubble" v-text="model.title"></div>
+                                    <div class="title bubble" >{{model.title | correction}}</div>
                                 </nuxt-link>
                             </li>
                         </ul>
@@ -140,6 +140,16 @@ export default {
                 cities: {},
                 city_active: {}
             };
+        },
+        filters: {
+          correction: function (value) {
+            let tmp_value = value
+            if (tmp_value === '4x4 | Legend') {
+              tmp_value = 'Legend'
+            }
+
+            return tmp_value
+          }
         },
         methods: {
             sendGoals: function (goal) {
