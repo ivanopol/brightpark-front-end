@@ -1,4 +1,5 @@
 [
   { "from": "/special_offers", "to": "/special-offers" },
-  { "from": "/<models>/<model>/model_details", "to": "/<models>/<model>/model-details" }
+  { "from": "/<models>/<model>/model_details", "to": "/<models>/<model>/model-details" },
+  { "from": "/stocks/kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0", "to": "/stocks/kredit-v-brajt-parke-vesennyaya-rassrochka-pervyj-vznos-0" }
 ]
