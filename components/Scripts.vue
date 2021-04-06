@@ -47,16 +47,7 @@ export default {
             this.ruTarget(tag_body)
           }
 
-          if (this.$store.state.city.value === 'volgograd') {
-            if (isMobile) {
-              this.messangersMobile(tag_body)
-            } else {
-              this.messangers(tag_body)
-            }
-          } else {
-            this.jivosite(tag_body)
-          }
-
+          this.jivosite(tag_body)
           this.googleAnalytics(tag_body)
           this.appendCityScripts(this.$store.state.city.scripts, tag_body)
         }
