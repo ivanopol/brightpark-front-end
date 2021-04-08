@@ -5,7 +5,7 @@
       <div v-for="item in news" :key="item.id" class="news-row">
         <nuxt-link :to="'/' + $store.state.city.value + '/news/' + item.slug"
                    :id="'news__news-one__title-' + item.id"
-                   class="news-title event">{{item.title}}</nuxt-link>
+                   class="news-title event" v-html="item.title"></nuxt-link>
         <div class="news-content">
           <div class="news-img">
             <nuxt-link :to="'/' + $store.state.city.value + '/news/' + item.slug"
