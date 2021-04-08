@@ -102,7 +102,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">КРЕДИТ В&nbsp;БРАЙТ&nbsp;ПАРКЕ</span><br>Новогодняя рассрочка +&nbsp;Первый&nbsp;взнос&nbsp;0%</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">КРЕДИТ В&nbsp;БРАЙТ&nbsp;ПАРКЕ</span><br>Весенняя рассрочка +&nbsp;Первый&nbsp;взнос&nbsp;0%</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0-details" class="btn btn-primary event">Подробнее о модели</a>
             <a :href="$store.state.city.value + '/stocks/kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0'" id="main__slider__kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0-action" class="btn btn-secondary event">Условия акции</a>
