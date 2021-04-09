@@ -91,11 +91,18 @@ export default Vue.extend({
     if (Object.keys(this.seo).length == 0) {
       return null
     }
+
+    let image = this.seo.images
+
+    if (this.model.colors) {
+      image = this.model.colors[0].image
+    }
+
     return {
       title: this.seo.title,
       meta: [
         { hid: 'description', name: 'description', content: this.seo.description },
-        { property: 'og:image', content: this.seo.images },
+        { property: 'og:image', content: image },
         { property: 'og:site_name', content: this.seo.site_name },
         { property: 'og:url', content: process.env.baseUrl + this.$route.fullPath },
         { property: 'og:type', content: 'place' },
@@ -109,13 +116,20 @@ export default Vue.extend({
     if (Object.keys(this.seo).length == 0) {
       return null
     }
+
+    let image = this.seo.images
+
+    if (this.model.colors) {
+      image = this.model.colors[0].image
+    }
+
     return {
       "@context": "http://schema.org",
       "@type": "WebSite",
       "name": this.seo.title,
       "description": this.seo.description,
       "url": process.env.baseUrl + this.$route.fullPath,
-      "image": this.seo.images,
+      "image": image,
     }
   },
   computed: {
