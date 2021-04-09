@@ -94,7 +94,7 @@ export default Vue.extend({
 
     let image = this.seo.images
 
-    if (this.model.colors) {
+    if (this.model.colors.lenght) {
       image = this.model.colors[0].image
     }
 
@@ -119,7 +119,7 @@ export default Vue.extend({
 
     let image = this.seo.images
 
-    if (this.model.colors) {
+    if (this.model.colors.lenght) {
       image = this.model.colors[0].image
     }
 
