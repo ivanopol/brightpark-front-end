@@ -23,38 +23,13 @@
               >
               </nuxt-link>
             </h2>
-
-<!--            <p class="news__content__item__text__dates">-->
-<!--              С 8 апреля до 31 июля-->
-<!--            </p>-->
-
+            <p class="news__content__item__text__dates" v-if="item.date_begin && item.date_end">
+              С {{item.date_begin | humanDate}} до {{item.date_end | humanDate}}
+            </p>
             <p class="news__content__item__text__desc" v-html="item.text_short"></p>
           </div>
         </article>
       </section>
-
-<!--      <div v-for="item in stocks" :key="item.id" class="stocks-row">-->
-<!--        <nuxt-link :to="'/' + $store.state.city.value + '/stocks/' + item.slug"-->
-<!--                   :id="'stocks__stocks-one__title-' + item.id"-->
-<!--                   class="stocks-title event" v-html="item.title"></nuxt-link>-->
-<!--        <div class="stocks-content">-->
-<!--          <div class="stocks-img">-->
-<!--            <nuxt-link :to="'/' + $store.state.city.value + '/stocks/' + item.slug"-->
-<!--                       :id="'stocks__stocks-one__image-' + item.id"-->
-<!--                       class="event">-->
-<!--              <img loading=lazy :src="item.preview" :alt="item.text_short" />-->
-<!--            </nuxt-link>-->
-<!--          </div>-->
-<!--          <div class="stocks-text-wrap">-->
-<!--            <div class="stocks-text" v-html="item.text_short" />-->
-<!--            <div class="stocks-button">-->
-<!--              <nuxt-link :id="'stocks__stocks-one__button-' + item.id"-->
-<!--                         :to="'/' + $store.state.city.value + '/stocks/' + item.slug"-->
-<!--                         class="btn btn-primary event">Читать</nuxt-link>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
     </div>
   </div>
 </template>
@@ -72,6 +47,19 @@ export default {
       process.env.apiUrl + `/api/stocks?&city_id=` + this.$store.state.city.city_id
     ).then(res => res.json())
   },
+  filters: {
+    humanDate: function (value) {
+      let date = new Date(Date.parse(value))
+
+      date = date.toLocaleString('ru', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      }).replace(/\s*г\./, "")
+
+      return date
+    }
+  }
 }
 </script>
 
