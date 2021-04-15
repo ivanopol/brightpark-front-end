@@ -105,6 +105,11 @@
                         </ul>
                     </div>
                     <div class="copyright">Разработано в Брайт Парке<br>Разработано с любовью</div>
+                    <div class="postscript">
+                      <span class="postscript-message">Брайт парк<br>
+                      официальный дилер LADA<br></span>
+                      <span class="postscript-mode">Режим работы: {{$store.state.city.opening_hours.hours_split.from}} - {{$store.state.city.opening_hours.hours_split.to}}</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -299,9 +304,35 @@ export default {
         color: #fff;
     }
 
+    .postscript {
+        color: #fff;
+        line-height: 1.4;
+        margin: 50px 10px 40px 10px;
+
+        &-message {
+          font-size: 12px;
+        }
+
+        &-mode {
+          font-size: 10px;
+        }
+    }
+
     @media only screen and (min-width: 580px) {
         .copyright {
             font-size: 14px;
+            margin: 30px 10px 40px 20px;
+        }
+
+        .postscript {
+          margin: 30px 10px 40px 20px;
+          &-message {
+            font-size: 14px;
+          }
+
+          &-mode {
+            font-size: 12px;
+          }
         }
     }
 
@@ -396,11 +427,14 @@ export default {
             }
         }
 
+        .models_wrap {
+          margin-bottom: 3vh;
+        }
+
         .other_links,
         .models_wrap {
             padding: 0;
             background: none;
-            margin-bottom: 3vh;
 
             ul {
                 padding: 0;
@@ -417,9 +451,20 @@ export default {
                     a {
                         display:block;
                         width: 100%;
-                        //padding: 15px 10px;
-                        padding: 6.8% 10px;
+                        padding: 15px 10px;
                         color: #fff;
+
+                        @media only screen and (min-width: 900px) and (max-width: 1600px){
+                          & {
+                            padding: 12px 10px;
+                          }
+                        }
+
+                        @media only screen and (min-width: 1601px) {
+                          & {
+                            padding: 15px 10px;
+                          }
+                        }
 
                         .title {
                             width: 100%;
@@ -694,7 +739,14 @@ export default {
             padding-bottom: 10vh;
         }
 
+        @media only screen and (min-width: 580px) {
+          .menu_content_block {
+            height: 85vh;
+          }
+        }
+
         @media only screen and (max-width: 580px) {
+
             & {
                 padding: 3.2vh 1vh 3.2vh 5.75vw;
 
@@ -931,7 +983,7 @@ export default {
             padding: 35px 10px 35px 56px;
             .other_links ul li a,
             .models_wrap ul li a {
-                padding-top: 22px;
+              //  padding-top: 22px;
             }
         }
     }
