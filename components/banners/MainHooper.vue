@@ -1,9 +1,9 @@
 <template>
   <section>
-    <hooper class="main-screen-wrap" :autoPlay="true" :playSpeed="6000" :wheelControl="false" :transition="600" :infiniteScroll="true">
+    <hooper class="main-screen-wrap" :autoPlay="false" :playSpeed="6000" :wheelControl="false" :transition="600" :infiniteScroll="true">
 
       <slide class="even">
-        <div class="asset-container">
+        <div class="asset-container dark-gradient-left">
           <picture>
             <source srcset="~static/images/main/mobile/novaya-granta-ot-495-900-rublej.jpg, ~static/images/main/mobile/novaya-granta-ot-495-900-rublej.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/novaya-granta-ot-495-900-rublej.jpg, ~static/images/main/tablet/novaya-granta-ot-495-900-rublej.jpg 2x" media="(max-width: 1365px)">
@@ -22,7 +22,7 @@
       </slide>
 
       <slide class="even">
-        <div class="asset-container">
+        <div class="asset-container dark-gradient-left">
           <picture>
             <source srcset="~static/images/main/mobile/novaya-vesta-ot-713-900-rublej.jpg, ~static/images/main/mobile/novaya-vesta-ot-713-900-rublej.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/novaya-vesta-ot-713-900-rublej.jpg, ~static/images/main/tablet/novaya-vesta-ot-713-900-rublej.jpg 2x" media="(max-width: 1365px)">
@@ -41,7 +41,7 @@
       </slide>
 
       <slide class="even">
-        <div class="asset-container">
+        <div class="asset-container dark-gradient-left">
           <picture>
             <source srcset="~static/images/main/mobile/novyj-xray-ot-679-900-rublej.jpg, ~static/images/main/mobile/novyj-xray-ot-679-900-rublej.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/novyj-xray-ot-679-900-rublej.jpg, ~static/images/main/tablet/novyj-xray-ot-679-900-rublej.jpg 2x" media="(max-width: 1365px)">
@@ -70,7 +70,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase">ОСОБЫЕ УСЛОВИЯ ДЛЯ ПЕНСИОНЕРОВ</p>
+          <p class="title-tagline bold title-uppercase dark">ОСОБЫЕ УСЛОВИЯ ДЛЯ ПЕНСИОНЕРОВ</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/stocks/osobye-usloviya-dlya-pensionerov'" id="main__slider__osobye-usloviya-dlya-pensionerov-action" class="btn btn-primary event">Условия акции</a>
           </div>
@@ -238,12 +238,27 @@ export default {
   position: relative;
 }
 
+.dark-gradient-left {
+  @media only screen and (min-width: 1366px) {
+    &:after {
+      content: '';
+      background: linear-gradient(90deg, #000000 0%, rgba(0, 212, 255, 0) 60%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
 .main-screen {
   margin: -60px 0 0;
 
   .asset-container {
     height: 100%;
   }
+
   .asset-image {
     object-fit: cover;
     margin: -75px 0 0 0;
