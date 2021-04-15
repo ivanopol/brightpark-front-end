@@ -70,7 +70,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase dark">ОСОБЫЕ УСЛОВИЯ ДЛЯ ПЕНСИОНЕРОВ</p>
+          <p class="title-tagline bold title-uppercase dark-on-tablet-desktop">ОСОБЫЕ УСЛОВИЯ ДЛЯ ПЕНСИОНЕРОВ</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/stocks/osobye-usloviya-dlya-pensionerov'" id="main__slider__osobye-usloviya-dlya-pensionerov-action" class="btn btn-primary event">Условия акции</a>
           </div>
@@ -313,6 +313,13 @@ export default {
       &.dark {
         color: #000
       }
+
+      @media only screen and (min-width: 580px) {
+        &.dark-on-tablet-desktop {
+          color: #000
+        }
+      }
+
 
       .action-bold {
         font-weight: bold;
