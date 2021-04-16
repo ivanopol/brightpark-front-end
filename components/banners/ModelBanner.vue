@@ -26,7 +26,7 @@
                       id="model__banner__purchase-conditions"
                       class="event btn-banner">Условия покупки</a>
         </div>
-        <span class="more_details" v-scroll-to="'#model-info'">
+        <span class="more_details" >
             <span>Подробнее</span>
         </span>
       </div>
