@@ -143,7 +143,8 @@ export default {
                 goal_call: 'zvonok',
                 goal_route: 'marshrut',
                 cities: {},
-                city_active: {}
+                city_active: {},
+                isProduction: process.env.NODE_ENV === 'production'
             };
         },
         filters: {
@@ -158,7 +159,7 @@ export default {
         },
         methods: {
             sendGoals: function (goal) {
-                if (goal) {
+                if (goal && this.isProduction) {
                     let ym_ids = this.getCountersIds();
                     let goalArr = goal.match(/^(.+?):(.+?)$/);
                     let target_goal = goalArr === null ? goal : goalArr[2];
