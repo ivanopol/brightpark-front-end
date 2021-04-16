@@ -60,9 +60,9 @@
                     <div class="models_wrap">
                         <ul class="" itemscope itemtype="http://schema.org/SiteNavigationElement">
                             <li v-for="model in $store.state.models_full" v-bind:key="model.id">
-                                <nuxt-link :id="'common__menu__' + model.model_slug" class="event" :to="'/' + $store.state.city.value + '/' + model.model_slug + '/' + model.type_slug" itemprop="url">
+                                <a :id="'common__menu__' + model.model_slug" class="event" :href="'/' + $store.state.city.value + '/' + model.model_slug + '/' + model.type_slug" itemprop="url">
                                     <div class="title bubble" >{{model.title | correction}}</div>
-                                </nuxt-link>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -70,11 +70,11 @@
                     <div class="other_links">
                         <ul itemscope itemtype="http://schema.org/SiteNavigationElement">
                             <li>
-                                <nuxt-link id="common__menu__service" :to="'/' + $store.state.city.value + '/service'" class="event" itemprop="url">
+                                <a id="common__menu__service" :href="'/' + $store.state.city.value + '/service'" class="event" itemprop="url">
                                     <div class="title">
                                         <span><IconSpanner /> СЕРВИС</span>
                                     </div>
-                                </nuxt-link>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -82,25 +82,25 @@
                     <div class="other_links_2">
                         <ul itemscope itemtype="http://schema.org/SiteNavigationElement">
                             <li>
-                                <nuxt-link id="common__menu__main" :to="'/' + $store.state.city.value" class="event" itemprop="url"><div class="title bubble">Главная страница</div></nuxt-link>
+                                <a id="common__menu__main" :href="'/' + $store.state.city.value" class="event" itemprop="url"><div class="title bubble">Главная страница</div></a>
                             </li>
                             <li>
-                                <nuxt-link id="common__menu__contacts" :to="'/' + $store.state.city.value + '/contacts'" class="event" itemprop="url"><div class="title bubble">Контакты</div></nuxt-link>
+                                <a id="common__menu__contacts" :href="'/' + $store.state.city.value + '/contacts'" class="event" itemprop="url"><div class="title bubble">Контакты</div></a>
                             </li>
                             <li>
-                                <nuxt-link id="common__menu__about" :to="'/' + $store.state.city.value + '/about'" class="event" itemprop="url"><div class="title bubble">О компании</div></nuxt-link>
+                                <a id="common__menu__about" :href="'/' + $store.state.city.value + '/about'" class="event" itemprop="url"><div class="title bubble">О компании</div></a>
                             </li>
                             <li>
-                              <nuxt-link id="common__menu__credit" :to="'/' + $store.state.city.value + '/credit'" class="event" itemprop="url"><div class="title bubble">Кредит</div></nuxt-link>
+                              <a id="common__menu__credit" :href="'/' + $store.state.city.value + '/credit'" class="event" itemprop="url"><div class="title bubble">Кредит</div></a>
                             </li>
                             <li>
-                                <nuxt-link id="common__menu__stocks" :to="'/' + $store.state.city.value + '/stocks'" class="event" itemprop="url"><div class="title bubble">Акции</div></nuxt-link>
+                                <a id="common__menu__stocks" :href="'/' + $store.state.city.value + '/stocks'" class="event" itemprop="url"><div class="title bubble">Акции</div></a>
                             </li>
                             <li>
-                                <nuxt-link id="common__menu__news" :to="'/' + $store.state.city.value + '/news'" class="event" itemprop="url"><div class="title bubble">Новости</div></nuxt-link>
+                                <a id="common__menu__news" :href="'/' + $store.state.city.value + '/news'" class="event" itemprop="url"><div class="title bubble">Новости</div></a>
                             </li>
                             <li>
-                                <nuxt-link id="common__menu__privacy" :to="'/' + $store.state.city.value + '/privacy'" class="event" itemprop="url"><div class="title font-tiny bubble">Политика конфиденциальности</div></nuxt-link>
+                                <a id="common__menu__privacy" :href="'/' + $store.state.city.value + '/privacy'" class="event" itemprop="url"><div class="title font-tiny bubble">Политика конфиденциальности</div></a>
                             </li>
                         </ul>
                     </div>
