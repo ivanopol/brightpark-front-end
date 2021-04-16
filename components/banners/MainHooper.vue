@@ -3,6 +3,42 @@
     <hooper class="main-screen-wrap" :autoPlay="false" :playSpeed="6000" :wheelControl="false" :transition="600" :infiniteScroll="true">
 
       <slide class="even">
+        <div class="asset-container">
+          <picture>
+            <source srcset="~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/tablet/wow-obmen-na-novuyu-lada.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/desktop/wow-obmen-na-novuyu-lada.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg"
+                 srcset="~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg 2x" alt="АКЦИЯ WOW-ОБМЕН НА НОВУЮ LADA" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">WOW-ОБМЕН</span> НА НОВУЮ LADA</p>
+          <div class="item-buttons">
+            <a :href="$store.state.city.value + '/stocks/wow-obmen-na-novuyu-lada'" id="main__slider__wow-obmen-na-novuyu-lada-action" class="btn btn-primary event">Условия акции</a>
+          </div>
+        </div>
+      </slide>
+
+      <slide class="odd">
+        <div class="asset-container">
+          <picture>
+            <source srcset="~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg, ~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/formula-kredita-v-brajt-parke.jpg, ~static/images/main/tablet/formula-kredita-v-brajt-parke.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/formula-kredita-v-brajt-parke.jpg, ~static/images/main/desktop/formula-kredita-v-brajt-parke.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg"
+                 srcset="~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg, ~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg 2x" alt="Брайт Парк: КРЕДИТ В БРАЙТ ПАРКЕ Новогодняя рассрочка + Первый взнос 0%" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">ФОРМУЛА КРЕДИТА</span> В БРАЙТ&nbsp;ПАРКЕ</p>
+          <div class="item-buttons">
+            <a :href="$store.state.city.value + '/stocks/formula-kredita-v-brajt-parke'" id="main__slider__formula-kredita-v-brajt-parke-action" class="btn btn-primary event">Условия акции</a>
+          </div>
+        </div>
+      </slide>
+
+      <slide class="even">
         <div class="asset-container dark-gradient-left">
           <picture>
             <source srcset="~static/images/main/mobile/novaya-granta-ot-495-900-rublej.jpg, ~static/images/main/mobile/novaya-granta-ot-495-900-rublej.jpg 2x" media="(max-width: 580px)">
@@ -13,7 +49,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase">НОВАЯ GRANTA ОТ&nbsp;<span class="title-bold">495&nbsp;900&nbsp;РУБЛЕЙ</span>!</p>
+          <p class="title-tagline bold title-uppercase">НОВАЯ GRANTA ОТ&nbsp;<span class="title-bold">495&nbsp;900&nbsp;&#8381;</span>!</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__novaya-granta-ot-495-900-rublej-details" class="btn btn-primary event">Подробнее о модели</a>
             <a :href="$store.state.city.value + '/stocks/novaya-granta-ot-495-900-rublej'" id="main__slider__novaya-granta-ot-495-900-rublej-action" class="btn btn-secondary event">Условия акции</a>
@@ -32,7 +68,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase">НОВАЯ VESTA ОТ&nbsp;<span class="title-bold">713&nbsp;900&nbsp;РУБЛЕЙ</span>!</p>
+          <p class="title-tagline bold title-uppercase">НОВАЯ VESTA ОТ&nbsp;<span class="title-bold">713&nbsp;900&nbsp;&#8381;</span>!</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/vesta/sedan'" id="main__slider__novaya-vesta-ot-713-900-rublej-details" class="btn btn-primary event">Подробнее о модели</a>
             <a :href="$store.state.city.value + '/stocks/novaya-vesta-ot-713-900-rublej'" id="main__slider__novaya-vesta-ot-713-900-rublej-action" class="btn btn-secondary event">Условия акции</a>
@@ -51,7 +87,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase">НОВЫЙ XRAY ОТ&nbsp;<span class="title-bold">679&nbsp;900&nbsp;РУБЛЕЙ</span>!</p>
+          <p class="title-tagline bold title-uppercase">НОВЫЙ XRAY ОТ&nbsp;<span class="title-bold">679&nbsp;900&nbsp;&#8381;</span>!</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/xray/xray'" id="main__slider__novyj-xray-ot-679-900-rublej-details" class="btn btn-primary event">Подробнее о модели</a>
             <a :href="$store.state.city.value + '/stocks/novyj-xray-ot-679-900-rublej'" id="main__slider__novyj-xray-ot-679-900-rublej-action" class="btn btn-secondary event">Условия акции</a>
@@ -80,24 +116,6 @@
       <slide class="even">
         <div class="asset-container">
           <picture>
-            <source srcset="~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/tablet/wow-obmen-na-novuyu-lada.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/desktop/wow-obmen-na-novuyu-lada.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg"
-                 srcset="~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg 2x" alt="АКЦИЯ WOW-ОБМЕН НА НОВУЮ LADA" />
-          </picture>
-        </div>
-        <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">WOW-ОБМЕН</span> НА НОВУЮ LADA</p>
-          <div class="item-buttons">
-            <a :href="$store.state.city.value + '/stocks/wow-obmen-na-novuyu-lada'" id="main__slider__wow-obmen-na-novuyu-lada-action" class="btn btn-primary event">Условия акции</a>
-          </div>
-        </div>
-      </slide>
-
-      <slide class="even">
-        <div class="asset-container">
-          <picture>
             <source srcset="~static/images/main/mobile/pervyj-avtomobil.jpg, ~static/images/main/mobile/pervyj-avtomobil.jpg 2x" media="(max-width: 580px)">
             <source srcset="~static/images/main/tablet/pervyj-avtomobil.jpg, ~static/images/main/tablet/pervyj-avtomobil.jpg 2x" media="(max-width: 1365px)">
             <source srcset="~static/images/main/desktop/pervyj-avtomobil.jpg, ~static/images/main/desktop/pervyj-avtomobil.jpg 2x" media="(min-width: 1366px)">
@@ -109,24 +127,6 @@
           <p class="title-tagline bold title-uppercase">ПЕРВЫЙ АВТОМОБИЛЬ</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/stocks/pervyj-avtomobil'" id="main__slider__pervyj-avtomobil-action" class="btn btn-primary event">Условия акции</a>
-          </div>
-        </div>
-      </slide>
-
-      <slide class="odd">
-        <div class="asset-container">
-          <picture>
-            <source srcset="~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg, ~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/formula-kredita-v-brajt-parke.jpg, ~static/images/main/tablet/formula-kredita-v-brajt-parke.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/formula-kredita-v-brajt-parke.jpg, ~static/images/main/desktop/formula-kredita-v-brajt-parke.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg"
-                 srcset="~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg, ~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg 2x" alt="Брайт Парк: КРЕДИТ В БРАЙТ ПАРКЕ Новогодняя рассрочка + Первый взнос 0%" />
-          </picture>
-        </div>
-        <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">ФОРМУЛА КРЕДИТА</span> В БРАЙТ&nbsp;ПАРКЕ</p>
-          <div class="item-buttons">
-            <a :href="$store.state.city.value + '/stocks/formula-kredita-v-brajt-parke'" id="main__slider__formula-kredita-v-brajt-parke-action" class="btn btn-primary event">Условия акции</a>
           </div>
         </div>
       </slide>
