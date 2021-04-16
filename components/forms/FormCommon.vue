@@ -25,7 +25,7 @@
             <the-mask :id="form_id + '_input_phone'" pattern=".{18,}" mask="+# (###)-###-##-##" v-model="phone" type="tel" required="true" placeholder="Телефон"></the-mask>
           </label>
 
-          <label class="form__input-wrapper">
+          <label class="form__input-wrapper" v-if="is_comment">
             <span class="form__input-wrapper__svg">
               <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g opacity="0.5">
@@ -37,8 +37,19 @@
               </svg>
             </span>
 
-            <textarea name="comment" :id="form_id + '_input_comment'" placeholder="Комментарий" v-model="comment" v-if="is_comment"></textarea>
+            <textarea name="comment" :id="form_id + '_input_comment'" placeholder="Комментарий" v-model="comment"></textarea>
           </label>
+
+          <v-select
+            :searchable=false
+            :options="['Автомобили', 'Сервис']"
+            placeholder="Цель вашего обращения?"
+            v-if="!is_comment"
+            class="form__select"
+            taggable
+            v-model="selectedOption"
+          >
+          </v-select>
 
             <div class="control-group">
                 <label :for="form_id + '_checkbox_personal_data'" class="control control-checkbox">Я согласен на <a :href="'/' + $store.state.city.value + '/privacy'" class="event" target="_blank">обработку персональных данных</a>
@@ -117,6 +128,8 @@
                 bitrix_responsible: '', // $store.state.city.bitrix_responsible_id,
                 city: '',// $store.state.city.value,
                 utm: {},
+                selectedOption: null,
+
             };
         },
         computed: {
@@ -322,7 +335,38 @@
       max-width: unset;
     }
   }
+</style>
 
+<style lang="scss">
+.form__select {
+  grid-area: comment;
+  height: 48px;
+  background: #f8f8f8;
+  font-size: 16px;
+  color: rgba(57, 56, 64, 1);
 
+  .vs__dropdown-toggle {
+    height: 48px;
+    padding: 0;
+    border-color: #e9e9e9;
+    background: #f8f8f8;
+  }
 
+  .vs__selected {
+    top: 0;
+    bottom: 0;
+  }
+
+  .vs__dropdown-menu {
+    background: #f8f8f8;
+    box-shadow: 0 -1px 3px rgba(37, 37, 37, .15);
+    border-color: #e9e9e9;
+  }
+
+  .vs__search {
+    color: #757575;
+    border: none;
+  }
+
+}
 </style>

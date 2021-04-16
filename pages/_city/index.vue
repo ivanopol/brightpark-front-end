@@ -11,6 +11,7 @@
       <Advantages />
       <div class="advantages_form">
         <FormBuyComponent :form_id="'main__advantages_'"
+                          :is_comment="false"
                           :button_text="'Отправить'"
                           :form_title="'Оставьте заявку, мы вам перезвоним'"
                           :goal="'about_model'" />
