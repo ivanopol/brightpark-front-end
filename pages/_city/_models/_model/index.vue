@@ -7,14 +7,12 @@
 
       <ModelBanner :data="model.slider" />
       <MegaTeasers2 />
-      <client-only placeholder="Загрузка...">
-        <ModelInfo v-for="(info, index) in model.blocks" v-bind:key="info.id"
-          :block="info"
-          :n="index"
-          :model="model.model_id"
-          :type="model.type_id"
-        />
-      </client-only>
+      <ModelInfo v-for="(info, index) in model.blocks" v-bind:key="info.id"
+        :block="info"
+        :n="index"
+        :model="model.model_id"
+        :type="model.type_id"
+      />
      <ColorChoose :colors="model.colors" :model="model.model_slug" :type="model.type_slug" v-if="model.colors.length !== 0"/>
 
       <section class="model-details">
