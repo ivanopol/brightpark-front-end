@@ -3,5 +3,6 @@
   { "from": "/<models>/<model>/model_details", "to": "/<models>/<model>/model-details" },
   { "from": "/stocks/kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0", "to": "/stocks/kredit-v-brajt-parke-vesennyaya-rassrochka-pervyj-vznos-0" },
   { "from": "/stocks/novaya-vesta-ot-713-900-rublej", "to": "/stocks/novaya-vesta-po-luchshej-cene" },
-  { "from": "/stocks/novaya-granta-ot-495-900-rublej", "to": "/stocks/novaya-granta-po-luchshej-cene" }
+  { "from": "/stocks/novaya-granta-ot-495-900-rublej", "to": "/stocks/novaya-granta-po-luchshej-cene" },
+  { "from": "/stocks/novyj-xray-ot-679-900-rublej", "to": "/stocks/novyj-xray-po-luchshej-cene" }
 ]

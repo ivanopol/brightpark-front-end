@@ -79,18 +79,18 @@
       <slide class="even">
         <div class="asset-container dark-gradient-left">
           <picture>
-            <source srcset="~static/images/main/mobile/novyj-xray-ot-679-900-rublej.jpg, ~static/images/main/mobile/novyj-xray-ot-679-900-rublej.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/novyj-xray-ot-679-900-rublej.jpg, ~static/images/main/tablet/novyj-xray-ot-679-900-rublej.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/novyj-xray-ot-679-900-rublej.jpg, ~static/images/main/desktop/novyj-xray-ot-679-900-rublej.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/novyj-xray-ot-679-900-rublej.jpg"
-                 srcset="~static/images/main/mobile/novyj-xray-ot-679-900-rublej.jpg, ~static/images/main/mobile/novyj-xray-ot-679-900-rublej.jpg 2x" alt="АКЦИЯ НОВЫЙ XRAY ОТ 679 900 РУБЛЕЙ!" />
+            <source srcset="~static/images/main/mobile/novyj-xray-po-luchshej-cene.jpg, ~static/images/main/mobile/novyj-xray-po-luchshej-cene.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/novyj-xray-po-luchshej-cene.jpg, ~static/images/main/tablet/novyj-xray-po-luchshej-cene.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/novyj-xray-po-luchshej-cene.jpg, ~static/images/main/desktop/novyj-xray-po-luchshej-cene.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/novyj-xray-po-luchshej-cene.jpg"
+                 srcset="~static/images/main/mobile/novyj-xray-po-luchshej-cene.jpg, ~static/images/main/mobile/novyj-xray-po-luchshej-cene.jpg 2x" alt="АКЦИЯ НОВЫЙ XRAY ПО ЛУЧШЕЙ ЦЕНЕ!" />
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase">НОВЫЙ XRAY ОТ&nbsp;<span class="title-bold">679&nbsp;900&nbsp;&#8381;</span>!</p>
+          <p class="title-tagline bold title-uppercase">НОВЫЙ XRAY ОТ&nbsp;<span class="title-bold">620&nbsp;910&nbsp;&#8381;</span>!</p>
           <div class="item-buttons">
-            <a :href="$store.state.city.value + '/xray/xray'" id="main__slider__novyj-xray-ot-679-900-rublej-details" class="btn btn-primary event">Подробнее о модели</a>
-            <a :href="$store.state.city.value + '/stocks/novyj-xray-ot-679-900-rublej'" id="main__slider__novyj-xray-ot-679-900-rublej-action" class="btn btn-secondary event">Условия акции</a>
+            <a :href="$store.state.city.value + '/xray/xray'" id="main__slider__novyj-xray-po-luchshej-cene-details" class="btn btn-primary event">Подробнее о модели</a>
+            <a :href="$store.state.city.value + '/stocks/novyj-xray-po-luchshej-cene'" id="main__slider__novyj-xray-po-luchshej-cene-action" class="btn btn-secondary event">Условия акции</a>
           </div>
         </div>
       </slide>
