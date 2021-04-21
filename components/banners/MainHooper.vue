@@ -60,18 +60,18 @@
       <slide class="even">
         <div class="asset-container dark-gradient-left">
           <picture>
-            <source srcset="~static/images/main/mobile/novaya-vesta-ot-713-900-rublej.jpg, ~static/images/main/mobile/novaya-vesta-ot-713-900-rublej.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/novaya-vesta-ot-713-900-rublej.jpg, ~static/images/main/tablet/novaya-vesta-ot-713-900-rublej.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/novaya-vesta-ot-713-900-rublej.jpg, ~static/images/main/desktop/novaya-vesta-ot-713-900-rublej.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/novaya-vesta-ot-713-900-rublej.jpg"
-                 srcset="~static/images/main/mobile/novaya-vesta-ot-713-900-rublej.jpg, ~static/images/main/mobile/novaya-vesta-ot-713-900-rublej.jpg 2x" alt="АКЦИЯ НОВАЯ VESTA ОТ 713 900 РУБЛЕЙ!" />
+            <source srcset="~static/images/main/mobile/novaya-vesta-po-luchshej-cene.jpg, ~static/images/main/mobile/novaya-vesta-po-luchshej-cene.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/novaya-vesta-po-luchshej-cene.jpg, ~static/images/main/tablet/novaya-vesta-po-luchshej-cene.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/novaya-vesta-po-luchshej-cene.jpg, ~static/images/main/desktop/novaya-vesta-po-luchshej-cene.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/novaya-vesta-po-luchshej-cene.jpg"
+                 srcset="~static/images/main/mobile/novaya-vesta-po-luchshej-cene.jpg, ~static/images/main/mobile/novaya-vesta-po-luchshej-cene.jpg 2x" alt="АКЦИЯ НОВАЯ VESTA ПО ЛУЧШЕЙ ЦЕНЕ!" />
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase">НОВАЯ VESTA ОТ&nbsp;<span class="title-bold">713&nbsp;900&nbsp;&#8381;</span>!</p>
+          <p class="title-tagline bold title-uppercase">НОВАЯ VESTA ОТ&nbsp;<span class="title-bold">651&nbsp;510&nbsp;&#8381;</span>!</p>
           <div class="item-buttons">
-            <a :href="$store.state.city.value + '/vesta/sedan'" id="main__slider__novaya-vesta-ot-713-900-rublej-details" class="btn btn-primary event">Подробнее о модели</a>
-            <a :href="$store.state.city.value + '/stocks/novaya-vesta-ot-713-900-rublej'" id="main__slider__novaya-vesta-ot-713-900-rublej-action" class="btn btn-secondary event">Условия акции</a>
+            <a :href="$store.state.city.value + '/vesta/sedan'" id="main__slider__novaya-vesta-po-luchshej-cene-details" class="btn btn-primary event">Подробнее о модели</a>
+            <a :href="$store.state.city.value + '/stocks/novaya-vesta-po-luchshej-cene'" id="main__slider__novaya-vesta-po-luchshej-cene-action" class="btn btn-secondary event">Условия акции</a>
           </div>
         </div>
       </slide>

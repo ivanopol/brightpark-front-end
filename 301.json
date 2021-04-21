@@ -1,5 +1,6 @@
 [
   { "from": "/special_offers", "to": "/special-offers" },
   { "from": "/<models>/<model>/model_details", "to": "/<models>/<model>/model-details" },
-  { "from": "/stocks/kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0", "to": "/stocks/kredit-v-brajt-parke-vesennyaya-rassrochka-pervyj-vznos-0" }
+  { "from": "/stocks/kredit-v-brajt-parke-novogodnyaya-rassrochka-pervyj-vznos-0", "to": "/stocks/kredit-v-brajt-parke-vesennyaya-rassrochka-pervyj-vznos-0" },
+  { "from": "/novaya-vesta-ot-713-900-rublej", "to": "/novaya-vesta-po-luchshej-cene" }
 ]
