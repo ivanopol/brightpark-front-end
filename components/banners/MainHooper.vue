@@ -41,18 +41,18 @@
       <slide class="even">
         <div class="asset-container dark-gradient-left">
           <picture>
-            <source srcset="~static/images/main/mobile/novaya-granta-ot-495-900-rublej.jpg, ~static/images/main/mobile/novaya-granta-ot-495-900-rublej.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/novaya-granta-ot-495-900-rublej.jpg, ~static/images/main/tablet/novaya-granta-ot-495-900-rublej.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/novaya-granta-ot-495-900-rublej.jpg, ~static/images/main/desktop/novaya-granta-ot-495-900-rublej.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/novaya-granta-ot-495-900-rublej.jpg"
-                 srcset="~static/images/main/mobile/novaya-granta-ot-495-900-rublej.jpg, ~static/images/main/mobile/novaya-granta-ot-495-900-rublej.jpg 2x" alt="АКЦИЯ НОВАЯ GRANTA ОТ 495 900 РУБЛЕЙ!" />
+            <source srcset="~static/images/main/mobile/novaya-granta-po-luchshej-cene.jpg, ~static/images/main/mobile/novaya-granta-po-luchshej-cene.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/novaya-granta-po-luchshej-cene.jpg, ~static/images/main/tablet/novaya-granta-po-luchshej-cene.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/novaya-granta-po-luchshej-cene.jpg, ~static/images/main/desktop/novaya-granta-po-luchshej-cene.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/novaya-granta-po-luchshej-cene.jpg"
+                 srcset="~static/images/main/mobile/novaya-granta-po-luchshej-cene.jpg, ~static/images/main/mobile/novaya-granta-po-luchshej-cene.jpg 2x" alt="АКЦИЯ НОВАЯ GRANTA ПО ЛУЧШЕЙ ЦЕНЕ!" />
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase">НОВАЯ GRANTA ОТ&nbsp;<span class="title-bold">495&nbsp;900&nbsp;&#8381;</span>!</p>
+          <p class="title-tagline bold title-uppercase">НОВАЯ GRANTA ОТ&nbsp;<span class="title-bold">459&nbsp;810&nbsp;&#8381;</span>!</p>
           <div class="item-buttons">
-            <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__novaya-granta-ot-495-900-rublej-details" class="btn btn-primary event">Подробнее о модели</a>
-            <a :href="$store.state.city.value + '/stocks/novaya-granta-ot-495-900-rublej'" id="main__slider__novaya-granta-ot-495-900-rublej-action" class="btn btn-secondary event">Условия акции</a>
+            <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__novaya-granta-po-luchshej-cene-details" class="btn btn-primary event">Подробнее о модели</a>
+            <a :href="$store.state.city.value + '/stocks/novaya-granta-po-luchshej-cene'" id="main__slider__novaya-granta-po-luchshej-cene-action" class="btn btn-secondary event">Условия акции</a>
           </div>
         </div>
       </slide>
