@@ -5,33 +5,17 @@
       <slide class="even">
         <div class="asset-container">
           <picture>
-            <source srcset="~static/images/main/mobile/black-friday.jpg, ~static/images/main/mobile/black-friday.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/black-friday.jpg, ~static/images/main/tablet/black-friday.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/black-friday.jpg, ~static/images/main/desktop/black-friday.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/black-friday.jpg" srcset="~static/images/main/mobile/black-friday.jpg, ~static/images/main/mobile/black-friday.jpg 2x" alt="Акция Брайт Парк: скидки на мксимум черная пятница" />
+            <source srcset="~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/tablet/wow-obmen-na-novuyu-lada.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/desktop/wow-obmen-na-novuyu-lada.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg"
+                 srcset="~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg, ~static/images/main/mobile/wow-obmen-na-novuyu-lada.jpg 2x" alt="АКЦИЯ WOW-ОБМЕН НА НОВУЮ LADA" />
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="action-bold title-bold">Предложение года</span> в брайт парке</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">WOW-ОБМЕН</span> НА НОВУЮ LADA</p>
           <div class="item-buttons">
-            <a :href="$store.state.city.value + '/stocks/predlozhenie-goda-v-brayt-parke'" id="main__slider__black-friday" class="btn btn-primary event">Условия акции</a>
-          </div>
-        </div>
-
-      </slide>
-      <slide class="odd">
-        <div class="asset-container">
-          <picture>
-            <source srcset="~static/images/main/mobile/nuzhno-uspet-do-povysheniya-cen.jpg, ~static/images/main/mobile/nuzhno-uspet-do-povysheniya-cen.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/nuzhno-uspet-do-povysheniya-cen.jpg, ~static/images/main/tablet/nuzhno-uspet-do-povysheniya-cen.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/nuzhno-uspet-do-povysheniya-cen.jpg, ~static/images/main/desktop/nuzhno-uspet-do-povysheniya-cen.jpg 2x" media="(min-width: 1366px)">
-            <img class="asset-image" src="~static/images/main/mobile/nuzhno-uspet-do-povysheniya-cen.jpg" srcset="~static/images/main/mobile/nuzhno-uspet-do-povysheniya-cen.jpg, ~static/images/main/mobile/nuzhno-uspet-do-povysheniya-cen.jpg 2x" alt="Акция Брайт Парк: нужно успеть до  повышения цен" />
-          </picture>
-        </div>
-        <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="crossed title-bold">Можно</span> <span class="c_orange title-bold">Нужно</span> успеть до повышения цен</p>
-          <div class="item-buttons">
-            <a :href="$store.state.city.value + '/stocks/nuzhno-uspet-do-povysheniya-cen'" id="main__slider__nuzhno-uspet-do-povysheniya-cen" class="btn btn-primary event">Условия акции</a>
+            <a :href="$store.state.city.value + '/stocks/wow-obmen-na-novuyu-lada'" id="main__slider__wow-obmen-na-novuyu-lada-action" class="btn btn-primary event">Условия акции</a>
           </div>
         </div>
       </slide>
@@ -39,17 +23,92 @@
       <slide class="odd">
         <div class="asset-container">
           <picture>
-            <source srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_granta_red.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/main_granta_red.jpg, ~static/images/main/tablet/main_granta_red.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/main_granta_red.jpg, ~static/images/main/desktop/main_granta_red.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/main_granta_red.jpg" srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_granta_red.jpg 2x" alt="Брайт Парк: Обмен на LADA без доплаты" />
+            <source srcset="~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg, ~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/formula-kredita-v-brajt-parke.jpg, ~static/images/main/tablet/formula-kredita-v-brajt-parke.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/formula-kredita-v-brajt-parke.jpg, ~static/images/main/desktop/formula-kredita-v-brajt-parke.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg"
+                 srcset="~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg, ~static/images/main/mobile/formula-kredita-v-brajt-parke.jpg 2x" alt="Брайт Парк: КРЕДИТ В БРАЙТ ПАРКЕ Новогодняя рассрочка + Первый взнос 0%" />
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">Дорого</span> выкупим<br> ваш авто</span>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">ФОРМУЛА КРЕДИТА</span> В БРАЙТ&nbsp;ПАРКЕ</p>
           <div class="item-buttons">
-            <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__dorogo-vykupim-vash-avto-details" class="btn btn-primary event">Подробнее о модели</a>
-            <a :href="$store.state.city.value + '/stocks/dorogo-vykupim-vash-avto'" id="main__slider__dorogo-vykupim-vash-avto-action" class="btn btn-secondary event">Условия акции</a>
+            <a :href="$store.state.city.value + '/stocks/formula-kredita-v-brajt-parke'" id="main__slider__formula-kredita-v-brajt-parke-action" class="btn btn-primary event">Условия акции</a>
+          </div>
+        </div>
+      </slide>
+
+      <slide class="even">
+        <div class="asset-container dark-gradient-left">
+          <picture>
+            <source srcset="~static/images/main/mobile/novaya-granta-po-luchshej-cene.jpg, ~static/images/main/mobile/novaya-granta-po-luchshej-cene.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/novaya-granta-po-luchshej-cene.jpg, ~static/images/main/tablet/novaya-granta-po-luchshej-cene.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/novaya-granta-po-luchshej-cene.jpg, ~static/images/main/desktop/novaya-granta-po-luchshej-cene.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/novaya-granta-po-luchshej-cene.jpg"
+                 srcset="~static/images/main/mobile/novaya-granta-po-luchshej-cene.jpg, ~static/images/main/mobile/novaya-granta-po-luchshej-cene.jpg 2x" alt="АКЦИЯ НОВАЯ GRANTA ПО ЛУЧШЕЙ ЦЕНЕ!" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold title-uppercase">НОВАЯ GRANTA ОТ&nbsp;<span class="title-bold">459&nbsp;810&nbsp;&#8381;</span>!</p>
+          <div class="item-buttons">
+            <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__novaya-granta-po-luchshej-cene-details" class="btn btn-primary event">Подробнее о модели</a>
+            <a :href="$store.state.city.value + '/stocks/novaya-granta-po-luchshej-cene'" id="main__slider__novaya-granta-po-luchshej-cene-action" class="btn btn-secondary event">Условия акции</a>
+          </div>
+        </div>
+      </slide>
+
+      <slide class="even">
+        <div class="asset-container dark-gradient-left">
+          <picture>
+            <source srcset="~static/images/main/mobile/novaya-vesta-po-luchshej-cene.jpg, ~static/images/main/mobile/novaya-vesta-po-luchshej-cene.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/novaya-vesta-po-luchshej-cene.jpg, ~static/images/main/tablet/novaya-vesta-po-luchshej-cene.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/novaya-vesta-po-luchshej-cene.jpg, ~static/images/main/desktop/novaya-vesta-po-luchshej-cene.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/novaya-vesta-po-luchshej-cene.jpg"
+                 srcset="~static/images/main/mobile/novaya-vesta-po-luchshej-cene.jpg, ~static/images/main/mobile/novaya-vesta-po-luchshej-cene.jpg 2x" alt="АКЦИЯ НОВАЯ VESTA ПО ЛУЧШЕЙ ЦЕНЕ!" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold title-uppercase">НОВАЯ VESTA ОТ&nbsp;<span class="title-bold">651&nbsp;510&nbsp;&#8381;</span>!</p>
+          <div class="item-buttons">
+            <a :href="$store.state.city.value + '/vesta/sedan'" id="main__slider__novaya-vesta-po-luchshej-cene-details" class="btn btn-primary event">Подробнее о модели</a>
+            <a :href="$store.state.city.value + '/stocks/novaya-vesta-po-luchshej-cene'" id="main__slider__novaya-vesta-po-luchshej-cene-action" class="btn btn-secondary event">Условия акции</a>
+          </div>
+        </div>
+      </slide>
+
+      <slide class="even">
+        <div class="asset-container dark-gradient-left">
+          <picture>
+            <source srcset="~static/images/main/mobile/novyj-xray-po-luchshej-cene.jpg, ~static/images/main/mobile/novyj-xray-po-luchshej-cene.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/novyj-xray-po-luchshej-cene.jpg, ~static/images/main/tablet/novyj-xray-po-luchshej-cene.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/novyj-xray-po-luchshej-cene.jpg, ~static/images/main/desktop/novyj-xray-po-luchshej-cene.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/novyj-xray-po-luchshej-cene.jpg"
+                 srcset="~static/images/main/mobile/novyj-xray-po-luchshej-cene.jpg, ~static/images/main/mobile/novyj-xray-po-luchshej-cene.jpg 2x" alt="АКЦИЯ НОВЫЙ XRAY ПО ЛУЧШЕЙ ЦЕНЕ!" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold title-uppercase">НОВЫЙ XRAY ОТ&nbsp;<span class="title-bold">620&nbsp;910&nbsp;&#8381;</span>!</p>
+          <div class="item-buttons">
+            <a :href="$store.state.city.value + '/xray/xray'" id="main__slider__novyj-xray-po-luchshej-cene-details" class="btn btn-primary event">Подробнее о модели</a>
+            <a :href="$store.state.city.value + '/stocks/novyj-xray-po-luchshej-cene'" id="main__slider__novyj-xray-po-luchshej-cene-action" class="btn btn-secondary event">Условия акции</a>
+          </div>
+        </div>
+      </slide>
+
+      <slide class="odd">
+        <div class="asset-container">
+          <picture>
+            <source srcset="~static/images/main/mobile/osobye-usloviya-dlya-pensionerov.jpg, ~static/images/main/mobile/osobye-usloviya-dlya-pensionerov.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/osobye-usloviya-dlya-pensionerov.jpg, ~static/images/main/tablet/osobye-usloviya-dlya-pensionerov.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/osobye-usloviya-dlya-pensionerov.jpg, ~static/images/main/desktop/osobye-usloviya-dlya-pensionerov.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/osobye-usloviya-dlya-pensionerov.jpg"
+                 srcset="~static/images/main/mobile/osobye-usloviya-dlya-pensionerov.jpg, ~static/images/main/mobile/osobye-usloviya-dlya-pensionerov.jpg 2x" alt="АКЦИЯ ОСОБЫЕ УСЛОВИЯ ДЛЯ ПЕНСИОНЕРОВ" />
+          </picture>
+        </div>
+        <div class="product-content">
+          <p class="title-tagline bold title-uppercase dark-on-tablet-desktop">ОСОБЫЕ УСЛОВИЯ ДЛЯ ПЕНСИОНЕРОВ</p>
+          <div class="item-buttons">
+            <a :href="$store.state.city.value + '/stocks/osobye-usloviya-dlya-pensionerov'" id="main__slider__osobye-usloviya-dlya-pensionerov-action" class="btn btn-primary event">Условия акции</a>
           </div>
         </div>
       </slide>
@@ -57,36 +116,17 @@
       <slide class="even">
         <div class="asset-container">
           <picture>
-            <source srcset="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/tablet/zolotaya-osenv-brajt-parke.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/desktop/zolotaya-osenv-brajt-parke.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg"
-                 srcset="~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg, ~static/images/main/mobile/zolotaya-osenv-brajt-parke.jpg 2x" alt="Брайт Парк: Гарантируем подарок при покупке LADA GRANTA" />
+            <source srcset="~static/images/main/mobile/pervyj-avtomobil.jpg, ~static/images/main/mobile/pervyj-avtomobil.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/pervyj-avtomobil.jpg, ~static/images/main/tablet/pervyj-avtomobil.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/pervyj-avtomobil.jpg, ~static/images/main/desktop/pervyj-avtomobil.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/pervyj-avtomobil.jpg"
+                 srcset="~static/images/main/mobile/pervyj-avtomobil.jpg, ~static/images/main/mobile/pervyj-avtomobil.jpg 2x" alt="АКЦИЯ ПЕРВЫЙ АВТОМОБИЛЬ" />
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">Гарантируем подарок</span><br> при покупке LADA GRANTA</p>
+          <p class="title-tagline bold title-uppercase">ПЕРВЫЙ АВТОМОБИЛЬ</p>
           <div class="item-buttons">
-            <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__garantiruem-podarok-pri-pokupke-lada-granta-details" class="btn btn-primary event">Подробнее о модели</a>
-            <a :href="$store.state.city.value + '/stocks/garantiruem-podarok-pri-pokupke-lada-granta'" id="main__slider__garantiruem-podarok-pri-pokupke-lada-granta-action" class="btn btn-secondary event">Условия акции</a>
-          </div>
-        </div>
-      </slide>
-
-      <slide class="even">
-        <div class="asset-container">
-          <picture>
-            <source srcset="~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/tablet/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/desktop/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg"
-                 srcset="~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg, ~static/images/main/mobile/vygoda-10-dlya-vsekh-klientov-brajt-parka.jpg 2x" alt="Брайт Парк: выгода 10%  для всех клиентов Брайт Парка" />
-          </picture>
-        </div>
-        <div class="product-content">
-          <p class="title-tagline bold dark title-uppercase">ПРОГРАММА БРАЙТ ПАРКА:<br> <span class="title-bold">СКИДКА 10% ВСЕМ!</span></p>
-          <div class="item-buttons">
-            <a :href="$store.state.city.value + '/stocks/gosprogramma-brajt-parka-skidka-10-vsem'" id="main__slider__gosprogramma-brajt-parka-skidka-10-vsem-details" class="btn btn-primary event">Условия акции</a>
+            <a :href="$store.state.city.value + '/stocks/pervyj-avtomobil'" id="main__slider__pervyj-avtomobil-action" class="btn btn-primary event">Условия акции</a>
           </div>
         </div>
       </slide>
@@ -109,21 +149,21 @@
           </div>
         </div>
       </slide>
-      <slide class="even">
+      <slide class="odd">
         <div class="asset-container">
           <picture>
-            <source srcset="~static/images/main/mobile/main_vesta_red.jpg, ~static/images/main/mobile/main_vesta_red.jpg 2x" media="(max-width: 580px)">
-            <source srcset="~static/images/main/tablet/main_vesta_red.jpg, ~static/images/main/tablet/main_vesta_red.jpg 2x" media="(max-width: 1365px)">
-            <source srcset="~static/images/main/desktop/main_vesta_red.jpg, ~static/images/main/desktop/main_vesta_red.jpg 2x" media="(min-width: 1366px)">
-            <img loading=lazy class="asset-image" src="~static/images/main/mobile/main_vesta_red.jpg"
-                 srcset="~static/images/main/mobile/main_vesta_red.jpg, ~static/images/main/mobile/main_vesta_red.jpg 2x" alt="Брайт Парк: 40 000 рублей выгода при обмене на LADA" />
+            <source srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_granta_red.jpg 2x" media="(max-width: 580px)">
+            <source srcset="~static/images/main/tablet/main_granta_red.jpg, ~static/images/main/tablet/main_granta_red.jpg 2x" media="(max-width: 1365px)">
+            <source srcset="~static/images/main/desktop/main_granta_red.jpg, ~static/images/main/desktop/main_granta_red.jpg 2x" media="(min-width: 1366px)">
+            <img loading=lazy class="asset-image" src="~static/images/main/mobile/main_granta_red.jpg"
+                 srcset="~static/images/main/mobile/main_granta_red.jpg, ~static/images/main/mobile/main_vesta_red.jpg 2x" alt="ДОПЛАТА 40 000 РУБЛЕЙ ПРИ ОБМЕНЕ НА LADA GRANTA" />
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase"><span class="title-bold">WOW ТРЕЙД-ИН</span><br> доплатим 40&nbsp;000&nbsp;&#8381;  к&nbsp;вашей цене</p>
+          <p class="title-tagline bold title-uppercase"><span class="title-bold">ДОПЛАТА 40 000 &#8381;</span> ПРИ ОБМЕНЕ НА LADA&nbsp;GRANTA</p>
           <div class="item-buttons">
-            <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__wow-trejd-in-doplatim-40-000-r-k-vashej-cene-details" class="btn btn-primary event">Подробнее о модели</a>
-            <a :href="$store.state.city.value + '/stocks/wow-trejd-in-doplatim-40-000-r-k-vashej-cene'" id="main__slider__wow-trejd-in-doplatim-40-000-r-k-vashej-cene-action" class="btn btn-secondary event">Условия акции</a>
+            <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__doplata-40-000-rublej-pri-obmene-na-lada-granta-details" class="btn btn-primary event">Подробнее о модели</a>
+            <a :href="$store.state.city.value + '/stocks/doplata-40-000-rublej-pri-obmene-na-lada-granta'" id="main__slider__doplata-40-000-rublej-pri-obmene-na-lada-granta-action" class="btn btn-secondary event">Условия акции</a>
           </div>
         </div>
       </slide>
@@ -198,12 +238,27 @@ export default {
   position: relative;
 }
 
+.dark-gradient-left {
+  @media only screen and (min-width: 1366px) {
+    &:after {
+      content: '';
+      background: linear-gradient(90deg, #000000 0%, rgba(0, 212, 255, 0) 60%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 3px;
+    }
+  }
+}
+
 .main-screen {
   margin: -60px 0 0;
 
   .asset-container {
     height: 100%;
   }
+
   .asset-image {
     object-fit: cover;
     margin: -75px 0 0 0;
@@ -258,6 +313,13 @@ export default {
       &.dark {
         color: #000
       }
+
+      @media only screen and (min-width: 580px) {
+        &.dark-on-tablet-desktop {
+          color: #000
+        }
+      }
+
 
       .action-bold {
         font-weight: bold;

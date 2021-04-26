@@ -60,9 +60,9 @@
                     <div class="models_wrap">
                         <ul class="" itemscope itemtype="http://schema.org/SiteNavigationElement">
                             <li v-for="model in $store.state.models_full" v-bind:key="model.id">
-                                <nuxt-link :id="'common__menu__' + model.model_slug" class="event" :to="'/' + $store.state.city.value + '/' + model.model_slug + '/' + model.type_slug" itemprop="url">
+                                <a :id="'common__menu__' + model.model_slug" class="event" :href="'/' + $store.state.city.value + '/' + model.model_slug + '/' + model.type_slug" itemprop="url">
                                     <div class="title bubble" >{{model.title | correction}}</div>
-                                </nuxt-link>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -70,11 +70,11 @@
                     <div class="other_links">
                         <ul itemscope itemtype="http://schema.org/SiteNavigationElement">
                             <li>
-                                <nuxt-link id="common__menu__service" :to="'/' + $store.state.city.value + '/service'" class="event" itemprop="url">
+                                <a id="common__menu__service" :href="'/' + $store.state.city.value + '/service'" class="event" itemprop="url">
                                     <div class="title">
                                         <span><IconSpanner /> СЕРВИС</span>
                                     </div>
-                                </nuxt-link>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -82,29 +82,34 @@
                     <div class="other_links_2">
                         <ul itemscope itemtype="http://schema.org/SiteNavigationElement">
                             <li>
-                                <nuxt-link id="common__menu__main" :to="'/' + $store.state.city.value" class="event" itemprop="url"><div class="title bubble">Главная страница</div></nuxt-link>
+                                <a id="common__menu__main" :href="'/' + $store.state.city.value" class="event" itemprop="url"><div class="title bubble">Главная страница</div></a>
                             </li>
                             <li>
-                                <nuxt-link id="common__menu__contacts" :to="'/' + $store.state.city.value + '/contacts'" class="event" itemprop="url"><div class="title bubble">Контакты</div></nuxt-link>
+                                <a id="common__menu__contacts" :href="'/' + $store.state.city.value + '/contacts'" class="event" itemprop="url"><div class="title bubble">Контакты</div></a>
                             </li>
                             <li>
-                                <nuxt-link id="common__menu__about" :to="'/' + $store.state.city.value + '/about'" class="event" itemprop="url"><div class="title bubble">О компании</div></nuxt-link>
+                                <a id="common__menu__about" :href="'/' + $store.state.city.value + '/about'" class="event" itemprop="url"><div class="title bubble">О компании</div></a>
                             </li>
                             <li>
-                              <nuxt-link id="common__menu__credit" :to="'/' + $store.state.city.value + '/credit'" class="event" itemprop="url"><div class="title bubble">Кредит</div></nuxt-link>
+                              <a id="common__menu__credit" :href="'/' + $store.state.city.value + '/credit'" class="event" itemprop="url"><div class="title bubble">Кредит</div></a>
                             </li>
                             <li>
-                                <nuxt-link id="common__menu__stocks" :to="'/' + $store.state.city.value + '/stocks'" class="event" itemprop="url"><div class="title bubble">Акции</div></nuxt-link>
+                                <a id="common__menu__stocks" :href="'/' + $store.state.city.value + '/stocks'" class="event" itemprop="url"><div class="title bubble">Акции</div></a>
                             </li>
                             <li>
-                                <nuxt-link id="common__menu__news" :to="'/' + $store.state.city.value + '/news'" class="event" itemprop="url"><div class="title bubble">Новости</div></nuxt-link>
+                                <a id="common__menu__news" :href="'/' + $store.state.city.value + '/news'" class="event" itemprop="url"><div class="title bubble">Новости</div></a>
                             </li>
                             <li>
-                                <nuxt-link id="common__menu__privacy" :to="'/' + $store.state.city.value + '/privacy'" class="event" itemprop="url"><div class="title font-tiny bubble">Политика конфиденциальности</div></nuxt-link>
+                                <a id="common__menu__privacy" :href="'/' + $store.state.city.value + '/privacy'" class="event" itemprop="url"><div class="title font-tiny bubble">Политика конфиденциальности</div></a>
                             </li>
                         </ul>
                     </div>
                     <div class="copyright">Разработано в Брайт Парке<br>Разработано с любовью</div>
+                    <div class="postscript">
+                      <span class="postscript-message">Брайт парк<br>
+                      официальный дилер LADA<br></span>
+                      <span class="postscript-mode">Режим работы: {{$store.state.city.opening_hours.hours_split.from}} - {{$store.state.city.opening_hours.hours_split.to}}</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -138,7 +143,8 @@ export default {
                 goal_call: 'zvonok',
                 goal_route: 'marshrut',
                 cities: {},
-                city_active: {}
+                city_active: {},
+                isProduction: process.env.NODE_ENV === 'production'
             };
         },
         filters: {
@@ -153,7 +159,7 @@ export default {
         },
         methods: {
             sendGoals: function (goal) {
-                if (goal) {
+                if (goal && this.isProduction) {
                     let ym_ids = this.getCountersIds();
                     let goalArr = goal.match(/^(.+?):(.+?)$/);
                     let target_goal = goalArr === null ? goal : goalArr[2];
@@ -299,9 +305,35 @@ export default {
         color: #fff;
     }
 
+    .postscript {
+        color: #fff;
+        line-height: 1.4;
+        margin: 50px 10px 40px 10px;
+
+        &-message {
+          font-size: 12px;
+        }
+
+        &-mode {
+          font-size: 10px;
+        }
+    }
+
     @media only screen and (min-width: 580px) {
         .copyright {
             font-size: 14px;
+            margin: 30px 10px 40px 20px;
+        }
+
+        .postscript {
+          margin: 30px 10px 40px 20px;
+          &-message {
+            font-size: 14px;
+          }
+
+          &-mode {
+            font-size: 12px;
+          }
         }
     }
 
@@ -396,11 +428,14 @@ export default {
             }
         }
 
+        .models_wrap {
+          margin-bottom: 3vh;
+        }
+
         .other_links,
         .models_wrap {
             padding: 0;
             background: none;
-            margin-bottom: 3vh;
 
             ul {
                 padding: 0;
@@ -417,9 +452,20 @@ export default {
                     a {
                         display:block;
                         width: 100%;
-                        //padding: 15px 10px;
-                        padding: 6.8% 10px;
+                        padding: 15px 10px;
                         color: #fff;
+
+                        @media only screen and (min-width: 900px) and (max-width: 1600px){
+                          & {
+                            padding: 12px 10px;
+                          }
+                        }
+
+                        @media only screen and (min-width: 1601px) {
+                          & {
+                            padding: 15px 10px;
+                          }
+                        }
 
                         .title {
                             width: 100%;
@@ -694,7 +740,14 @@ export default {
             padding-bottom: 10vh;
         }
 
+        @media only screen and (min-width: 580px) {
+          .menu_content_block {
+            height: 85vh;
+          }
+        }
+
         @media only screen and (max-width: 580px) {
+
             & {
                 padding: 3.2vh 1vh 3.2vh 5.75vw;
 
@@ -931,7 +984,7 @@ export default {
             padding: 35px 10px 35px 56px;
             .other_links ul li a,
             .models_wrap ul li a {
-                padding-top: 22px;
+              //  padding-top: 22px;
             }
         }
     }

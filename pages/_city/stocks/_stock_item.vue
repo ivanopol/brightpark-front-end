@@ -5,8 +5,6 @@
     </div>
     <StocksItem :data="data"/>
     <div>
-      <ModelsList/>
-      <MegaTeasers/>
       <div class="container">
         <div class="advantages_form">
           <FormBuyComponent :form_id="$store.state._page + '__advantages_'"
@@ -16,6 +14,8 @@
 
         </div>
       </div>
+      <ModelsList/>
+      <MegaTeasers/>
     </div>
     <nuxt-child/>
   </div>
