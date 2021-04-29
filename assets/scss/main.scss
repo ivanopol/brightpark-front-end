@@ -1698,7 +1698,7 @@ footer {
     }
 
     &.granta_6 {
-      background: url(/images/slider/full/granta/lada_granta_hatchback.png) no-repeat center center;
+      background: url(/images/slider/full/granta/lada_granta_hatchback.jpg) no-repeat center center;
       background-size: cover;
     }
 
@@ -1792,6 +1792,11 @@ footer {
 
       &.granta_drive_active {
         background: linear-gradient(117deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 13%, rgba(0,0,0,0) 44%), url(/images/slider/full/granta/desktop/lada_granta_drive_active.jpg) no-repeat 50% -2px;
+        background-size: cover;
+      }
+
+      &.granta_6 {
+        background: linear-gradient(117deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 13%, rgba(0,0,0,0) 44%), url(/images/slider/full/granta/desktop/lada_granta_hatchback.jpg) no-repeat 50% -2px;
         background-size: cover;
       }
 
