@@ -49,7 +49,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase">НОВАЯ GRANTA ОТ&nbsp;<span class="title-bold">459&nbsp;810&nbsp;&#8381;</span>!</p>
+          <p class="title-tagline bold title-uppercase">НОВАЯ GRANTA ОТ&nbsp;<span class="title-bold">504&nbsp;900&nbsp;&#8381;</span>!</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/granta/sedan'" id="main__slider__novaya-granta-po-luchshej-cene-details" class="btn btn-primary event">Подробнее о модели</a>
             <a :href="$store.state.city.value + '/stocks/novaya-granta-po-luchshej-cene'" id="main__slider__novaya-granta-po-luchshej-cene-action" class="btn btn-secondary event">Условия акции</a>
@@ -68,7 +68,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase">НОВАЯ VESTA ОТ&nbsp;<span class="title-bold">651&nbsp;510&nbsp;&#8381;</span>!</p>
+          <p class="title-tagline bold title-uppercase">НОВАЯ VESTA ОТ&nbsp;<span class="title-bold">733&nbsp;900&nbsp;&#8381;</span>!</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/vesta/sedan'" id="main__slider__novaya-vesta-po-luchshej-cene-details" class="btn btn-primary event">Подробнее о модели</a>
             <a :href="$store.state.city.value + '/stocks/novaya-vesta-po-luchshej-cene'" id="main__slider__novaya-vesta-po-luchshej-cene-action" class="btn btn-secondary event">Условия акции</a>
@@ -87,7 +87,7 @@
           </picture>
         </div>
         <div class="product-content">
-          <p class="title-tagline bold title-uppercase">НОВЫЙ XRAY ОТ&nbsp;<span class="title-bold">620&nbsp;910&nbsp;&#8381;</span>!</p>
+          <p class="title-tagline bold title-uppercase">НОВЫЙ XRAY ОТ&nbsp;<span class="title-bold">691&nbsp;900&nbsp;&#8381;</span>!</p>
           <div class="item-buttons">
             <a :href="$store.state.city.value + '/xray/xray'" id="main__slider__novyj-xray-po-luchshej-cene-details" class="btn btn-primary event">Подробнее о модели</a>
             <a :href="$store.state.city.value + '/stocks/novyj-xray-po-luchshej-cene'" id="main__slider__novyj-xray-po-luchshej-cene-action" class="btn btn-secondary event">Условия акции</a>
