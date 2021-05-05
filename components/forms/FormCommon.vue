@@ -100,7 +100,7 @@
                 type: String
             },
             is_comment: {
-                default: true,
+                default: false,
                 type: Boolean
             },
             form_type: {
