@@ -4,7 +4,7 @@
       <TabBar />
       <HeaderSticky />
     </client-only>
-    <Header />
+    <Header2 />
     <Nuxt keep-alive />
     <client-only placeholder="Загрузка...">
       <Scripts keep-alive/>
