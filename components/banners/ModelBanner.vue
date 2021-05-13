@@ -51,7 +51,6 @@ export default {
   },
   data() {
     return {
-      action: 'Первый листопад',
       model: '',
       hooperSettings: {
         infiniteScroll: this.data.slides_mini.length > 2,
@@ -87,8 +86,7 @@ export default {
   computed: {
     plate: function() {
       const textDefault = 'В&nbsp;Брайт парке специальные цены на&nbsp;LADA&nbsp;&mdash; каждый день! Узнайте подробности<span class=\'show_desktop\'> по&nbsp;телефону</span>: <a href=\'tel:' + this.$store.state.city.phone + '\' class=\'callibri_tel event\'>' + this.$store.state.city.phone_format + '</a>'
-      const textNiva = 'Старт продаж&nbsp;&mdash; 9&nbsp;февраля! Узнайте подробности по&nbsp;телефону: <span itemprop=\'telephone\' class=\'block callibri_tel\'>' + this.$store.state.city.phone_format + '</span>'
-      return this.$store.state.car.model_full.toLowerCase() === 'niva travel' ? textNiva : textDefault
+      return textDefault
     }
   },
   mounted: function() {
@@ -102,14 +100,6 @@ export default {
     window.addEventListener("resize", this.myEventHandler);
   },
   created: function () {
-    const action_fisrt_snow = [
-      'perm',
-      'yekaterinburg',
-      'magnitogorsk'
-    ]
-    if (action_fisrt_snow.indexOf(this.$store.state.city.value) >= 0) {
-      this.action = 'Первый снег'
-    }
   },
   methods: {
     get_source: function(path) {
