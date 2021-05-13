@@ -9,11 +9,11 @@
                       <logo-bright-park :theme="theme" v-else></logo-bright-park>
                     </nuxt-link>
                 </div>
-                <span class="logo-city">{{$store.state.city.label}}</span>
+                <city-choice />
               </span>
               <div class="header-contacts">
                 <span class="header-contacts-address">{{$store.state.city.address | address}}</span>
-                <span class="header-contacts-phone">{{$store.state.city.phone_format | phone}}</span>
+                <span class="header-contacts-phone"><a :href="'tel:' + $store.state.city.phone" class="event callibri_tel">{{$store.state.city.phone_format | phone}}</a></span>
               </div>
               <div class="logo-lada">
                   <logo-lada :theme="theme"></logo-lada>
@@ -74,7 +74,7 @@
           }
         },
         mounted: function() {
-          this.handleType
+          this.handleType()
           window.addEventListener("resize", this.handleType);
         },
         methods: {
@@ -90,15 +90,17 @@
   position: fixed;
 }
 header {
-  z-index: 1;
+  z-index: 5;
   width: 100%;
   position: relative;
   margin-bottom: 26px;
   .logo-wrap {
     .logo-wrap-row {
-      padding: 15px 15px 5px;
+      padding: 5px 15px 5px;
       display: flex;
+      overflow: unset;
       justify-content: space-between;
+      align-items: center;
     }
     &-left {
       display: flex;
@@ -119,9 +121,15 @@ header {
 
       &-phone {
         padding-left: 20px;
+        cursor: pointer;
+        a {
+          color: #000;
+          text-decoration: none;
+        }
 
-        &:hover {
-          color: #FF8351
+        & a:hover {
+          color: #FF8351;
+          opacity: 1;
         }
       }
 
@@ -144,10 +152,6 @@ header {
       }
     }
 
-    .logo-city {
-      margin-left: 10px;
-      font-size: 14px;
-    }
     .logo-bright-park {
       width: 49%;
       height: 25px;
@@ -164,6 +168,13 @@ header {
         height: 100%;
       }
     }
+
+    @media only screen and (max-width: 900px) {
+      .logo-bright-park {
+        width: auto;
+      }
+    }
+
     @media only screen and (min-width: 580px) {
       .logo-bright-park {
         width: auto;
@@ -177,13 +188,6 @@ header {
       align-items: center;
     }
     @media only screen and (min-width: 1367px) {
-      .logo-city {
-        margin-left: 15px;
-        font-size: 16px;
-      }
-      .logo-bright-park {
-        // width: 25%;
-      }
       .logo-lada {
         width: 16%;
       }

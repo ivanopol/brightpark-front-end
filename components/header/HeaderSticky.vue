@@ -4,10 +4,11 @@
             <span class="logo-wrap-left">
                 <div class="logo-bright-park">
                     <nuxt-link id="common__header-sticky__bp-logo" class="event" :to="'/' + $store.state.city.value">
-                        <LogoBrightPark :theme="theme" />
+                      <logo-bright-park-sun :theme="theme" v-if="isMobile"></logo-bright-park-sun>
+                      <logo-bright-park :theme="theme" v-else></logo-bright-park>
                     </nuxt-link>
                 </div>
-                <span class="logo-city">{{$store.state.city.label}}</span>
+                <city-choice />
             </span>
 
             <div class="header-contacts">
@@ -71,7 +72,7 @@
           }
         },
         mounted () {
-            this.handleType
+            this.handleType()
             window.addEventListener('scroll', this.handleScroll);
             window.addEventListener("resize", this.handleType);
         },
@@ -96,11 +97,13 @@ header {
   display: flex;
   align-items: flex-end;
   &.show {
-    margin-top: -60px;
+    margin-top: -55px;
     opacity: 1;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+
     .logo-wrap {
       opacity: 1;
+      align-items: center;
     }
   }
   &.absolute {
@@ -180,6 +183,14 @@ header {
         height: 100%;
       }
     }
+
+    @media only screen and (max-width: 900px) {
+      .logo-bright-park {
+        min-width: unset;
+        width: auto;
+      }
+    }
+
     @media only screen and (min-width: 580px) {
       .logo-bright-park {
         width: auto;
