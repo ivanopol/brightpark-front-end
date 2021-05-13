@@ -147,6 +147,10 @@ header {
       }
 
       @media only screen and (max-width: 900px) {
+        & {
+          font-size: 13px;
+        }
+
         &-address {
           padding-right: 0;
           border-right: none;

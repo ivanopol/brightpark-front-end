@@ -44,11 +44,12 @@ export default {
 <style scoped lang="scss">
 .logo-city {
   font-size: 14px;
-  padding: 10px 20px 10px 10px;
+  padding: 10px 10px 10px 10px;
   cursor: pointer;
   position: relative;
   display: flex;
   align-items: center;
+  white-space: nowrap;
 
   &::after {
     content: '';
@@ -96,6 +97,12 @@ export default {
     &:hover {
       color: #000;
     }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .logo-city {
+    font-size: 13px;
   }
 }
 
