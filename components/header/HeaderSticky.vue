@@ -9,6 +9,12 @@
                 </div>
                 <span class="logo-city">{{$store.state.city.label}}</span>
             </span>
+
+            <div class="header-contacts">
+              <span class="header-contacts-address">{{$store.state.city.address | address}}</span>
+              <span class="header-contacts-phone">{{$store.state.city.phone_format | phone}}</span>
+            </div>
+
             <div class="logo-lada" v-if="!button">
                 <LogoLada :theme="theme" />
             </div>
@@ -31,16 +37,43 @@
         },
         data: function () {
             return {
-                scrolled: false
+                scrolled: false,
+                isMobile: false
             };
         },
         methods: {
             handleScroll () {
                 this.scrolled = window.scrollY > 78;
+            },
+            handleType: function () {
+              this.isMobile = window.innerWidth < 900;
             }
         },
+        filters: {
+          address: function (value) {
+            if (!value) return ''
+            value = value.toString()
+
+            let parts = value.split(', ')
+            let city = parts.shift()
+
+            if (city === 'г. Москва') {
+              parts = ['Симферопольское ш., 22, стр. 5']
+            } else {
+              parts[0] = parts[0].replace('ул.', '')
+            }
+            return parts.join(', ')
+          },
+          phone: function (value) {
+            if (!value) return ''
+            value = value.toString()
+            return value.replace(/-/g, ' ')
+          }
+        },
         mounted () {
+            this.handleType
             window.addEventListener('scroll', this.handleScroll);
+            window.addEventListener("resize", this.handleType);
         },
         destroyed () {
             window.removeEventListener('scroll', this.handleScroll);
@@ -90,6 +123,46 @@ header {
       justify-content: flex-start;
       align-items: center;
     }
+
+    .header-contacts {
+      font-size: 14px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+
+      &-address {
+        padding-right: 20px;
+        border-right: 2px solid #FF8351;
+      }
+
+      &-phone {
+        padding-left: 20px;
+
+        &:hover {
+          color: #FF8351
+        }
+      }
+
+      @media only screen and (max-width: 900px) {
+        &-address {
+          padding-right: 0;
+          border-right: none;
+          display: none;
+        }
+
+        &-phone {
+          padding-left: 0;
+        }
+      }
+
+      @media only screen and (min-width: 1367px) {
+        & {
+          font-size: 16px;
+        }
+      }
+    }
+
+
     .logo-city {
       margin-left: 10px;
       font-size: 14px;
