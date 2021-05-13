@@ -119,6 +119,10 @@ header {
 
       &-phone {
         padding-left: 20px;
+
+        &:hover {
+          color: #FF8351
+        }
       }
 
       @media only screen and (max-width: 900px) {
