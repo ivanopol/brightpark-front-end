@@ -5,8 +5,8 @@
               <span class="logo-wrap-left">
                 <div class="logo-bright-park">
                     <nuxt-link id="common__header__bp-logo" class="event" :to="'/' + $store.state.city.value">
-<!--                        <logo-bright-park :theme="theme"></logo-bright-park>-->
-                        <logo-bright-park-sun :theme="theme"></logo-bright-park-sun>
+                      <logo-bright-park-sun :theme="theme" v-if="isMobile"></logo-bright-park-sun>
+                      <logo-bright-park :theme="theme" v-else></logo-bright-park>
                     </nuxt-link>
                 </div>
                 <span class="logo-city">{{$store.state.city.label}}</span>
@@ -49,7 +49,7 @@
         },
         data: function () {
             return {
-
+              isMobile: false
             };
         },
         filters: {
@@ -72,6 +72,15 @@
             value = value.toString()
             return value.replace(/-/g, ' ')
           }
+        },
+        mounted: function() {
+          this.handleType
+          window.addEventListener("resize", this.handleType);
+        },
+        methods: {
+            handleType: function () {
+              this.isMobile = window.innerWidth < 900;
+            }
         }
     }
 </script>
@@ -98,6 +107,7 @@ header {
     }
 
     .header-contacts {
+      font-size: 14px;
       font-weight: bold;
       display: flex;
       align-items: center;
@@ -120,6 +130,12 @@ header {
 
         &-phone {
           padding-left: 0;
+        }
+      }
+
+      @media only screen and (min-width: 1367px) {
+        & {
+          font-size: 16px;
         }
       }
     }
