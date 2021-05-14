@@ -13,7 +13,7 @@
 
             <div class="header-contacts">
               <span class="header-contacts-address">{{$store.state.city.address | address}}</span>
-              <span class="header-contacts-phone">{{$store.state.city.phone_format | phone}}</span>
+              <span class="header-contacts-phone"><a :href="'tel:' + $store.state.city.phone" class="event callibri_tel">{{$store.state.city.phone_format | phone}}</a></span>
             </div>
 
             <div class="logo-lada" v-if="!button">
@@ -140,9 +140,14 @@ header {
 
       &-phone {
         padding-left: 20px;
-
-        &:hover {
-          color: #FF8351
+        cursor: pointer;
+        a {
+          color: #000;
+          text-decoration: none;
+        }
+        & a:hover {
+          color: #FF8351;
+          opacity: 1;
         }
       }
 
