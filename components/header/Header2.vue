@@ -19,6 +19,17 @@
                   <logo-lada :theme="theme"></logo-lada>
               </div>
             </div>
+            <div class="container navigation">
+              <div class="menu-links">
+                <a href="#" class="dropdown">Модели</a>
+                <a href="#">Сервис</a>
+                <a href="#">Акции</a>
+                <a href="#">Заявка на кредит</a>
+                <a href="#">О компании</a>
+                <a href="#">Контакты</a>
+              </div>
+              <div class="menu-button">меню</div>
+            </div>
         </div>
         <div class="lada-line" v-if="line">
             <p id="model-active" v-if="car">{{car.model_full}}</p>
@@ -95,6 +106,43 @@ header {
   position: relative;
   margin-bottom: 26px;
   .logo-wrap {
+
+    .navigation {
+      text-transform: uppercase;
+      font-weight: bold;
+      display: flex;
+      flex-wrap: nowrap;
+      margin-bottom: 2px;
+
+      .menu-links {
+        display: flex;
+        flex: 0.8;
+        border: 1px solid blue;
+        justify-content: space-between;
+
+        a {
+          color: #000;
+          font-size: 16px;
+        }
+
+        .dropdown {
+
+        }
+      }
+
+      .menu-button {
+        flex: 0.2;
+        border: 1px solid green;
+        text-align: right;
+      }
+    }
+
+    @media only screen and (max-width: 580px) {
+      .navigation {
+        display: none;
+      }
+    }
+
     .logo-wrap-row {
       padding: 5px 15px 5px;
       display: flex;

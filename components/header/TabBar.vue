@@ -24,19 +24,6 @@
             </ul>
         </section>
 
-        <section id="panel-desktop" >
-            <div class="panel-wrap">
-                <ul :class="theme">
-                    <li class="menu-wrap" @click="toggleMenu">
-                        <div id="common__menu__desktop-btn" class="menu-desktop event"></div>
-                    </li>
-                    <li class="route-map" @click="toggleMapWindow">
-                        <div id="common__menu__route-btn" class="route-desktop event"></div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
         <section id="menu" :class="{ active: open }">
             <div id="common__menu__window-close" class="close event" @click="close"></div>
             <div class="menu_wrap">
@@ -774,52 +761,6 @@ export default {
             }
         }
     }
-
-    #panel-desktop {
-        position: absolute;
-        margin: auto;
-        left: 0;
-        right: 0;
-        width: 100%;
-        max-width: 1366px;
-        padding-right: 10px;
-        z-index: 40;
-        top: 100px;
-
-        .panel-wrap {
-
-            position: fixed;
-            ul {
-                display: flex;
-                flex-direction: column;
-                flex-wrap: wrap;
-                padding: 0;
-
-                li {
-                    text-align: center;
-                    margin: 0;
-
-                    & > a div,
-                    & > div {
-                        width: 64px;
-                        height: 64px;
-                        display: block;
-                        margin: 0 auto 2px;
-                        font-weight: normal;
-                        cursor:pointer;
-                    }
-
-                    & > a span,
-                    & > span {
-                        font-size: 12px;
-                        font-weight: normal;
-                    }
-
-                }
-            }
-        }
-    }
-
 
     #panel {
         display: block;

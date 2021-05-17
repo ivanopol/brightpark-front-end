@@ -152,6 +152,7 @@
                 event.preventDefault();
                 this.isLoading = true;
 
+
                 let formData = {
                     "phone": this.clearMask(this.phone),
                     "name": this.name,
