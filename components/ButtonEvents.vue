@@ -8,7 +8,16 @@ export default {
   name: "ButtonEvents",
   methods: {
     async sendData(data, href, blank) {
-      axios({
+
+      if (href !== '#' && href !== null) {
+        if (blank) {
+          window.open(href, '_blank')
+        } else {
+          window.location = href;
+        }
+      }
+
+/*      axios({
         method: 'post',
         url:  process.env.apiUrl + '/api/write_event',
         data: data
@@ -22,7 +31,7 @@ export default {
             window.location = href;
           }
         }
-      });
+      });*/
     },
     checkEvent(e) {
       let has_class = false
