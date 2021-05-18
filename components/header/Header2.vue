@@ -116,8 +116,7 @@ header {
       font-weight: bold;
       display: flex;
       flex-wrap: nowrap;
-      margin-bottom: 2px;
-      margin-top: 15px;
+      padding: 10px 0;
       overflow: unset;
       font-size: 16px;
 
@@ -172,14 +171,14 @@ header {
 
     @media only screen and (min-width: 741px) and (max-width: 980px) {
       .navigation {
-        padding: 0 15px;
+        padding: 10px 15px;
         font-size: 14px;
       }
     }
 
     @media only screen and (min-width: 661px) and (max-width: 741px) {
       .navigation {
-        padding: 0 15px;
+        padding: 10px 15px;
         font-size: 12px;
       }
     }
