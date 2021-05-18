@@ -113,12 +113,11 @@ header {
 
     .navigation {
       text-transform: uppercase;
-      font-weight: bold;
       display: flex;
       flex-wrap: nowrap;
-      padding: 10px 0;
+      padding: 40px 0 15px;
       overflow: unset;
-      font-size: 16px;
+      font-size: 14px;
 
       .menu-links {
         display: flex;
@@ -171,14 +170,14 @@ header {
 
     @media only screen and (min-width: 741px) and (max-width: 980px) {
       .navigation {
-        padding: 10px 15px;
+        padding: 20px 15px 15px;
         font-size: 14px;
       }
     }
 
     @media only screen and (min-width: 661px) and (max-width: 741px) {
       .navigation {
-        padding: 10px 15px;
+        padding: 20px 15px 15px;
         font-size: 12px;
       }
     }
