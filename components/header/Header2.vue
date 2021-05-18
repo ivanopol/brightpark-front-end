@@ -21,14 +21,15 @@
             </div>
             <div class="container navigation">
               <div class="menu-links">
-                <a href="#" class="dropdown">Модели</a>
-                <a href="#">Сервис</a>
-                <a href="#">Акции</a>
-                <a href="#">Заявка на кредит</a>
-                <a href="#">О компании</a>
-                <a href="#">Контакты</a>
+                <menu-dropdown />
+
+                <a :href="'/' + $store.state.city.value + '/service'" class="event">Сервис</a>
+                <a :href="'/' + $store.state.city.value + '/stocks'" class="event">Акции</a>
+                <a :href="'/' + $store.state.city.value + '/credit'" class="event">Заявка на кредит</a>
+                <a :href="'/' + $store.state.city.value + '/about'" class="event">О компании</a>
+                <a :href="'/' + $store.state.city.value + '/contacts'" class="event">Контакты</a>
               </div>
-              <div class="menu-button">меню</div>
+              <div class="menu-button"><a href="#" v-on:click.prevent="toggleMenu">меню</a></div>
             </div>
         </div>
         <div class="lada-line" v-if="line">
@@ -89,9 +90,12 @@
           window.addEventListener("resize", this.handleType);
         },
         methods: {
-            handleType: function () {
-              this.isMobile = window.innerWidth < 900;
-            }
+          handleType: function () {
+            this.isMobile = window.innerWidth < 900;
+          },
+          toggleMenu: function () {
+            this.$store.commit('set_menu', !this.$store.state._menu);
+          }
         }
     }
 </script>
@@ -113,31 +117,74 @@ header {
       display: flex;
       flex-wrap: nowrap;
       margin-bottom: 2px;
+      margin-top: 15px;
+      overflow: unset;
+      font-size: 16px;
 
       .menu-links {
         display: flex;
         flex: 0.8;
-        border: 1px solid blue;
+        //border: 1px solid blue;
         justify-content: space-between;
+        color: #000;
 
         a {
           color: #000;
-          font-size: 16px;
-        }
+          transition: 0.15s linear;
 
-        .dropdown {
-
+          &:hover {
+            color: #FF8351;
+          }
         }
       }
 
       .menu-button {
         flex: 0.2;
-        border: 1px solid green;
+       // border: 1px solid green;
         text-align: right;
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+          color: #000;
+          transition: 0.15s linear;
+          padding-right: 30px;
+          display: block;
+          position: relative;
+
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -1px;
+            right: 0;
+            width: 20px;
+            height: 17px;
+            background: url('/images/icons/menu2.svg') no-repeat;
+          }
+
+          &:hover {
+            color: #FF8351;
+          }
+        }
       }
     }
 
-    @media only screen and (max-width: 580px) {
+    @media only screen and (min-width: 741px) and (max-width: 980px) {
+      .navigation {
+        padding: 0 15px;
+        font-size: 14px;
+      }
+    }
+
+    @media only screen and (min-width: 661px) and (max-width: 741px) {
+      .navigation {
+        padding: 0 15px;
+        font-size: 12px;
+      }
+    }
+
+    @media only screen and (max-width: 660px) {
       .navigation {
         display: none;
       }
@@ -312,6 +359,13 @@ header {
     }
   }
 }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
+
 @media only screen and (min-width: 580px) {
   header {
     margin-bottom: 55px;

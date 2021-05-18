@@ -14,6 +14,7 @@ export const state = () => ({
   _page: '',
   _footer: true,
   _month: {},
+  _menu: false
 })
 
 export const mutations = {
@@ -49,5 +50,8 @@ export const mutations = {
     state._month.nominative = month.nominative
     state._month.accusative = month.accusative
     state._month.prepositional = month.prepositional
-  }
+  },
+  set_menu(state, toggle) {
+    state._menu = toggle
+  },
 }

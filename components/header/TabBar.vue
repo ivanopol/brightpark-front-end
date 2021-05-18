@@ -261,6 +261,11 @@ export default {
                 }
             }
         },
+        watch: {
+          '$store.state._menu': function() {
+            this.toggleMenu()
+          }
+        },
     mounted() {
       var body = document.body;
       if (body.classList.contains('fix-body')) {
