@@ -1,9 +1,9 @@
 <template>
-  <div class="logo-city" v-bind:class="{ 'active': show }" v-on:click="show = !show">
+  <div class="logo-city" v-bind:class="{ 'active': opened }" v-click-outside="hide" v-on:click="opened = !opened">
     {{$store.state.city.label}}
 
     <transition name="fade">
-      <div class="logo-city__list" v-if="show">
+      <div class="logo-city__list" v-if="opened">
         <a :href="'/' + city.url" v-for="city in cities" :key="city.value" class="logo-city__list__item event">
           {{ city.label }}
         </a>
@@ -13,12 +13,14 @@
 </template>
 
 <script>
+import ClickOutside from 'vue-click-outside'
+
 export default {
   name: "CityChoice",
   data: function () {
     return {
       cities: {},
-      show: false
+      opened: false
     };
   },
   methods: {
@@ -33,10 +35,20 @@ export default {
         city['url'] = segments.join('/');
         return city
       })
+    },
+    hide () {
+      this.opened = false
     }
   },
+  watch: {
+
+  },
   mounted: function () {
+    this.popupItem = this.$el
     this.makeCitiesList()
+  },
+  directives: {
+    ClickOutside
   }
 }
 </script>
@@ -68,6 +80,19 @@ export default {
     width: 10px;
     height: 10px;
   }
+
+  &:hover {
+    color: #FF8351;
+
+    &::after {
+      content: '';
+      border: 5px solid transparent;
+      border-top: 5px solid #FF8351;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+  }
+
 }
 
 .logo-city.active::after {
@@ -79,7 +104,7 @@ export default {
   position: absolute;
   left: 0;
   right: 0;
-  top: 30px;
+  top: 35px;
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, .15);
   z-index: 10;
@@ -88,14 +113,15 @@ export default {
 
   &__item {
     font-weight: normal;
-    color: #666;
+    color: #000;
     width: auto;
     display: block;
     padding: 10px;
     white-space: nowrap;
+    transition: 0.15s linear;
 
     &:hover {
-      color: #000;
+      color: #FF8351;
     }
   }
 }
