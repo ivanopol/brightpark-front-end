@@ -2760,3 +2760,9 @@ footer {
   right: 12px;
   bottom: 95px;
 }
+
+#Calltouch-widget-container {
+  div[class^="commonStyles__FieldContainer-eb66jt"] {
+    width: 60%;
+  }
+}
