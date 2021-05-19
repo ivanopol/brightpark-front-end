@@ -65,11 +65,11 @@ export default {
     color: #ee6723;
   }
 
-  45% {
+  40% {
     color: #514ea1;
   }
 
-  66% {
+  60% {
     color: #5cbe86;
   }
 
