@@ -49,8 +49,8 @@ export default {
 <style scoped lang="scss">
 
 .colored {
-  animation: coloring 8s infinite;
-  animation-duration: 8s;
+  animation: coloring 10s infinite;
+  animation-duration: 10s;
   animation-timing-function: ease;
   animation-delay: 0s;
   animation-iteration-count: infinite;
@@ -63,22 +63,22 @@ export default {
 @keyframes coloring {
   0% {
     color: #ee6723;
-    border-color: #ee6723;
   }
 
-  33% {
+  45% {
     color: #514ea1;
-    border-color: #514ea1;
   }
 
   66% {
     color: #5cbe86;
-    border-color: #5cbe86;
+  }
+
+  80% {
+    color: #ffca0d;
   }
 
   100% {
-    color: #ffca0d;
-    border-color: #ffca0d;
+    color: #ee6723;
   }
 }
 
