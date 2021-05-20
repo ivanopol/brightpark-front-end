@@ -129,24 +129,14 @@ header {
       text-transform: uppercase;
       display: flex;
       flex-wrap: nowrap;
-      padding: 20px 0 15px;
+      padding: 25px 0 15px;
       overflow: unset;
       font-size: 14px;
-      //border-top: 1px solid #D9DADA;
       position: relative;
-/*      &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 1px;
-        background-color:  #D9DADA;
-      }*/
 
       .menu-links {
         display: flex;
         flex: 0.8;
-        //border: 1px solid blue;
         justify-content: space-between;
         color: #000;
 
@@ -162,7 +152,6 @@ header {
 
       .menu-button {
         flex: 0.2;
-       // border: 1px solid green;
         text-align: right;
         display: flex;
         justify-content: flex-end;
@@ -207,7 +196,7 @@ header {
     }
 
     @media only screen and (max-width: 660px) {
-      .navigation {
+      .navigation-wrapper {
         display: none;
       }
     }
