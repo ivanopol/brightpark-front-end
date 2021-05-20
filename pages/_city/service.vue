@@ -50,15 +50,18 @@
                       :form_title="''"
                       :is_comment='true'
                       :form_h1="'<span class=\'c_orange\'>Запишись</span> на сервис'"
-                      :form_class="'mobile_white_bg'"
-                      :form_type='2' >
+                      form_class="mobile_white_bg"
+                      :form_type='2'
+                      goal="service">
         </FormService>
       </div>
     </div>
     <CarLogos />
     <OurServices />
     <TrustUs />
-    <ReviewService />
+    <client-only>
+      <ReviewService />
+    </client-only>
     <div class="container_bg_dark">
       <div class="container">
 <!--        <YclientsForm2 v-if="$store.state.city.value === 'perm'"
@@ -75,8 +78,9 @@
                       :form_title="'<span class=\'c_orange\'>Запишись</span> к нам на сервис'"
                       :form_pre_title="'и получи скидку 5% при визите в день обращения'"
                       :is_comment='true'
-                      :form_class="'mobile_white_bg'"
+                      form_class="mobile_white_bg"
                       :form_type='2'
+                      goal="service"
         ></FormRetarget>
       </div>
     </div>

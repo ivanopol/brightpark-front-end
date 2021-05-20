@@ -1,9 +1,9 @@
 <template>
     <section class="service-review bg-dark">
         <div class="service-review-layer container">
-            <div class="swiper-button-prev" slot="button-prev"></div>
-            <div class="swiper-button-next" slot="button-next"></div>
-            <swiper class="swiper container-2" ref="mySwiper" :options="swiperOptions">
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+            <swiper class="swiper container-2" ref="mySwiper" :options="swiperOption">
                 <swiper-slide v-for="review in reviews" v-bind:key="review.id">
                     <div class="swiper__wrap">
                         <div class="swiper__head">
@@ -28,14 +28,14 @@
 
 <script>
     import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
-    import 'swiper/swiper.scss'
+    import 'swiper/css/swiper.min.css'
 
     export default {
         name: "ReviewService",
         props: {},
         data: function () {
             return {
-                swiperOptions: {
+                swiperOption: {
                     autoHeight: true,
                     slidesPerView: 3,
                     spaceBetween: 30,
