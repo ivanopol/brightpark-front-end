@@ -19,17 +19,19 @@
                   <logo-lada :theme="theme"></logo-lada>
               </div>
             </div>
-            <div class="container navigation">
-              <div class="menu-links">
-                <menu-dropdown />
+            <div class="navigation-wrapper">
+              <div class="container navigation">
+                  <div class="menu-links">
+                    <menu-dropdown />
 
-                <a :href="'/' + $store.state.city.value + '/service'" class="event">Сервис</a>
-                <a :href="'/' + $store.state.city.value + '/stocks'" class="event">Акции</a>
-                <a :href="'/' + $store.state.city.value + '/credit'" class="event">Заявка на кредит</a>
-                <a :href="'/' + $store.state.city.value + '/about'" class="event">О компании</a>
-                <a :href="'/' + $store.state.city.value + '/contacts'" class="event">Контакты</a>
-              </div>
-              <div class="menu-button"><a href="#" v-on:click.prevent="toggleMenu">меню</a></div>
+                    <a :href="'/' + $store.state.city.value + '/service'" class="event">Сервис</a>
+                    <a :href="'/' + $store.state.city.value + '/stocks'" class="event">Акции</a>
+                    <a :href="'/' + $store.state.city.value + '/credit'" class="event">Заявка на кредит</a>
+                    <a :href="'/' + $store.state.city.value + '/about'" class="event">О компании</a>
+                    <a :href="'/' + $store.state.city.value + '/contacts'" class="event">Контакты</a>
+                  </div>
+                  <div class="menu-button"><a href="#" v-on:click.prevent="toggleMenu">меню</a></div>
+                </div>
             </div>
         </div>
         <div class="lada-line" v-if="line">
@@ -111,13 +113,35 @@ header {
   margin-bottom: 26px;
   .logo-wrap {
 
+    .navigation-wrapper {
+      width: 100%;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 1px;
+        background-color:  #D9DADA;
+      }
+    }
     .navigation {
       text-transform: uppercase;
       display: flex;
       flex-wrap: nowrap;
-      padding: 40px 0 15px;
+      padding: 20px 0 15px;
       overflow: unset;
       font-size: 14px;
+      //border-top: 1px solid #D9DADA;
+      position: relative;
+/*      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 1px;
+        background-color:  #D9DADA;
+      }*/
 
       .menu-links {
         display: flex;
@@ -377,7 +401,7 @@ header {
         height: 35px;
       }
       .logo-wrap-row {
-        padding: 20px 0 0;
+        padding: 20px 0 15px;
       }
     }
   }
