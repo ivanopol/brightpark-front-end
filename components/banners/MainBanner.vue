@@ -202,12 +202,12 @@ export default {
   }
 
   @media only screen and (max-width: 900px) {
-    .banner-button {
-      bottom: 12%;
-      right: 5%;
-    }
-
     .swiper {
+      .banner-button {
+        bottom: 12%;
+        right: 5%;
+      }
+
       .swiper-pagination {
         bottom: 15px;
       }
@@ -215,17 +215,17 @@ export default {
   }
 
   @media only screen and (max-width: 580px) {
-    .banner-button {
-      bottom: 10%;
-      right: 50%;
-      transform: translate(50%, 0);
-    }
+    .swiper {
+      .banner-button {
+        bottom: 10%;
+        right: 50%;
+        transform: translate(50%, 0);
+      }
 
-    .swiper-button-prev,
-    .swiper-button-next {
-      display: none;
+      .swiper-button-prev,
+      .swiper-button-next {
+        display: none;
+      }
     }
   }
-
-
 </style>
