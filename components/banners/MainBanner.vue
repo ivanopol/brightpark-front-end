@@ -95,38 +95,35 @@ export default {
 
   .swiper {
     max-width: 1200px;
-  }
 
-
-  .swiper-button-next {
-    right: 30px;
-    padding-left: 5px;
-  }
-
-  .swiper-button-prev {
-    left: 30px;
-    padding-right: 5px;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: #fff;
-    width: 55px;
-    height: 55px;
-    background-color: rgba(255,255,255,0.2);
-    border-radius: 40px;
-    transition: 0.15s background-color;
-
-    &:hover {
-      background-color: rgba(255,255,255,0.4);
+    .swiper-button-next {
+      right: 30px;
+      padding-left: 5px;
     }
 
-    &::after {
-      font-size: 30px;
+    .swiper-button-prev {
+      left: 30px;
+      padding-right: 5px;
     }
-  }
 
-  .swiper {
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #fff;
+      width: 55px;
+      height: 55px;
+      background-color: rgba(255,255,255,0.2);
+      border-radius: 40px;
+      transition: 0.15s background-color;
+
+      &:hover {
+        background-color: rgba(255,255,255,0.4);
+      }
+
+      &::after {
+        font-size: 30px;
+      }
+    }
+
     .swiper-pagination {
       width: fit-content;
       left: 50%;
