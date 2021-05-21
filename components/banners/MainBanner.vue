@@ -5,7 +5,7 @@
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
       <div class="swiper-pagination" slot="pagination"></div>
-      <swiper-slide :key="banner" v-for="banner in banners">
+      <swiper-slide :key="banner.key" v-for="banner in banners">
         <picture>
           <source :srcset="path.mobile + banner.title + '.' + banner.extension + ', ' + path.mobile + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 580px)">
           <source :srcset="path.tablet + banner.title + '.' + banner.extension + ', ' + path.tablet + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 900px)">
@@ -35,18 +35,21 @@ export default {
       },
       banners: [
         {
+          key: 1,
           title: 'yellow',
           extension: 'jpg',
           buttonColor: 'purple',
           link: 'vesta/sedan',
         },
         {
+          key: 2,
           title: 'green',
           extension: 'jpg',
           buttonColor: 'orange',
           link: 'credit',
         },
         {
+          key: 3,
           title:'purple',
           extension: 'jpg',
           buttonColor: 'green',
