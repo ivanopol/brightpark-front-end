@@ -1,6 +1,6 @@
 <template>
   <section>
-    <swiper class="swiper" ref="mySwiper" :options="swiperOption">
+    <swiper id="swiper" class="swiper" ref="mySwiper" :options="swiperOption">
 
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
@@ -93,7 +93,7 @@ export default {
 
 <style lang="scss">
 
-  .swiper {
+  #swiper {
     max-width: 1200px;
 
     .swiper-button-next {
@@ -204,7 +204,7 @@ export default {
 
 
   @media only screen and (max-width: 900px) {
-    .swiper {
+    #swiper {
       .banner-button {
         bottom: 12%;
         right: 5%;
@@ -217,7 +217,7 @@ export default {
   }
 
   @media only screen and (max-width: 580px) {
-    .swiper {
+    #swiper {
       .banner-button {
         bottom: 10%;
         right: 50%;
