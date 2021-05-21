@@ -1,10 +1,8 @@
 <template>
   <div>
     <section class="main-screen">
-      <MainHooper></MainHooper>
+      <MainBanner></MainBanner>
     </section>
-    <plate :bold='true' :text="'В Брайт парке специальные цены на LADA — каждый день! Узнайте подробности по телефону: <a href=\'tel:' + $store.state.city.phone + '\' class=\'callibri_tel event\'>' + $store.state.city.phone_format + '</a>'" />
-
     <ModelsList/>
     <MegaTeasers/>
     <div class="container">

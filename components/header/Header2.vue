@@ -34,9 +34,6 @@
                 </div>
             </div>
         </div>
-        <div class="lada-line" v-if="line">
-            <p id="model-active" v-if="car">{{car.model_full}}</p>
-        </div>
     </header>
 </template>
 
@@ -110,7 +107,7 @@ header {
   z-index: 5;
   width: 100%;
   position: relative;
-  margin-bottom: 26px;
+
   .logo-wrap {
 
     .navigation-wrapper {
@@ -129,7 +126,7 @@ header {
       text-transform: uppercase;
       display: flex;
       flex-wrap: nowrap;
-      padding: 25px 0 15px;
+      padding: 25px 0;
       overflow: unset;
       font-size: 14px;
       position: relative;
@@ -337,9 +334,6 @@ header {
     }
   }
   @media only screen and (min-width: 580px) {
-    &.header-model {
-      margin-bottom: 40px;
-    }
     .lada-line {
       height: 100px;
       background: url(~static/images/lada-line.png) no-repeat;
@@ -377,14 +371,9 @@ header {
   opacity: 0;
 }
 
-@media only screen and (min-width: 580px) {
-  header {
-    margin-bottom: 55px;
-  }
-}
 @media only screen and (min-width: 1367px) {
   header {
-    margin-bottom: 70px;
+
     .logo-wrap {
       .logo-bright-park {
         height: 35px;
