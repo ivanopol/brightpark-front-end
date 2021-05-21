@@ -134,15 +134,11 @@ export default {
         bottom: 25px;
         padding: 5px 10px;
         border-radius: 20px;
-        display: flex;
-        justify-content: center;
-        align-content: center;
 
         .swiper-pagination-bullet {
           background-color: rgba(255, 255, 255, 1);
           opacity: 0.6;
           margin: 3px 10px;
-          display: block;
 
           &:first-child {
             margin-left: 0;
