@@ -157,6 +157,36 @@ export default {
         }
       }
     }
+
+    .swiper-slide {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      background-color: #1C1D1A;
+
+      picture {
+        width: 100%;
+        max-width: 1400px;
+        display: flex;
+      }
+
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .orange {
+        background-color: #e95909;
+      }
+
+      .green {
+        background-color: #5bbd84;
+      }
+
+      .purple {
+        background-color: #504ea0;
+      }
+    }
   }
 
   .banner-button {
@@ -171,35 +201,7 @@ export default {
     bottom: 24%;
   }
 
-  .swiper-slide {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    background-color: #1C1D1A;
 
-    picture {
-      width: 100%;
-      max-width: 1400px;
-      display: flex;
-    }
-
-    img {
-      object-fit: cover;
-      width: 100%;
-    }
-
-    .orange {
-      background-color: #e95909;
-    }
-
-    .green {
-      background-color: #5bbd84;
-    }
-
-    .purple {
-      background-color: #504ea0;
-    }
-  }
 
   @media only screen and (max-width: 900px) {
     .swiper {
