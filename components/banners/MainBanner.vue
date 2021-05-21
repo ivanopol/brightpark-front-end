@@ -142,6 +142,8 @@ export default {
           background-color: rgba(255, 255, 255, 1);
           opacity: 0.6;
           margin: 3px 10px;
+          display: block;
+
           &:first-child {
             margin-left: 0;
           }
