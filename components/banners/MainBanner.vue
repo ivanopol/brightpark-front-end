@@ -124,35 +124,37 @@ export default {
       }
     }
 
-    .swiper-pagination {
-      width: fit-content;
-      left: 50%;
-      transform: translate(-50%, 0);
-      background-color: rgba(255, 255, 255, 0.2);
-      bottom: 25px;
-      padding: 5px 10px;
-      border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-content: center;
+    &.swiper-container-horizontal {
+      .swiper-pagination {
 
-      .swiper-pagination-bullet {
-        background-color: rgba(255, 255, 255, 1);
-        opacity: 0.6;
-        margin: 3px 10px;
-        &:first-child {
-          margin-left: 0;
+        width: fit-content;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: rgba(255, 255, 255, 0.2);
+        bottom: 25px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        .swiper-pagination-bullet {
+          background-color: rgba(255, 255, 255, 1);
+          opacity: 0.6;
+          margin: 3px 10px;
+          &:first-child {
+            margin-left: 0;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
         }
 
-        &:last-child {
-          margin-right: 0;
+        .swiper-pagination-bullet-active {
+          background-color: rgba(255, 255, 255, 1);
+          opacity: 1;
         }
-
-      }
-
-      .swiper-pagination-bullet-active {
-        background-color: rgba(255, 255, 255, 1);
-        opacity: 1;
       }
     }
   }
