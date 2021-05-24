@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="dropdown colored" v-bind:class="{ 'active': opened }" v-click-outside="hide" v-on:click="opened = !opened">Модели
+  <a href="#" class="dropdown" v-bind:class="{ 'active': opened }" v-click-outside="hide" v-on:click="opened = !opened">Модели
     <transition name="fade">
       <ul class="" v-if="opened">
         <li v-for="model in $store.state.models_full" v-bind:key="model.id">
@@ -47,40 +47,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-.colored {
-  animation: coloring 10s infinite;
-  animation-duration: 10s;
-  animation-timing-function: ease;
-  animation-delay: 0s;
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-fill-mode: none;
-  animation-play-state: running;
-  animation-name: coloring;
-}
-
-@keyframes coloring {
-  0% {
-    color: #ee6723;
-  }
-
-  40% {
-    color: #514ea1;
-  }
-
-  60% {
-    color: #5cbe86;
-  }
-
-  80% {
-    color: #ffca0d;
-  }
-
-  100% {
-    color: #ee6723;
-  }
-}
 
 a.dropdown {
   transition: unset;
