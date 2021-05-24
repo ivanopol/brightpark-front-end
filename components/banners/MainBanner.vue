@@ -162,7 +162,6 @@ export default {
       display: flex;
       align-content: center;
       justify-content: center;
-      background-color: #1C1D1A;
 
       picture {
         width: 100%;
