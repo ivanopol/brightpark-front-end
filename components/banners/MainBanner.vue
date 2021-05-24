@@ -235,7 +235,8 @@ export default {
 
       .swiper-slide {
         img {
-          height: calc(100vh - 177px);
+          //height: calc(100vh - 177px);
+        /*  height: 100vmin;*/
         }
       }
 
