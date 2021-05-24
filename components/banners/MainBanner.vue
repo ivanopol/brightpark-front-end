@@ -63,7 +63,7 @@ export default {
           delay: 5000,
           disableOnInteraction: false,
         },
-        autoHeight: true,
+        autoHeight: false,
         slidesPerView: 1,
         spaceBetween: 0,
         slidesPerGroup: 1,
@@ -100,7 +100,7 @@ export default {
 <style lang="scss" >
 
   #swiper {
-    max-width: 1200px;
+   // max-width: 1400px;
 
     .swiper-button-next {
       right: 30px;
@@ -176,6 +176,8 @@ export default {
       img {
         object-fit: cover;
         width: 100%;
+        max-width:100%;
+        vertical-align:middle
       }
 
       .orange {
