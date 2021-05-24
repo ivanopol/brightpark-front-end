@@ -1,8 +1,6 @@
 <template>
   <div>
-    <section class="main-screen">
-      <MainBanner></MainBanner>
-    </section>
+    <MainBanner />
     <ModelsList/>
     <MegaTeasers/>
     <div class="container">
