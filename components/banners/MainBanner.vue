@@ -59,6 +59,9 @@ export default {
         },
       ],
       swiperOption: {
+        autoplay: {
+          delay: 6000
+        },
         autoHeight: true,
         slidesPerView: 1,
         spaceBetween: 0,
@@ -229,7 +232,7 @@ export default {
 
       .swiper-slide {
         img {
-          height: calc(100vh - 180px);
+          height: calc(100vh - 177px);
         }
       }
 
