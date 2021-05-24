@@ -60,7 +60,8 @@ export default {
       ],
       swiperOption: {
         autoplay: {
-          delay: 6000
+          delay: 5000,
+          disableOnInteraction: false,
         },
         autoHeight: true,
         slidesPerView: 1,
