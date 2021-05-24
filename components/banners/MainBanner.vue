@@ -100,7 +100,7 @@ export default {
 <style lang="scss" >
 
   #swiper {
-   // max-width: 1400px;
+    max-width: 1400px;
 
     .swiper-button-next {
       right: 30px;
