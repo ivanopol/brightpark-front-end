@@ -3,11 +3,11 @@
          viewBox="0 0 18.8 10.4" style="enable-background:new 0 0 18.8 10.4;" xml:space="preserve">
         <title>Брайт Парк - официальный дилер LADA</title>
         <g class="colored">
-            <rect x="14.9" y="8.3" class="st0" width="3.9" height="2.1"/>
-            <rect y="8.3" class="st0" width="3.9" height="2.1"/>
-            <rect x="8.3" class="st0" width="2.1" height="3.9"/>
-            <rect x="3.1" y="2.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -1.6836 4.0984)" class="st0" width="2.1" height="3.9"/>
-            <rect x="12.7" y="3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 1.4109 11.5753)" class="st0" width="3.9" height="2.1"/>
+            <rect class="st0 colored1" y="8.3"  width="3.9" height="2.1"/>
+            <rect class="st0 colored2" x="3.1" y="2.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -1.6836 4.0984)"  width="2.1" height="3.9"/>
+            <rect class="st0 colored3" x="8.3"  width="2.1" height="3.9"/>
+            <rect class="st0 colored4" x="12.7" y="3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 1.4109 11.5753)"  width="3.9" height="2.1"/>
+            <rect class="st0 colored5" x="14.9" y="8.3"  width="3.9" height="2.1"/>
         </g>
     </svg>
 </template>
@@ -19,41 +19,49 @@
 </script>
 
 <style lang="scss" scoped>
-.colored rect {
-  animation: coloring 10s infinite;
-  animation-duration: 10s;
-  animation-timing-function: ease;
-  animation-delay: 0s;
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-fill-mode: none;
-  animation-play-state: running;
-  animation-name: coloring;
-}
+    .colored1 {
+      animation: coloring 10s linear infinite;
+      animation-delay: .2s;
+    }
 
-@keyframes coloring {
-  0% {
-    fill: #ee6723;
-  }
+    .colored2 {
+      animation: coloring 10s linear infinite;
+      animation-delay: .4s;
+    }
+    .colored3 {
+      animation: coloring 10s linear infinite;
+      animation-delay: .6s;
+    }
+    .colored4 {
+      animation: coloring 10s linear infinite;
+      animation-delay: .8s;
+    }
+    .colored5 {
+      animation: coloring 10s linear infinite;
+      animation-delay: 1s;
+    }
 
-  40% {
-    fill: #514ea1;
-  }
+    @keyframes coloring {
+      0% {
+        fill: #ee6723;
+      }
 
-  60% {
-    fill: #5cbe86;
-  }
+      40% {
+        fill: #514ea1;
+      }
 
-  80% {
-    fill: #ffca0d;
-  }
+      60% {
+        fill: #5cbe86;
+      }
 
-  100% {
-    fill: #ee6723;
-  }
-}
+      80% {
+        fill: #ffca0d;
+      }
 
-    .st0{ fill:#262424; }
+      100% {
+        fill: #ee6723;
+      }
+    }
 
     #bp_sun {
         width: 35px;

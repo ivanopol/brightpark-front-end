@@ -14,12 +14,12 @@
             <path class="cls-1" d="M375.7,129.51c-10,0-18.4,4.13-23.79,10.74l0-25.1h50.62V99.88h-67.1v60.53c0,21.62,11.42,38.54,38.54,38.54,19.42,0,35.34-15,35.34-35.15C409.27,143.43,395.38,129.51,375.7,129.51Zm-3.63,54.24c-12,0-19.8-9.13-19.8-20.11,0-11.25,7.8-20.25,19.8-20.25s20.34,9.13,20.34,20.25A19.82,19.82,0,0,1,372.07,183.75Z" transform="translate(-124.48 -99.88)"/>
             <path class="cls-1" d="M810.27,99.88h78.37v97.35h-17.2V116.29H827.6v80.94H810.27Z" transform="translate(-124.48 -99.88)"/>
           </g>
-          <g class="colored">
-            <rect class="cls-1 " x="134.31" y="74.55" width="34.92" height="18.91"/>
-            <rect class="cls-1 " y="74.55" width="34.92" height="18.91"/>
-            <rect class="cls-1 " x="75.22" width="18.91" height="34.92"/>
-            <rect class="cls-1 " x="152.05" y="119.21" width="18.91" height="34.92" transform="translate(-173.82 54.35) rotate(-45)"/>
-            <rect class="cls-1 " x="239.29" y="127.21" width="34.92" height="18.91" transform="translate(-145.92 121.7) rotate(-45)"/>
+          <g class="">
+            <rect class="cls-1 colored1" y="74.55" width="34.92" height="18.91"/>
+            <rect class="cls-1 colored2" x="152.05" y="119.21" width="18.91" height="34.92" transform="translate(-173.82 54.35) rotate(-45)"/>
+            <rect class="cls-1 colored3" x="75.22" width="18.91" height="34.92"/>
+            <rect class="cls-1 colored4" x="239.29" y="127.21" width="34.92" height="18.91" transform="translate(-145.92 121.7) rotate(-45)"/>
+            <rect class="cls-1 colored5" x="134.31" y="74.55" width="34.92" height="18.91"/>
           </g>
         </g>
     </svg>
@@ -37,17 +37,28 @@
 </script>
 
 <style lang="scss" scoped>
-    .colored rect {
-      animation: coloring 10s infinite;
-      animation-duration: 10s;
-      animation-timing-function: ease;
-      animation-delay: 0s;
-      animation-iteration-count: infinite;
-      animation-direction: normal;
-      animation-fill-mode: none;
-      animation-play-state: running;
-      animation-name: coloring;
+    .colored1 {
+      animation: coloring 10s linear infinite;
+      animation-delay: .2s;
     }
+
+    .colored2 {
+      animation: coloring 10s linear infinite;
+      animation-delay: .4s;
+    }
+    .colored3 {
+      animation: coloring 10s linear infinite;
+      animation-delay: .6s;
+    }
+    .colored4 {
+      animation: coloring 10s linear infinite;
+      animation-delay: .8s;
+    }
+    .colored5 {
+      animation: coloring 10s linear infinite;
+      animation-delay: 1s;
+    }
+
 
     @keyframes coloring {
       0% {
@@ -85,12 +96,12 @@
         }
     }
 
-    .dark .cls-1 {
+/*    .dark .cls-1 {
         fill: #fff;
     }
 
     .light .cls-1 {
         fill: #000;
-    }
+    }*/
 </style>
 
