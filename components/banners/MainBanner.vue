@@ -62,7 +62,7 @@ export default {
       ],
       swiperOption: {
         autoplay: {
-          delay: 5000,
+          delay: 7000,
           disableOnInteraction: false,
         },
         autoHeight: false,
@@ -201,8 +201,8 @@ export default {
     color: #fff;
     font-weight: normal;
     text-decoration: underline;
-    font-size: 14px;
-    padding: 14px 45px;
+    font-size: 16px;
+    padding: 16px 50px;
     border-radius: 6px;
     right: 13%;
     bottom: 24%;
