@@ -64,7 +64,7 @@ export default {
           delay: 7000,
           disableOnInteraction: false,
         },
-        cssMode: this.isMobile,
+        cssMode: !this.isMobile,
         autoHeight: false,
         slidesPerView: 1,
         spaceBetween: 0,
