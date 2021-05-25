@@ -101,7 +101,7 @@ export default {
 <style lang="scss" >
 
   #swiper {
-    max-width: 1400px;
+    max-width: 1440px;
 
     .swiper-button-next {
       right: 30px;
@@ -170,7 +170,7 @@ export default {
 
       picture {
         width: 100%;
-        max-width: 1400px;
+        max-width: 1440px;
         //display: flex;
       }
 
