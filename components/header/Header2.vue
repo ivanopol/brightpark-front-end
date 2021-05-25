@@ -160,6 +160,7 @@ header {
           padding-right: 30px;
           display: block;
           position: relative;
+          font-weight: normal;
 
           &::after {
             content: '';
