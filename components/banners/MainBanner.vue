@@ -2,7 +2,6 @@
   <section class="main-screen">
     <div class="main-screen__swiper-wrap">
       <swiper id="swiper" class="swiper" ref="mySwiper" :options="swiperOption">
-
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -64,6 +63,7 @@ export default {
           delay: 7000,
           disableOnInteraction: false,
         },
+        cssMode: true,
         autoHeight: false,
         slidesPerView: 1,
         spaceBetween: 0,
@@ -104,12 +104,12 @@ export default {
     max-width: 1440px;
 
     .swiper-button-next {
-      right: 30px;
+      right: 45px;
       padding-left: 5px;
     }
 
     .swiper-button-prev {
-      left: 30px;
+      left: 45px;
       padding-right: 5px;
     }
 
@@ -164,13 +164,15 @@ export default {
 
 
     .swiper-slide {
+/*      -webkit-transform: translateZ(0);
+      -webkit-backface-visibility: hidden;*/
       display: flex;
       align-content: center;
       justify-content: center;
 
       picture {
         width: 100%;
-        max-width: 1400px;
+        max-width: 1440px;
         //display: flex;
       }
 
