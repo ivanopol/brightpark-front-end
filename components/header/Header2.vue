@@ -140,7 +140,7 @@ header {
         a {
           color: #000;
           transition: 0.15s linear;
-          font-weight: normal;
+          font-weight: bold;
 
           &:hover {
             color: #FF8351;
@@ -160,7 +160,7 @@ header {
           padding-right: 30px;
           display: block;
           position: relative;
-          font-weight: normal;
+          font-weight: bold;
 
           &::after {
             content: '';
