@@ -1235,7 +1235,7 @@ footer {
 
   .presentation {
     font-family: PragmaticaLightCBold, Helvetica, sans-serif;
-    margin-bottom: 50px;
+/*    margin-bottom: 50px;*/
     line-height: 1.4;
     font-weight: normal;
     text-align: left;
@@ -1400,7 +1400,7 @@ footer {
 
   @media only screen and (min-width: 580px) and (max-width: 919px) {
     .presentation {
-      margin-bottom: 80px;
+   /*   margin-bottom: 80px;*/
       padding: 0 5%;
       font-size: 22px;
     }
@@ -1429,7 +1429,7 @@ footer {
 
   @media only screen and (min-width: 920px) {
     .presentation {
-      margin-bottom: 110px;
+      /*margin-bottom: 110px;*/
       font-size: 22px;
       padding: 0 16%;
     }

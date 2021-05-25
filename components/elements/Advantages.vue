@@ -2,7 +2,7 @@
   <div id="advantages" class="advantages_wrap">
     <h1>Автосалон &laquo;Брайт&nbsp;Парк&raquo;&nbsp;&mdash; официальный&nbsp;дилер LADA</h1>
     <p class="presentation">В&nbsp;&laquo;Брайт Парк&raquo;&nbsp;&mdash; широкий выбор автомобилей LADA от&nbsp;завода АвтоВАЗ, выгодные цены и&nbsp;все условия для комфортной и&nbsp;быстрой покупки. Компания работает в&nbsp;{{$store.state.city.dative}} и&nbsp;ещё 5&nbsp;регионах с&nbsp;2008&nbsp;года.</p>
-    <ul class="clarification">
+<!--    <ul class="clarification">
       <li>
         <div class="advantage">
           <span class="value">500</span>
@@ -31,8 +31,7 @@
           <span class="clarification-item">Без лишних документов и&nbsp;долгого ожидания</span>
         </div>
       </li>
-
-    </ul>
+    </ul>-->
   </div>
 </template>
 
