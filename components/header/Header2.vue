@@ -140,6 +140,7 @@ header {
         a {
           color: #000;
           transition: 0.15s linear;
+          font-weight: normal;
 
           &:hover {
             color: #FF8351;
