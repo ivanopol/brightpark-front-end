@@ -1,7 +1,7 @@
 <template>
   <section class="main-screen">
     <div class="main-screen__swiper-wrap">
-      <swiper id="swiper" class="swiper" ref="mySwiper" :options="swiperOption">
+      <swiper id="swiper" class="swiper" ref="mySwiper"  :options="swiperOption">
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -29,6 +29,7 @@ export default {
   name: 'MainBanner',
   data: function () {
     return {
+      isMobile: true,
       path: {
         mobile: '/images/main/mobile/',
         mobileBig: '/images/main/mobile/big_phones/',
@@ -63,7 +64,7 @@ export default {
           delay: 7000,
           disableOnInteraction: false,
         },
-        cssMode: true,
+        cssMode: this.isMobile,
         autoHeight: false,
         slidesPerView: 1,
         spaceBetween: 0,
@@ -93,7 +94,8 @@ export default {
   directives: {
     swiper: directive
   },
-  created: function() {
+  mounted: function() {
+    this.isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
   }
 };
 </script>
