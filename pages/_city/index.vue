@@ -1,6 +1,7 @@
 <template>
   <div>
     <MainBanner />
+    <Advantages2/>
     <ModelsList/>
     <MegaTeasers/>
     <div class="container">
