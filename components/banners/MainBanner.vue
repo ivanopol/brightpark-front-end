@@ -70,6 +70,7 @@ export default {
         spaceBetween: 0,
         slidesPerGroup: 1,
         loop: true,
+        preventInteractionOnTransition: true,
         loopFillGroupWithBlank: true,
         navigation: {
           nextEl: '.swiper-button-next',
