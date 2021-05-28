@@ -29,7 +29,6 @@ export default {
   name: 'MainBanner',
   data: function () {
     return {
-      isMobile: true,
       path: {
         mobile: '/images/main/mobile/',
         mobileBig: '/images/main/mobile/big_phones/',
@@ -80,6 +79,11 @@ export default {
           el: '.swiper-pagination',
           clickable: true,
         },
+        breakpoints: {
+          581: {
+            cssMode:true
+          }
+        }
       }
     };
   },
@@ -96,7 +100,6 @@ export default {
     swiper: directive
   },
   mounted: function() {
-    this.isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
   }
 };
 </script>
