@@ -79,11 +79,6 @@ export default {
           el: '.swiper-pagination',
           clickable: true,
         },
-        breakpoints: {
-          581: {
-            cssMode:true
-          }
-        }
       }
     };
   },
