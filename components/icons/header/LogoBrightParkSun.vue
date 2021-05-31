@@ -43,23 +43,23 @@
 
     @keyframes coloring {
       0% {
-        fill: #ee6723;
+        fill: rgb(238, 103, 35);
       }
 
       40% {
-        fill: #514ea1;
+        fill: rgb(81, 78, 161);
       }
 
       60% {
-        fill: #5cbe86;
+        fill: rgb(92, 190, 134);
       }
 
       80% {
-        fill: #ffca0d;
+        fill: rgb(255, 202, 13);
       }
 
       100% {
-        fill: #ee6723;
+        fill: rgb(238, 103, 35);
       }
     }
 
