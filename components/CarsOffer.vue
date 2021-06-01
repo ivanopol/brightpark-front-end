@@ -2,6 +2,55 @@
   <section class="cars-offer">
     <div class="container">
       <div class="cars-offer__content">
+
+        <div
+          class="cars-offer__content__item"
+        >
+          <div class="cars-offer__content__item__bg">
+            <img src="../static/images/cars-offer/vesta-bg.jpg" alt="Vesta">
+          </div>
+
+          <div class="cars-offer__content__item__car">
+            <img src="../static/images/cars-offer/vesta.png" alt="Vesta">
+          </div>
+          <h4 class="cars-offer__content__item__title">
+            <nuxt-link
+              :to="
+                '/' +
+                  $store.state.city.value +
+                  '/' +
+                  'vesta'+
+                  '/' +
+                  'sedan'
+              "
+              :id="$store.state._page + '__models__' + 'vesta'"
+              class="event"
+            >
+              Vesta
+            </nuxt-link>
+          </h4>
+
+          <div class="cars-offer__content__item__info">
+            <p class="cars-offer__content__item__info__price">
+              от 733 900 ₽
+            </p>
+
+            <nuxt-link class="cars-offer__content__item__info__credit" to="/">
+              <span>кредит от 5 511 ₽/мес.</span>*
+            </nuxt-link>
+
+
+            <nuxt-link class="cars-offer__content__item__info__test-drive" to="/">
+              Записаться на тест-драйв
+            </nuxt-link>
+
+            <p class="cars-offer__content__item__info__credit-info">
+              * Процентная ставка 8,25% годовых, при первоначальном взносе 40%, срок 3 года. ПАО Совком Банк. 
+            </p>
+          </div>
+        </div>
+
+
         <div
           class="cars-offer__content__item"
         >
@@ -49,52 +98,7 @@
           </div>
         </div>
 
-        <div
-          class="cars-offer__content__item"
-        >
-          <div class="cars-offer__content__item__bg">
-            <img src="../static/images/cars-offer/vesta-bg.jpg" alt="Vesta">
-          </div>
-
-          <div class="cars-offer__content__item__car">
-            <img src="../static/images/cars-offer/vesta.png" alt="Vesta">
-          </div>
-          <h4 class="cars-offer__content__item__title">
-            <nuxt-link
-              :to="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  'vesta'+
-                  '/' +
-                  'sedan'
-              "
-              :id="$store.state._page + '__models__' + 'vesta'"
-              class="event"
-            >
-              Vesta
-            </nuxt-link>
-          </h4>
-
-          <div class="cars-offer__content__item__info">
-            <p class="cars-offer__content__item__info__price">
-              от 504 900 ₽
-            </p>
-
-            <nuxt-link class="cars-offer__content__item__info__credit" to="/">
-              <span>кредит от 3 842 ₽/мес.</span>*
-            </nuxt-link>
-
-
-            <nuxt-link class="cars-offer__content__item__info__test-drive" to="/">
-              Записаться на тест-драйв
-            </nuxt-link>
-
-            <p class="cars-offer__content__item__info__credit-info">
-              * Процентная ставка 8,25% годовых, при первоначальном взносе 40%, срок 3 года. ПАО Совком Банк. 
-            </p>
-          </div>
-        </div>
+      
 
         <div
           class="cars-offer__content__item"
@@ -125,11 +129,11 @@
 
           <div class="cars-offer__content__item__info">
             <p class="cars-offer__content__item__info__price">
-              от 504 900 ₽
+              от 691 900 ₽
             </p>
 
             <nuxt-link class="cars-offer__content__item__info__credit" to="/">
-              <span>кредит от 3 842 ₽/мес.</span>*
+              <span>кредит от 5 205 ₽/мес.</span>*
             </nuxt-link>
 
 
@@ -172,11 +176,59 @@
 
           <div class="cars-offer__content__item__info">
             <p class="cars-offer__content__item__info__price">
-              от 504 900 ₽
+              от 702 900 ₽
             </p>
 
             <nuxt-link class="cars-offer__content__item__info__credit" to="/">
-              <span>кредит от 3 842 ₽/мес.</span>*
+              <span>кредит от 5 285 ₽/мес.</span>*
+            </nuxt-link>
+
+
+            <nuxt-link class="cars-offer__content__item__info__test-drive" to="/">
+              Записаться на тест-драйв
+            </nuxt-link>
+
+            <p class="cars-offer__content__item__info__credit-info">
+              * Процентная ставка 8,25% годовых, при первоначальном взносе 40%, срок 3 года. ПАО Совком Банк. 
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="cars-offer__content__item"
+        >
+          <div class="cars-offer__content__item__bg">
+            <img src="../static/images/cars-offer/travel-bg.jpg" alt="Niva">
+          </div>
+
+          <div class="cars-offer__content__item__car">
+            <img src="../static/images/cars-offer/travel.png" alt="Niva">
+          </div>
+          
+          <h4 class="cars-offer__content__item__title">
+            <nuxt-link
+              :to="
+                '/' +
+                  $store.state.city.value +
+                  '/' +
+                  'niva'+
+                  '/' +
+                  'travel'
+              "
+              :id="$store.state._page + '__models__' + 'niva'"
+              class="event"
+            >
+              Niva Travel
+            </nuxt-link>
+          </h4>
+
+          <div class="cars-offer__content__item__info">
+            <p class="cars-offer__content__item__info__price">
+              от 779 900 ₽
+            </p>
+
+            <nuxt-link class="cars-offer__content__item__info__credit" to="/">
+              <span>кредит от 5 846 ₽/мес.</span>*
             </nuxt-link>
 
 
@@ -220,59 +272,11 @@
 
           <div class="cars-offer__content__item__info">
             <p class="cars-offer__content__item__info__price">
-              от 504 900 ₽
+              от 619 900 ₽
             </p>
 
             <nuxt-link class="cars-offer__content__item__info__credit" to="/">
-              <span>кредит от 3 842 ₽/мес.</span>*
-            </nuxt-link>
-
-
-            <nuxt-link class="cars-offer__content__item__info__test-drive" to="/">
-              Записаться на тест-драйв
-            </nuxt-link>
-
-            <p class="cars-offer__content__item__info__credit-info">
-              * Процентная ставка 8,25% годовых, при первоначальном взносе 40%, срок 3 года. ПАО Совком Банк. 
-            </p>
-          </div>
-        </div>
-
-        <div
-          class="cars-offer__content__item"
-        >
-          <div class="cars-offer__content__item__bg">
-            <img src="../static/images/cars-offer/travel-bg.jpg" alt="Niva">
-          </div>
-
-          <div class="cars-offer__content__item__car">
-            <img src="../static/images/cars-offer/travel.png" alt="Niva">
-          </div>
-          
-          <h4 class="cars-offer__content__item__title">
-            <nuxt-link
-              :to="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  'niva'+
-                  '/' +
-                  'travel'
-              "
-              :id="$store.state._page + '__models__' + 'niva'"
-              class="event"
-            >
-              Niva
-            </nuxt-link>
-          </h4>
-
-          <div class="cars-offer__content__item__info">
-            <p class="cars-offer__content__item__info__price">
-              от 504 900 ₽
-            </p>
-
-            <nuxt-link class="cars-offer__content__item__info__credit" to="/">
-              <span>кредит от 3 842 ₽/мес.</span>*
+              <span>кредит от 4 680 ₽/мес.</span>*
             </nuxt-link>
 
 
@@ -327,7 +331,8 @@ export default {
 
 <style scoped lang="scss">
 .cars-offer__content__item {
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   height: 250px;
   box-shadow: 0 0 12px rgba(37, 37, 37, 0.3);
   position: relative;
@@ -344,7 +349,7 @@ export default {
   }
 
   @media (min-width: 768px) {
-    width: 100%;
+    max-width: unset;
   }
 }
 .cars-offer__content__item__bg {
@@ -365,6 +370,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 50px 5px 0;
 
   @media (min-width: 768px) {
     display: grid;
