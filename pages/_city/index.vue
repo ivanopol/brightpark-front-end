@@ -2,6 +2,7 @@
   <div>
     <MainBanner />
     <Advantages2/>
+    <CarsOffer/>
     <ModelsList/>
     <MegaTeasers/>
     <div class="container">
