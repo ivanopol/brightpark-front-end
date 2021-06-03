@@ -1,0 +1,7 @@
+@font-face {
+	font-family:'Bright Park Display';
+	src:	url('Bright Park Display.woff2') format('woff2'),
+			url('Bright Park Display.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
