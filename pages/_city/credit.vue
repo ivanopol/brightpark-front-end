@@ -54,7 +54,11 @@
 
       <Steps :form_id="$store.state._page + '__fill-form_'"
              :goal="'fixconditions'"
-             :prefix="$store.state._page + '__'" />
+             :prefix="$store.state._page + '__'"
+             :car_type="car_type"
+             :car_model="car_model"
+             style="margin-top: 30px;padding-top: 100px"
+              />
     </div>
     <Banks />
     <div class="container">
@@ -90,9 +94,22 @@ export default Vue.extend({
         img_mobile: "/images/main/mobile/september_596х1057.jpg",
         img_tablet: "/images/main/tablet/900х584_september.jpg",
         img_desktop: "/images/main/desktop/1920х870_september.jpg",
-      }
+      },
+
+      car_type: '',
+      car_model: '',
     }
   },
+
+  mounted() {
+    if(this.$route.query.car_model && this.$route.query.car_type) {
+      this.car_model = this.$route.query.car_model;
+      this.car_type = this.$route.query.car_type;
+
+      document.querySelector('.steps-wrap').scrollIntoView({block: "start", behavior: "smooth"})
+    }
+  },
+
   async asyncData(context) {
     context.store.commit('set_page', 'credit')
     context.store.commit('set_bg', '')
