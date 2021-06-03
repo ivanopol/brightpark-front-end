@@ -2,39 +2,48 @@
   <section class="consult">
     <img
       src="../../static/images/consult_block/girl.png"
-      alt=""
+      alt="Проконсультируем по всем вопросам!"
       class="consult__girl"
     />
     <img
       src="../../static/images/consult_block/texture-mob.png"
-      alt=""
+      alt="Проконсультируем по всем вопросам!"
       class="consult__texute_mobile"
     />
     <img
       src="../../static/images/consult_block/texture.png"
-      alt=""
+      alt="Проконсультируем по всем вопросам!"
       class="consult__texture"
     />
 
     <header class="consult__head">
-      <h3>
-        Проконсультируем по всем вопросам!
-      </h3>
+      <h3 v-text="form_title" />
 
       <p>
         Оставьте заявку, наш менеджер свяжется с Вами в ближайшее время.
       </p>
     </header>
 
-    <form class="consult__form">
+    <form class="consult__form"
+          action="#"
+          :id="form_id"
+          method="POST"
+          name="feedback"
+          @submit="send"
+          :data-goal="goal"
+    >
       <div class="consult__form__fields">
         <div class="consult__form__part">
-          <input type="text" placeholder="Имя" />
+          <input type="text"
+                 placeholder="Имя"
+                 v-model="name"
+          />
 
           <the-mask
             :id="form_id + '_input_phone'"
             pattern=".{18,}"
             mask="+# (###)-###-##-##"
+            v-model="phone"
             type="tel"
             required="true"
             placeholder="Телефон"
@@ -42,7 +51,7 @@
         </div>
 
         <div class="consult__form__part">
-          <textarea name="comment" placeholder="Комментарий"></textarea>
+          <textarea name="comment" placeholder="Комментарий" v-model="comment"></textarea>
         </div>
       </div>
 
@@ -67,7 +76,10 @@
         </label>
       </div>
 
-      <button class="consult__form__submit" v-bind:disabled="isButtonDisabled">
+      <button :id="form_id + '_button'"
+              class="event consult__form__submit"
+              :class="{ preloader: isLoading }"
+              v-bind:disabled="isButtonDisabled">
         Отправить заявку
       </button>
     </form>
@@ -77,11 +89,36 @@
 <script>
 export default {
   name: "Consult",
-
+  props: {
+    form_title: {
+      default: "Проконсультируем по всем вопросам!",
+      type: String
+    },
+    form_id: {
+      default: "form",
+      type: String
+    },
+    form_type: {
+      default: 1,
+      type: Number
+    },
+    goal: {
+      default: "",
+      type: String
+    },
+  },
   data: function() {
     return {
       status: true,
-      form_id: "",
+      success: false,
+      error: false,
+      name: "",
+      phone: "",
+      isLoading: false,
+      comment: "",
+      bitrix_responsible: "", // $store.state.city.bitrix_responsible_id,
+      city: "", // $store.state.city.value,
+      utm: {},
     }
   },
 
@@ -90,7 +127,109 @@ export default {
       return !this.status;
     }
   },
+  methods: {
+    send: function (event) {
+      event.preventDefault();
+      this.isLoading = true;
 
+      let formData = {
+        phone: this.clearMask(this.phone),
+        name: this.name,
+        city: this.$store.state.city.value,
+        url: this.url,
+        caption: this.form_title,
+        form_id: this.form_id,
+        comment: this.comment,
+        form_type: this.form_type,
+        utm: this.utm
+      };
+
+      this.$axios({
+        method: "post",
+        url: process.env.apiUrl + "/api/send_contact_form",
+        data: formData
+      })
+        .then(response => {
+          this.clearInput();
+          this.success = true;
+          this.isLoading = false;
+          this.status = true;
+          //console.log(window);
+          try {
+            this.sendGoals(this.goal);
+          } catch (err) {
+            console.log(err);
+          }
+          return {};
+        })
+        .catch(error => {
+          this.error = true;
+          this.clearInput();
+          return {};
+        });
+    },
+    sendGoals: function(goal) {
+      if (goal) {
+        let ym_ids = this.getCountersIds();
+        let goalArr = goal.match(/^(.+?):(.+?)$/);
+        let target_goal = goalArr === null ? goal : goalArr[2];
+
+        ym_ids.forEach(function(item) {
+          window["yaCounter" + item].reachGoal(target_goal);
+        });
+      }
+      return {};
+    },
+    getCountersIds: function() {
+      var id_list = [];
+
+      window.ym.a.forEach(function(item) {
+        id_list.push(item[0]);
+      });
+      return id_list;
+    },
+    clearInput: function() {
+      this.phone = null;
+      this.name = null;
+      this.comment = null;
+      return {};
+    },
+
+    clearMask: function(value) {
+      return value.replace(/\D/g, "");
+    },
+    attachHandler: function() {
+      function attachHandler(el, evtname, fn) {
+        if (el.addEventListener) {
+          el.addEventListener(evtname, fn.bind(el), false);
+        } else if (el.attachEvent) {
+          el.attachEvent("on" + evtname, fn.bind(el));
+        }
+      }
+
+      attachHandler(window, "load", () => {
+        var ele = document.querySelector(
+          "input[id=" + this.form_id + "_input_phone]"
+        );
+        attachHandler(ele, "invalid", function() {
+          this.setCustomValidity("Please enter at least 5 characters.");
+          this.setCustomValidity("");
+        });
+      });
+      return {};
+    },
+    decodeCookie(obj) {
+      return JSON.parse(decodeURIComponent(escape(atob(obj))));
+    }
+  },
+  mounted() {
+    if (this.$cookies.get("bp_uid") !== undefined) {
+      this.utm = this.decodeCookie(this.$cookies.get("bp_uid"));
+    }
+  },
+  beforeMount() {
+    this.attachHandler();
+  }
 };
 </script>
 
