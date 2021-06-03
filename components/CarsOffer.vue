@@ -1,6 +1,9 @@
 <template>
   <section class="cars-offer">
     <div class="container">
+      <h2 class="cars-offer__heading">
+        Выбери свой автомобиль
+      </h2>
       <div class="cars-offer__content">
         <div class="cars-offer__content__item">
           <div class="cars-offer__content__item__bg">
@@ -563,5 +566,12 @@ export default {
   font-size: 8px;
   color: #373737;
   margin-top: 9px;
+}
+
+.cars-offer__heading {
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: PragmaticaLightCBold, Helvetica, sans-serif;
+  padding-top: 15px;
 }
 </style>
