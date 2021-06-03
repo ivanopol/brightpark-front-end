@@ -46,7 +46,28 @@
         </div>
       </div>
 
-      <button class="consult__form__submit">
+
+      <div class="control-group">
+        <label
+          :for="form_id + '_checkbox_personal_data'"
+          class="control control-checkbox"
+          >Я согласен на
+          <a
+            :href="'/' + $store.state.city.value + '/privacy'"
+            class="event"
+            target="_blank"
+            >обработку персональных данных</a
+          >
+          <input
+            type="checkbox"
+            :id="form_id + '_checkbox_personal_data'"
+            v-model="status"
+          />
+          <div class="control_indicator"></div>
+        </label>
+      </div>
+
+      <button class="consult__form__submit" v-bind:disabled="isButtonDisabled">
         Отправить заявку
       </button>
     </form>
@@ -55,11 +76,26 @@
 
 <script>
 export default {
-  name: "Consult"
+  name: "Consult",
+
+  data: function() {
+    return {
+      status: true,
+    }
+  },
+
+  computed: {
+    isButtonDisabled: function() {
+      return !this.status;
+    }
+  },
+
 };
 </script>
 
 <style lang="scss" scoped>
+@import "./assets/scss/_controls.scss";
+
 .consult {
   background: #504ea0;
   padding: 30px 90px;
@@ -93,7 +129,6 @@ export default {
       line-height: 1;
       margin-bottom: 5px;
     }
-
   }
 }
 
@@ -145,11 +180,11 @@ export default {
 
   @media (max-width: 400px) {
     width: 100%;
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
     }
   }
-
 }
 .consult__form__part {
   width: fit-content;
@@ -189,7 +224,7 @@ export default {
   bottom: 0;
   pointer-events: none;
   width: 400px;
-  
+
   @media (max-width: 1366px) {
     width: 348px;
   }
@@ -236,6 +271,21 @@ export default {
 
   @media (max-width: 400px) {
     width: 100%;
+  }
+}
+
+.control-group {
+  width: 100%;
+  margin: 15px 0;
+  max-width: unset;
+
+
+  .control {
+    color: white;
+    a {
+      color: white;
+      border-color: white;
+    }
   }
 }
 </style>
