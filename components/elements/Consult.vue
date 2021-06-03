@@ -26,7 +26,15 @@
         <div class="consult__form__part">
           <input type="text" placeholder="Имя" />
 
-          <input type="text" placeholder="Телефон" />
+          <the-mask
+            :id="form_id + '_input_phone'"
+            pattern=".{18,}"
+            mask="+# (###)-###-##-##"
+            v-model="phone"
+            type="tel"
+            required="true"
+            placeholder="Телефон"
+          ></the-mask>
         </div>
 
         <div class="consult__form__part">
