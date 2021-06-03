@@ -143,5 +143,11 @@ export default {
   width: 250px;
   font-size: 16px;
   margin: 20px 0 0;
+  transition: 0.2s;
+
+  &:hover {
+    transition: 0.2s;
+    opacity: 0.6;
+  }
 }
 </style>
