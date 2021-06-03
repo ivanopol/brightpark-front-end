@@ -89,6 +89,7 @@ export default {
 
   input {
     height: 40px;
+    width: 200px;
     &:last-child {
       margin-bottom: 0;
     }
@@ -97,6 +98,7 @@ export default {
   textarea {
     width: 330px;
     height: 100%;
+    resize: none;
   }
 }
 
@@ -105,7 +107,7 @@ export default {
   margin: 0;
 
   &:first-child {
-    margin-right: 30px;
+    margin-right: 20px;
   }
 }
 
