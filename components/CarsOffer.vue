@@ -27,9 +27,12 @@
               от 733 900 ₽
             </p>
 
-            <nuxt-link class="cars-offer__content__item__info__credit" :to="'/' + $store.state.city.value + '/' + 'credit'">
+            <a
+              class="cars-offer__content__item__info__credit"
+              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=Vesta&car_type=Седан'"
+            >
               <span>кредит от 5 511 ₽/мес.</span>*
-            </nuxt-link>
+            </a>
 
             <button
               class="cars-offer__content__item__info__test-drive"
@@ -79,9 +82,12 @@
               от 504 900 ₽
             </p>
 
-            <nuxt-link class="cars-offer__content__item__info__credit" :to="'/' + $store.state.city.value + '/' + 'credit'">
+            <a
+              class="cars-offer__content__item__info__credit"
+              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=Granta&car_type=Седан'"
+            >
               <span>кредит от 3 842 ₽/мес.</span>*
-            </nuxt-link>
+            </a>
 
             <button
               class="cars-offer__content__item__info__test-drive"
@@ -129,9 +135,12 @@
               от 691 900 ₽
             </p>
 
-            <nuxt-link class="cars-offer__content__item__info__credit" :to="'/' + $store.state.city.value + '/' + 'credit'">
+            <a
+              class="cars-offer__content__item__info__credit"
+              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=Xray&car_type=Cross'"
+            >
               <span>кредит от 5 205 ₽/мес.</span>*
-            </nuxt-link>
+            </a>
 
             <button
               class="cars-offer__content__item__info__test-drive"
@@ -186,12 +195,12 @@
               от 702 900 ₽
             </p>
 
-            <nuxt-link
-              class="cars-offer__content__item__info__credit"
-              :to="'/' + $store.state.city.value + '/' + 'credit'"
+            <a
+              class="cars-offer__content__item__info__credit event"
+              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=Largus&car_type=Universal'"
             >
               <span>кредит от 5 285 ₽/мес.</span>*
-            </nuxt-link>
+            </a>
 
             <button
               class="cars-offer__content__item__info__test-drive"
@@ -242,12 +251,12 @@
               от 779 900 ₽
             </p>
 
-            <nuxt-link
-              class="cars-offer__content__item__info__credit"
-              :to="'/' + $store.state.city.value + '/' + 'credit'"
+            <a
+              class="cars-offer__content__item__info__credit event"
+              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=Niva&car_type=Niva'"
             >
               <span>кредит от 5 846 ₽/мес.</span>*
-            </nuxt-link>
+            </a>
 
             <button
               class="cars-offer__content__item__info__test-drive"
@@ -303,12 +312,12 @@
               от 619 900 ₽
             </p>
 
-            <nuxt-link
-              class="cars-offer__content__item__info__credit"
-              :to="'/' + $store.state.city.value + '/' + 'credit'"
+            <a
+              class="cars-offer__content__item__info__credit event"
+              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=4x4&car_type=3 дв.'"
             >
               <span>кредит от 4 680 ₽/мес.</span>*
-            </nuxt-link>
+            </a>
 
             <button
               class="cars-offer__content__item__info__test-drive"
@@ -489,7 +498,7 @@ export default {
   right: 25px;
 
   a {
-    transition: .2s;
+    transition: 0.2s;
     color: #000;
     text-transform: uppercase;
     font-size: 18px;
@@ -498,7 +507,7 @@ export default {
   &:hover {
     a {
       color: #e95909;
-      transition: .2s;
+      transition: 0.2s;
     }
   }
 }
@@ -520,15 +529,15 @@ export default {
   margin: 8px 0 10px;
   font-weight: 400;
   font-size: 14px;
-  transition: .2s;
+  transition: 0.2s;
 
   span {
     text-decoration: underline;
   }
 
   &:hover {
-    opacity: .6;
-    transition: .2s;
+    opacity: 0.6;
+    transition: 0.2s;
   }
 }
 
@@ -542,11 +551,11 @@ export default {
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
     color: #e95909;
-    transition: .2s;
+    transition: 0.2s;
   }
 }
 
