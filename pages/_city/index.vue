@@ -2,7 +2,15 @@
   <div>
     <MainBanner />
     <Advantages2/>
-    <ModelsList/>
+    <CarsOffer style="margin: 40px 0 25px;"/>
+    
+    <!--
+    <div class="container">
+      <Consult style="margin-bottom: 50px" />
+    </div>
+    -->
+
+
     <MegaTeasers/>
     <div class="container">
       <Advantages />
