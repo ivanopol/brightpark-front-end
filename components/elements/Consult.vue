@@ -6,6 +6,11 @@
       class="consult__girl"
     />
     <img
+      src="../../static/images/consult_block/texture-mob.png"
+      alt=""
+      class="consult__texute_mobile"
+    />
+    <img
       src="../../static/images/consult_block/texture.png"
       alt=""
       class="consult__texture"
@@ -30,7 +35,6 @@
             :id="form_id + '_input_phone'"
             pattern=".{18,}"
             mask="+# (###)-###-##-##"
-            v-model="phone"
             type="tel"
             required="true"
             placeholder="Телефон"
@@ -60,6 +64,10 @@ export default {
   background: #504ea0;
   padding: 30px 90px;
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 30px;
+  }
 }
 
 .consult__head {
@@ -71,10 +79,21 @@ export default {
     text-transform: unset;
     margin-bottom: 3px;
     font-size: 30px;
+    font-family: "Bright Park Display";
   }
 
   p {
     font-size: 14px;
+    font-family: "Factor A";
+  }
+
+  @media (max-width: 650px) {
+    h3 {
+      font-size: 26px;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
   }
 }
 
@@ -89,6 +108,7 @@ export default {
     border: 1px solid white;
     border-radius: 5px;
     color: white;
+    font-family: "Factor A";
 
     &::placeholder {
       color: white;
@@ -108,14 +128,45 @@ export default {
     height: 100%;
     resize: none;
   }
-}
 
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      width: 330px;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
+    input, textarea {
+      width: 100%;
+    }
+  }
+
+}
 .consult__form__part {
   width: fit-content;
   margin: 0;
 
   &:first-child {
     margin-right: 20px;
+  }
+
+  @media (max-width: 650px) {
+    &:first-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
   }
 }
 
@@ -126,6 +177,10 @@ export default {
   width: 365px;
   z-index: 1;
   pointer-events: none;
+
+  @media (max-width: 1366px) {
+    display: none;
+  }
 }
 
 .consult__texture {
@@ -134,6 +189,27 @@ export default {
   bottom: 0;
   pointer-events: none;
   width: 400px;
+  
+  @media (max-width: 1366px) {
+    width: 348px;
+  }
+
+  @media (max-width: 860px) {
+    display: none;
+  }
+}
+
+.consult__texute_mobile {
+  display: none;
+
+  @media (max-width: 860px) {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    width: 300px;
+  }
 }
 
 .consult__form__submit {
@@ -144,10 +220,22 @@ export default {
   font-size: 16px;
   margin: 20px 0 0;
   transition: 0.2s;
+  font-family: "Bright Park Display";
 
   &:hover {
     transition: 0.2s;
     opacity: 0.6;
+  }
+
+  @media (max-width: 650px) {
+    margin: auto;
+    width: 330px;
+    z-index: 1;
+    position: relative;
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
   }
 }
 </style>
