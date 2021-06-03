@@ -97,7 +97,7 @@ export default {
 
   input {
     height: 40px;
-    width: 200px;
+    width: 250px;
     &:last-child {
       margin-bottom: 0;
     }
@@ -140,8 +140,8 @@ export default {
   border-radius: 5px;
   color: #504ea0;
   background: #ffca0d;
-  width: 200px;
+  width: 250px;
   font-size: 16px;
-  margin: 10px 0;
+  margin: 20px 0 0;
 }
 </style>
