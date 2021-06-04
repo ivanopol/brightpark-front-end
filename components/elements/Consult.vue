@@ -210,7 +210,7 @@ export default {
   position: absolute;
   right: 95px;
   bottom: 0;
-  width: 365px;
+  width: 416px;
   z-index: 1;
   pointer-events: none;
 
@@ -227,7 +227,7 @@ export default {
   width: 400px;
 
   @media (max-width: 1366px) {
-    width: 348px;
+    width: 393px;
   }
 
   @media (max-width: 860px) {
@@ -245,6 +245,10 @@ export default {
     bottom: 0;
     pointer-events: none;
     width: 300px;
+  }
+
+  @media (max-width: 500px) {
+    display: none;
   }
 }
 
