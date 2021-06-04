@@ -32,31 +32,75 @@
 
             <a
               class="cars-offer__content__item__info__credit"
-              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=Vesta&car_type=Седан'"
+              :href="
+                '/' +
+                  $store.state.city.value +
+                  '/' +
+                  'credit' +
+                  '?car_model=Vesta&car_type=Седан'
+              "
             >
               <span>кредит от 5 511 ₽/мес.</span>*
             </a>
 
-            <button
-              class="cars-offer__content__item__info__test-drive"
-              type="button"
-              v-on:click.prevent="
-                show(
-                  'Записаться на тест-драйв',
-                  $store.state._page + '__modal-models-test-drive_',
-                  'Записаться',
-                  1,
-                  'test_drive'
-                )
-              "
-            >
-              Записаться на тест-драйв
-            </button>
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
 
-            <p class="cars-offer__content__item__info__credit-info">
-              * Процентная ставка 8,25% годовых, при первоначальном взносе 40%,
-              срок 3 года. ПАО Совком Банк.
-            </p>
+              <button
+                class="cars-offer__content__item__informer"
+                @click.prevent="showInformer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#575757"
+                >
+                  <path
+                    fill="#999"
+                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
+                  />
+                </svg>
+              </button>
+
+              <div class="cars-offer__informer-wrap">
+                <button
+                  class="cars-offer__informer-wrap__close"
+                  @click.prevent="closeInformer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
+                    />
+                  </svg>
+                </button>
+                <p>
+                  {{ informerText }}
+                </p>
+              </div>
+            </div>
+
+      
           </div>
         </div>
 
@@ -87,31 +131,75 @@
 
             <a
               class="cars-offer__content__item__info__credit"
-              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=Granta&car_type=Седан'"
+              :href="
+                '/' +
+                  $store.state.city.value +
+                  '/' +
+                  'credit' +
+                  '?car_model=Granta&car_type=Седан'
+              "
             >
               <span>кредит от 3 842 ₽/мес.</span>*
             </a>
 
-            <button
-              class="cars-offer__content__item__info__test-drive"
-              type="button"
-              v-on:click.prevent="
-                show(
-                  'Записаться на тест-драйв',
-                  $store.state._page + '__modal-models-test-drive_',
-                  'Записаться',
-                  1,
-                  'test_drive'
-                )
-              "
-            >
-              Записаться на тест-драйв
-            </button>
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
 
-            <p class="cars-offer__content__item__info__credit-info">
-              * Процентная ставка 8,25% годовых, при первоначальном взносе 40%,
-              срок 3 года. ПАО Совком Банк.
-            </p>
+              <button
+                class="cars-offer__content__item__informer"
+                @click.prevent="showInformer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#575757"
+                >
+                  <path
+                    fill="#575757"
+                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
+                  />
+                </svg>
+              </button>
+
+              <div class="cars-offer__informer-wrap">
+                <button
+                  class="cars-offer__informer-wrap__close"
+                  @click.prevent="closeInformer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
+                    />
+                  </svg>
+                </button>
+                <p>
+                  {{ informerText }}
+                </p>
+              </div>
+            </div>
+
+          
           </div>
         </div>
 
@@ -140,31 +228,74 @@
 
             <a
               class="cars-offer__content__item__info__credit"
-              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=Xray&car_type=Cross'"
+              :href="
+                '/' +
+                  $store.state.city.value +
+                  '/' +
+                  'credit' +
+                  '?car_model=Xray&car_type=Cross'
+              "
             >
               <span>кредит от 5 205 ₽/мес.</span>*
             </a>
 
-            <button
-              class="cars-offer__content__item__info__test-drive"
-              type="button"
-              v-on:click.prevent="
-                show(
-                  'Записаться на тест-драйв',
-                  $store.state._page + '__modal-models-test-drive_',
-                  'Записаться',
-                  1,
-                  'test_drive'
-                )
-              "
-            >
-              Записаться на тест-драйв
-            </button>
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
 
-            <p class="cars-offer__content__item__info__credit-info">
-              * Процентная ставка 8,25% годовых, при первоначальном взносе 40%,
-              срок 3 года. ПАО Совком Банк.
-            </p>
+              <button
+                class="cars-offer__content__item__informer"
+                @click.prevent="showInformer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#575757"
+                >
+                  <path
+                    fill="#575757"
+                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
+                  />
+                </svg>
+              </button>
+
+              <div class="cars-offer__informer-wrap">
+                <button
+                  class="cars-offer__informer-wrap__close"
+                  @click.prevent="closeInformer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
+                    />
+                  </svg>
+                </button>
+                <p>
+                  {{ informerText }}
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -200,31 +331,74 @@
 
             <a
               class="cars-offer__content__item__info__credit event"
-              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=Largus&car_type=Universal'"
+              :href="
+                '/' +
+                  $store.state.city.value +
+                  '/' +
+                  'credit' +
+                  '?car_model=Largus&car_type=Universal'
+              "
             >
               <span>кредит от 5 285 ₽/мес.</span>*
             </a>
 
-            <button
-              class="cars-offer__content__item__info__test-drive"
-              type="button"
-              v-on:click.prevent="
-                show(
-                  'Записаться на тест-драйв',
-                  $store.state._page + '__modal-models-test-drive_',
-                  'Записаться',
-                  1,
-                  'test_drive'
-                )
-              "
-            >
-              Записаться на тест-драйв
-            </button>
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
 
-            <p class="cars-offer__content__item__info__credit-info">
-              * Процентная ставка 8,25% годовых, при первоначальном взносе 40%,
-              срок 3 года. ПАО Совком Банк.
-            </p>
+              <button
+                class="cars-offer__content__item__informer"
+                @click.prevent="showInformer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#575757"
+                >
+                  <path
+                    fill="#575757"
+                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
+                  />
+                </svg>
+              </button>
+
+              <div class="cars-offer__informer-wrap">
+                <button
+                  class="cars-offer__informer-wrap__close"
+                  @click.prevent="closeInformer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
+                    />
+                  </svg>
+                </button>
+                <p>
+                  {{ informerText }}
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -256,31 +430,75 @@
 
             <a
               class="cars-offer__content__item__info__credit event"
-              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=Niva&car_type=Niva'"
+              :href="
+                '/' +
+                  $store.state.city.value +
+                  '/' +
+                  'credit' +
+                  '?car_model=Niva&car_type=Niva'
+              "
             >
               <span>кредит от 5 846 ₽/мес.</span>*
             </a>
 
-            <button
-              class="cars-offer__content__item__info__test-drive"
-              type="button"
-              v-on:click.prevent="
-                show(
-                  'Записаться на тест-драйв',
-                  $store.state._page + '__modal-models-test-drive_',
-                  'Записаться',
-                  1,
-                  'test_drive'
-                )
-              "
-            >
-              Записаться на тест-драйв
-            </button>
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
 
-            <p class="cars-offer__content__item__info__credit-info">
-              * Процентная ставка 8,25% годовых, при первоначальном взносе 40%,
-              срок 3 года. ПАО Совком Банк.
-            </p>
+              <button
+                class="cars-offer__content__item__informer"
+                @click.prevent="showInformer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#575757"
+                >
+                  <path
+                    fill="#575757"
+                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
+                  />
+                </svg>
+              </button>
+
+              <div class="cars-offer__informer-wrap">
+                <button
+                  class="cars-offer__informer-wrap__close"
+                  @click.prevent="closeInformer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
+                    />
+                  </svg>
+                </button>
+                <p>
+                  {{ informerText }}
+                </p>
+              </div>
+            </div>
+
+           
           </div>
         </div>
 
@@ -317,31 +535,73 @@
 
             <a
               class="cars-offer__content__item__info__credit event"
-              :href="'/' + $store.state.city.value + '/' + 'credit' + '?car_model=4x4&car_type=3 дв.'"
+              :href="
+                '/' +
+                  $store.state.city.value +
+                  '/' +
+                  'credit' +
+                  '?car_model=4x4&car_type=3 дв.'
+              "
             >
               <span>кредит от 4 680 ₽/мес.</span>*
             </a>
 
-            <button
-              class="cars-offer__content__item__info__test-drive"
-              type="button"
-              v-on:click.prevent="
-                show(
-                  'Записаться на тест-драйв',
-                  $store.state._page + '__modal-models-test-drive_',
-                  'Записаться',
-                  1,
-                  'test_drive'
-                )
-              "
-            >
-              Записаться на тест-драйв
-            </button>
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
 
-            <p class="cars-offer__content__item__info__credit-info">
-              * Процентная ставка 8,25% годовых, при первоначальном взносе 40%,
-              срок 3 года. ПАО Совком Банк.
-            </p>
+              <button
+                class="cars-offer__content__item__informer"
+                @click.prevent="showInformer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#575757"
+                >
+                  <path
+                    fill="#575757"
+                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
+                  />
+                </svg>
+              </button>
+
+              <div class="cars-offer__informer-wrap">
+                <button
+                  class="cars-offer__informer-wrap__close"
+                  @click.prevent="closeInformer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
+                    />
+                  </svg>
+                </button>
+                <p>
+                  {{ informerText }}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -371,7 +631,10 @@ export default {
       form_title: "",
       button_text: "",
       form_type: 1,
-      goal: ""
+      goal: "",
+
+      informerText:
+        "Расчет является приблизительным, произведен для автомобиля в базовой комплектации. Первоначальный взнос – 40 %. Срок кредита – 36 мес. Процентная ставка – 8,25% годовых. Кредитор - Совкомбанк (ПАО), Лицензия ЦБ РФ №963. Ставка действует при условии страхования имущества, жизни и здоровья заемщика в любых страховых компаниях, соответствующих требованиям Банка. Обеспечение по кредиту – залог приобретаемого автомобиля. Предложение ограничено. Не оферта. Подробности, сроки и условия уточняйте в автосалоне."
     };
   },
   filters: {
@@ -416,6 +679,20 @@ export default {
     },
     created() {
       //  this.modalWidth = window.innerWidth -20
+    },
+
+    showInformer(event) {
+      const target = event.target;
+      const wrapper = target.closest("div");
+
+      wrapper.querySelector(".cars-offer__informer-wrap").classList.add("show");
+    },
+
+    closeInformer(event) {
+      const target = event.target;
+      const informer = target.closest(".cars-offer__informer-wrap");
+
+      informer.classList.remove("show");
     }
   }
 };
@@ -520,6 +797,7 @@ export default {
   flex-direction: column;
   display: flex;
   padding: 15px 25px;
+  width: 100%;
 }
 
 .cars-offer__content__item__info__price {
@@ -573,5 +851,108 @@ export default {
   text-align: center;
   font-family: PragmaticaLightCBold, Helvetica, sans-serif;
   padding-top: 15px;
+}
+
+.cars-offer__content__item__info__buttons {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @media (max-width: 1366px) {
+    position: static;
+  }
+}
+.cars-offer__content__item__informer {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    
+    path {
+      transition: 0.2s;
+      fill:#b8b5b5;
+    }
+  }
+
+  &:hover {
+    svg {
+      path {
+        fill: #e95909;
+        transition: 0.2s;
+      }
+    }
+  }
+}
+
+.cars-offer__informer-wrap {
+  background: white;
+  border-radius: 5px;
+  position: absolute;
+  top: -185px;
+  right: 0;
+  max-width: 350px;
+  width: 100%;
+  font-size: 12px;
+  padding: 15px 30px 10px 10px;
+  box-shadow: 0 0 10px rgba(37, 37, 37, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+
+  p {
+    max-width: 320px;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    border: 10px solid transparent;
+    border-top: 10px solid #9c9b9b;
+    bottom: -20px;
+    right: 133px;
+  }
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.2s;
+  }
+
+  @media (max-width: 1366px) {
+    &:after {
+      display: none;
+    }
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, .9);
+  }
+}
+
+.cars-offer__informer-wrap__close {
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  svg {
+    transition: 0.2s;
+    width: 17px;
+    height: 17px;
+  }
+
+  &:hover {
+    svg {
+      fill: #e95909;
+      transition: 0.2s;
+    }
+  }
 }
 </style>
