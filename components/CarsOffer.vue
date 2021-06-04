@@ -649,7 +649,6 @@ export default {
   },
 
   mounted() {
-    console.log(this.$store.state);
   },
 
   async fetch() {
