@@ -90,6 +90,7 @@ export default {
     '~/plugins/vue-select.js',
     { src: '~/plugins/vue-budger-accordion', ssr: false,  runtimeCompiler: true},
     { src: '~/plugins/vue-observe-visibility.js', ssr: false },
+    { src: '~/plugins/v-calendar.js', ssr: false },
   ],
 
   router: {

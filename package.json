@@ -26,6 +26,7 @@
     "reset-css": "^5.0.1",
     "swiper": "~5.4.5",
     "uniqid": "^5.2.0",
+    "v-calendar": "^2.3.0",
     "vue": "^2.6.12",
     "vue-awesome-swiper": "^4.1.1",
     "vue-badger-accordion": "^1.1.6",
