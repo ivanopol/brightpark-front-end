@@ -11,7 +11,15 @@
           </div>
 
           <div class="cars-offer__content__item__car">
-            <img src="../static/images/cars-offer/vesta.png" alt="Vesta" />
+            <nuxt-link
+              :to="
+                '/' + $store.state.city.value + '/' + 'vesta' + '/' + 'sedan'
+              "
+              :id="$store.state._page + '__models__' + 'vesta__img'"
+              class="event"
+            >
+              <img src="../static/images/cars-offer/vesta.png" alt="Vesta" />
+            </nuxt-link>
           </div>
           <h4 class="cars-offer__content__item__title">
             <nuxt-link
@@ -100,7 +108,7 @@
               </div>
             </div>
 
-      
+
           </div>
         </div>
 
@@ -110,7 +118,15 @@
           </div>
 
           <div class="cars-offer__content__item__car">
-            <img src="../static/images/cars-offer/granta.png" alt="Granta" />
+            <nuxt-link
+              :to="
+                '/' + $store.state.city.value + '/' + 'granta' + '/' + 'sedan'
+              "
+              :id="$store.state._page + '__models__' + 'granta__img'"
+              class="event"
+            >
+              <img src="../static/images/cars-offer/granta.png" alt="Granta" />
+            </nuxt-link>
           </div>
           <h4 class="cars-offer__content__item__title">
             <nuxt-link
@@ -199,7 +215,7 @@
               </div>
             </div>
 
-          
+
           </div>
         </div>
 
@@ -209,7 +225,13 @@
           </div>
 
           <div class="cars-offer__content__item__car">
-            <img src="../static/images/cars-offer/xray.png" alt="xray" />
+            <nuxt-link
+              :to="'/' + $store.state.city.value + '/' + 'xray' + '/' + 'cross'"
+              :id="$store.state._page + '__models__' + 'xray__img'"
+              class="event"
+            >
+              <img src="../static/images/cars-offer/xray.png" alt="xray" />
+            </nuxt-link>
           </div>
           <h4 class="cars-offer__content__item__title">
             <nuxt-link
@@ -305,7 +327,20 @@
           </div>
 
           <div class="cars-offer__content__item__car">
-            <img src="../static/images/cars-offer/largus.png" alt="Largus" />
+            <nuxt-link
+              :to="
+                '/' +
+                  $store.state.city.value +
+                  '/' +
+                  'largus' +
+                  '/' +
+                  'universal'
+              "
+              :id="$store.state._page + '__models__' + 'largus__img'"
+              class="event"
+            >
+              <img src="../static/images/cars-offer/largus.png" alt="Largus" />
+            </nuxt-link>
           </div>
           <h4 class="cars-offer__content__item__title">
             <nuxt-link
@@ -408,7 +443,15 @@
           </div>
 
           <div class="cars-offer__content__item__car">
-            <img src="../static/images/cars-offer/travel.png" alt="Niva" />
+            <nuxt-link
+              :to="
+                '/' + $store.state.city.value + '/' + 'niva' + '/' + 'travel'
+              "
+              :id="$store.state._page + '__models__' + 'niva__img'"
+              class="event"
+            >
+              <img src="../static/images/cars-offer/travel.png" alt="Niva" />
+            </nuxt-link>
           </div>
 
           <h4 class="cars-offer__content__item__title">
@@ -498,7 +541,7 @@
               </div>
             </div>
 
-           
+
           </div>
         </div>
 
@@ -508,7 +551,20 @@
           </div>
 
           <div class="cars-offer__content__item__car">
-            <img src="../static/images/cars-offer/legend.png" alt="Legend" />
+            <nuxt-link
+              :to="
+                '/' +
+                  $store.state.city.value +
+                  '/' +
+                  '4x4' +
+                  '/' +
+                  'three-doors'
+              "
+              :id="$store.state._page + '__models__' + '4x4'"
+              class="event"
+            >
+              <img src="../static/images/cars-offer/legend.png" alt="Legend" />
+            </nuxt-link>
           </div>
 
           <h4 class="cars-offer__content__item__title">
@@ -607,16 +663,18 @@
       </div>
     </div>
 
-    <modal name="form-callback3" height="auto" :adaptive="true">
+    <modal name="form-callback3" height="auto" :adaptive="true" class="test-drive-modal">
       <div :id="form_id + '_close'" class="close event" @click="hide"></div>
-      <FormBuy2Component
+      <!--<FormBuy2Component
         :form_title="form_title"
         :form_id="form_id"
         :button_text="button_text"
         :form_type="form_type"
         :goal="goal"
       >
-      </FormBuy2Component>
+      </FormBuy2Component>  -->
+
+      <TestDriveOrder />
     </modal>
   </section>
 </template>
@@ -760,11 +818,15 @@ export default {
   top: 0;
   width: 100%;
   transition: 0.8s ease-out;
-  pointer-events: none;
 
+  a {
+    display: block;
+    width: fit-content;
+  }
   img {
-    width: 80%;
+    width: 100%;
     max-width: 290px;
+    pointer-events: none;
   }
 }
 
@@ -869,7 +931,7 @@ export default {
   svg {
     width: 15px;
     height: 15px;
-    
+
     path {
       transition: 0.2s;
       fill:#b8b5b5;
@@ -952,6 +1014,15 @@ export default {
       fill: #e95909;
       transition: 0.2s;
     }
+  }
+}
+
+</style>
+
+<style lang="scss">
+.test-drive-modal {
+  .vm--modal {
+    overflow: unset;
   }
 }
 </style>
