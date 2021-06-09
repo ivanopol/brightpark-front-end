@@ -138,11 +138,7 @@ export default {
       fields: {
         name: "",
         phone: "",
-        date: new Date().toLocaleDateString('ru-RU', {
-          day : 'numeric',
-          month : 'long',
-          year : 'numeric'
-        }).split(' ').join(' '),
+        date: new Date(),
         time: "",
         car: "",
       },
@@ -175,7 +171,11 @@ export default {
         url: this.url,
         caption: this.form_title,
         form_id: this.form_id,
-        date: this.fields.date,
+        date: this.fields.date.toLocaleDateString('ru-RU', {
+          day : 'numeric',
+          month : 'long',
+          year : 'numeric'
+        }),
         time: this.fields.time,
         car: this.fields.car,
         form_type: this.form_type,
