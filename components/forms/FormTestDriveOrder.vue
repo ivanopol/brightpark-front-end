@@ -164,13 +164,15 @@ export default {
       event.preventDefault();
 
       let formData = {
-        phone: this.clearMask(this.phone),
-        name: this.name,
+        phone: this.clearMask(this.fields.phone),
+        name: this.fields.name,
         city: this.$store.state.city.value,
         url: this.url,
         caption: this.form_title,
         form_id: this.form_id,
-        comment: this.comment,
+        date: this.fields.date,
+        time: this.fields.time,
+        car: this.fields.car,
         form_type: this.form_type,
         utm: this.utm
       };
@@ -221,7 +223,9 @@ export default {
     clearInput: function() {
       this.phone = null;
       this.name = null;
-      this.comment = null;
+      this.date = null;
+      this.time = null;
+      this.car = null;
       return {};
     },
 
@@ -256,6 +260,14 @@ export default {
     decodeCookie(obj) {
       return JSON.parse(decodeURIComponent(escape(atob(obj))));
     }
+  },
+  mounted() {
+    if (this.$cookies.get("bp_uid") !== undefined) {
+      this.utm = this.decodeCookie(this.$cookies.get("bp_uid"));
+    }
+  },
+  beforeMount() {
+    this.attachHandler();
   }
 };
 </script>
