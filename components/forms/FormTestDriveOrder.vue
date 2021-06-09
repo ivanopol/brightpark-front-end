@@ -56,6 +56,7 @@
           type="text"
           placeholder="Удобное время"
           pattern=".{5,}"
+          masked="true"
           mask="##:##"
           v-model="fields.time"
         />
@@ -137,7 +138,11 @@ export default {
       fields: {
         name: "",
         phone: "",
-        date: new Date(),
+        date: new Date().toLocaleDateString('ru-RU', {
+          day : 'numeric',
+          month : 'long',
+          year : 'numeric'
+        }).split(' ').join(' '),
         time: "",
         car: "",
       },
@@ -157,7 +162,7 @@ export default {
       } else {
         return !this.status;
       }
-    }
+    },
   },
   methods: {
     send: function(event) {

@@ -2,10 +2,7 @@
   <div>
     <MainBanner />
     <Advantages2/>
-    <CarsOffer style="margin: 40px 0 25px;"
-               form_id="main__cars-offer_"
-               goal="test_drive"
-    />
+    <CarsOffer style="margin: 40px 0 25px;" />
     <div class="container">
       <Consult style="margin-bottom: 50px"
                :form_id="'main__consult_'"
