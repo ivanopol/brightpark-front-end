@@ -56,7 +56,7 @@
           type="text"
           placeholder="Удобное время"
           pattern=".{5,}"
-          masked="true"
+          :masked="true"
           mask="##:##"
           v-model="fields.time"
         />
