@@ -172,8 +172,8 @@ export default {
         caption: this.form_title,
         form_id: this.form_id,
         date: this.fields.date.toLocaleDateString('ru-RU', {
-          day : 'numeric',
-          month : 'long',
+          day : '2-digit',
+          month : '2-digit',
           year : 'numeric'
         }),
         time: this.fields.time,
