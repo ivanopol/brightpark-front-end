@@ -38,35 +38,20 @@
               от 733 900 ₽
             </p>
 
-            <a
-              class="cars-offer__content__item__info__credit"
-              :href="
+            <div class="cars-offer__content__item__info__buttons">
+              <a
+                class="cars-offer__content__item__info__credit"
+                :href="
                 '/' +
                   $store.state.city.value +
                   '/' +
                   'credit' +
                   '?car_model=Vesta&car_type=Седан'
               "
-            >
-              <span>кредит от 5 511 ₽/мес.</span>*
-            </a>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
               >
-                Записаться на тест-драйв
-              </button>
+                <span>кредит от 5 511 ₽/мес.</span>*
+              </a>
+
 
               <button
                 class="cars-offer__content__item__informer"
@@ -85,7 +70,6 @@
                   />
                 </svg>
               </button>
-
               <div class="cars-offer__informer-wrap">
                 <button
                   class="cars-offer__informer-wrap__close"
@@ -106,6 +90,25 @@
                   {{ informerText }}
                 </p>
               </div>
+
+            </div>
+
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
             </div>
 
 
@@ -145,35 +148,19 @@
               от 504 900 ₽
             </p>
 
-            <a
-              class="cars-offer__content__item__info__credit"
-              :href="
+            <div class="cars-offer__content__item__info__buttons">
+              <a
+                class="cars-offer__content__item__info__credit"
+                :href="
                 '/' +
                   $store.state.city.value +
                   '/' +
                   'credit' +
                   '?car_model=Granta&car_type=Седан'
               "
-            >
-              <span>кредит от 3 842 ₽/мес.</span>*
-            </a>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
               >
-                Записаться на тест-драйв
-              </button>
+                <span>кредит от 3 842 ₽/мес.</span>*
+              </a>
 
               <button
                 class="cars-offer__content__item__informer"
@@ -215,6 +202,24 @@
               </div>
             </div>
 
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
+            </div>
+
 
           </div>
         </div>
@@ -248,35 +253,20 @@
               от 691 900 ₽
             </p>
 
-            <a
-              class="cars-offer__content__item__info__credit"
-              :href="
+
+            <div class="cars-offer__content__item__info__buttons">
+              <a
+                class="cars-offer__content__item__info__credit"
+                :href="
                 '/' +
                   $store.state.city.value +
                   '/' +
                   'credit' +
                   '?car_model=Xray&car_type=Cross'
               "
-            >
-              <span>кредит от 5 205 ₽/мес.</span>*
-            </a>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
               >
-                Записаться на тест-драйв
-              </button>
+                <span>кредит от 5 205 ₽/мес.</span>*
+              </a>
 
               <button
                 class="cars-offer__content__item__informer"
@@ -316,6 +306,24 @@
                   {{ informerText }}
                 </p>
               </div>
+            </div>
+
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
             </div>
 
           </div>
@@ -364,35 +372,19 @@
               от 702 900 ₽
             </p>
 
-            <a
-              class="cars-offer__content__item__info__credit event"
-              :href="
+            <div class="cars-offer__content__item__info__buttons">
+              <a
+                class="cars-offer__content__item__info__credit event"
+                :href="
                 '/' +
                   $store.state.city.value +
                   '/' +
                   'credit' +
                   '?car_model=Largus&car_type=Universal'
               "
-            >
-              <span>кредит от 5 285 ₽/мес.</span>*
-            </a>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
               >
-                Записаться на тест-драйв
-              </button>
+                <span>кредит от 5 285 ₽/мес.</span>*
+              </a>
 
               <button
                 class="cars-offer__content__item__informer"
@@ -432,6 +424,24 @@
                   {{ informerText }}
                 </p>
               </div>
+            </div>
+
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
             </div>
 
           </div>
@@ -471,35 +481,20 @@
               от 779 900 ₽
             </p>
 
-            <a
-              class="cars-offer__content__item__info__credit event"
-              :href="
+
+            <div class="cars-offer__content__item__info__buttons">
+              <a
+                class="cars-offer__content__item__info__credit event"
+                :href="
                 '/' +
                   $store.state.city.value +
                   '/' +
                   'credit' +
                   '?car_model=Niva&car_type=Niva'
               "
-            >
-              <span>кредит от 5 846 ₽/мес.</span>*
-            </a>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
               >
-                Записаться на тест-драйв
-              </button>
+                <span>кредит от 5 846 ₽/мес.</span>*
+              </a>
 
               <button
                 class="cars-offer__content__item__informer"
@@ -541,7 +536,23 @@
               </div>
             </div>
 
-
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
+            </div>
           </div>
         </div>
 
@@ -589,35 +600,20 @@
               от 619 900 ₽
             </p>
 
-            <a
-              class="cars-offer__content__item__info__credit event"
-              :href="
+
+            <div class="cars-offer__content__item__info__buttons">
+              <a
+                class="cars-offer__content__item__info__credit event"
+                :href="
                 '/' +
                   $store.state.city.value +
                   '/' +
                   'credit' +
                   '?car_model=4x4&car_type=3 дв.'
               "
-            >
-              <span>кредит от 4 680 ₽/мес.</span>*
-            </a>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
               >
-                Записаться на тест-драйв
-              </button>
+                <span>кредит от 4 680 ₽/мес.</span>*
+              </a>
 
               <button
                 class="cars-offer__content__item__informer"
@@ -657,6 +653,24 @@
                   {{ informerText }}
                 </p>
               </div>
+            </div>
+
+            <div class="cars-offer__content__item__info__buttons">
+              <button
+                class="cars-offer__content__item__info__test-drive"
+                type="button"
+                v-on:click.prevent="
+                  show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    'Записаться',
+                    1,
+                    'test_drive'
+                  )
+                "
+              >
+                Записаться на тест-драйв
+              </button>
             </div>
           </div>
         </div>
@@ -952,7 +966,7 @@ export default {
   background: white;
   border-radius: 5px;
   position: absolute;
-  top: -185px;
+  top: -180px;
   right: 0;
   max-width: 350px;
   width: 100%;
@@ -973,7 +987,7 @@ export default {
     border: 10px solid transparent;
     border-top: 10px solid #9c9b9b;
     bottom: -20px;
-    right: 133px;
+    right: 152px;
   }
 
   &.show {
