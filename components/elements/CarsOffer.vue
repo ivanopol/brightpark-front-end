@@ -23,9 +23,7 @@
           </div>
           <h4 class="cars-offer__content__item__title">
             <nuxt-link
-              :to="
-                '/' + $store.state.city.value + '/' + 'vesta' + '/' + 'sedan'
-              "
+              :to="'/' + $store.state.city.value + '/' + 'vesta' + '/' + 'sedan'"
               :id="$store.state._page + '__models__' + 'vesta'"
               class="event"
             >
@@ -122,9 +120,7 @@
 
           <div class="cars-offer__content__item__car">
             <nuxt-link
-              :to="
-                '/' + $store.state.city.value + '/' + 'granta' + '/' + 'sedan'
-              "
+              :to="'/' + $store.state.city.value + '/' + 'granta' + '/' + 'sedan'"
               :id="$store.state._page + '__models__' + 'granta__img'"
               class="event"
             >
@@ -466,9 +462,7 @@
 
           <h4 class="cars-offer__content__item__title">
             <nuxt-link
-              :to="
-                '/' + $store.state.city.value + '/' + 'niva' + '/' + 'travel'
-              "
+              :to="'/' + $store.state.city.value + '/' + 'niva' + '/' + 'travel'"
               :id="$store.state._page + '__models__' + 'niva'"
               class="event"
             >
@@ -563,14 +557,7 @@
 
           <div class="cars-offer__content__item__car">
             <nuxt-link
-              :to="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  '4x4' +
-                  '/' +
-                  'three-doors'
-              "
+              :to="'/' + $store.state.city.value + '/' + '4x4' + '/' + 'three-doors'"
               :id="$store.state._page + '__models__' + '4x4'"
               class="event"
             >
@@ -580,14 +567,7 @@
 
           <h4 class="cars-offer__content__item__title">
             <nuxt-link
-              :to="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  '4x4' +
-                  '/' +
-                  'three-doors'
-              "
+              :to="'/' + $store.state.city.value + '/' + '4x4' + '/' + 'three-doors'"
               :id="$store.state._page + '__models__' + '4x4'"
               class="event"
             >
@@ -688,7 +668,10 @@
       >
       </FormBuy2Component>  -->
 
-      <FormTestDriveOrder />
+      <FormTestDriveOrder
+        :form_id="form_id"
+        :goal="goal"
+      />
     </modal>
   </section>
 </template>
