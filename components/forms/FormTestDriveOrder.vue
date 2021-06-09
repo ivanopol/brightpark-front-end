@@ -1,15 +1,26 @@
 <template>
   <div class="test-drive">
-    <h4 class="test-drive__heading">
-      Записаться на тест-драйв
-    </h4>
-    <form class="test-drive__form">
-      <input type="text" placeholder="Ваше имя" />
+    <h4 class="test-drive__heading" v-text="form_title"/>
+    <form
+      action="#"
+      class="test-drive__form"
+      @submit="send"
+      method="POST"
+      :id="form_id"
+      :data-goal="goal"
+    >
+      <input
+        type="text"
+        placeholder="Ваше имя"
+        name="name"
+        v-model="fields.name"
+        required
+      />
       <the-mask
         :id="form_id + '_input_phone'"
         pattern=".{18,}"
         mask="+# (###)-###-##-##"
-        v-model="phone"
+        v-model="fields.phone"
         type="tel"
         required="true"
         placeholder="Номер телефона"
@@ -17,7 +28,7 @@
 
       <div class="test-drive__form__row">
         <v-date-picker
-          v-model="date"
+          v-model="fields.date"
           :input-debounce="500"
           :locale="calendarLocale"
           class="test-drive__form__row__date"
@@ -46,6 +57,7 @@
           placeholder="Удобное время"
           pattern=".{5,}"
           mask="##:##"
+          v-model="fields.time"
         />
       </div>
 
@@ -55,7 +67,7 @@
           :options="cars"
           placeholder="Выберите автомобиль"
           taggable
-          v-model="selectedCar"
+          v-model="fields.car"
           :searchable="false"
           :multiple="false"
         >
@@ -79,7 +91,7 @@
       <p class="test-drive__form__privacy">
         Нажимая на кнпоку "Записаться", вы соглашаетесь с
         <span>
-          <a href="https://brightpark.ru/perm/privacy" target="_blank">Политикой конфиденциальности</a>
+          <a :href="'/' + $store.state.city.value + '/privacy'" class="event" target="_blank">Политикой конфиденциальности</a>
         </span>
       </p>
     </form>
@@ -88,21 +100,162 @@
 
 <script>
 export default {
-  name: "TestDriveOrder",
+  name: "FormTestDriveOrder",
+  props: {
+    form_id: {
+      default: "form",
+      type: String
+    },
+    form_title: {
+      default: "Записаться на тест-драйв",
+      type: String
+    },
+    form_type: {
+      default: 1,
+      type: Number
+    },
+    goal: {
+      default: "",
+      type: String
+    },
+  },
   data: function() {
     return {
-      date: new Date(),
+      success: false,
+      error: false,
       calendarLocale: 'ru-RU',
       selectedCar: "",
-
+      bitrix_responsible: "",
+      status: true,
       cars: [
         "Granta SD AT",
         "Largus Cross",
         "Vesta Cross SW",
         "X-RAY Cross AT",
         "NIVA"
-      ]
-    };
+      ],
+      fields: {
+        name: "",
+        phone: "",
+        date: new Date(),
+        time: "",
+        car: "",
+      },
+      utm: {},
+    }
+  },
+  computed: {
+    url: function() {
+      return {
+        href: window.location.href,
+        search: window.location.search
+      };
+    },
+    isButtonDisabled: function() {
+      if (this.isLoading) {
+        return true;
+      } else {
+        return !this.status;
+      }
+    }
+  },
+  methods: {
+    send: function(event) {
+      event.preventDefault();
+
+      let formData = {
+        phone: this.clearMask(this.phone),
+        name: this.name,
+        city: this.$store.state.city.value,
+        url: this.url,
+        caption: this.form_title,
+        form_id: this.form_id,
+        comment: this.comment,
+        form_type: this.form_type,
+        utm: this.utm
+      };
+
+      this.$axios({
+        method: "post",
+        url: process.env.apiUrl + "/api/send_contact_form",
+        data: formData
+      })
+        .then(response => {
+          this.clearInput();
+          this.success = true;
+          this.status = true;
+          //console.log(window);
+          try {
+            this.sendGoals(this.goal);
+          } catch (err) {
+            console.log(err);
+          }
+          return {};
+        })
+        .catch(error => {
+          this.error = true;
+          this.clearInput();
+          return {};
+        });
+    },
+    sendGoals: function(goal) {
+      if (goal) {
+        let ym_ids = this.getCountersIds();
+        let goalArr = goal.match(/^(.+?):(.+?)$/);
+        let target_goal = goalArr === null ? goal : goalArr[2];
+
+        ym_ids.forEach(function(item) {
+          window["yaCounter" + item].reachGoal(target_goal);
+        });
+      }
+      return {};
+    },
+    getCountersIds: function() {
+      var id_list = [];
+
+      window.ym.a.forEach(function(item) {
+        id_list.push(item[0]);
+      });
+      return id_list;
+    },
+    clearInput: function() {
+      this.phone = null;
+      this.name = null;
+      this.comment = null;
+      return {};
+    },
+
+    clearMask: function(value) {
+      return value.replace(/\D/g, "");
+    },
+
+    showModal: function() {
+      return {};
+    },
+
+    attachHandler: function() {
+      function attachHandler(el, evtname, fn) {
+        if (el.addEventListener) {
+          el.addEventListener(evtname, fn.bind(el), false);
+        } else if (el.attachEvent) {
+          el.attachEvent("on" + evtname, fn.bind(el));
+        }
+      }
+
+      attachHandler(window, "load", () => {
+        var ele = document.querySelector(
+          "input[id=" + this.form_id + "_input_phone]"
+        );
+        attachHandler(ele, "invalid", function() {
+          this.setCustomValidity("Please enter at least 5 characters.");
+          this.setCustomValidity("");
+        });
+      });
+      return {};
+    },
+    decodeCookie(obj) {
+      return JSON.parse(decodeURIComponent(escape(atob(obj))));
+    }
   }
 };
 </script>

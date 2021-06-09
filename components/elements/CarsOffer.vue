@@ -7,7 +7,7 @@
       <div class="cars-offer__content">
         <div class="cars-offer__content__item">
           <div class="cars-offer__content__item__bg">
-            <img src="../static/images/cars-offer/vesta-bg.jpg" alt="Vesta" />
+            <img src="~static/images/cars-offer/vesta-bg.jpg" alt="Vesta" />
           </div>
 
           <div class="cars-offer__content__item__car">
@@ -18,7 +18,7 @@
               :id="$store.state._page + '__models__' + 'vesta__img'"
               class="event"
             >
-              <img src="../static/images/cars-offer/vesta.png" alt="Vesta" />
+              <img src="~static/images/cars-offer/vesta.png" alt="Vesta" />
             </nuxt-link>
           </div>
           <h4 class="cars-offer__content__item__title">
@@ -114,7 +114,7 @@
 
         <div class="cars-offer__content__item">
           <div class="cars-offer__content__item__bg">
-            <img src="../static/images/cars-offer/granta-bg.jpg" alt="Granta" />
+            <img src="~static/images/cars-offer/granta-bg.jpg" alt="Granta" />
           </div>
 
           <div class="cars-offer__content__item__car">
@@ -125,7 +125,7 @@
               :id="$store.state._page + '__models__' + 'granta__img'"
               class="event"
             >
-              <img src="../static/images/cars-offer/granta.png" alt="Granta" />
+              <img src="~static/images/cars-offer/granta.png" alt="Granta" />
             </nuxt-link>
           </div>
           <h4 class="cars-offer__content__item__title">
@@ -221,7 +221,7 @@
 
         <div class="cars-offer__content__item">
           <div class="cars-offer__content__item__bg">
-            <img src="../static/images/cars-offer/xray-bg.jpg" alt="Xray" />
+            <img src="~static/images/cars-offer/xray-bg.jpg" alt="Xray" />
           </div>
 
           <div class="cars-offer__content__item__car">
@@ -230,7 +230,7 @@
               :id="$store.state._page + '__models__' + 'xray__img'"
               class="event"
             >
-              <img src="../static/images/cars-offer/xray.png" alt="xray" />
+              <img src="~static/images/cars-offer/xray.png" alt="xray" />
             </nuxt-link>
           </div>
           <h4 class="cars-offer__content__item__title">
@@ -323,7 +323,7 @@
 
         <div class="cars-offer__content__item">
           <div class="cars-offer__content__item__bg">
-            <img src="../static/images/cars-offer/largus-bg.jpg" alt="Largus" />
+            <img src="~static/images/cars-offer/largus-bg.jpg" alt="Largus" />
           </div>
 
           <div class="cars-offer__content__item__car">
@@ -339,7 +339,7 @@
               :id="$store.state._page + '__models__' + 'largus__img'"
               class="event"
             >
-              <img src="../static/images/cars-offer/largus.png" alt="Largus" />
+              <img src="~static/images/cars-offer/largus.png" alt="Largus" />
             </nuxt-link>
           </div>
           <h4 class="cars-offer__content__item__title">
@@ -439,7 +439,7 @@
 
         <div class="cars-offer__content__item">
           <div class="cars-offer__content__item__bg">
-            <img src="../static/images/cars-offer/travel-bg.jpg" alt="Niva" />
+            <img src="~static/images/cars-offer/travel-bg.jpg" alt="Niva" />
           </div>
 
           <div class="cars-offer__content__item__car">
@@ -450,7 +450,7 @@
               :id="$store.state._page + '__models__' + 'niva__img'"
               class="event"
             >
-              <img src="../static/images/cars-offer/travel.png" alt="Niva" />
+              <img src="~static/images/cars-offer/travel.png" alt="Niva" />
             </nuxt-link>
           </div>
 
@@ -547,7 +547,7 @@
 
         <div class="cars-offer__content__item">
           <div class="cars-offer__content__item__bg">
-            <img src="../static/images/cars-offer/legend-bg.jpg" alt="Legend" />
+            <img src="~static/images/cars-offer/legend-bg.jpg" alt="Legend" />
           </div>
 
           <div class="cars-offer__content__item__car">
@@ -563,7 +563,7 @@
               :id="$store.state._page + '__models__' + '4x4'"
               class="event"
             >
-              <img src="../static/images/cars-offer/legend.png" alt="Legend" />
+              <img src="~static/images/cars-offer/legend.png" alt="Legend" />
             </nuxt-link>
           </div>
 
@@ -674,7 +674,7 @@
       >
       </FormBuy2Component>  -->
 
-      <TestDriveOrder />
+      <FormTestDriveOrder />
     </modal>
   </section>
 </template>
