@@ -28,6 +28,7 @@
 
       <div class="test-drive__form__row">
         <v-date-picker
+          :min-date='new Date()'
           v-model="fields.date"
           :input-debounce="500"
           :locale="calendarLocale"
