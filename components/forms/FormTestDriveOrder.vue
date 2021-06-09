@@ -64,6 +64,7 @@
 
       <div class="test-drive__form__select-wrap">
         <v-select
+          required
           class="test-drive__form__select"
           :options="cars"
           placeholder="Выберите автомобиль"
@@ -226,11 +227,11 @@ export default {
       return id_list;
     },
     clearInput: function() {
-      this.phone = null;
-      this.name = null;
-      this.date = null;
-      this.time = null;
-      this.car = null;
+      this.fields.phone = null;
+      this.fields.name = null;
+      this.fields.date = new Date();
+      this.fields.time = null;
+      this.fields.car = null;
       return {};
     },
 
