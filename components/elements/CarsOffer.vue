@@ -49,7 +49,7 @@
                   '?car_model=Vesta&car_type=Седан'
               "
               >
-                <span>кредит от 5 511 ₽/мес.</span>*
+                <span>кредит от 5 511 ₽/мес.</span>
               </a>
 
 
@@ -159,7 +159,7 @@
                   '?car_model=Granta&car_type=Седан'
               "
               >
-                <span>кредит от 3 842 ₽/мес.</span>*
+                <span>кредит от 3 842 ₽/мес.</span>
               </a>
 
               <button
@@ -265,7 +265,7 @@
                   '?car_model=Xray&car_type=Cross'
               "
               >
-                <span>кредит от 5 205 ₽/мес.</span>*
+                <span>кредит от 5 205 ₽/мес.</span>
               </a>
 
               <button
@@ -383,7 +383,7 @@
                   '?car_model=Largus&car_type=Universal'
               "
               >
-                <span>кредит от 5 285 ₽/мес.</span>*
+                <span>кредит от 5 285 ₽/мес.</span>
               </a>
 
               <button
@@ -493,7 +493,7 @@
                   '?car_model=Niva&car_type=Niva'
               "
               >
-                <span>кредит от 5 846 ₽/мес.</span>*
+                <span>кредит от 5 846 ₽/мес.</span>
               </a>
 
               <button
@@ -612,7 +612,7 @@
                   '?car_model=4x4&car_type=3 дв.'
               "
               >
-                <span>кредит от 4 680 ₽/мес.</span>*
+                <span>кредит от 4 680 ₽/мес.</span>
               </a>
 
               <button
