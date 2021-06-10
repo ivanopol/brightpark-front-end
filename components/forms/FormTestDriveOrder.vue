@@ -88,7 +88,7 @@
       </button>
 
       <p class="test-drive__form__privacy">
-        Нажимая на кнпоку "Записаться", вы соглашаетесь с
+        Нажимая на кнопку "Записаться", вы соглашаетесь с
         <span>
           <a :href="'/' + $store.state.city.value + '/privacy'" class="event" target="_blank">Политикой конфиденциальности</a>
         </span>
