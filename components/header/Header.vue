@@ -4,9 +4,9 @@
             <div class="container logo-wrap-row">
               <span class="logo-wrap-left">
                 <div class="logo-bright-park">
-                    <nuxt-link id="common__header__bp-logo" class="event" :to="'/' + $store.state.city.value">
+                    <a id="common__header__bp-logo" class="event" :href="'/' + $store.state.city.value">
                         <logo-bright-park :theme="theme"></logo-bright-park>
-                    </nuxt-link>
+                    </a>
                 </div>
                 <span class="logo-city">{{$store.state.city.label}}</span>
               </span>
