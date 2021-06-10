@@ -38,20 +38,41 @@ export default {
       banners: [
         {
           key: 1,
+          title: 'all_inclusive',
+          extension: 'jpg',
+          buttonColor: 'purple',
+          link: 'service',
+        },
+/*        {
+          key: 2,
           title: 'yellow',
           extension: 'jpg',
           buttonColor: 'purple',
           link: 'vesta/sedan',
         },
         {
-          key: 2,
+          key: 3,
+          title: 'yellow',
+          extension: 'jpg',
+          buttonColor: 'purple',
+          link: 'vesta/sedan',
+        },*/
+        {
+          key: 4,
+          title: 'yellow',
+          extension: 'jpg',
+          buttonColor: 'purple',
+          link: 'vesta/sedan',
+        },
+        {
+          key: 5,
           title: 'green',
           extension: 'jpg',
           buttonColor: 'orange',
           link: 'credit',
         },
         {
-          key: 3,
+          key: 6,
           title:'purple',
           extension: 'jpg',
           buttonColor: 'green',
