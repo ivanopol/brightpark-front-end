@@ -14,7 +14,11 @@
                  :srcset="path.mobile + banner.title + '.' + banner.extension + ', ' + path.mobile + banner.title + '.' + banner.extension + ' 2x'"
                  alt="" />
           </picture>
-          <a :href="'/' + $store.state.city.value + '/' + banner.link" :class="'banner-button event ' + banner.buttonColor">Подробнее</a>
+          <a v-if="banner.link"
+              :href="'/' + $store.state.city.value + '/' + banner.link"
+             :class="'banner-button event ' + banner.buttonColor">
+            Подробнее
+          </a>
         </swiper-slide>
       </swiper>
     </div>
@@ -43,20 +47,20 @@ export default {
           buttonColor: 'purple',
           link: 'service',
         },
-/*        {
+       {
           key: 2,
-          title: 'yellow',
+          title: 'find_out',
           extension: 'jpg',
-          buttonColor: 'purple',
-          link: 'vesta/sedan',
+          buttonColor: 'green',
+          link: '',
         },
         {
-          key: 3,
-          title: 'yellow',
-          extension: 'jpg',
-          buttonColor: 'purple',
-          link: 'vesta/sedan',
-        },*/
+         key: 3,
+         title: 'mileage',
+         extension: 'jpg',
+         buttonColor: 'orange',
+         link: '',
+       },
         {
           key: 4,
           title: 'yellow',
