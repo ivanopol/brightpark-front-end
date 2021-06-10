@@ -1,17 +1,17 @@
 <template>
   <section class="consult">
     <img
-      src="../../static/images/consult_block/girl.png"
+      src="~static/images/consult_block/girl.png"
       alt="Проконсультируем по всем вопросам!"
       class="consult__girl"
     />
     <img
-      src="../../static/images/consult_block/texture-mob.png"
+      src="~static/images/consult_block/texture-mob.png"
       alt="Проконсультируем по всем вопросам!"
       class="consult__texute_mobile"
     />
     <img
-      src="../../static/images/consult_block/texture.png"
+      src="~static/images/consult_block/texture.png"
       alt="Проконсультируем по всем вопросам!"
       class="consult__texture"
     />
@@ -88,7 +88,7 @@
 
 <script>
 export default {
-  name: "Consult",
+  name: "FormConsultation",
   props: {
     form_title: {
       default: "Проконсультируем по всем вопросам!",
@@ -123,6 +123,12 @@ export default {
   },
 
   computed: {
+    url: function() {
+      return {
+        href: window.location.href,
+        search: window.location.search
+      };
+    },
     isButtonDisabled: function() {
       return !this.status;
     }

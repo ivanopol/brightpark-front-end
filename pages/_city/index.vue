@@ -4,10 +4,7 @@
     <Advantages2/>
     <CarsOffer style="margin: 40px 0 25px;" />
     <div class="container">
-      <Consult style="margin-bottom: 50px"
-               :form_id="'main__consult_'"
-               goal="consult"
-      />
+      <FormConsultation style="margin-bottom: 50px" :form_id="'main__consult_'" goal="consult" />
     </div>
 
     <MegaTeasers/>
