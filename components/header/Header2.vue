@@ -16,7 +16,11 @@
                 <span class="header-contacts-phone"><a :href="'tel:' + $store.state.city.phone" class="event callibri_tel">{{$store.state.city.phone_format | phone}}</a></span>
               </div>
               <div class="logo-lada">
-                  <logo-lada :theme="theme"></logo-lada>
+                  <!-- <logo-lada :theme="theme"></logo-lada> -->
+                <a :href="ladaLink" class="logo-lada__link">
+                  <img src="~/static/images/lada-logotop.jpg" alt="lada" width="60" class="logo-lada__link__img">
+                  <logo-lada :theme="theme" class="logo-lada__link__img-mobile"></logo-lada>
+                </a>
               </div>
             </div>
             <div class="navigation-wrapper">
@@ -95,7 +99,37 @@
           toggleMenu: function () {
             this.$store.commit('set_menu', !this.$store.state._menu);
           }
-        }
+        },
+
+      computed: {
+          ladaLink() {
+            switch(this.$store.state.city.value) {
+              case 'perm':
+                return 'https://perm.lada.ru'
+                break;
+
+              case 'moscow':
+                return 'https://brightpark-btmk.lada.ru'
+                break;
+
+              case 'magnitogorsk':
+                return 'http://brightpark-inkomservice.lada.ru'
+                break;
+
+              case 'rostov-na-donu':
+                return 'https://brightpark-dfm.lada.ru/';
+                break;
+
+              case 'yekaterinburg':
+                return 'https://ekb.lada.ru/';
+                break;
+
+              case 'volgograd':
+                return 'https://brightpark-amk.lada.ru/';
+                break;
+            }
+          },
+      },
     }
 </script>
 
@@ -383,6 +417,30 @@ header {
       .logo-wrap-row {
         padding: 20px 0 15px;
       }
+    }
+  }
+}
+
+.logo-lada__link {
+  display: flex;
+
+  .logo-lada__link__img {
+    display: none;
+
+    @media (min-width: 768px) {
+      width: 140px;
+      display: block;
+    }
+
+    @media (min-width: 900px) {
+      width: 150px;
+    }
+  }
+
+  .logo-lada__link__img-mobile {
+    width: 47px;
+    @media (min-width: 768px) {
+      display: none;
     }
   }
 }
