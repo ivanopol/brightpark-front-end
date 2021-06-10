@@ -28,6 +28,8 @@
 
       <div class="test-drive__form__row">
         <v-date-picker
+          :popover="{ visibility: 'click' }"
+          :min-date='new Date()'
           v-model="fields.date"
           :input-debounce="500"
           :locale="calendarLocale"
@@ -39,12 +41,7 @@
               :value="inputValue"
               v-on="inputEvents"
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path
                 d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z"
               />
@@ -56,6 +53,7 @@
           type="text"
           placeholder="Удобное время"
           pattern=".{5,}"
+          :masked="true"
           mask="##:##"
           v-model="fields.time"
         />
@@ -63,6 +61,7 @@
 
       <div class="test-drive__form__select-wrap">
         <v-select
+          required
           class="test-drive__form__select"
           :options="cars"
           placeholder="Выберите автомобиль"
@@ -89,7 +88,7 @@
       </button>
 
       <p class="test-drive__form__privacy">
-        Нажимая на кнпоку "Записаться", вы соглашаетесь с
+        Нажимая на кнопку "Записаться", вы соглашаетесь с
         <span>
           <a :href="'/' + $store.state.city.value + '/privacy'" class="event" target="_blank">Политикой конфиденциальности</a>
         </span>
@@ -157,7 +156,7 @@ export default {
       } else {
         return !this.status;
       }
-    }
+    },
   },
   methods: {
     send: function(event) {
@@ -170,7 +169,11 @@ export default {
         url: this.url,
         caption: this.form_title,
         form_id: this.form_id,
-        date: this.fields.date,
+        date: this.fields.date.toLocaleDateString('ru-RU', {
+          day : '2-digit',
+          month : '2-digit',
+          year : 'numeric'
+        }),
         time: this.fields.time,
         car: this.fields.car,
         form_type: this.form_type,
@@ -221,11 +224,11 @@ export default {
       return id_list;
     },
     clearInput: function() {
-      this.phone = null;
-      this.name = null;
-      this.date = null;
-      this.time = null;
-      this.car = null;
+      this.fields.phone = null;
+      this.fields.name = null;
+      this.fields.date = new Date();
+      this.fields.time = null;
+      this.fields.car = null;
       return {};
     },
 

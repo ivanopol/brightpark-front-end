@@ -106,7 +106,7 @@ export default Vue.extend({
       this.car_model = this.$route.query.car_model;
       this.car_type = this.$route.query.car_type;
 
-      document.querySelector('.steps-wrap').scrollIntoView({block: "start", behavior: "smooth"})
+      document.querySelector('.steps-wrap').scrollIntoView({block: "start", behavior: "auto"})
     }
   },
 
