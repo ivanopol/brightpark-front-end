@@ -59,7 +59,7 @@ export default {
          title: 'mileage',
          extension: 'jpg',
          buttonColor: 'orange',
-         link: '',
+         link: 'stocks/trejd-in-lada-selection-dlya-loyalnyh-klientov',
        },
         {
           key: 4,
