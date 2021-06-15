@@ -428,17 +428,17 @@ header {
     display: none;
 
     @media (min-width: 768px) {
-      width: 140px;
+      width: 150px;
       display: block;
     }
 
     @media (min-width: 900px) {
-      width: 150px;
+      width: 175px;
     }
   }
 
   .logo-lada__link__img-mobile {
-    width: 47px;
+    width: 75px;
     @media (min-width: 768px) {
       display: none;
     }
