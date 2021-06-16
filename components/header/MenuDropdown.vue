@@ -26,7 +26,11 @@ export default {
     correction: function (value) {
       let tmp_value = value
       if (tmp_value === '4x4 | Legend') {
-        tmp_value = 'Legend'
+        tmp_value = 'Niva Legend'
+      }
+
+      if (tmp_value === 'Niva') {
+        tmp_value = 'Niva Travel'
       }
 
       return tmp_value
