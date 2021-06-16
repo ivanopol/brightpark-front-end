@@ -21,7 +21,7 @@
     <div id="items" class="items">
       <div :class="data.slides.class">
         <div class="items-data">
-          <h1 class="title" v-html="'Новая ' + data.slides.title + '<br> по&nbsp;лучшей цене в&nbsp;' + $store.state.city.dative"></h1>
+          <h1 class="title" v-html="'Новая ' + data.slides.title"></h1>
           <a :href="data.slides.link"
                       id="model__banner__purchase-conditions"
                       class="event btn-banner">Условия покупки</a>
