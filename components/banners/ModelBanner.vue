@@ -21,7 +21,7 @@
     <div id="items" class="items">
       <div :class="data.slides.class">
         <div class="items-data">
-          <h1 class="title" v-html="'Новая ' + data.slides.title"></h1>
+          <h1 class="title" v-html="bannerTitle + data.slides.title"></h1>
           <a :href="data.slides.link"
                       id="model__banner__purchase-conditions"
                       class="event btn-banner">Условия покупки</a>
@@ -90,6 +90,22 @@ export default {
     plate: function() {
       const textDefault = 'В&nbsp;Брайт парке специальные цены на&nbsp;LADA&nbsp;&mdash; каждый день! Узнайте подробности<span class=\'show_desktop\'> по&nbsp;телефону</span>: <a href=\'tel:' + this.$store.state.city.phone + '\' class=\'callibri_tel event\'>' + this.$store.state.city.phone_format + '</a>'
       return textDefault
+    },
+    bannerTitle: function() {
+      let title = ''
+
+      switch (this.$store.state.car.model_full) {
+        case "Largus Универсал":
+        case "Largus Cross":
+        case "XRAY":
+        case "XRAY Cross":
+          title = 'Новый '
+          break;
+        default:
+          title = 'Новая '
+      }
+
+      return title
     },
     ladaLink: function() {
       let link = ''
