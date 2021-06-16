@@ -165,7 +165,6 @@ export default {
     if (this.ladaLink) {
       this.btnShow = true
     }
-    console.log(this.$store.state)
 
     if (window.innerWidth < 581) {
       this.$children[0].slideTo(this.data.active);
