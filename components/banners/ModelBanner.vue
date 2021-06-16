@@ -25,6 +25,7 @@
           <a :href="data.slides.link"
                       id="model__banner__purchase-conditions"
                       class="event btn-banner">Условия покупки</a>
+          <a :href="ladaLink" class="event btn-banner" v-if="btnShow">Комплектации и цены</a>
         </div>
         <span class="more_details" v-scroll-to="'#model-info'">
             <span>Подробнее</span>
@@ -51,6 +52,8 @@ export default {
   },
   data() {
     return {
+      btnShow: false,
+      link: '',
       model: '',
       hooperSettings: {
         infiniteScroll: this.data.slides_mini.length > 2,
@@ -87,9 +90,67 @@ export default {
     plate: function() {
       const textDefault = 'В&nbsp;Брайт парке специальные цены на&nbsp;LADA&nbsp;&mdash; каждый день! Узнайте подробности<span class=\'show_desktop\'> по&nbsp;телефону</span>: <a href=\'tel:' + this.$store.state.city.phone + '\' class=\'callibri_tel event\'>' + this.$store.state.city.phone_format + '</a>'
       return textDefault
+    },
+    ladaLink: function() {
+      let link = ''
+
+      switch (this.$store.state.car.model_full) {
+        case "Granta Седан":
+          link = 'https://www.lada.ru/cars/granta/sedan/prices.html'
+          break;
+        case "Granta Лифтбек":
+          link = 'https://www.lada.ru/cars/granta/liftback/prices.html'
+          break;
+        case "Granta Cross":
+          link = 'https://lada.ru/cars/granta/cross/prices.html'
+          break;
+        case "Granta Drive Active":
+          link = 'https://www.lada.ru/cars/granta/drive-active/prices.html'
+          break;
+        case "Vesta Седан":
+          link = 'https://www.lada.ru/cars/vesta/sedan/prices.html'
+          break;
+        case "Vesta SW":
+          link = 'https://www.lada.ru/cars/vesta/sw/prices.html'
+          break;
+        case "Vesta SW Cross":
+          link = 'https://www.lada.ru/cars/vesta/sw-cross/prices.html'
+          break;
+        case "Vesta CNG":
+          link = 'https://www.lada.ru/cars/vesta/cng/prices.html'
+          break;
+        case "XRAY":
+          link = 'https://www.lada.ru/cars/xray/hatchback/prices.html'
+          break;
+        case "XRAY Cross":
+          link = 'https://www.lada.ru/cars/xray/cross/prices.html'
+          break;
+        case "Largus Универсал":
+          link = 'https://www.lada.ru/cars/new-largus/universal/prices.html'
+          break;
+        case "Largus Cross":
+          link = 'https://www.lada.ru/cars/new-largus/cross/prices.html'
+          break;
+        case "4x4 | Legend 3 дв.":
+          link = 'https://www.lada.ru/cars/niva-legend/3dv/prices.html'
+          break;
+        case "4x4 | Legend 5 дв.":
+          link = 'https://www.lada.ru/cars/niva-legend/5dv/prices.html'
+          break;
+        case "Niva Travel":
+          link = 'https://www.lada.ru/cars/niva-travel/travel/prices.html'
+          break;
+      }
+
+      return this.link = link
     }
   },
   mounted: function() {
+    if (this.ladaLink) {
+      this.btnShow = true
+    }
+    console.log(this.$store.state)
+
     if (window.innerWidth < 581) {
       this.$children[0].slideTo(this.data.active);
       this.setIndicatorDefaultPosition();
@@ -100,6 +161,7 @@ export default {
     window.addEventListener("resize", this.myEventHandler);
   },
   created: function () {
+
   },
   methods: {
     get_source: function(path) {
