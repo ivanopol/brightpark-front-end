@@ -40,7 +40,7 @@ export default {
         desktop: '/images/main/desktop/',
       },
       banners: [
-        {
+/*        {
           key: 1,
           title: 'all_inclusive',
           extension: 'jpg',
@@ -60,8 +60,8 @@ export default {
          extension: 'jpg',
          buttonColor: 'orange',
          link: 'stocks/trejd-in-lada-selection-dlya-loyalnyh-klientov',
-       },
-/*        {
+       },*/
+        {
           key: 4,
           title: 'yellow',
           extension: 'jpg',
@@ -81,7 +81,7 @@ export default {
           extension: 'jpg',
           buttonColor: 'green',
           link: 'granta/sedan',
-        },*/
+        },
       ],
       swiperOption: {
         autoplay: {
