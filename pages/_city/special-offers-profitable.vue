@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="main-screen">
-      <Retargeting2Banner :offer='offer' />
+      <Retargeting2Banner />
     </section>
     <div class="container">
       <div id="advantages" class="advantages_wrap retargeting_wrap">
@@ -72,12 +72,6 @@ export default Vue.extend({
   data: function () {
     return {
       seo: {},
-      offer: {
-        img_mobile: "/images/main/mobile/retargeting2_mobile.jpg",
-        img_tablet: "/images/main/tablet/retargeting2_tablet.jpg",
-        img_desktop: "/images/main/desktop/retargeting2_desktop.jpg",
-      },
-
       mobile: false,
       form_id: '',
       form_title: '',

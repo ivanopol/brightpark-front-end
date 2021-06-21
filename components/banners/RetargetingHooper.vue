@@ -11,29 +11,6 @@
                             <img loading=lazy class="asset-image" :src="offer.img_mobile" :srcset="offer.img_mobile + ', ' + offer.img_mobile + ' 2x'" :alt="offer.description" />
                         </picture>
                     </div>
-                    <div class="product-content">
-                        <p class="title-tagline bold" v-html="offer.description"></p>
-                        <div class="item-buttons">
-                          <client-only placeholder="Загружается...">
-                            <VueCountdown :time="5*12*60*60*1000" >
-                                <template slot-scope="props">
-                                    <div class="countdown">
-                                        <div class="countdown-title">
-                                            <span>До конца акции</span>
-                                        </div>
-                                        <div class="countdown-block">{{ props.days }} : {{  props.hours }} : {{  props.minutes }} : {{  props.seconds }}</div>
-                                        <div class="countdown-sign">
-                                            <span>дня</span>
-                                            <span>часов</span>
-                                            <span>минут</span>
-                                            <span>секунд</span>
-                                        </div>
-                                    </div>
-                                </template>
-                            </VueCountdown>
-                          </client-only>
-                        </div>
-                    </div>
                 </li>
             </ul>
         </div>
@@ -41,13 +18,9 @@
 </template>
 
 <script>
-import VueCountdown from '@chenfengyuan/vue-countdown';
 
 export default {
     name: 'RetargetingHooper',
-    components: {
-      VueCountdown
-    },
     data: function () {
       return {
         offer: {}
@@ -55,7 +28,7 @@ export default {
     },
     async fetch() {
       const data = await fetch(
-        process.env.apiUrl + `/api/retargeting`
+        process.env.apiUrl + `/api/retargeting?id=1`
       ).then(res => res.json())
 
       this.offer = data.offer
@@ -158,20 +131,18 @@ export default {
     }
 
     .main-screen {
-        margin: -60px 0 0;
+
 
         .asset-container {
             height: 100%;
         }
         .asset-image {
             object-fit: cover;
-            margin: -75px 0 0 0;
             width: 100%;
         }
 
         @media only screen and (min-width: 900px) {
             & {
-                margin: -80px auto 0;
                 max-width: 1980px;
                 max-height: 800px;
                 overflow: hidden;

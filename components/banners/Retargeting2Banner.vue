@@ -2,9 +2,6 @@
   <section>
     <div class="main-screen-wrap" >
       <div class="retargeting-banner">
-        <p class="title retargeting-banner__heading">
-          LADA в Брайт Парке <span style="display: inline-block;">еще выгоднее</span>
-        </p>
         <div class="asset-container">
           <picture>
             <source :srcset="offer.img_mobile + ', ' + offer.img_mobile + ' 2x'" media="(max-width: 580px)">
@@ -13,44 +10,19 @@
             <img class="asset-image" :src="offer.img_mobile" :srcset="offer.img_mobile + ', ' + offer.img_mobile + ' 2x'" :alt="offer.description" />
           </picture>
         </div>
-
-        <p class="retargeting-banner__description">
-          <span> Только сегодня </span>
-          <span> забронируйте свою </span>
-          <span> персональную выгоду </span>
-        </p>
-
-        <button :id="$store.state._page + '__banner__save-benefits'"
-                class="retargeting-banner__button event"
-                v-on:click.prevent="show('Сохранить выгоду', $store.state._page + '__modal-banner_', 'Отправить', 1, 'callback')"
-        >
-          Сохранить выгоду
-        </button>
       </div>
     </div>
 
-    <modal name="form-special-offers2-banner" height="auto" :adaptive="true" >
-      <div class="close" @click="hide"></div>
-      <FormBuy2Component :form_title="form_title"
-                         :form_id="form_id"
-                         :button_text="button_text"
-                         :form_type="form_type"
-                         :goal="goal">
-      </FormBuy2Component>
-    </modal>
   </section>
 </template>
 
 <script>
 export default {
   name: 'special-offers2',
-  props: {
-    offer: {
-      type: Object
-    }
-  },
+
   data: function () {
     return {
+      offer: {},
       mobile: false,
       form_id: '',
       form_title: '',
@@ -71,7 +43,15 @@ export default {
     hide () {
       this.$modal.hide('form-special-offers2-banner');
     },
-  }
+  },
+  async fetch() {
+    const data = await fetch(
+      process.env.apiUrl + `/api/retargeting?id=2`
+    ).then(res => res.json())
+
+    this.offer = data.offer
+    return {}
+  },
 };
 </script>
 
@@ -168,20 +148,17 @@ export default {
 }
 
 .main-screen {
-  margin: -60px 0 0;
 
   .asset-container {
     height: 100%;
   }
   .asset-image {
     object-fit: cover;
-    margin: -75px 0 0 0;
     width: 100%;
   }
 
   @media only screen and (min-width: 900px) {
     & {
-      margin: -80px auto 0;
       max-width: 1980px;
       max-height: 800px;
       overflow: hidden;
