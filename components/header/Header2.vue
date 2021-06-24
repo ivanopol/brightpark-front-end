@@ -13,7 +13,9 @@
               </span>
               <div class="header-contacts">
                 <span class="header-contacts-address">{{$store.state.city.address | address}}</span>
-                <span class="header-contacts-phone"><a :href="'tel:' + $store.state.city.phone" class="event callibri_tel">{{$store.state.city.phone_format | phone}}</a></span>
+                <span class="header-contacts-phone">
+                  <PhoneSelection/>
+                </span>
               </div>
               <div class="logo-lada">
                   <!-- <logo-lada :theme="theme"></logo-lada> -->
@@ -64,7 +66,7 @@
         },
         data: function () {
             return {
-              isMobile: false
+              isMobile: false,
             };
         },
         filters: {

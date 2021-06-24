@@ -157,14 +157,20 @@
     >
       {{ button_text }}
     </button>
-    <a
+
+    <PhoneSelection :id="form_id + '_call'"
+                    :data-goal="goal_call"
+                    @click="sendGoals(goal_call)"
+                    class="callibri_phone btn-position event feedback__form__call"
+                    text="Позвонить"/>
+<!--    <a
       :id="form_id + '_call'"
       :href="'tel:' + $store.state.city.phone"
       :data-goal="goal_call"
       @click="sendGoals(goal_call)"
       class="callibri_phone btn-position event feedback__form__call"
       >Позвонить</a
-    >
+    >-->
 
     <div class="validation-message-wrap">
       <div class="model-choose-text warning validation-message" v-show="error">

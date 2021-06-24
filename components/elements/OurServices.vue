@@ -12,8 +12,12 @@
                         </ul>
                         <div class="service__contacts-wrap">
                             <a :id="$store.state._page + '__' + service.alias + '__button'" class="btn btn-primary btn-position event" v-on:click.prevent="show(service.title, service.alias)">Записаться</a>
-                            <!-- <a :id="$store.state._page + '__online-appointment__button'" class="btn btn-primary btn-position ms_booking event" >Записаться</a> -->
-                            <a :id="$store.state._page + '__' + service.alias + '_call'" data-goal="zvonok" :href="'tel:' + $store.state.city.phone" class="btn btn-primary callibri_phone btn-position green event">Позвонить</a>
+                            <PhoneSelection :id="$store.state._page + '__' + service.alias + '_call'"
+                                            goal="zvonok"
+                                            class="btn btn-primary callibri_phone btn-position green event"
+                                            text="Позвонить"
+                            />
+<!--                            <a :id="$store.state._page + '__' + service.alias + '_call'" data-goal="zvonok" :href="'tel:' + $store.state.city.phone" class="btn btn-primary callibri_phone btn-position green event">Позвонить</a>-->
                         </div>
                     </template>
                 </BadgerAccordionItem>

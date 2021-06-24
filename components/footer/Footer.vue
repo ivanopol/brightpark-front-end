@@ -15,7 +15,7 @@
         </span>
         <div class="block-text center mb">
             <h2><span class="c_orange">Брайт Парк </span> всегда на связи</h2>
-            <p >Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<span itemprop="telephone" class="block callibri_tel">{{$store.state.city.phone_format}}</span></p>
+            <p >Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class="block callibri_tel text-white"/></p>
             <div class="footer-callback-wrap" v-show="!mobile">
                 <a href="#" :id="page + '__footer__request-callback'" class="btn btn btn-primary btn-position green event" v-on:click.prevent="show('Заказать звонок', page + '__modal-footer-request-callback_', 'Отправить', 1, 'callback')" >Заказать звонок</a>
             </div>
@@ -143,6 +143,12 @@
 </script>
 
 <style scoped lang="scss">
+    .text-white {
+      color: #fff;
+      font-weight: normal;
+      text-decoration: none;
+    }
+
     @media only screen and (min-width: 700px) and (max-width: 1365px) {
         .block {
             display: block;
