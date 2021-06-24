@@ -159,8 +159,7 @@
     </button>
 
     <PhoneSelection :id="form_id + '_call'"
-                    :data-goal="goal_call"
-                    @click="sendGoals(goal_call)"
+                    :goal="goal_call"
                     class="callibri_phone btn-position event feedback__form__call"
                     text="Позвонить"/>
 <!--    <a
