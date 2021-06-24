@@ -144,6 +144,12 @@
 
 <style scoped lang="scss">
     .text-white {
+      color: #000;
+      font-weight: normal;
+      text-decoration: none;
+    }
+
+    .container_bg_dark .text-white {
       color: #fff;
       font-weight: normal;
       text-decoration: none;
