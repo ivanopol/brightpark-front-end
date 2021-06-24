@@ -4,7 +4,7 @@
      :class="classList"
      class="event callibri_tel"
      :data-goal="goal"
-     @click="sendGoals(goal_call)"
+     @click="sendGoals(goal)"
   >{{phoneSelection(0)}}</a>
 </template>
 
@@ -33,21 +33,26 @@ export default {
     sendGoals: function(goal) {
       if (goal) {
         let ym_ids = this.getCountersIds();
-        let goalArr = goal.match(/^(.+?):(.+?)$/);
-        let target_goal = goalArr === null ? goal : goalArr[2];
+        if (ym_ids) {
+          let goalArr = goal.match(/^(.+?):(.+?)$/);
+          let target_goal = goalArr === null ? goal : goalArr[2];
 
-        ym_ids.forEach(function(item) {
-          window["yaCounter" + item].reachGoal(target_goal);
-        });
+          ym_ids.forEach(function (item) {
+            window["yaCounter" + item].reachGoal(target_goal);
+          });
+        }
       }
       return {};
     },
     getCountersIds: function() {
       var id_list = [];
 
-      window.ym.a.forEach(function(item) {
-        id_list.push(item[0]);
-      });
+      if (window.hasOwnProperty('ym') && window.ym.hasOwnProperty('a')) {
+
+        window.ym.a.forEach(function (item) {
+          id_list.push(item[0]);
+        });
+      }
       return id_list;
     },
     phoneSelection: function (type) {
