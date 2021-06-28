@@ -40,43 +40,29 @@ export default {
         desktop: '/images/main/desktop/',
       },
       banners: [
-/*        {
+        {
           key: 1,
-          title: 'all_inclusive',
-          extension: 'jpg',
-          buttonColor: 'purple',
-          link: 'service',
-        },
-       {
-          key: 2,
-          title: 'find_out',
+          title:'all_inclusive_2',
           extension: 'jpg',
           buttonColor: 'green',
-          link: '',
+          link: 'vesta/sw',
         },
         {
-         key: 3,
-         title: 'mileage',
-         extension: 'jpg',
-         buttonColor: 'orange',
-         link: 'stocks/trejd-in-lada-selection-dlya-loyalnyh-klientov',
-       },*/
-        {
-          key: 4,
-          title: 'yellow',
-          extension: 'jpg',
-          buttonColor: 'purple',
-          link: 'vesta/sedan',
-        },
-        {
-          key: 5,
+          key: 2,
           title: 'green',
           extension: 'jpg',
           buttonColor: 'orange',
           link: 'credit',
         },
         {
-          key: 6,
+          key: 3,
+          title: 'yellow',
+          extension: 'jpg',
+          buttonColor: 'purple',
+          link: 'vesta/sedan',
+        },
+        {
+          key: 4,
           title:'purple',
           extension: 'jpg',
           buttonColor: 'green',
