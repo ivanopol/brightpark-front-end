@@ -24,7 +24,7 @@
               </nuxt-link>
             </h2>
             <p class="news__content__item__text__dates" v-if="item.date_begin && item.date_end">
-              С {{item.date_begin | humanDate}} до {{item.date_end | humanDate}}
+              С {{item.date_begin | humanDate}} до {{dateNow()}}
             </p>
             <p class="news__content__item__text__desc" v-html="item.text_short"></p>
           </div>
@@ -50,6 +50,20 @@ export default {
   filters: {
     humanDate: function (value) {
       let date = new Date(Date.parse(value))
+
+      date = date.toLocaleString('ru', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      }).replace(/\s*г\./, "")
+
+      return date
+    }
+  },
+  methods: {
+    dateNow: function() {
+      let dateNow = new Date(Date.now())
+      let date = new Date(dateNow.getFullYear(), dateNow.getMonth() + 1, 0)
 
       date = date.toLocaleString('ru', {
         month: 'long',
