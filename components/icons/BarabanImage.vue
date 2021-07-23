@@ -145,34 +145,34 @@
 
                 switch(this.gift) {
                     case 0:
-                        //alert('сертификат');
                         this.darkColor = '#b4735f';
                         this.icon = 'rub';
                         this.text = 'сертификат';
+                        this.$store.commit('set_gift', 'Сертификат на услугу');
                         break;
                     case 1:
-                        //alert('то-1');
                         this.darkColor = '#328c96';
                         this.icon = 'service';
                         this.text = 'то-1';
+                        this.$store.commit('set_gift', 'ТО-1');
                         break;
                     case 2:
-                        //alert('осаго');
                         this.darkColor = '#CE7D11';
                         this.icon = 'car';
                         this.text = 'осаго';
+                        this.$store.commit('set_gift', 'Осаго');
                         break;
                     case 3:
-                        //alert('каско');
                         this.darkColor = '#326482';
                         this.icon = 'shield';
                         this.text = 'каско';
+                        this.$store.commit('set_gift', 'Каско');
                         break;
                     case 4:
-                        //alert('3 месяца');
                         this.darkColor = '#468c5a';
                         this.icon = 'sale';
                         this.text = '3 месяца оплаты % по кредиту';
+                        this.$store.commit('set_gift', '3 месяца оплаты % по кредиту');
                         break;
                 }
 

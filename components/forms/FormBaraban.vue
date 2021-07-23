@@ -61,6 +61,11 @@
 <script>
     export default {
         name: 'FormBaraban',
+        props:{
+          sendForm: {
+            default: false,
+          },
+        },
         data: function () {
             return {
                 success: false,
@@ -72,6 +77,7 @@
                 form_title: "Барабан",
                 form_id: this.$store.state._page + '__baraban_',
                 status: true,
+                isLoading: false,
                 blocked: false,
                 form_type: 1,
                 goal: 'baraban',
@@ -82,45 +88,56 @@
                 return window.location;
             },
             isButtonDisabled: function () {
+              if (this.isLoading) {
+                return true;
+              } else {
                 return !this.status;
+              }
             },
         },
+
+        watch: {
+          sendForm: function() {
+            if (this.sendForm) {
+              let formData = {
+                "phone": this.clearMask(this.phone),
+                "name": this.name,
+                "responsible_id": this.$store.state.city.bitrix_responsible_id,
+                "city": this.$store.state.city.value,
+                "url": this.url,
+                "caption": this.form_title,
+                "form_type": this.form_type,
+                "gift": this.$store.state.gift,
+              };
+
+              this.$axios(
+                {
+                  method: 'post',
+                  url: process.env.apiUrl + '/api/send_contact_form',
+                  data: formData
+                })
+                .then((response) => {
+                  this.clearInput();
+                  this.success = true;
+                  this.blocked = false;
+                  this.status = true;
+                  this.btn_disabled = true;
+                  this.sendGoals(this.goal);
+                  return {};
+                }).catch((error) => {
+                this.error = true;
+                this.clearInput();
+                return {};
+              })
+            }
+          },
+        },
+
         methods: {
             send: function (event) {
                 event.preventDefault();
                 this.blocked = true;
-                this.status = false;
-
-                let formData = {
-                    "phone": this.clearMask(this.phone),
-                    "name": this.name,
-                    "responsible_id": this.$store.state.city.bitrix_responsible_id,
-                    "city": this.$store.state.city.value,
-                    "url": this.url,
-                    "caption": this.form_title,
-                    "form_type": this.form_type,
-                };
-
-               this.$axios(
-                    {
-                        method: 'post',
-                        url: process.env.apiUrl + '/api/send_contact_form',
-                        data: formData
-                    })
-                    .then((response) => {
-                        this.clearInput();
-                        this.success = true;
-                        this.blocked = false;
-                        this.status = true;
-                        this.btn_disabled = true;
-                        this.sendGoals(this.goal);
-                        return {};
-                    }).catch((error) => {
-                        this.error = true;
-                        this.clearInput();
-                        return {};
-                })
-
+                this.isLoading = true;
                 // генерируем событие 'twist' (крутить)
                 this.$emit('twist', true);
             },

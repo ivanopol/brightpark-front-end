@@ -14,7 +14,8 @@ export const state = () => ({
   _page: '',
   _footer: true,
   _month: {},
-  _menu: false
+  _menu: false,
+  gift: '',
 })
 
 export const mutations = {
@@ -53,5 +54,8 @@ export const mutations = {
   },
   set_menu(state, toggle) {
     state._menu = toggle
+  },
+  set_gift(state, giftText) {
+    state.gift = giftText
   },
 }

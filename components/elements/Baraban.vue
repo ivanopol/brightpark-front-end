@@ -53,7 +53,7 @@
                 <BarabanImage :activate="activateBaraban" @deactivate="twistBaraban" @gift="setGift" />
             </div>
             <div class="baraban-block-form">
-                <FormBaraban @twist="twistBaraban" />
+                <FormBaraban @twist="twistBaraban" :send-form="sendForm"/>
             </div>
         </div>
     </div>
@@ -66,6 +66,7 @@
             return {
                 activateBaraban: false,
                 is_swap: false,
+                sendForm: false,
                 el0 : true,
                 el1 : true,
                 el2 : true,
@@ -77,6 +78,7 @@
             twistBaraban(state) {
                 this.is_swap = true;
                 this.activateBaraban = state;
+                this.sendForm = !state;
             },
             setGift(gift) {
                 this.el0 = (gift === 0);
