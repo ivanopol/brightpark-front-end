@@ -4,7 +4,8 @@
       <TabBar />
       <HeaderStickyModel />
     </client-only>
-    <Header2 :line="true" :head_class="'header-model'" :car="$store.state.car" />
+<!--    <Header2 :line="true" :head_class="'header-model'" :car="$store.state.car" />-->
+    <HeaderNew :line="true" :car="$store.state.car" />
     <Nuxt keep-alive />
     <Footer :page="$store.state._page" />
     <client-only placeholder="Загрузка...">
@@ -17,7 +18,9 @@
 </template>
 
 <script>
+import HeaderNew from "../components/header/HeaderNew";
 export default {
+  components: {HeaderNew},
   head () {
     const canonical = `${process.env.baseUrl}${this.$route.path
       .toLowerCase()

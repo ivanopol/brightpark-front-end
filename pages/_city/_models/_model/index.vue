@@ -1,11 +1,25 @@
 <template>
   <div>
     <div>
-      <div class="container model-breadcrumbs">
-          <BreadCrumbs :breadcrumbs="makeBreadcrumbs"/>
-      </div>
+<!--      <div class="container model-breadcrumbs">-->
+<!--          <BreadCrumbs :breadcrumbs="makeBreadcrumbs"/>-->
+<!--      </div>-->
 
-      <ModelBanner :data="model.slider" />
+<!--      <ModelBanner :data="model.slider" />-->
+      <ModelsListNew />
+      <BodiesListNew />
+      <ModelsBannerNew />
+      <div class="container">
+        <TestDriveBanner />
+
+        <AdvantagesNew class="models-advantages"/>
+
+        <ModelsFeatures
+          :body="'Хэтчбек'"
+          :drive_type="'Передний'"
+          :transmission="'MT'"
+        />
+      </div>
       <MegaTeasers2 />
       <ModelInfo v-for="(info, index) in model.blocks" v-bind:key="info.id"
         :block="info"
@@ -171,6 +185,8 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+  .models-advantages {
+    margin: 60px 0 40px;
+  }
 </style>
