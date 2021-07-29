@@ -23,8 +23,8 @@
               >
               </nuxt-link>
             </h2>
-            <p class="news__content__item__text__dates" v-if="item.date_begin && item.date_end">
-              С {{item.date_begin | humanDate}} до {{dateNow()}}
+            <p class="news__content__item__text__dates" v-if="item.date_begin">
+              {{period(item)}}
             </p>
             <p class="news__content__item__text__desc" v-html="item.text_short"></p>
           </div>
@@ -61,6 +61,29 @@ export default {
     }
   },
   methods: {
+    period: function(item) {
+      let dateBegin = item.date_begin ? item.date_begin : ''
+      let dateEnd = item.date_end ? item.date_end : ''
+
+      if (!dateEnd) {
+        return 'С ' + this.humanDateFn(dateBegin) + ' до ' + this.dateNow()
+      }
+
+      if (dateBegin && dateEnd) {
+        return 'С ' + this.humanDateFn(dateBegin) + ' до ' + this.humanDateFn(dateEnd)
+      }
+    },
+    humanDateFn: function(value) {
+      let date = new Date(Date.parse(value))
+
+      date = date.toLocaleString('ru', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      }).replace(/\s*г\./, "")
+
+      return date
+    },
     dateNow: function() {
       let dateNow = new Date(Date.now())
       let date = new Date(dateNow.getFullYear(), dateNow.getMonth() + 1, 0)
