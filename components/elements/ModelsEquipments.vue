@@ -64,7 +64,184 @@
       </div>
     </div>
 
+    <div class="equipments__items__item">
+      <div class="equipments__items__item__option">
+        <h5>
+          Двигатель
+        </h5>
+
+        <p>
+          1,6л
+          <span>
+            8-кл.
+          </span>
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Мощность
+        </h5>
+
+        <p>
+          90л.с
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Коробка передач
+        </h5>
+
+        <p>
+          5MT
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Комплектация
+        </h5>
+
+        <p>
+          Standart
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Цена
+        </h5>
+
+        <p class="equipments__items__item__option__price">
+          519 000 ₽
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <ButtonNew :button-text="'Выбрать'" :height="'100%'" class="equipments__items__item__option__button"/>
+      </div>
+    </div>
+
+    <div class="equipments__items__item">
+      <div class="equipments__items__item__option">
+        <h5>
+          Двигатель
+        </h5>
+
+        <p>
+          1,6л
+          <span>
+            8-кл.
+          </span>
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Мощность
+        </h5>
+
+        <p>
+          90л.с
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Коробка передач
+        </h5>
+
+        <p>
+          5MT
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Комплектация
+        </h5>
+
+        <p>
+          Standart
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Цена
+        </h5>
+
+        <p class="equipments__items__item__option__price">
+          519 000 ₽
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <ButtonNew :button-text="'Выбрать'" :height="'100%'" class="equipments__items__item__option__button"/>
+      </div>
+    </div>
+
     <div class="equipments__items__item best-price">
+      <div class="equipments__items__item__option">
+        <h5>
+          Двигатель
+        </h5>
+
+        <p>
+          1,6л
+          <span>
+            8-кл.
+          </span>
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Мощность
+        </h5>
+
+        <p>
+          90л.с
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Коробка передач
+        </h5>
+
+        <p>
+          5MT
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Комплектация
+        </h5>
+
+        <p>
+          Standart
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <h5>
+          Цена
+        </h5>
+
+        <p class="equipments__items__item__option__price">
+          519 000 ₽
+        </p>
+      </div>
+
+      <div class="equipments__items__item__option">
+        <ButtonNew :button-text="'Выбрать'" :height="'100%'" class="equipments__items__item__option__button"/>
+      </div>
+    </div>
+
+    <div class="equipments__items__item">
       <div class="equipments__items__item__option">
         <h5>
           Двигатель
