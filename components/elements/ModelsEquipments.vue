@@ -422,6 +422,7 @@ export default {
     border-radius: 5px;
     cursor: pointer;
     height: 65px;
+    margin-top: 30px;
 
     svg {
       margin-right: 6px;
