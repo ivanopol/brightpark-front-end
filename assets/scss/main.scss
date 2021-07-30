@@ -18,6 +18,20 @@
   color: #999;
 }
 
+.file-pdf {
+  position: relative;
+  &::after {
+    content: '';
+    background: url(/images/icons/icon-pdf.png) no-repeat center center;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    top: 6px;
+    margin-left: 10px;
+  }
+}
+
 .breadcrumbs {
   display: flex;
   justify-content: flex-start;

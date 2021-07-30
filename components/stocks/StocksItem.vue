@@ -41,6 +41,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
   .stocks-one-body b,
   .stocks-one-body strong {
     font-weight: bold;
