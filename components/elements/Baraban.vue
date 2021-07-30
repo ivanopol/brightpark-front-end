@@ -24,7 +24,7 @@
                 <li>
                     <div :class="[!el2 ? 'nogift' : '', 'baraban-icons-block']">
                         <span class="icon"><img src="/images/icons/retargeting/icon-osago.svg" alt="Брайт Парк: ОСАГО"></span>
-                        <span class="text color-sunny-yellow">5% скидка <span class="text-small">на оригинальные запчасти</span></span>
+                        <span class="text color-sunny-yellow">Осаго</span>
                     </div>
                 </li>
 <!--                <li class="baraban-li-special">
@@ -42,7 +42,7 @@
                 <li>
                     <div :class="[!el0 ? 'nogift' : '', 'baraban-icons-block']">
                         <span class="icon"><img src="/images/icons/retargeting/icon-sertificate.svg" alt="Брайт Парк: cертификат на услугу"></span>
-                        <span class="text color-coral">Сертификат <span class="text-small">на услугу</span></span>
+                        <span class="text color-coral">5% скидка <span class="text-small">на оригинальные запчасти</span></span>
                     </div>
                 </li>
             </ul>

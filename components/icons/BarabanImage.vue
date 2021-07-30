@@ -133,16 +133,16 @@
                     angle = 72 * random;
                 this.gift = random % 5;
 
-                if (this.gift == 0) {
-                  this.gift = this.gift + 2
+                if (this.gift == 2) {
+                  this.gift = this.gift + 1
                 }
 
                 switch(this.gift) {
                     case 0:
                         this.darkColor = '#b4735f';
                         this.icon = 'rub';
-                        this.text = 'сертификат';
-                        this.$store.commit('set_gift', 'Сертификат на услугу');
+                        this.text = '5% скидка на оригинальные запчасти';
+                        this.$store.commit('set_gift', '5% скидка на оригинальные запчасти');
                         break;
                     case 1:
                         this.darkColor = '#328c96';
@@ -154,7 +154,7 @@
                         this.darkColor = '#CE7D11';
                         this.icon = 'car';
                         this.text = 'осаго';
-                        this.$store.commit('set_gift', '5% скидка на оригинальные запчасти');
+                        this.$store.commit('set_gift', 'Осаго');
                         break;
                     case 3:
                         this.darkColor = '#326482';
