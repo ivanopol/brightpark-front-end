@@ -133,6 +133,10 @@
         </div>
       </div>
     </div>
+
+    <ButtonNew
+      class="models-features__button"
+      :button-text="'все характеристики'" />
   </section>
 </template>
 
@@ -187,9 +191,10 @@ export default {
 
 <style scoped lang="scss">
 .models-features {
-  padding: 40px 20px;
+  padding: 40px 20px 65px;
   border-top: 1px solid rgba(0, 0, 0, .15);
   border-bottom: 1px solid rgba(0, 0, 0, .15);
+  position: relative;
 }
 
 .models-features__heading {
@@ -234,6 +239,16 @@ export default {
     font-size: 20px;
     font-weight: 700;
   }
+}
+
+.models-features__button {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: -30px;
+  width: 245px;
+  height: 60px;
+  font-size: 14px;
 }
 
 </style>
