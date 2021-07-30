@@ -13,10 +13,10 @@ export default {
       type: String
     },
     width: {
-      type: Number
+      type: String
     },
-    height: {
-      type: Number
+    buttonHeight: {
+      type: String
     },
     buttonColor: {
       type: String,

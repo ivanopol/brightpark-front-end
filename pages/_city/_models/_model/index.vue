@@ -19,6 +19,8 @@
           :drive_type="'Передний'"
           :transmission="'MT'"
         />
+
+        <ModelsEquipments class="equipments-block"/>
       </div>
       <MegaTeasers2 />
       <ModelInfo v-for="(info, index) in model.blocks" v-bind:key="info.id"
@@ -188,5 +190,9 @@ export default Vue.extend({
 <style lang="scss" scoped>
   .models-advantages {
     margin: 60px 0 40px;
+  }
+
+  .equipments-block {
+    margin-top: 90px;
   }
 </style>
