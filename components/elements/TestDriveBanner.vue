@@ -1,21 +1,25 @@
 <template>
   <section class="test-drive-banner">
-    <img src="~static/images/models/da.png" alt="" class="test-drive-banner__pic">
+    <div class="container test-drive-banner__container">
+      <div class="test-drive-banner__wrapper">
+        <img src="~static/images/models/da.png" alt="" class="test-drive-banner__pic">
 
-    <div class="test-drive-banner__text">
-      <h2>
-        Испытай новую LADA Granta в деле!
-      </h2>
+        <div class="test-drive-banner__text">
+          <h2>
+            Испытай новую LADA Granta в деле!
+          </h2>
 
-      <p>
-        Ощутите преимущества новой LADA Granta Седан на собственном опыте
-      </p>
+          <p>
+            Ощутите преимущества новой LADA Granta Седан на собственном опыте
+          </p>
+        </div>
+
+        <ButtonNew
+          class="test-drive-banner__signup"
+          :button-text="'Записаться на тест-драйв'"
+        />
+      </div>
     </div>
-
-    <ButtonNew
-      class="test-drive-banner__signup"
-      :button-text="'Записаться на тест-драйв'"
-    />
   </section>
 </template>
 
@@ -26,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .test-drive-banner {
+  .test-drive-banner__wrapper {
     background-color: #514EA1;
     padding: 30px 20px 40px;
     position: relative;
