@@ -36,9 +36,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.advantages {
-  margin-top: 20px;
-}
 
 .advantages__item {
   margin-bottom: 15px;
