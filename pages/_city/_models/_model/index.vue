@@ -8,7 +8,7 @@
 <!--      <ModelBanner :data="model.slider" />-->
       <ModelsListNew />
       <BodiesListNew />
-      <ModelsBannerNew />
+      <ModelsBannerNew class="models-banner" />
       <div class="container">
         <TestDriveBanner />
 
@@ -195,6 +195,10 @@ export default Vue.extend({
 <style lang="scss" scoped>
   .models-advantages {
     margin: 60px 0 40px;
+  }
+
+  .models-banner {
+    margin-bottom: 60px;
   }
 
   .equipments-block {
