@@ -1,142 +1,147 @@
 <template>
   <section class="models-features">
-    <h2 class="models-features__heading">
-      Основные характеристики
-    </h2>
+    <div class="container models-features__container">
+      <div class="models-features__wrap">
+        <h2 class="models-features__heading">
+          Основные характеристики
+        </h2>
 
-    <div class="models-features__items">
-      <div class="models-features__items__item">
-        <div class="models-features__items__item__icon">
-          <img src="~static/images/icons/models-features/body.svg" alt="">
+        <div class="models-features__items">
+          <div class="models-features__items__item">
+            <div class="models-features__items__item__icon">
+              <img src="~static/images/icons/models-features/body.svg" alt="">
+            </div>
+
+            <div class="models-features__items__item__text">
+              <h5>
+                Кузов
+              </h5>
+
+              <p>
+                {{ body }}
+              </p>
+            </div>
+          </div>
+
+          <div class="models-features__items__item">
+            <div class="models-features__items__item__icon">
+              <img src="~static/images/icons/models-features/drive.svg" alt="">
+            </div>
+
+            <div class="models-features__items__item__text">
+              <h5>
+                Привод
+              </h5>
+
+              <p>
+                {{ drive_type }}
+              </p>
+            </div>
+          </div>
+
+          <div class="models-features__items__item">
+            <div class="models-features__items__item__icon">
+              <img src="~static/images/icons/models-features/engine.svg" alt="">
+            </div>
+
+            <div class="models-features__items__item__text">
+              <h5>
+                объём двигателя
+              </h5>
+
+              <p>
+                {{ engine }}
+              </p>
+            </div>
+          </div>
+
+          <div class="models-features__items__item">
+            <div class="models-features__items__item__icon">
+              <img src="~static/images/icons/models-features/transmission.svg" alt="">
+            </div>
+
+            <div class="models-features__items__item__text">
+              <h5>
+                коробка двигателя
+              </h5>
+
+              <p>
+                {{ transmission }}
+              </p>
+            </div>
+          </div>
+
+          <div class="models-features__items__item">
+            <div class="models-features__items__item__icon">
+              <img src="~static/images/icons/models-features/seats.svg" alt="">
+            </div>
+
+            <div class="models-features__items__item__text">
+              <h5>
+                места
+              </h5>
+
+              <p>
+                {{ seats }}
+              </p>
+            </div>
+          </div>
+
+          <div class="models-features__items__item">
+            <div class="models-features__items__item__icon">
+              <img src="~static/images/icons/models-features/fuel.svg" alt="">
+            </div>
+
+            <div class="models-features__items__item__text">
+              <h5>
+                расход топлива
+              </h5>
+
+              <p>
+                {{ fuel }}
+              </p>
+            </div>
+          </div>
+
+          <div class="models-features__items__item">
+            <div class="models-features__items__item__icon">
+              <img src="~static/images/icons/models-features/fuel_type.svg" alt="">
+            </div>
+
+            <div class="models-features__items__item__text">
+              <h5>
+                топливо
+              </h5>
+
+              <p>
+                {{ fuel_type }}
+              </p>
+            </div>
+          </div>
+
+          <div class="models-features__items__item">
+            <div class="models-features__items__item__icon">
+              <img src="~static/images/icons/models-features/speed.svg" alt="">
+            </div>
+
+            <div class="models-features__items__item__text">
+              <h5>
+                макс. скорость
+              </h5>
+
+              <p>
+                {{ speed }}
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="models-features__items__item__text">
-          <h5>
-            Кузов
-          </h5>
-
-          <p>
-            {{ body }}
-          </p>
-        </div>
-      </div>
-
-      <div class="models-features__items__item">
-        <div class="models-features__items__item__icon">
-          <img src="~static/images/icons/models-features/drive.svg" alt="">
-        </div>
-
-        <div class="models-features__items__item__text">
-          <h5>
-            Привод
-          </h5>
-
-          <p>
-            {{ drive_type }}
-          </p>
-        </div>
-      </div>
-
-      <div class="models-features__items__item">
-        <div class="models-features__items__item__icon">
-          <img src="~static/images/icons/models-features/engine.svg" alt="">
-        </div>
-
-        <div class="models-features__items__item__text">
-          <h5>
-            объём двигателя
-          </h5>
-
-          <p>
-            {{ engine }}
-          </p>
-        </div>
-      </div>
-
-      <div class="models-features__items__item">
-        <div class="models-features__items__item__icon">
-          <img src="~static/images/icons/models-features/transmission.svg" alt="">
-        </div>
-
-        <div class="models-features__items__item__text">
-          <h5>
-            коробка двигателя
-          </h5>
-
-          <p>
-            {{ transmission }}
-          </p>
-        </div>
-      </div>
-
-      <div class="models-features__items__item">
-        <div class="models-features__items__item__icon">
-          <img src="~static/images/icons/models-features/seats.svg" alt="">
-        </div>
-
-        <div class="models-features__items__item__text">
-          <h5>
-            места
-          </h5>
-
-          <p>
-            {{ seats }}
-          </p>
-        </div>
-      </div>
-
-      <div class="models-features__items__item">
-        <div class="models-features__items__item__icon">
-          <img src="~static/images/icons/models-features/fuel.svg" alt="">
-        </div>
-
-        <div class="models-features__items__item__text">
-          <h5>
-            расход топлива
-          </h5>
-
-          <p>
-            {{ fuel }}
-          </p>
-        </div>
-      </div>
-
-      <div class="models-features__items__item">
-        <div class="models-features__items__item__icon">
-          <img src="~static/images/icons/models-features/fuel_type.svg" alt="">
-        </div>
-
-        <div class="models-features__items__item__text">
-          <h5>
-            топливо
-          </h5>
-
-          <p>
-            {{ fuel_type }}
-          </p>
-        </div>
-      </div>
-
-      <div class="models-features__items__item">
-        <div class="models-features__items__item__icon">
-          <img src="~static/images/icons/models-features/speed.svg" alt="">
-        </div>
-
-        <div class="models-features__items__item__text">
-          <h5>
-            макс. скорость
-          </h5>
-
-          <p>
-            {{ speed }}
-          </p>
-        </div>
+        <ButtonNew
+          class="models-features__button"
+          :button-text="'все характеристики'"
+        />
       </div>
     </div>
-
-    <ButtonNew
-      class="models-features__button"
-      :button-text="'все характеристики'" />
   </section>
 </template>
 
@@ -190,7 +195,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.models-features {
+.models-features__wrap {
   padding: 40px 20px 65px;
   border-top: 1px solid rgba(0, 0, 0, .15);
   border-bottom: 1px solid rgba(0, 0, 0, .15);
@@ -199,6 +204,10 @@ export default {
   @media (min-width: 1000px) {
     padding-bottom: 90px;
   }
+}
+
+.models-features__container {
+  overflow: unset;
 }
 
 .models-features__heading {
