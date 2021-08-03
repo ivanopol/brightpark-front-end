@@ -22,6 +22,10 @@
 
         <ModelsEquipments class="equipments-block"/>
       </div>
+
+      <ModelsWarranty />
+
+      <TradeInFormNew />
       <MegaTeasers2 />
       <ModelInfo v-for="(info, index) in model.blocks" v-bind:key="info.id"
         :block="info"
