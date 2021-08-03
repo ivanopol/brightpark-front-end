@@ -1,6 +1,6 @@
 <template>
   <section class="banner">
-    <div class="container">
+    <div class="container banner__container">
       <div class="banner__inner">
         <div class="banner__inner__car">
           <img src="~static/images/models/granta.png" alt="" class="banner__inner__car__image">
@@ -54,8 +54,8 @@
             </button>
           </div>
 
-          <ButtonNew 
-            :type="'submit'" 
+          <ButtonNew
+            :type="'submit'"
             :buttonText="'Оставить заявку'"
             class="banner__inner__info__button"
           />
@@ -76,7 +76,7 @@ export default {
       model: '',
       seo: {},
       count: 0,
-      mainHeading: 'Новая Granta Sedan в Перми',
+      mainHeading: 'Новая LADA Granta Sedan в Перми',
       price: '495 900 ₽'
     }
   },
@@ -85,10 +85,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.banner__container {
+  overflow: unset;
+}
 .banner__inner {
   padding: 0 20px;
   @media (min-width: 1000px) {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -103,6 +109,8 @@ export default {
 
   @media (min-width: 1000px) {
     height: 415px;
+    flex: .5;
+    margin-left: -120px;
   }
 }
 
@@ -115,6 +123,7 @@ export default {
 
   @media (min-width: 1000px) {
     max-width: 670px;
+    left: 70%;
   }
 }
 
@@ -125,7 +134,7 @@ export default {
     display: flex;
     position: absolute;
     bottom: 15px;
-    left: 60px;
+    left: 110px;
 
     li {
       margin-right: 10px;
@@ -333,6 +342,17 @@ export default {
     font-family: 'Bright Park Display';
     text-transform: unset;
     margin-bottom: 0;
+
+    @media (min-width: 1000px) {
+      text-align: left;
+      font-size: 36px;
+      max-width: 370px;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    flex: .4;
+    max-width: 470px;
   }
 }
 
@@ -356,6 +376,10 @@ export default {
     margin-left: 10px;
     margin-top: 2px;
   }
+
+  @media (min-width: 1000px) {
+    display: none;
+  }
 }
 
 .banner__inner__car__colors__mobile__current-color {
@@ -372,6 +396,11 @@ export default {
   font-size: 36px;
   font-family: 'Factor A';
   margin: 20px 0;
+
+  @media (min-width: 1000px) {
+    text-align: left;
+    font-size: 44px;
+  }
 }
 
 .banner__inner__info__credit {
@@ -402,11 +431,26 @@ export default {
     font-family: "Factor A";
     border-bottom: 1px dashed rgba(81, 78, 161, 0.35);
   }
+
+  @media (min-width: 1000px) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 22px;
+    height: 50px;
+
+    button {
+      margin-top: 0;
+    }
+  }
 }
 
 .banner__inner__info__button {
   height: 60px;
   max-width: 300px;
   margin: 30px auto;
+
+  @media (min-width: 1000px) {
+    margin: 30px 0;
+  }
 }
 </style>
