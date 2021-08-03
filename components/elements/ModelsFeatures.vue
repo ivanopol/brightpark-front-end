@@ -195,6 +195,10 @@ export default {
   border-top: 1px solid rgba(0, 0, 0, .15);
   border-bottom: 1px solid rgba(0, 0, 0, .15);
   position: relative;
+
+  @media (min-width: 1000px) {
+    padding-bottom: 90px;
+  }
 }
 
 .models-features__heading {
@@ -203,6 +207,18 @@ export default {
   font-size: 28px;
   font-weight: 700;
   text-transform: none;
+
+  @media (min-width: 1000px) {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 45px;
+  }
+}
+
+.models-features__items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 50px;
 }
 
 .models-features__items__item {
@@ -211,6 +227,10 @@ export default {
   margin-bottom: 25px;
 
   &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 1000px) {
     margin-bottom: 0;
   }
 }
