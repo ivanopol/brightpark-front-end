@@ -16,37 +16,10 @@
           Neque in nunc faucibus fringilla consequat tristique.
         </p>
 
-        <ul class="warranty__advantages">
-          <li class="warranty__advantages__item">
-            <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 10L4 13L16 1" stroke="#514EA1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-
-            <p>
-              12 банков-партнеров
-            </p>
-          </li>
-
-          <li class="warranty__advantages__item">
-            <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 10L4 13L16 1" stroke="#514EA1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-
-            <p>
-              Одобрение по кредиту 30 минут
-            </p>
-          </li>
-
-          <li class="warranty__advantages__item">
-            <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 10L4 13L16 1" stroke="#514EA1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-
-            <p>
-              Вероятность одобрения 96%
-            </p>
-          </li>
-        </ul>
+        <advantages-list-mini
+          class="warranty__advantages"
+          :advantages="['12 банков-партнеров', 'Одобрение по кредиту 30 минут', 'Вероятность одобрения 96%']"
+        />
       </div>
     </div>
   </section>
@@ -62,20 +35,6 @@ export default {
 
   .warranty {
     padding-top: 30px;
-  }
-
-  .warranty__advantages__item {
-    display: flex;
-    align-items: center;
-
-    svg {
-      margin-right: 10px;
-    }
-
-    p {
-      font-size: 18px;
-      font-weight: 500;
-    }
   }
 
   .warranty__preview {
@@ -110,14 +69,7 @@ export default {
   }
 
   .warranty__advantages {
-    margin-top: 20px;
-  }
-  .warranty__advantages__item {
-    margin-bottom: 15px;
-    p {
-      color: #514EA1;
-      font-size: 16px;
-      font-family: "Factor A";
-    }
+    color: #514EA1;
+    font-size: 18px;
   }
 </style>
