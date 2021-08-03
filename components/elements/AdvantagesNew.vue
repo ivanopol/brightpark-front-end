@@ -133,6 +133,11 @@ export default {
 <style scoped lang="scss">
   .advantages {
     padding: 0 20px;
+
+    @media (min-width: 1000px) {
+      display: flex;
+      justify-content: space-between;
+    }
   }
   .advantages__item {
     display: flex;
