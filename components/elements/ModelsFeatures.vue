@@ -225,9 +225,11 @@ export default {
 }
 
 .models-features__items {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  row-gap: 50px;
+  @media (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 50px;
+  }
 }
 
 .models-features__items__item {
