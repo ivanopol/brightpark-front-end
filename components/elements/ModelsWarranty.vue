@@ -71,5 +71,6 @@ export default {
   .warranty__advantages {
     color: #514EA1;
     font-size: 18px;
+    margin-top: 20px;
   }
 </style>
