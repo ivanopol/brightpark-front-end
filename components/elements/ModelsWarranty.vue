@@ -35,6 +35,10 @@ export default {
 
   .warranty {
     padding-top: 30px;
+
+    @media (min-width: 1000px) {
+      margin-top: 40px;
+    }
   }
 
   .warranty__preview {
@@ -46,6 +50,16 @@ export default {
       width: 200px;
       margin-left: 70px;
     }
+
+    @media (min-width: 1000px) {
+      flex: .45;
+
+      img {
+        max-width: 510px;
+        margin-left: 0;
+        width: 100%;
+      }
+    }
   }
 
   .warranty__heading {
@@ -54,6 +68,12 @@ export default {
     text-align: center;
     text-transform: unset;
     margin-bottom: 16px;
+
+    @media (min-width: 1000px) {
+      text-align: left;
+      font-size: 36px;
+      margin-top: 20px;
+    }
   }
 
   .warranty__desc {
@@ -62,15 +82,30 @@ export default {
     line-height: 24px;
     font-weight: 400;
     color: rgba(0, 0, 0, .7);
+
+    @media (min-width: 1000px) {
+      font-size: 18px;
+    }
   }
 
   .warranty__container {
     padding: 0 20px;
+
+    @media (min-width: 1000px) {
+      display: flex;
+    }
   }
 
   .warranty__advantages {
     color: #514EA1;
     font-size: 18px;
     margin-top: 20px;
+  }
+
+  .warranty__text {
+    @media (min-width: 1000px) {
+      margin-top: 20px;
+      flex: .55;
+    }
   }
 </style>
