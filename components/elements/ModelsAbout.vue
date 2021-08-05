@@ -85,7 +85,11 @@
     </div>
   </section>
 
-  <section class="models-about-desk" :style="{ 'background-image': 'url(' + currentBackground + ')' }">
+  <section
+    class="models-about-desk"
+    :style="{ 'background-image': 'url(' + currentBackground + ')' }"
+    v-if="!isMobile"
+  >
     <div class="container models-about-desk__container">
       <div class="models-about-desk__toggle">
         <button
