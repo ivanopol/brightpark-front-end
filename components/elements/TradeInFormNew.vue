@@ -69,17 +69,25 @@
           <form id="onlineWidgetForm">
             <div class="trade-in__form__online__fields">
               <div class="select-field">
-                <select  placeholder="Марка автомобиля">
-                  <option value="LADA">
-                    LADA
+                <select placeholder="Марка автомобиля" @change="getModels($event)">
+                  <option
+                    :value="mark.id"
+                    v-for="mark in allMarks"
+                    :key="allMarks.indexOf(mark)"
+                  >
+                    {{ mark.name }}
                   </option>
                 </select>
               </div>
 
               <div class="select-field">
                 <select  placeholder="Модель автомобиля">
-                  <option value="Granta">
-                    Granta
+                  <option
+                    :value="model.id"
+                    v-for="model in allModels"
+                    :key="allModels.indexOf(model)"
+                  >
+                    {{ model.name }}
                   </option>
                 </select>
               </div>
@@ -140,6 +148,9 @@ export default {
   data: function () {
     return {
       isOfflineWidget: true,
+      allMarks: null,
+      allModels: null,
+      selectedMark: 0,
     }
   },
 
@@ -160,6 +171,18 @@ export default {
       } else {
         this.isOfflineWidget = false;
       }
+    },
+
+    getModels(event) {
+      const target = event.target;
+      this.selectedMark = target.value;
+
+      fetch(`http://10.0.41.205/ajax/getModels?mark_id=${this.selectedMark}`)
+        .then(res => res.json())
+        .then(data => {
+          this.allModels = data.models;
+        })
+        .catch(err => console.log(err))
     }
   },
 
@@ -184,36 +207,17 @@ export default {
         } else {
           return 'Оценить в салоне'
         }
-
       }
     }
   },
 
-  mounted() {
-    const data = {
-      parent: 180,
-    };
-
-    const config = {
-      headers: {
-        "Access-Control-Allow-Origin": "*"
-      }
-    }
-    // axios.post('https://188.225.85.167/estimate/get-models', data, config)
-    //   .then(response => console.log(response))
-    //   .catch(err => console.log(err))
-
-    // fetch('http://188.225.85.167/estimate/get-models', {
-    //   method: "POST",
-    //   headers: {
-    //     "Access-Control-Allow-Origin": "*"
-    //   },
-    //   body: {
-    //     parent: 180
-    //   }
-    // })
-    //   .then(res => console.log(res))
-    //   .catch(err => console.log(err))
+  created() {
+    fetch('http://10.0.41.205/ajax/getMarks')
+      .then(res => res.json())
+      .then(data => {
+        this.allMarks = data.models;
+      })
+      .catch(err => console.log(err))
   },
 }
 </script>
