@@ -24,6 +24,7 @@ export default {
     let bots = this.bots.filter(function(item) {
       return window.navigator.userAgent.indexOf(item) + 1
     })
+    console.log(this.$store.state.city.scripts)
 
     const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent)
 
@@ -56,6 +57,9 @@ export default {
 
   },
   methods: {
+    tikTok (id, tag_body) {
+
+    },
     messangers (tag_body) {
       var messangers = document.createElement('script')
       messangers.className = 'loading_scripts'

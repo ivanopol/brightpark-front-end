@@ -6,6 +6,11 @@ export default async ({ app, store, redirect, route }) => {
   route_city = route_city === undefined ? '' : route_city
   var cookie = app.$cookies.get('bp-city') === undefined ? '' : app.$cookies.get('bp-city')
 
+  if (cookie && !cookie.city.scripts.hasOwnProperty('tiktok')) {
+    app.$cookies.remove('bp-city')
+    cookie = undefined
+  }
+
   const config = {
     headers: {'Access-Control-Allow-Origin': '*'}
   };
@@ -26,10 +31,9 @@ export default async ({ app, store, redirect, route }) => {
           models_full: store.state.models_full,
         }
 
-
         app.$cookies.set('bp-city', data, {
           path: '/',
-          maxAge: 60 * 60 * 24 * 7
+          maxAge: 60 * 60 * 2
         })
       }
       return {}
@@ -56,7 +60,7 @@ export default async ({ app, store, redirect, route }) => {
 
         app.$cookies.set('bp-city', data, {
           path: '/',
-          maxAge: 60 * 60 * 24 * 7
+          maxAge: 60 * 60 * 2
         })
       } else if (response.data.status === 'ERROR') {
         return false;
