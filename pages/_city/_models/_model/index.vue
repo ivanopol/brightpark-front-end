@@ -9,22 +9,23 @@
       <ModelsListNew />
       <BodiesListNew />
       <ModelsBannerNew class="models-banner" />
-      <div class="container">
-        <TestDriveBanner />
+      <TestDriveBanner />
 
-        <AdvantagesNew class="models-advantages"/>
+      <AdvantagesNew class="models-advantages"/>
 
-        <ModelsFeatures
-          :body="'Хэтчбек'"
-          :drive_type="'Передний'"
-          :transmission="'MT'"
-        />
+      <ModelsFeatures
+        :body="'Хэтчбек'"
+        :drive_type="'Передний'"
+        :transmission="'MT'"
+      />
 
-        <ModelsEquipments class="equipments-block"/>
-      </div>
+      <ModelsEquipments class="equipments-block"/>
 
 
       <TradeInFormNew />
+
+      <ModelsAbout />
+
       <ModelsWarranty />
 
       <MegaTeasers2 />

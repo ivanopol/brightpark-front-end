@@ -1,132 +1,192 @@
 <template>
-<section class="models-about" v-if="isMobile">
-  <div class="container models-about__container">
-    <div class="models-about__wrapper">
-      <div class="models-about__item opened">
-        <button class="models-about__item__head" @click="open($event)">
-          Экстерьер
-          <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5 5L9 1" stroke="white" stroke-width="2"/>
-          </svg>
-        </button>
+<div>
+  <section class="models-about" v-if="isMobile">
+    <div class="container models-about__container">
+      <div class="models-about__wrapper">
+        <div class="models-about__item opened">
+          <button class="models-about__item__head" @click="open($event)">
+            Экстерьер
+            <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="white" stroke-width="2"/>
+            </svg>
+          </button>
 
-        <div class="models-about__item__inner">
-          <img :src="models.granta.sedan.exterior.mobImage" alt="">
+          <div class="models-about__item__inner">
+            <img :src="models.granta.sedan.exterior.mobImage" alt="">
 
-          <div class="models-about__item__inner__text">
-            <p>
-              Седан&nbsp;&mdash; всем знакомый формат автомобиля. Это вместительный багажник, гармонично вписанный в&nbsp;стиль. Это серьезный подход к&nbsp;делу. И, конечно, забота о&nbsp;пассажирах, потому что грузовой отсек всегда отделен от&nbsp;салона.
-            </p>
+            <div class="models-about__item__inner__text">
+              <p>
+                Седан&nbsp;&mdash; всем знакомый формат автомобиля. Это вместительный багажник, гармонично вписанный в&nbsp;стиль. Это серьезный подход к&nbsp;делу. И, конечно, забота о&nbsp;пассажирах, потому что грузовой отсек всегда отделен от&nbsp;салона.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="models-about__item">
-        <button class="models-about__item__head" @click="open($event)">
-          Интерьер
-          <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5 5L9 1" stroke="white" stroke-width="2"/>
-          </svg>
-        </button>
+        <div class="models-about__item">
+          <button class="models-about__item__head" @click="open($event)">
+            Интерьер
+            <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="white" stroke-width="2"/>
+            </svg>
+          </button>
 
-        <div class="models-about__item__inner">
-          <img :src="models.granta.sedan.exterior.mobImage" alt="">
+          <div class="models-about__item__inner">
+            <img :src="models.granta.sedan.exterior.mobImage" alt="">
 
-          <div class="models-about__item__inner__text">
-            <p>
-              Седан&nbsp;&mdash; всем знакомый формат автомобиля. Это вместительный багажник, гармонично вписанный в&nbsp;стиль. Это серьезный подход к&nbsp;делу. И, конечно, забота о&nbsp;пассажирах, потому что грузовой отсек всегда отделен от&nbsp;салона.
-            </p>
+            <div class="models-about__item__inner__text">
+              <p>
+                Седан&nbsp;&mdash; всем знакомый формат автомобиля. Это вместительный багажник, гармонично вписанный в&nbsp;стиль. Это серьезный подход к&nbsp;делу. И, конечно, забота о&nbsp;пассажирах, потому что грузовой отсек всегда отделен от&nbsp;салона.
+              </p>
+            </div>
+
           </div>
-
         </div>
-      </div>
 
-      <div class="models-about__item">
-        <button class="models-about__item__head" @click="open($event)">
-          Комфорт
-          <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5 5L9 1" stroke="white" stroke-width="2"/>
-          </svg>
-        </button>
+        <div class="models-about__item">
+          <button class="models-about__item__head" @click="open($event)">
+            Комфорт
+            <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="white" stroke-width="2"/>
+            </svg>
+          </button>
 
-        <div class="models-about__item__inner">
-          <img :src="models.granta.sedan.exterior.mobImage" alt="">
+          <div class="models-about__item__inner">
+            <img :src="models.granta.sedan.exterior.mobImage" alt="">
 
-          <div class="models-about__item__inner__text">
-            <p>
-              Седан&nbsp;&mdash; всем знакомый формат автомобиля. Это вместительный багажник, гармонично вписанный в&nbsp;стиль. Это серьезный подход к&nbsp;делу. И, конечно, забота о&nbsp;пассажирах, потому что грузовой отсек всегда отделен от&nbsp;салона.
-            </p>
+            <div class="models-about__item__inner__text">
+              <p>
+                Седан&nbsp;&mdash; всем знакомый формат автомобиля. Это вместительный багажник, гармонично вписанный в&nbsp;стиль. Это серьезный подход к&nbsp;делу. И, конечно, забота о&nbsp;пассажирах, потому что грузовой отсек всегда отделен от&nbsp;салона.
+              </p>
+            </div>
+
           </div>
-
         </div>
-      </div>
 
-      <div class="models-about__item">
-        <button class="models-about__item__head" @click="open($event)">
-          Безопасность
-          <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5 5L9 1" stroke="white" stroke-width="2"/>
-          </svg>
-        </button>
+        <div class="models-about__item">
+          <button class="models-about__item__head" @click="open($event)">
+            Безопасность
+            <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="white" stroke-width="2"/>
+            </svg>
+          </button>
 
-        <div class="models-about__item__inner">
-          <img :src="models.granta.sedan.exterior.mobImage" alt="">
+          <div class="models-about__item__inner">
+            <img :src="models.granta.sedan.exterior.mobImage" alt="">
 
-          <div class="models-about__item__inner__text">
-            <p>
-              Седан&nbsp;&mdash; всем знакомый формат автомобиля. Это вместительный багажник, гармонично вписанный в&nbsp;стиль. Это серьезный подход к&nbsp;делу. И, конечно, забота о&nbsp;пассажирах, потому что грузовой отсек всегда отделен от&nbsp;салона.
-            </p>
+            <div class="models-about__item__inner__text">
+              <p>
+                Седан&nbsp;&mdash; всем знакомый формат автомобиля. Это вместительный багажник, гармонично вписанный в&nbsp;стиль. Это серьезный подход к&nbsp;делу. И, конечно, забота о&nbsp;пассажирах, потому что грузовой отсек всегда отделен от&nbsp;салона.
+              </p>
+            </div>
+
           </div>
-
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="models-about-desk" :style="{ 'background-image': 'url(' + currentBackground + ')' }">
+    <div class="container models-about-desk__container">
+      <div class="models-about-desk__toggle">
+        <button
+          type="button"
+          class="models-about-desk__toggle__btn active"
+          @click="switchWidget($event, 'exterior')"
+        >
+          Экстерьер
+        </button>
+
+        <button
+          type="button"
+          class="models-about-desk__toggle__btn"
+          @click="switchWidget($event, 'interior')"
+        >
+          Интерьер
+        </button>
+
+        <button
+          type="button"
+          class="models-about-desk__toggle__btn"
+          @click="switchWidget($event, 'comfort')"
+        >
+          Комфорт
+        </button>
+
+        <button
+          type="button"
+          class="models-about-desk__toggle__btn"
+          @click="switchWidget($event, 'safety')"
+        >
+          Безопасность
+        </button>
+      </div>
+
+      <h2 class="models-about-desk__title">
+        {{ currentTitle }}
+      </h2>
+
+      <div class="models-about-desk__description">
+        <p>
+          {{ currentDescription }}
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
 </template>
 
 <script>
 export default {
   name: "ModelsAbout",
 
+  props: {
+    model: {
+      type: String,
+      default: 'granta'
+    },
+
+    carsBody: {
+      type: String,
+      default: 'sedan'
+    }
+  },
+
   data: function () {
     return {
       isMobile: true,
+      currentWidget: 'exterior',
 
       models: {
         granta: {
           sedan: {
             exterior: {
               mobImage: require('../../static/images/model-about/granta-sedan-exterior-mob.png'),
-              image: '~static/images/model-about/granta-sedan-exterior.jpg',
+              image: require('../../static/images/model-about/granta-sedan-exterior.jpg'),
               title: 'Народный тип кузова',
               description: 'Седан – всем знакомый формат автомобиля. Это вместительный багажник, гармонично вписанный в стиль. Это серьезный подход к делу. И, конечно, забота о пассажирах, потому что грузовой отсек всегда отделен от салона.'
             },
 
             interior: {
-              mobImage: '~static/images/model-abot/granta-sedan-interior-mob.jpg',
-              image: '~static/images/model-abot/granta-sedan-exterior.jpg',
+              mobImage: require('../../static/images/model-about/granta-sedan-exterior-mob.png'),
+              image: require('../../static/images/model-about/granta-sedan-interior.jpg'),
               title: 'Прикольный салончик',
               description: 'Аоаоао аоаоа аоооо ааауа оооаоао вооооу',
             },
 
             comfort: {
-
+              mobImage: require('../../static/images/model-about/granta-sedan-exterior-mob.png'),
+              image: '~static/images/model-abot/granta-sedan-exterior.jpg',
+              title: 'Прикольный салончик',
+              description: 'Аоаоао аоаоа аоооо ааауа оооаоао вооооу',
             },
 
             safety: {
-
+              mobImage: require('../../static/images/model-about/granta-sedan-exterior-mob.png'),
+              image: '~static/images/model-abot/granta-sedan-exterior.jpg',
+              title: 'Прикольный салончик',
+              description: 'Аоаоао аоаоа аоооо ааауа оооаоао вооооу',
             },
-
           },
-
-          liftback: {
-
-          }
-        },
-
-        vesta: {
-
         },
       }
     }
@@ -138,7 +198,36 @@ export default {
     }
 
     this.initHeight();
+  },
 
+  computed: {
+    currentTitle() {
+      const carsBody = this.carsBody,
+        model = this.model,
+        currentWidget = this.currentWidget,
+        models = this.models;
+
+      return models[model][carsBody][currentWidget].title;
+
+    },
+
+    currentDescription() {
+      const carsBody = this.carsBody,
+        model = this.model,
+        currentWidget = this.currentWidget,
+        models = this.models;
+
+      return models[model][carsBody][currentWidget].description;
+    },
+
+    currentBackground() {
+      const carsBody = this.carsBody,
+        model = this.model,
+        currentWidget = this.currentWidget,
+        models = this.models;
+
+      return models[model][carsBody][currentWidget].image;
+    },
   },
 
   methods: {
@@ -164,6 +253,17 @@ export default {
     initHeight() {
       const elem = document.querySelector('.models-about__item.opened');
       elem.style.height = elem.offsetHeight + 'px';
+    },
+
+    switchWidget(event, widget) {
+      document.querySelectorAll('.models-about-desk__toggle__btn').forEach(function(elem) {
+        elem.classList.remove('active');
+      });
+
+      const target = event.target;
+      target.classList.add('active');
+
+      this.currentWidget = widget;
     }
   }
 }
@@ -237,5 +337,71 @@ export default {
   background: black;
   color: white;
   border-bottom: 1px solid rgba(255, 255, 255, .25);
+}
+
+.models-about-desk {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #000;
+  transition: background-image .5s ease-in;
+}
+
+.models-about-desk__container {
+  position: relative;
+  min-height: 850px;
+  overflow: unset;
+}
+
+.models-about-desk__toggle {
+  padding-top: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, .25);
+}
+
+.models-about-desk__toggle__btn {
+  font-weight: 500;
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 23px;
+  font-family: "Factor A";
+  margin-right: 58px;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+  &.active {
+    border-bottom-color: white;
+  }
+}
+
+.models-about-desk__title {
+  color: white;
+  font-family: "Bright Park Display";
+  font-size: 42px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0;
+  text-transform: unset;
+}
+
+.models-about-desk__description {
+  color: white;
+  font-size: 18px;
+  font-family: "Factor A";
+  line-height: 28px;
+  padding: 47px 30px 55px 68px;
+  max-width: 568px;
+  background: url("~static/images/model-about/descript-bg.svg") no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 70px;
+  right: -32px;
 }
 </style>
