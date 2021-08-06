@@ -26,6 +26,7 @@
 
       <ModelsAbout />
 
+      <CreditNew />
       <ModelsWarranty />
 
       <MegaTeasers2 />
