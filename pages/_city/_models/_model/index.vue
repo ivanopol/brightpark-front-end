@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="models-page">
     <div>
 <!--      <div class="container model-breadcrumbs">-->
 <!--          <BreadCrumbs :breadcrumbs="makeBreadcrumbs"/>-->
@@ -28,6 +28,8 @@
 
       <CreditNew />
       <ModelsWarranty />
+
+      <BookCarNew class="book-section"/>
 
       <MegaTeasers2 />
       <ModelInfo v-for="(info, index) in model.blocks" v-bind:key="info.id"
@@ -206,4 +208,10 @@ export default Vue.extend({
   .equipments-block {
     margin-top: 90px;
   }
+
+  .book-section {
+    margin-top: 20px;
+  }
+
+
 </style>

@@ -276,7 +276,7 @@
             },
             changeFirstPayment() {
                 this.firstPayment = Math.round(this.car_price / 100 * this.firstPaymentPercent);
-                const target = document.querySelector('input[name="first-payment"]');
+                const target = document.querySelector('input[name="firstPayment"]');
                 target.value = Number(this.firstPayment).toLocaleString('ru');
 
                 //let percent_from_value = Math.round(this.firstPayment / this.car_price * 100);

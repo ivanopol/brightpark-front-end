@@ -52,6 +52,12 @@ button {
   letter-spacing: 0.05em;
   border-radius: 5px;
   cursor: pointer;
+  transition: .2s ease;
+
+  &:hover {
+    opacity: .8;
+    transition: .2s ease;
+  }
 }
 
 </style>
