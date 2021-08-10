@@ -58,18 +58,38 @@
             :type="'submit'"
             :buttonText="'Оставить заявку'"
             class="banner__inner__info__button"
+            @click.native="show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    1,
+                    'test_drive'
+                  )"
           />
 
 
         </div>
       </div>
     </div>
+
+    <modal name="form-callback4" height="auto" :adaptive="true" class="models-banner__modal">
+      <div :id="form_id + '_close'" class="close event" @click="hide"></div>
+<!--      <FormTestDriveOrder-->
+<!--        :form_id="form_id"-->
+<!--        :goal="goal"-->
+<!--      />-->
+
+      <FormLeadNew />
+    </modal>
   </section>
 </template>
 
 <script>
 export default {
   name: "ModelsBannerNew",
+
+  props: {
+    colorsArray: Array,
+  },
 
   data: function () {
     return {
@@ -80,6 +100,25 @@ export default {
       price: '495 900 ₽'
     }
   },
+
+
+  methods: {
+    show(title, form_id, form_type, goal) {
+      this.form_title = title;
+      this.form_id = form_id;
+      this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
+      this.goal = goal;
+
+      //  console.log(this.$modal);
+      this.$modal.show("form-callback4");
+      /*      () => {
+             callibriInit();
+           }*/
+    },
+    hide() {
+      this.$modal.hide("form-callback4");
+    },
+  }
 
 }
 </script>
@@ -451,6 +490,25 @@ export default {
 
   @media (min-width: 1000px) {
     margin: 30px 0;
+  }
+}
+</style>
+
+<style lang="scss">
+.models-banner__modal {
+  .vm--modal {
+    max-width: 570px;
+    border-radius: 0;
+  }
+
+  .close {
+    &:before {
+      background-color: #514EA1;
+    }
+
+    &:after {
+      background-color: #514EA1;
+    }
   }
 }
 </style>
