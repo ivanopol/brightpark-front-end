@@ -1,31 +1,75 @@
 <template>
-  <section class="test-drive-banner">
-    <div class="container test-drive-banner__container">
-      <div class="test-drive-banner__wrapper">
-        <img src="~static/images/models/da.png" alt="" class="test-drive-banner__pic">
+  <div>
+    <section class="test-drive-banner">
+      <div class="container test-drive-banner__container">
+        <div class="test-drive-banner__wrapper">
+          <img src="~static/images/models/da.png" alt="" class="test-drive-banner__pic">
 
-        <div class="test-drive-banner__text">
-          <h2>
-            Испытай новую LADA Granta в деле!
-          </h2>
+          <div class="test-drive-banner__text">
+            <h2>
+              Испытай новую LADA Granta в деле!
+            </h2>
 
-          <p>
-            Ощутите преимущества новой LADA Granta Седан на собственном опыте
-          </p>
+            <p>
+              Ощутите преимущества новой LADA Granta Седан на собственном опыте
+            </p>
+          </div>
+
+          <ButtonNew
+            class="test-drive-banner__signup"
+            :button-text="'Записаться на тест-драйв'"
+            :button-type="'button'"
+            @click.native="show(
+                    'Записаться на тест-драйв',
+                    $store.state._page + '__modal-models-test-drive_',
+                    1,
+                    'test_drive'
+                  )"
+          />
         </div>
-
-        <ButtonNew
-          class="test-drive-banner__signup"
-          :button-text="'Записаться на тест-драйв'"
-        />
       </div>
-    </div>
-  </section>
+    </section>
+
+    <modal name="form-callback3" height="auto" :adaptive="true" class="test-drive-modal">
+      <div :id="form_id + '_close'" class="close event" @click="hide"></div>
+      <FormTestDriveOrder
+        :form_id="form_id"
+        :goal="goal"
+      />
+    </modal>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'TestDriveBanner'
+  name: 'TestDriveBanner',
+
+  data: function () {
+    return {
+      form_id: "",
+      form_title: "",
+      form_type: 1,
+      goal: "",
+    }
+  },
+
+  methods: {
+    show(title, form_id, form_type, goal) {
+      this.form_title = title;
+      this.form_id = form_id;
+      this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
+      this.goal = goal;
+
+      //  console.log(this.$modal);
+      this.$modal.show("form-callback3");
+      /*      () => {
+             callibriInit();
+           }*/
+    },
+    hide() {
+      this.$modal.hide("form-callback3");
+    },
+  }
 }
 </script>
 
