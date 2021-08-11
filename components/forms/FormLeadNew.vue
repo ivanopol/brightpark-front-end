@@ -164,6 +164,7 @@ export default {
   font-family: "Factor A";
   color: rgba(0, 0, 0, .35);
   transition: .2s ease-out;
+  pointer-events: none;
 
   &.active {
     transition: .2s ease;
