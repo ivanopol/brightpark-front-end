@@ -29,6 +29,8 @@
         <p><span><span>Приобретение авто у&nbsp;</span><span>официального дилера</span><span>&nbsp;— гарантия надежной технической поддержки. Выполняем гарантийное и&nbsp;постгарантийное обслуживание автомобиля. Вы&nbsp;сможете обратиться к&nbsp;нам по&nbsp;любому вопросу на&nbsp;протяжении всего срока службы автомобиля: мы&nbsp;всегда на&nbsp;связи.</span></span></p>
       </div>
     </div>
+
+    <ServicesNew class="services-block"/>
     <Banks/>
     <nuxt-child/>
   </div>
@@ -93,6 +95,8 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
-
+<style scoped lang="scss">
+.services-block {
+  margin-bottom: 50px;
+}
 </style>
