@@ -55,7 +55,7 @@ button {
   transition: .2s ease;
 
   &:hover {
-    opacity: .8;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     transition: .2s ease;
   }
 }
