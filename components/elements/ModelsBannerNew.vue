@@ -3,26 +3,16 @@
     <div class="container banner__container">
       <div class="banner__inner">
         <div class="banner__inner__car">
-          <img src="~static/images/models/granta.png" alt="" class="banner__inner__car__image">
+          <img :src="currentImage" alt="" class="banner__inner__car__image">
 
           <ul class="banner__inner__car__colors">
-            <li>
-              <div class="banner__inner__car__colors__color color-light-brown-cougar">
-              </div>
-            </li>
-
-            <li>
-              <div class="banner__inner__car__colors__color color-white-cloud">
-              </div>
-            </li>
-
-            <li>
-              <div class="banner__inner__car__colors__color color-red-alloy">
-              </div>
-            </li>
-
-            <li>
-              <div class="banner__inner__car__colors__color color-amber">
+            <li
+              v-for="color in colorsArray.colors"
+              :key="colorsArray.colors.indexOf(color)"
+              :class="[currentColor === color.name ? 'active-color' : '']"
+              @click="changeColor(color.name)"
+            >
+              <div class="banner__inner__car__colors__color" :style="{backgroundColor: color.hash}">
               </div>
             </li>
           </ul>
@@ -88,7 +78,7 @@ export default {
   name: "ModelsBannerNew",
 
   props: {
-    colorsArray: Array,
+    colorsArray: Object,
   },
 
   data: function () {
@@ -97,7 +87,9 @@ export default {
       seo: {},
       count: 0,
       mainHeading: 'Новая LADA Granta Sedan в Перми',
-      price: '495 900 ₽'
+      price: '495 900 ₽',
+      currentImage: "",
+      currentColor: "",
     }
   },
 
@@ -118,7 +110,22 @@ export default {
     hide() {
       this.$modal.hide("form-callback4");
     },
-  }
+
+    changeColor(color) {
+      this.colorsArray.colors.forEach(el => {
+        if (el.name === color) {
+          this.currentImage = el.path;
+          this.currentColor = el.name;
+          console.log(this.currentColor, this.currentImage);
+        }
+      })
+    }
+  },
+
+  mounted() {
+    this.currentColor = this.colorsArray.colors[0].name;
+    this.currentImage = this.colorsArray.colors[0].path;
+  },
 
 }
 </script>
@@ -183,6 +190,34 @@ export default {
       }
     }
   }
+
+  li {
+    position: relative;
+
+    &:after {
+      display: none;
+    }
+
+    &.active-color {
+      .banner__inner__car__colors__color {
+        transform: scale(1.2);
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        background-image: url("../../static/images/icons/tick.svg");
+        background-size: cover;
+        width: 10px;
+        height: 8px;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+      }
+    }
+  }
 }
 
 .banner__inner__car__colors__color {
@@ -190,10 +225,6 @@ export default {
   height: 30px;
   border-radius: 50%;
 
-
-  &.active {
-    transform: scale(1.01);
-  }
 
 
   &.color- {

@@ -179,9 +179,9 @@ export default {
 
             comfort: {
               mobImage: require('../../static/images/model-about/granta-sedan-exterior-mob.png'),
-              image: '~static/images/model-abot/granta-sedan-exterior.jpg',
-              title: 'Прикольный салончик',
-              description: 'Аоаоао аоаоа аоооо ааауа оооаоао вооооу',
+              image: 'https://images.drive.ru/i/0/59940197ec05c42b2d00000f.jpg',
+              title: 'Печка дует. Музыка играет.',
+              description: 'Ядовитый испанкий паук.',
             },
 
             safety: {

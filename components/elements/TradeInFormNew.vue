@@ -27,7 +27,7 @@
         <div class="trade-in__form__toggle">
           <button
             type="button"
-            class="trade-in__form__toggle__btn"
+            class="trade-in__form__toggle__btn active"
             @click="toggleWidget($event, 'online')"
           >
             {{ widgetOnlineText }}
@@ -35,7 +35,7 @@
 
           <button
             type="button"
-            class="trade-in__form__toggle__btn active"
+            class="trade-in__form__toggle__btn"
             @click="toggleWidget($event, 'offline')"
           >
             {{ widgetOfflineText }}
@@ -69,66 +69,137 @@
           <form id="onlineWidgetForm">
             <div class="trade-in__form__online__fields">
               <div class="select-field">
-                <select placeholder="Марка автомобиля" @change="getModels($event)">
+                <span
+                  class="select-field__placeholder"
+                  :class="[selectedMark !== null ? 'active' : false]"
+                >
+                  Марка автомобиля
+                </span>
+                <select @change="getModels($event)">
+                  <option value="" disabled selected></option>
+
                   <option
                     :value="mark.id"
                     v-for="mark in allMarks"
                     :key="allMarks.indexOf(mark)"
+                    :data-code="mark.code"
+                    :data-label="mark.label"
                   >
-                    {{ mark.name }}
+                    {{ mark.label }}
                   </option>
                 </select>
               </div>
 
               <div class="select-field">
-                <select  placeholder="Модель автомобиля">
+                <span
+                  class="select-field__placeholder"
+                  :class="[values.model !== null ? 'active' : false]"
+                >
+                  Модель автомобиля
+                </span>
+
+                <select @change="getModifications($event)" v-model="values.model">
+                  <option value="" disabled selected></option>
                   <option
                     :value="model.id"
                     v-for="model in allModels"
                     :key="allModels.indexOf(model)"
+                    :data-code="model.code"
+                    :data-label="model.label"
                   >
-                    {{ model.name }}
+                    {{ model.label }}
                   </option>
                 </select>
               </div>
 
               <div class="select-field">
-                <select  placeholder="Модель автомобиля">
-                  <option value="Granta">
-                    Granta
+                <span
+                  class="select-field__placeholder"
+                  :class="[values.modification !== null ? 'active' : false]"
+                >
+                  Модификация автомобиля
+                </span>
+
+
+                <select @change="getYears" v-model="values.modification">
+                  <option value="" disabled selected></option>
+                  <option
+                    :value="modification.id"
+                    v-for="modification in allModifications"
+                    :key="allModifications.indexOf(modification)"
+                    :data-param="modification.tech_param_id"
+                  >
+                    {{ modification.label }}
                   </option>
                 </select>
               </div>
 
               <div class="select-field">
-                <select  placeholder="Модель автомобиля">
-                  <option value="Granta">
-                    Granta
+                <span
+                  class="select-field__placeholder"
+                  :class="[selectedYear !== null ? 'active' : false]"
+                >
+                  Год выпуска
+                </span>
+
+                <select  placeholder="Модель автомобиля" @change="setYear($event)">
+                  <option value="" disabled selected></option>
+                  <option
+                    v-for="year in years"
+                    :key="years.indexOf(year)"
+                    :value="year.value"
+                  >
+                    {{ year.value }}
                   </option>
                 </select>
               </div>
 
               <div class="select-field">
-                <select  placeholder="Модель автомобиля">
-                  <option value="Granta">
-                    Granta
+                <span
+                  class="select-field__placeholder"
+                  :class="[selectedMileage !== null ? 'active' : false]"
+                >
+                  Пробег
+                </span>
+
+                <select  placeholder="Модель автомобиля" v-model="selectedMileage">
+                  <option value="" disabled selected></option>
+                  <option
+                    v-for="mileage in mileages"
+                    :key="mileages.indexOf(mileage)"
+                    :value="mileage.value"
+                  >
+                    {{ mileage.label }}
                   </option>
                 </select>
               </div>
 
               <div class="select-field">
-                <select  placeholder="Модель автомобиля">
-                  <option value="Granta">
-                    Granta
+                <span
+                  class="select-field__placeholder"
+                  :class="[selectedTransmission !== null ? 'active' : false]"
+                >
+                  Коробка передач
+                </span>
+
+                <select v-model="selectedTransmission">
+                  <option value="" disabled selected></option>
+                  <option
+                    v-for="transmission in transmissions"
+                    :key="transmissions.indexOf(transmission)"
+                    :value="transmission"
+                  >
+                    {{ transmission }}
                   </option>
                 </select>
               </div>
             </div>
 
             <ButtonNew
-              :button-text="'Оставить заявку'"
+              :button-text="submitButtonText"
               :button-color="'#514EA1'"
               class="trade-in__form__offline__submit"
+              @click.prevent.native="getResult"
             />
           </form>
         </div>
@@ -147,10 +218,38 @@ export default {
 
   data: function () {
     return {
-      isOfflineWidget: true,
+      isOfflineWidget: false,
       allMarks: null,
       allModels: null,
-      selectedMark: 0,
+      selectedMark: null,
+      selectedModel: null,
+      selectedModification: null,
+      allModifications: null,
+      selectedMileage: null,
+      years: null,
+      selectedYear: null,
+      selectedTransmission: null,
+      mileages: [
+        {label: 'До 10 000', value: 5000},
+        {label: '10 000 - 30 000', value: 20000},
+        {label: '30 000 - 50 000', value: 40000},
+        {label: '50 000 - 75 000', value: 62000},
+        {label: '75 000 - 100 000', value: 90000},
+        {label: '100 000 - 150 000', value: 1250000},
+        {label: '150 000 - 200 000', value: 1250000},
+        {label: 'более 200 000', value: 1250000}
+      ],
+      transmissions: [
+        'Автоматическая', 'Роботизированная', 'Механическая', 'Вариатор'
+      ],
+      submitButtonText: 'Рассчитать',
+
+      pricesRange: [],
+
+      values: {
+        model: null,
+        modification: null,
+      },
     }
   },
 
@@ -168,23 +267,120 @@ export default {
 
       if(widget === 'offline') {
         this.isOfflineWidget = true;
+        this.submitButtonText = 'Оставить заявку';
       } else {
         this.isOfflineWidget = false;
+        this.submitButtonText = 'Рассчитать';
       }
     },
 
     getModels(event) {
       const target = event.target;
-      this.selectedMark = target.value;
+      const selectedOption = target.options[target.selectedIndex];
 
-      fetch(`http://10.0.41.205/ajax/getModels?mark_id=${this.selectedMark}`)
-        .then(res => res.json())
-        .then(data => {
-          this.allModels = data.models;
+      this.selectedMark = {
+        label: selectedOption.dataset.label,
+        id: target.value,
+        code: selectedOption.dataset.code,
+      };
+
+      this.values.model = null;
+      this.values.modification = null;
+
+
+
+      // fetch(`http://10.0.41.205/ajax/getModels?mark_id=${this.selectedMark}`)
+      //   .then(res => res.json())
+      //   .then(data => {
+      //     this.allModels = data.models;
+      //   })
+      //   .catch(err => console.log(err))
+
+      axios.get(process.env.apiUrl + '/api/get_brand_models', {
+        params: {
+          model_id: this.selectedMark.id
+        }
+      })
+        .then((response) => {
+          this.allModels = response.data.models;
         })
-        .catch(err => console.log(err))
-    }
+        .catch((error) => {
+          // console.log(error);
+        })
+        .finally(() => {
+        });
+
+      if (this.selectedMark !== null) {
+        this.selectedModel = null;
+        // this.selected_modification = null;
+        // this.selected_year = null;
+        // this.selected_mileage = null;
+        // this.selected_tech_param_id = null;
+        // this.estimation = null;
+        // this.tradeInEstimation = 0;
+        // this.brightParkEstimation = 0;
+        // this.step_two = false;
+        // this.step_three = false;
+        // this.step_four = false;
+        // this.step_five = false;
+      }
+      // this.step_one = true;
+      // this.selected_brand = input;
+
+    },
+
+    getModifications: function(event) {
+      const target = event.target;
+      const selectedOption = target.options[target.selectedIndex];
+      this.selectedModel = {
+        id: target.value,
+        label: selectedOption.dataset.label,
+        code: selectedOption.dataset.code
+      };
+
+      this.values.modification = null;
+
+      axios.get(process.env.apiUrl + '/api/get_complectations/' + this.selectedMark.code.toString() + '/' + this.selectedModel.code.toString(),
+        {})
+        .then((response) => {
+          this.allModifications = response.data.modifications;
+        });
+    },
+
+    getYears: function(event) {
+      const target = event.target;
+      this.selectedModification = target.options[target.selectedIndex].dataset.param;
+
+      var currentYear = new Date().getFullYear(), years = [];
+      var startYear = 1980;
+      while (currentYear >= startYear) {
+        years.push({label: currentYear, value: currentYear});
+        currentYear--;
+      }
+
+      this.years = years;
+    },
+
+    setYear: function(event) {
+      const target = event.target;
+      this.selectedYear = target.value;
+    },
+
+    getResult: function() {
+      const data = JSON.stringify({
+        tech_param_id: this.selectedModification,
+        km_age: this.selectedMileage,
+        year: this.selectedYear
+      });
+
+      axios.post(process.env.apiUrl + '/api/get_estimation/', data)
+        .then((response) => {
+          console.log(response.data.estimation.prices.autoru);
+          this.pricesRange = response.data.estimation.prices.autoru;
+        });
+    },
   },
+
 
   computed: {
     widgetOnlineText() {
@@ -212,13 +408,29 @@ export default {
   },
 
   created() {
-    fetch('http://10.0.41.205/ajax/getMarks')
-      .then(res => res.json())
-      .then(data => {
-        this.allMarks = data.models;
-      })
-      .catch(err => console.log(err))
+    // fetch('http://10.0.41.205/ajax/getMarks')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.allMarks = data.models;
+    //   })
+    //   .catch(err => console.log(err))
+    //
+    // async fetch() {
+    //   const brands = await fetch(
+    //     process.env.apiUrl + `/api/get_cars_brands`
+    //   ).then(res => res.json())
+    //
+    //   this.brands = brands
+    // }
   },
+
+  async fetch() {
+    const brands = await fetch(
+      process.env.apiUrl + `/api/get_cars_brands`
+    ).then(res => res.json())
+
+    this.allMarks = brands
+  }
 }
 </script>
 
@@ -393,7 +605,7 @@ export default {
       border-radius: 5px;
       border: none;
       font-family: "Factor A";
-      padding: 20px;
+      padding: 30px 20px 10px;
       color: white;
       font-size: 18px;
       font-weight: 500;
@@ -450,6 +662,37 @@ export default {
         margin-bottom: 0;
         max-width: unset;
       }
+    }
+  }
+
+  .select-field {
+    position: relative;
+
+    margin-bottom: 20px;
+
+    @media (min-width: 1000px) {
+      margin-bottom: 0;
+    }
+  }
+
+  .select-field__placeholder {
+    position: absolute;
+    left: 22px;
+    font-weight: 500;
+    font-size: 18px;
+    font-family: "Factor A";
+    top: 50%;
+    transform:  translate(0, -50%);
+    transition: .2s ease;
+    color: white;
+    pointer-events: none;
+
+    &.active {
+      transition: .2s ease;
+      font-size: 12px;
+      transorm: unset;
+      top: 15px;
+      left: 23px;
     }
   }
 

@@ -8,7 +8,10 @@
 <!--      <ModelBanner :data="model.slider" />-->
       <ModelsListNew />
       <BodiesListNew />
-      <ModelsBannerNew class="models-banner" />
+      <ModelsBannerNew
+        class="models-banner"
+        :colors-array="modelColors"
+      />
       <TestDriveBanner />
 
       <AdvantagesNew class="models-advantages"/>
@@ -76,6 +79,24 @@ export default Vue.extend({
       model: '',
       seo: {},
       count: 0,
+      modelColors: {
+        model: 'granta',
+        body: 'sedan',
+        colors: [
+          {
+            name: 'blue',
+            hash: '#1B65F5',
+            path: '/_nuxt/static/images/models/granta.png',
+          },
+
+          {
+            name: 'red',
+            hash: '#860E02',
+            path: 'https://static.lada.ru/images/v6/cars/configurator/granta/sedan/luxe/luxe_195.png',
+          }
+        ]
+      },
+
     }
   },
   layout: 'model',
