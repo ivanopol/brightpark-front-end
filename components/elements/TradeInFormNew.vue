@@ -205,8 +205,12 @@
         </div>
       </div>
     </div>
-
   </div>
+
+  <modal name="thanks-modal" height="auto" :adaptive="true" class="thanks-modal">
+    <div id="thanks_modal_close" class="close event" @click="hideThanks"></div>
+    <ModalThanks />
+  </modal>
 </section>
 </template>
 
@@ -379,6 +383,14 @@ export default {
           this.pricesRange = response.data.estimation.prices.autoru;
         });
     },
+
+    showThanks() {
+      this.$modal.show("thanks-modal");
+    },
+
+    hideThanks() {
+      this.$modal.hide("thanks-modal");
+    },
   },
 
 
@@ -430,6 +442,10 @@ export default {
     ).then(res => res.json())
 
     this.allMarks = brands
+  },
+
+  mounted() {
+    this.showThanks();
   }
 }
 </script>
@@ -696,4 +712,23 @@ export default {
     }
   }
 
+</style>
+
+<style lang="scss">
+  .thanks-modal .vm--modal {
+    max-width: 570px;
+    border-radius: 10px;
+
+    .close {
+      &:before {
+        background-color: #514EA1;
+        height: 4px;
+      }
+
+      &:after {
+        background-color: #514EA1;
+        height: 4px;
+      }
+    }
+  }
 </style>
