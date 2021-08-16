@@ -2,54 +2,11 @@
 <nav class="models">
   <div class="container">
     <ul class="models__list">
-      <li>
-        <nuxt-link to="drive-active">
-          <img src="~static/images/models/da.png" alt="">
-
-          <span>
-            Drive Active
-          </span>
-        </nuxt-link>
-      </li>
-
-      <li>
-        <nuxt-link to="hatchback">
-          <img src="~static/images/models/hatchback.png" alt="">
-
-          <span>
-            Хэтчбэк
-          </span>
-        </nuxt-link>
-      </li>
-
-      <li>
-        <nuxt-link to="liftback">
-          <img src="~static/images/models/liftback.png" alt="">
-
-          <span>
-            Лифтбек
-          </span>
-        </nuxt-link>
-      </li>
-
-      <li>
-        <nuxt-link to="sedan">
-          <img src="~static/images/models/da.png" alt="">
-
-          <span>
-            Седан
-          </span>
-        </nuxt-link>
-      </li>
-
-      <li>
-        <nuxt-link to="universal">
-          <img src="~static/images/models/da.png" alt="">
-
-          <span>
-            Универсал
-          </span>
-        </nuxt-link>
+      <li v-for="body in bodies" :key="body.id">
+        <a :href="body.path">
+          <img :src="body.image" :alt="body.name">
+          <span>{{body.name}}</span>
+        </a>
       </li>
     </ul>
   </div>
@@ -59,43 +16,43 @@
 <script>
 export default {
   name: "BodiesListNew",
-  models: [
-    {
-      id: '0',
-      name: 'Drive Active',
-      path: '/drive-active'
-    },
+  data: function () {
+    return {
+      bodies: [
+        {
+          id: '0',
+          name: 'Drive Active',
+          path: 'drive-active',
+          image: '/images/models/da.png'
+        },
+        {
+          id: '1',
+          name: 'Хэтчбэк',
+          path: 'hatchback',
+          image: '/images/models/hatchback.png'
+        },
+        {
+          id: '2',
+          name: 'Лифтбек',
+          path: 'liftback',
+          image: '/images/models/liftback.png'
+        },
+        {
+          id: '3',
+          name: 'Седан',
+          path: 'sedan',
+          image: '/images/models/da.png'
+        },
+        {
+          id: '4',
+          name: 'Универсал',
+          path: 'universal',
+          image: '/images/models/da.png'
+        },
 
-    {
-      id: '1',
-      name: 'Седан',
-      path: '/sedan'
-    },
-
-    {
-      id: '2',
-      name: 'Хэтчбэк',
-      path: '/hatchback'
-    },
-
-    {
-      id: '3',
-      name: 'Лифтбэк',
-      path: '/liftback'
-    },
-
-    {
-      id: '4',
-      name: 'Niva',
-      path: '/niva'
-    },
-
-    {
-      id: '5',
-      name: '4x4',
-      path: '/4x4'
-    },
-  ],
+      ],
+    }
+  },
 }
 </script>
 
