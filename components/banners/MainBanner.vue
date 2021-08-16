@@ -42,10 +42,10 @@ export default {
       banners: [
         {
           key: 1,
-          title:'all_inclusive_2',
+          title: 'yellow',
           extension: 'jpg',
-          buttonColor: 'green',
-          link: 'vesta/sw',
+          buttonColor: 'purple',
+          link: 'vesta/sedan',
         },
         {
           key: 2,
@@ -56,10 +56,10 @@ export default {
         },
         {
           key: 3,
-          title: 'yellow',
+          title:'all_inclusive_2',
           extension: 'jpg',
-          buttonColor: 'purple',
-          link: 'vesta/sedan',
+          buttonColor: 'green',
+          link: 'vesta/sw',
         },
         {
           key: 4,
