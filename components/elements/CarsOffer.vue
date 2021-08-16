@@ -33,7 +33,7 @@
 
           <div class="cars-offer__content__item__info">
             <p class="cars-offer__content__item__info__price">
-              от 733 900 ₽
+              от 758 900 ₽
             </p>
 
             <div class="cars-offer__content__item__info__buttons">
@@ -47,7 +47,7 @@
                   '?car_model=Vesta&car_type=Седан'
               "
               >
-                <span>кредит от 5 511 ₽/мес.</span>
+                <span>кредит от 5 685 ₽/мес.</span>
               </a>
 
 
@@ -141,7 +141,7 @@
 
           <div class="cars-offer__content__item__info">
             <p class="cars-offer__content__item__info__price">
-              от 504 900 ₽
+              от 531 900 ₽
             </p>
 
             <div class="cars-offer__content__item__info__buttons">
@@ -155,7 +155,7 @@
                   '?car_model=Granta&car_type=Седан'
               "
               >
-                <span>кредит от 3 842 ₽/мес.</span>
+                <span>кредит от 3 938 ₽/мес.</span>
               </a>
 
               <button
@@ -246,7 +246,7 @@
 
           <div class="cars-offer__content__item__info">
             <p class="cars-offer__content__item__info__price">
-              от 691 900 ₽
+              от 730 900 ₽
             </p>
 
 
@@ -261,7 +261,7 @@
                   '?car_model=Xray&car_type=Cross'
               "
               >
-                <span>кредит от 5 205 ₽/мес.</span>
+                <span>кредит от 5 469 ₽/мес.</span>
               </a>
 
               <button
@@ -365,7 +365,7 @@
 
           <div class="cars-offer__content__item__info">
             <p class="cars-offer__content__item__info__price">
-              от 702 900 ₽
+              от 749 900 ₽
             </p>
 
             <div class="cars-offer__content__item__info__buttons">
@@ -379,7 +379,7 @@
                   '?car_model=Largus&car_type=Universal'
               "
               >
-                <span>кредит от 5 285 ₽/мес.</span>
+                <span>кредит от 5 616 ₽/мес.</span>
               </a>
 
               <button
@@ -472,7 +472,7 @@
 
           <div class="cars-offer__content__item__info">
             <p class="cars-offer__content__item__info__price">
-              от 779 900 ₽
+              от 796 900 ₽
             </p>
 
 
@@ -487,7 +487,7 @@
                   '?car_model=Niva&car_type=Niva'
               "
               >
-                <span>кредит от 5 846 ₽/мес.</span>
+                <span>кредит от 5 977 ₽/мес.</span>
               </a>
 
               <button
@@ -577,7 +577,7 @@
 
           <div class="cars-offer__content__item__info">
             <p class="cars-offer__content__item__info__price">
-              от 619 900 ₽
+              от 632 900 ₽
             </p>
 
 
@@ -592,7 +592,7 @@
                   '?car_model=4x4&car_type=3 дв.'
               "
               >
-                <span>кредит от 4 680 ₽/мес.</span>
+                <span>кредит от 4 715 ₽/мес.</span>
               </a>
 
               <button
@@ -688,7 +688,7 @@ export default {
       form_type: 1,
       goal: "",
       informerText:
-        "Расчет является приблизительным, произведен для автомобиля в базовой комплектации. Первоначальный взнос – 40 %. Срок кредита – 36 мес. Процентная ставка – 8,25% годовых. Кредитор - Совкомбанк (ПАО), Лицензия ЦБ РФ №963. Ставка действует при условии страхования имущества, жизни и здоровья заемщика в любых страховых компаниях, соответствующих требованиям Банка. Обеспечение по кредиту – залог приобретаемого автомобиля. Предложение ограничено. Не оферта. Подробности, сроки и условия уточняйте в автосалоне."
+        "Расчет указанного ежемесячного платежа является предварительным и подлежит уточнению перед или непосредственно при заключении договоров кредитования/страхования, носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 ч.2 Гражданского кодекса Российской Федерации. Для получения подробной информации обращайтесь в салоны Брайт Парка."
     };
   },
   filters: {
