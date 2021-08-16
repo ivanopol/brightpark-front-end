@@ -177,7 +177,7 @@ export default {
       formatter1: '{value}%',
       carPrice: 500000,
       period: 24,
-      periodText: '5 месяцев',
+     // periodText: '5 месяцев',
       firstPayment: null,
       mounthlyPayment: '',
     }

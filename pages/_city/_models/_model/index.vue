@@ -11,6 +11,7 @@
       <ModelsBannerNew
         class="models-banner"
         :colors-array="modelColors"
+        :form_id="'model__banner-new_'"
       />
       <TestDriveBanner />
 
@@ -86,7 +87,7 @@ export default Vue.extend({
           {
             name: 'blue',
             hash: '#1B65F5',
-            path: '/_nuxt/static/images/models/granta.png',
+            path: '/images/models/granta.png',
           },
 
           {
