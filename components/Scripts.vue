@@ -84,6 +84,7 @@ export default {
       this.facebookCity(id.facebook, tag_body)
       this.mailRuCity(id.mailru, tag_body)
       this.vkCity(id.vk, tag_body)
+      this.tiktokCity(id.tiktok, tag_body)
     },
     ruTarget (tag_body) {
       var ru_target = document.createElement('script')
@@ -192,6 +193,22 @@ export default {
       calltouch.innerHTML = '(function(w,d,n,c){w.CalltouchDataObject=n;w[n]=function(){w[n]["callbacks"].push(arguments)};if(!w[n]["callbacks"]){w[n]["callbacks"]=[]}w[n]["loaded"]=false;if(typeof c!=="object"){c=[c]}w[n]["counters"]=c;for(var i=0;i<c.length;i+=1){p(c[i])}function p(cId){var a=d.getElementsByTagName("script")[0],s=d.createElement("script"),i=function(){a.parentNode.insertBefore(s,a)};s.type="text/javascript";s.async=true;s.src="https://mod.calltouch.ru/init.js?id="+cId;if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",i,false)}else{i()}}})(window,document,"ct","' + id + '");'
 
       tag_body.appendChild(calltouch)
+    },
+    tiktokCity (id, tag_body) {
+      if (!id) {
+        return false
+      }
+      var tiktok = document.createElement('script')
+      tiktok.type = "text/javascript"
+      tiktok.className = 'loading_scripts'
+      tiktok.async = true
+      tiktok.innerHTML = '!function (w, d, t) {\n' +
+        '\t\t  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};\n' +
+        '\t\t\n' +
+        '\t\t  ttq.load(\'' + id + '\');\n' +
+        '\t\t  ttq.page();\n' +
+        '\t\t}(window, document, \'ttq\');'
+      tag_body.appendChild(tiktok);
     },
     yaMaps (tag_body) {
       var ya_maps = document.createElement('script')

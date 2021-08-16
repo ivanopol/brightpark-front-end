@@ -7,7 +7,7 @@
       <FormConsultation style="margin-bottom: 50px" :form_id="'main__consult_'" goal="consult" />
     </div>
 
-    <MegaTeasers/>
+    <ServicesNew class="services-block"/>
     <div class="container">
       <Advantages />
       <div class="advantages_form">
@@ -93,6 +93,8 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
-
+<style scoped lang="scss">
+.services-block {
+  margin-bottom: 50px;
+}
 </style>

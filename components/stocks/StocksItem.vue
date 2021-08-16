@@ -41,6 +41,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+  .stocks-one-body b,
+  .stocks-one-body strong {
+    font-weight: bold;
+  }
+
   .stocks-dates {
     padding: 15px 0 0;
     max-width: 650px;

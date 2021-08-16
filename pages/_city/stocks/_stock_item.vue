@@ -5,7 +5,7 @@
     </div>
     <StocksItem :data="data"/>
     <div>
-      <div class="container">
+      <div class="container" v-if="callback">
         <div class="advantages_form">
           <FormBuyComponent :form_id="$store.state._page + '__advantages_'"
                             :button_text="'Отправить'"
@@ -29,7 +29,8 @@ export default Vue.extend({
     return {
       data: {},
       seo: {},
-      exceptions: []
+      exceptions: [],
+      callback: true
     }
   },
   validate: function ({params, store}) {
@@ -104,6 +105,11 @@ export default Vue.extend({
       return this.exceptions.indexOf(this.$route.params.stock_item) >= 0
     }
   },
+  mounted() {
+    if (this.$route.path == '/yekaterinburg/stocks/3000-rublej-za-kazhdogo-novogo-klienta') {
+      this.callback = false
+    }
+  }
 })
 </script>
 

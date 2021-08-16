@@ -18,31 +18,31 @@
                 <li>
                     <div :class="[!el3 ? 'nogift' : '', 'baraban-icons-block']">
                         <span class="icon"><img src="/images/icons/retargeting/icon-kasko.svg" alt="Брайт Парк: КАСКО"></span>
-                        <span class="text color-blue-gray">КАСКО</span>
+                        <span class="text color-blue-gray">КАСКО <span class="text-small">в подарок</span></span>
                     </div>
                 </li>
                 <li>
                     <div :class="[!el2 ? 'nogift' : '', 'baraban-icons-block']">
                         <span class="icon"><img src="/images/icons/retargeting/icon-osago.svg" alt="Брайт Парк: ОСАГО"></span>
-                        <span class="text color-sunny-yellow">ОСАГО</span>
+                        <span class="text color-sunny-yellow">Осаго</span>
                     </div>
                 </li>
-                <li class="baraban-li-special">
+<!--                <li class="baraban-li-special">
                     <div :class="[!el4 ? 'nogift' : '', 'baraban-icons-block']">
                         <span class="icon "><img src="/images/icons/retargeting/icon-three-month.svg" alt="Брайт Парк: 3 месяца оплаты % кредиту"></span>
                         <span class="text color-fern-craiola">3 месяца <span class="text-small">оплаты % по кредиту</span></span>
                     </div>
-                </li>
+                </li>-->
                 <li>
                     <div :class="[!el1 ? 'nogift' : '', 'baraban-icons-block']">
                         <span class="icon"><img src="/images/icons/retargeting/icon-to-1.svg" alt="Брайт Парк: ТО-1"></span>
-                        <span class="text color-temperate-turquoise">ТО-1</span>
+                        <span class="text color-temperate-turquoise">ТО-1 <span class="text-small">скидка 10%</span></span>
                     </div>
                 </li>
                 <li>
                     <div :class="[!el0 ? 'nogift' : '', 'baraban-icons-block']">
                         <span class="icon"><img src="/images/icons/retargeting/icon-sertificate.svg" alt="Брайт Парк: cертификат на услугу"></span>
-                        <span class="text color-coral">Сертификат <span class="text-small">на услугу</span></span>
+                        <span class="text color-coral">5% скидка <span class="text-small">на оригинальные запчасти</span></span>
                     </div>
                 </li>
             </ul>
@@ -53,7 +53,7 @@
                 <BarabanImage :activate="activateBaraban" @deactivate="twistBaraban" @gift="setGift" />
             </div>
             <div class="baraban-block-form">
-                <FormBaraban @twist="twistBaraban" />
+                <FormBaraban @twist="twistBaraban" :send-form="sendForm"/>
             </div>
         </div>
     </div>
@@ -66,6 +66,7 @@
             return {
                 activateBaraban: false,
                 is_swap: false,
+                sendForm: false,
                 el0 : true,
                 el1 : true,
                 el2 : true,
@@ -77,6 +78,7 @@
             twistBaraban(state) {
                 this.is_swap = true;
                 this.activateBaraban = state;
+                this.sendForm = !state;
             },
             setGift(gift) {
                 this.el0 = (gift === 0);
