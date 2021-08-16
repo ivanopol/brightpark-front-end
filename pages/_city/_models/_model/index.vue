@@ -77,6 +77,25 @@ export default Vue.extend({
       model: '',
       seo: {},
       count: 0,
+      bodies: {
+        granta: {
+          drive_active: {
+            color: [
+              {
+                name: 'blue',
+                hash: '#1B65F5',
+                path: '/images/models/granta.png',
+              },
+              {
+                name: 'red',
+                hash: '#860E02',
+                path: 'https://static.lada.ru/images/v6/cars/configurator/granta/sedan/luxe/luxe_195.png',
+              }
+            ]
+          }
+        }
+      },
+
       modelColors: {
         model: 'granta',
         body: 'sedan',
@@ -86,7 +105,6 @@ export default Vue.extend({
             hash: '#1B65F5',
             path: '/images/models/granta.png',
           },
-
           {
             name: 'red',
             hash: '#860E02',
