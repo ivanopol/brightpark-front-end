@@ -11,7 +11,9 @@
           :model="model.model"
           :type="model.type"
           :form_id="'model__banner-new_'"
+          @scrollTo="scrollToCredit"
         />
+
         <TestDriveBanner />
         <AdvantagesNew class="models-advantages"/>
         <ModelsFeatures
@@ -22,7 +24,7 @@
         <ModelsEquipments class="equipments-block"/>
         <TradeInFormNew />
         <ModelsAbout />
-        <CreditNew />
+        <CreditNew id="creditCalc" />
         <ModelsWarranty />
         <BookCarNew class="book-section"/>
       </div>
@@ -226,7 +228,12 @@ export default Vue.extend({
   methods: {
     getRandomInt: function (min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
-    }
+    },
+
+    scrollToCredit() {
+      const element = document.getElementById('creditCalc');
+      element.scrollIntoView({block: 'start', behavior: 'smooth'});
+    },
   },
   created() {
     if(this.$cookies.get('count') === undefined) {
