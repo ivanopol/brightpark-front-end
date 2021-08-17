@@ -16,8 +16,8 @@
             </li>
           </ul>
 
-          <div class="banner__inner__car__colors__mobile">
-            <div class="banner__inner__car__colors__mobile__current-color" />
+          <div class="banner__inner__car__colors__mobile" @click="openColorChoose">
+            <div :class="'banner__inner__car__colors__mobile__current-color ' + colorClass" />
             <p>Выберите цвет</p>
           </div>
         </div>
@@ -54,6 +54,14 @@
 
       <FormLeadNew />
     </modal>
+
+    <modal name="color-choose" height="auto" :adaptive="true" class="color-choose">
+      <div id="color-choose_modal_close" class="close event" @click="closeColorChoose"></div>
+      <color-choose-mobile
+        :colors="colors"
+        @changeColor="changeColorMobile"
+      />
+    </modal>
   </section>
 </template>
 
@@ -83,6 +91,7 @@ export default {
      // price: '495 900 ₽',
       currentImage: "",
       currentColor: -1,
+      colorClass: "",
     }
   },
 
@@ -103,6 +112,15 @@ export default {
     hide() {
       this.$modal.hide("form-callback4");
     },
+
+    openColorChoose() {
+      this.$modal.show("color-choose");
+    },
+
+    closeColorChoose() {
+      this.$modal.hide("color-choose");
+    },
+
     changeColor(color) {
       this.colors.forEach(el => {
         if (el.id == color) {
@@ -110,12 +128,20 @@ export default {
           this.currentColor = el.id;
         }
       })
-    }
+    },
+
+    changeColorMobile(data) {
+      console.log(data);
+      this.currentImage = data.image;
+      this.currentColor = data.colorId;
+      this.colorClass = data.colorClass;
+    },
   },
 
   mounted() {
     this.currentColor = this.colors[0].id;
     this.currentImage = this.colors[0].image;
+    this.colorClass = this.colors[0].class;
   },
 
 }
@@ -211,7 +237,8 @@ export default {
   }
 }
 
-.banner__inner__car__colors__color {
+.banner__inner__car__colors__color,
+.banner__inner__car__colors__mobile__current-color {
   width: 30px;
   height: 30px;
   border-radius: 50%;

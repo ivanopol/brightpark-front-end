@@ -701,7 +701,6 @@ export default {
         transorm: unset;
         top: 15px;
         left: 19px;
-
       }
     }
   }
