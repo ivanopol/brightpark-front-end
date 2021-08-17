@@ -7,41 +7,27 @@
 
           <ul class="banner__inner__car__colors">
             <li
-              v-for="color in colorsArray.colors"
-              :key="colorsArray.colors.indexOf(color)"
-              :class="[currentColor === color.name ? 'active-color' : '']"
-              @click="changeColor(color.name)"
-            >
-              <div class="banner__inner__car__colors__color" :style="{backgroundColor: color.hash}">
-              </div>
+              v-for="color in colors"
+              :key="colors.id"
+              :class="[currentColor === color.id ? 'active-color' : '']"
+              @click="changeColor(color.id)"
+              >
+              <div :class="'banner__inner__car__colors__color ' + color.class" />
             </li>
           </ul>
 
           <div class="banner__inner__car__colors__mobile">
-            <div class="banner__inner__car__colors__mobile__current-color"></div>
-            <p>
-              Выберите цвет
-            </p>
+            <div class="banner__inner__car__colors__mobile__current-color" />
+            <p>Выберите цвет</p>
           </div>
         </div>
 
         <div class="banner__inner__info">
-          <h1>
-            {{ mainHeading }}
-          </h1>
-
-          <p class="banner__inner__info__price">
-            от {{ price }}
-          </p>
-
+          <h1>{{ mainHeading }}</h1>
+          <p class="banner__inner__info__price">от {{ price }}</p>
           <div class="banner__inner__info__credit">
-            <p>
-              Или в кредит <span> от 4 821 ₽ / месяц </span>
-            </p>
-
-            <button type="button">
-              Рассчитать кредит
-            </button>
+            <p>Или в кредит <span> от 4 821 ₽ / месяц </span></p>
+            <button type="button">Рассчитать кредит</button>
           </div>
 
           <ButtonNew
@@ -55,8 +41,6 @@
                     'test_drive'
                   )"
           />
-
-
         </div>
       </div>
     </div>
@@ -78,6 +62,7 @@ export default {
   name: "ModelsBannerNew",
 
   props: {
+    colors: Array,
     colorsArray: Object,
     form_id: {
       default: '',
@@ -93,7 +78,7 @@ export default {
       mainHeading: 'Новая LADA Granta Sedan в Перми',
       price: '495 900 ₽',
       currentImage: "",
-      currentColor: "",
+      currentColor: -1,
     }
   },
 
@@ -114,21 +99,19 @@ export default {
     hide() {
       this.$modal.hide("form-callback4");
     },
-
     changeColor(color) {
-      this.colorsArray.colors.forEach(el => {
-        if (el.name === color) {
-          this.currentImage = el.path;
-          this.currentColor = el.name;
-          console.log(this.currentColor, this.currentImage);
+      this.colors.forEach(el => {
+        if (el.id == color) {
+          this.currentImage = el.image;
+          this.currentColor = el.id;
         }
       })
     }
   },
 
   mounted() {
-    this.currentColor = this.colorsArray.colors[0].name;
-    this.currentImage = this.colorsArray.colors[0].path;
+    this.currentColor = this.colors[0].id;
+    this.currentImage = this.colors[0].image;
   },
 
 }
