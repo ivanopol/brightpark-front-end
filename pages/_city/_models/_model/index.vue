@@ -7,6 +7,7 @@
         <ModelsBannerNew
           class="models-banner"
           :colors-array="modelColors"
+          :colors="model.colors"
           :form_id="'model__banner-new_'"
         />
         <TestDriveBanner />
@@ -77,14 +78,14 @@ export default Vue.extend({
       model: '',
       seo: {},
       count: 0,
-      bodies: {
+/*      bodies: {
         granta: {
           drive_active: {
             color: [
               {
                 name: 'blue',
                 hash: '#1B65F5',
-                path: '/images/models/granta.png',
+                path: '/images/colors/lada/granta/sedan/lada_granta_blue_planet.png',
               },
               {
                 name: 'red',
@@ -94,7 +95,7 @@ export default Vue.extend({
             ]
           }
         }
-      },
+      },*/
 
       modelColors: {
         model: 'granta',
@@ -153,6 +154,8 @@ export default Vue.extend({
     const seo = await context.$axios.$post(process.env.apiUrl + `/api/get_meta_tags`, {
       route: context.route.fullPath
     })
+
+    console.log(model)
 
     return { model: model, seo: seo, new_design: new_design }
   },
