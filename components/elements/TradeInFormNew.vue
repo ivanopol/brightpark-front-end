@@ -747,9 +747,12 @@ export default {
   .select-field, .input-field {
     position: relative;
     margin-bottom: 20px;
-
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
     @media (min-width: 1000px) {
-      margin-bottom: 0;
+      margin: 0;
+      max-width: unset;
     }
   }
 
