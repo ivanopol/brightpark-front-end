@@ -3,16 +3,11 @@
     <section class="test-drive-banner">
       <div class="container test-drive-banner__container">
         <div class="test-drive-banner__wrapper">
-          <img src="~static/images/models/da.png" alt="" class="test-drive-banner__pic">
+          <img src="~static/images/credit-section/granta_mini.png" alt="" class="test-drive-banner__pic">
 
           <div class="test-drive-banner__text">
-            <h2>
-              Испытай новую LADA Granta в деле!
-            </h2>
-
-            <p>
-              Ощутите преимущества новой LADA Granta Седан на собственном опыте
-            </p>
+            <h2>Испытай новую LADA Granta в деле!</h2>
+            <p>Ощутите преимущества новой LADA {{this.$store.state.car.model_full}} на собственном опыте</p>
           </div>
 
           <ButtonNew
