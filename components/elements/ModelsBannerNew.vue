@@ -27,7 +27,7 @@
           <p class="banner__inner__info__price">от {{ prices.special_price | formatPrice }} ₽</p>
           <div class="banner__inner__info__credit">
             <p>Или в кредит <span> от {{ prices.credit_from | formatPrice }} ₽ / месяц </span></p>
-            <button type="button">Рассчитать кредит</button>
+            <button type="button" @click="scrollTo">Рассчитать кредит</button>
           </div>
 
           <ButtonNew
@@ -60,6 +60,7 @@
       <color-choose-mobile
         :colors="colors"
         @changeColor="changeColorMobile"
+        :active-color="currentColor"
       />
     </modal>
   </section>
@@ -136,6 +137,10 @@ export default {
       this.currentColor = data.colorId;
       this.colorClass = data.colorClass;
     },
+
+    scrollTo() {
+      this.$emit('scrollTo');
+    }
   },
 
   mounted() {
@@ -517,6 +522,13 @@ export default {
     font-weight: 700;
     font-family: "Factor A";
     border-bottom: 1px dashed rgba(81, 78, 161, 0.35);
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+      opacity: .7;
+      transition: .2s;
+    }
   }
 
   @media (min-width: 1000px) {

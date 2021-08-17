@@ -14,6 +14,7 @@
       v-for="color in colors"
       :key="color.id"
       @click="changeColor(color.id)"
+      :class="[currentColor === color.id || activeColor === color.id ? 'active-color' : '']"
     >
       <div :class="'colors-choose__list__circle ' + color.class" />
 
@@ -41,6 +42,7 @@ export default {
 
   props: {
     colors: Array,
+    activeColor: Number,
   },
 
   methods: {
@@ -90,6 +92,24 @@ export default {
     flex-shrink: 0;
     align-items: center;
     cursor: pointer;
+
+    &.active-color {
+      .colors-choose__list__circle {
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMiAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEgN0wzIDlMMTEgMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==);
+          background-size: cover;
+          width: 16px;
+          height: 13px;
+          display: block;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
   }
 }
 
@@ -102,7 +122,7 @@ export default {
 .color-choose__head__decor {
   position: absolute;
   top: 0;
-  left: -20px;
+  left: 0px;
 }
 
 .colors-choose__list__circle {
