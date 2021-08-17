@@ -208,8 +208,13 @@
   </div>
 
   <modal name="thanks-modal" height="auto" :adaptive="true" class="thanks-modal">
-    <div id="thanks_modal_close" class="close event" @click="hideThanks"></div>
+    <div id="thanks_modal_close" class="close event" @click="hide('thanks-modal')"></div>
     <ModalThanks />
+  </modal>
+
+  <modal name="form-evaluate" height="auto" :adaptive="true" class="form-evaluate">
+    <div id="form_evaluate_close" class="close event" @click="hide('form-evaluate')"></div>
+    <FormEvaluate />
   </modal>
 </section>
 </template>
@@ -384,12 +389,12 @@ export default {
         });
     },
 
-    showThanks() {
-      this.$modal.show("thanks-modal");
+    show(modal) {
+      this.$modal.show(modal);
     },
 
-    hideThanks() {
-      this.$modal.hide("thanks-modal");
+    hide(modal) {
+      this.$modal.hide(modal);
     },
   },
 
@@ -445,7 +450,7 @@ export default {
   },
 
   mounted() {
-    this.showThanks();
+    this.show('form-evaluate');
   }
 }
 </script>
@@ -730,5 +735,13 @@ export default {
         height: 4px;
       }
     }
+  }
+
+  .form-evaluate .vm--modal {
+    max-width: unset;
+    width: 100%;
+    border-radius: 0;
+    height: 100vh !important;
+    overflow-y: auto;
   }
 </style>
