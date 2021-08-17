@@ -1,67 +1,64 @@
 <template>
   <div class="models-page">
     <div>
-<!--      <div class="container model-breadcrumbs">-->
-<!--          <BreadCrumbs :breadcrumbs="makeBreadcrumbs"/>-->
-<!--      </div>-->
+      <div v-if="new_design">
+        <ModelsListNew />
+        <BodiesListNew />
+        <ModelsBannerNew
+          class="models-banner"
+          :colors-array="modelColors"
+          :form_id="'model__banner-new_'"
+        />
+        <TestDriveBanner />
+        <AdvantagesNew class="models-advantages"/>
+        <ModelsFeatures
+          :body="'Хэтчбек'"
+          :drive_type="'Передний'"
+          :transmission="'MT'"
+        />
+        <ModelsEquipments class="equipments-block"/>
+        <TradeInFormNew />
+        <ModelsAbout />
+        <CreditNew />
+        <ModelsWarranty />
+        <BookCarNew class="book-section"/>
+      </div>
 
-<!--      <ModelBanner :data="model.slider" />-->
-      <ModelsListNew />
-      <BodiesListNew />
-      <ModelsBannerNew
-        class="models-banner"
-        :colors-array="modelColors"
-      />
-      <TestDriveBanner />
-
-      <AdvantagesNew class="models-advantages"/>
-
-      <ModelsFeatures
-        :body="'Хэтчбек'"
-        :drive_type="'Передний'"
-        :transmission="'MT'"
-      />
-
-      <ModelsEquipments class="equipments-block"/>
-
-
-      <TradeInFormNew />
-
-      <ModelsAbout />
-
-      <CreditNew />
-      <ModelsWarranty />
-
-      <BookCarNew class="book-section"/>
-
-      <MegaTeasers2 />
-      <ModelInfo v-for="(info, index) in model.blocks" v-bind:key="info.id"
-        :block="info"
-        :n="index"
-        :model="model.model_id"
-        :type="model.type_id"
-      />
-     <ColorChoose :colors="model.colors" :model="model.model_slug" :type="model.type_slug" v-if="model.colors.length !== 0"/>
-
-      <section class="model-details">
-        <div class="trigger-wrap" >
-         <p class="trigger-wrap-text" v-if="!this.is_niva">Осталось <span class="model-count-text">{{count}}</span> {{model.model_full}} по цене лучше, чем на сайте</p>
+      <div v-else>
+        <div class="container model-breadcrumbs">
+            <BreadCrumbs :breadcrumbs="makeBreadcrumbs"/>
         </div>
-        <steps  :car_model='model.model'
-                :car_type='model.type'
-                :car_attrs='model.car_attrs'
-                :form_id="$store.state._page + '__fill-form_'"
-                :goal="'fixconditions'"
-                :prefix="$store.state._page + '__'">
-        </steps>
-      </section>
 
-      <Reviews v-if="model.reviews.length !== 0"
-               :reviews='model.reviews'
-               :model_name="model.model_full"/>
-      <Plate :text="plate"/>
-      <NextAction />
-      <Feedback :model_full="model.model_full" />
+        <ModelBanner :data="model.slider" />
+        <MegaTeasers2 />
+        <ModelInfo v-for="(info, index) in model.blocks" v-bind:key="info.id"
+          :block="info"
+          :n="index"
+          :model="model.model_id"
+          :type="model.type_id"
+        />
+       <ColorChoose :colors="model.colors" :model="model.model_slug" :type="model.type_slug" v-if="model.colors.length !== 0"/>
+
+        <section class="model-details">
+          <div class="trigger-wrap" >
+           <p class="trigger-wrap-text" v-if="!this.is_niva">Осталось <span class="model-count-text">{{count}}</span> {{model.model_full}} по цене лучше, чем на сайте</p>
+          </div>
+          <steps  :car_model='model.model'
+                  :car_type='model.type'
+                  :car_attrs='model.car_attrs'
+                  :form_id="$store.state._page + '__fill-form_'"
+                  :goal="'fixconditions'"
+                  :prefix="$store.state._page + '__'">
+          </steps>
+        </section>
+
+        <Reviews v-if="model.reviews.length !== 0"
+                 :reviews='model.reviews'
+                 :model_name="model.model_full"/>
+        <Plate :text="plate"/>
+        <NextAction />
+        <Feedback :model_full="model.model_full" />
+      </div>
     </div>
     <nuxt-child/>
   </div>
@@ -76,9 +73,29 @@ export default Vue.extend({
   components: {MegaTeasers2},
   data: function () {
     return {
+      new_design: false,
       model: '',
       seo: {},
       count: 0,
+      bodies: {
+        granta: {
+          drive_active: {
+            color: [
+              {
+                name: 'blue',
+                hash: '#1B65F5',
+                path: '/images/models/granta.png',
+              },
+              {
+                name: 'red',
+                hash: '#860E02',
+                path: 'https://static.lada.ru/images/v6/cars/configurator/granta/sedan/luxe/luxe_195.png',
+              }
+            ]
+          }
+        }
+      },
+
       modelColors: {
         model: 'granta',
         body: 'sedan',
@@ -86,9 +103,8 @@ export default Vue.extend({
           {
             name: 'blue',
             hash: '#1B65F5',
-            path: '/_nuxt/static/images/models/granta.png',
+            path: '/images/models/granta.png',
           },
-
           {
             name: 'red',
             hash: '#860E02',
@@ -99,7 +115,9 @@ export default Vue.extend({
 
     }
   },
-  layout: 'model',
+  layout (context) {
+    return context.route.params.models === 'granta' ? 'model_new' : 'model'
+  },
   validate: function ({params, store}) {
     let validate_city = false
     let validate_model = false
@@ -121,6 +139,11 @@ export default Vue.extend({
       process.env.apiUrl + `/api/model?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
     )
 
+    let new_design = false
+    if (context.route.params.models === 'granta') {
+      new_design = true
+    }
+
     let car = {
       model_full: model.model_full,
       url: '/' + context.route.params.city + '/' + model.model_slug + '/' + model.type_slug + '/model-details'
@@ -131,7 +154,7 @@ export default Vue.extend({
       route: context.route.fullPath
     })
 
-    return { model: model, seo: seo }
+    return { model: model, seo: seo, new_design: new_design }
   },
   head() {
     if (Object.keys(this.seo).length == 0) {
@@ -233,6 +256,4 @@ export default Vue.extend({
   .book-section {
     margin-top: 20px;
   }
-
-
 </style>

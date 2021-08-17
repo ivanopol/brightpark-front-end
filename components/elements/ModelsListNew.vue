@@ -3,13 +3,13 @@
   <div class="container">
     <ul class="models__list">
       <li v-for="model in models" :key="model.id">
-        <nuxt-link :to="'/' + $store.state.city.value + '/' + model.path"
+        <a :href="'/' + $store.state.city.value + '/' + model.path"
                    :id="$store.state._page + '__models__list__' + model.name.toLowerCase()"
                    class="event">
           <span>
             {{ model.name }}
           </span>
-        </nuxt-link>
+        </a>
       </li>
 
     </ul>

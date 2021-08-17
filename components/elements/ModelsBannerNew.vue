@@ -50,7 +50,7 @@
             class="banner__inner__info__button"
             @click.native="show(
                     'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
+                    $store.state._page + '__modal-banner-new_',
                     1,
                     'test_drive'
                   )"
@@ -79,6 +79,10 @@ export default {
 
   props: {
     colorsArray: Object,
+    form_id: {
+      default: '',
+      type: String
+    }
   },
 
   data: function () {
