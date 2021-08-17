@@ -26,7 +26,7 @@
           <h1>Новая LADA {{ model }} {{ type }} в {{ $store.state.city.dative }}</h1>
           <p class="banner__inner__info__price">от {{ prices.special_price | formatPrice }} ₽</p>
           <div class="banner__inner__info__credit">
-            <p>Или в кредит <span> от 4 821 ₽ / месяц </span></p>
+            <p>Или в кредит <span> от {{ prices.credit_from | formatPrice }} ₽ / месяц </span></p>
             <button type="button">Рассчитать кредит</button>
           </div>
 
