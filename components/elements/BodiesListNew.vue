@@ -41,13 +41,13 @@ export default {
           id: '3',
           name: 'Седан',
           path: 'sedan',
-          image: '/images/models/da.png'
+          image: '/images/models/sedan.png'
         },
         {
           id: '4',
           name: 'Универсал',
           path: 'universal',
-          image: '/images/models/da.png'
+          image: '/images/models/wagon.png'
         },
 
       ],

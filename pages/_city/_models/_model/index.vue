@@ -157,8 +157,6 @@ export default Vue.extend({
       route: context.route.fullPath
     })
 
-    console.log(model)
-
     return { model: model, seo: seo, new_design: new_design }
   },
   head() {
