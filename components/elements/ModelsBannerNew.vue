@@ -63,7 +63,6 @@ export default {
 
   props: {
     colors: Array,
-    colorsArray: Object,
     form_id: {
       default: '',
       type: String
@@ -211,8 +210,7 @@ export default {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-
-
+  cursor: pointer;
 
   &.color- {
     &blue-planet {

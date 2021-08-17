@@ -6,7 +6,6 @@
         <BodiesListNew />
         <ModelsBannerNew
           class="models-banner"
-          :colors-array="modelColors"
           :colors="model.colors"
           :form_id="'model__banner-new_'"
         />
