@@ -1,5 +1,8 @@
 <template>
 <div class="evaluate">
+  <img src="~static/images/evaluate-img.png" alt="" class="evaluate__decor">
+
+
   <h4 class="evaluate__title">
     Оценка вашего автомобиля
   </h4>
@@ -11,7 +14,7 @@
       </h5>
 
       <p class="evaluate__car-info__item__value">
-        Mercedes
+        {{ mark }}
       </p>
     </div>
 
@@ -21,59 +24,50 @@
       </h5>
 
       <p class="evaluate__car-info__item__value">
-        S600 AMG
+        {{ model }}
       </p>
     </div>
 
     <div class="evaluate__car-info__item">
       <h5 class="evaluate__car-info__item__heading">
-        Марка автомобиля
+        Пробег автомобиля, км
       </h5>
 
       <p class="evaluate__car-info__item__value">
-        Mercedes
+        {{ mileage }}
       </p>
     </div>
 
     <div class="evaluate__car-info__item">
       <h5 class="evaluate__car-info__item__heading">
-        Марка автомобиля
+        Модификация
       </h5>
 
       <p class="evaluate__car-info__item__value">
-        Mercedes
+        {{ modification }}
       </p>
     </div>
 
     <div class="evaluate__car-info__item">
       <h5 class="evaluate__car-info__item__heading">
-        Марка автомобиля
+        Год выпуска
       </h5>
 
       <p class="evaluate__car-info__item__value">
-        Mercedes
+        {{ year }}
       </p>
     </div>
 
     <div class="evaluate__car-info__item">
       <h5 class="evaluate__car-info__item__heading">
-        Марка автомобиля
+        Коробка передач
       </h5>
 
       <p class="evaluate__car-info__item__value">
-        Mercedes
+        {{ transmission }}
       </p>
     </div>
 
-    <div class="evaluate__car-info__item">
-      <h5 class="evaluate__car-info__item__heading">
-        Марка автомобиля
-      </h5>
-
-      <p class="evaluate__car-info__item__value">
-        Mercedes
-      </p>
-    </div>
   </div>
 
 
@@ -85,7 +79,7 @@
     </p>
 
     <p class="evaluate__car__prices__range">
-      545000 - 560000 Р*
+      {{ priceFromChanged }} ₽ — {{ priceToChanged }} ₽*
     </p>
 
     <p class="evaluate__car__prices__warning">
@@ -99,28 +93,30 @@
 
     <form class="evaluate__car__form">
 
-      <h5 class="evaluate__car__form__heading">
-        Хотите + 10 000&nbsp;₽ к&nbsp;оценочной стоимости?
-      </h5>
+      <div class="evaluate__car__form__grid">
+        <h5 class="evaluate__car__form__heading">
+          Хотите + 10 000&nbsp;₽ к&nbsp;оценочной стоимости?
+        </h5>
 
-      <p class="evaluate__car__form__description">
-        Оставьте ваши контактные данные, вам придёт код, при предъявлении которого, мы&nbsp;добавим 10&nbsp;000 рублей к&nbsp;оценочной стоимости вашего авто в&nbsp;салоне.
-      </p>
+        <p class="evaluate__car__form__description">
+          Оставьте ваши контактные данные, вам придёт код, при предъявлении которого, мы&nbsp;добавим 10&nbsp;000 рублей к&nbsp;оценочной стоимости вашего авто в&nbsp;салоне.
+        </p>
 
-      <div class="evaluate__car__form__field">
-        <span class="field-placeholder" :class="[nameVal !== '' ? 'active' : '']">
-          Ваше имя
-        </span>
+        <div class="evaluate__car__form__field">
+          <input type="text" v-model="nameVal">
 
-        <input type="text" v-model="nameVal">
-      </div>
+          <span class="field-placeholder" :class="[nameVal !== '' ? 'active' : '']">
+            Ваше имя
+          </span>
+        </div>
 
-      <div class="evaluate__car__form__field">
-        <span class="field-placeholder" :class="[phoneVal !== '' ? 'active' : '']">
-          Контактный телефон
-        </span>
+        <div class="evaluate__car__form__field">
+          <input type="text" v-model="phoneVal">
 
-        <input type="text" v-model="phoneVal">
+          <span class="field-placeholder" :class="[phoneVal !== '' ? 'active' : '']">
+            Контактный телефон
+          </span>
+        </div>
       </div>
 
       <ButtonNew
@@ -141,9 +137,11 @@ export default {
     mark: String,
     model: String,
     modification: String,
-    mileage: String,
+    mileage: Number,
     year: String,
     transmission: String,
+    priceFrom: Number,
+    priceTo: Number,
   },
 
   data: function() {
@@ -152,6 +150,16 @@ export default {
       phoneVal: '',
     }
   },
+
+  computed: {
+    priceFromChanged() {
+      return this.priceFrom.toLocaleString('ru-RU');
+    },
+
+    priceToChanged() {
+      return this.priceTo.toLocaleString('ru-RU');
+    }
+  }
 }
 </script>
 
@@ -159,6 +167,24 @@ export default {
 .evaluate {
   background: white;
   padding: 48px 0 0;
+
+  @media (min-width: 1024px) {
+    max-width: 970px;
+    width: 100%;
+    position: relative;
+  }
+}
+
+.evaluate__decor {
+  display: none;
+
+  @media (min-width: 1024px) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    pointer-events: none;
+  }
 }
 
 .evaluate__title {
@@ -168,14 +194,29 @@ export default {
   margin-bottom: 20px;
   font-family: "Bright Park Display";
   padding: 0 20px;
+
+  @media (min-width: 1024px) {
+    padding-left: 300px;
+    margin-bottom: 30px;
+  }
 }
 
 .evaluate__car-info__item {
   margin-bottom: 20px;
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+  }
 }
 
 .evaluate__car-info {
   padding: 0 20px;
+
+  @media (min-width: 1024px) {
+    padding-left: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+  }
 }
 
 .evaluate__car-info__item__heading {
@@ -196,6 +237,10 @@ export default {
 
 .evaluate__car__prices {
   margin-top: 50px;
+
+  @media (min-width: 1024px) {
+    padding-left: 300px;
+  }
 }
 
 .evaluate__car__prices__description {
@@ -209,6 +254,14 @@ export default {
   span {
     display: block;
   }
+
+  @media (min-width: 1024px) {
+    text-align: left;
+
+    span {
+      display: inline-block;
+    }
+  }
 }
 
 .evaluate__car__prices__range {
@@ -218,6 +271,12 @@ export default {
   color: #514EA1;
   font-family: "Factor A";
   margin: 15px 0;
+
+  @media (min-width: 1024px) {
+    text-align: left;
+    font-size: 30px;
+    margin: 5px 0;
+  }
 }
 
 .evaluate__car__prices__warning {
@@ -226,6 +285,11 @@ export default {
   color: rgba(0, 0, 0, .5);
   font-family: "Factor A";
   text-align: center;
+
+  @media (min-width: 1024px) {
+    text-align: left;
+    max-width: 370px;
+  }
 }
 
 .evaluate__car__form-wrapper {
@@ -234,6 +298,11 @@ export default {
   padding: 70px 0;
   position: relative;
   margin-top: 50px;
+
+  @media (min-width: 1024px) {
+    padding: 80px 99px 50px;
+    background: url("~static/images/trade-in-form/bg-layer.svg") no-repeat;
+  }
 }
 
 .evaluate__car__form__field {
@@ -247,6 +316,12 @@ export default {
     padding: 15px 23px 0;
     color: white;
     border: none;
+
+    &:focus + .field-placeholder {
+      font-size: 12px;
+      top: 10px;
+      transition: .2s ease-in;
+    }
   }
 }
 
@@ -259,6 +334,7 @@ export default {
   font-size: 18px;
   font-family: "Factor A";
   transition: .2s ease-out;
+  pointer-events: none;
 
   &.active {
     font-size: 12px;
@@ -273,12 +349,21 @@ export default {
   color: white;
   font-family: "Bright Park Display";
   margin-bottom: 20px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+  }
 }
 
 .evaluate__car-info__form__coins {
   position: absolute;
   right: 0;
   top: 0;
+
+  @media (min-width: 1024px) {
+    right: 50%;
+    top: -15px;
+  }
 }
 
 .evaluate__car__form__description {
@@ -287,11 +372,24 @@ export default {
   margin-bottom: 24px;
   color: white;
   line-height: 20px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+  }
 }
 
 .evaluate__form__submit {
   height: 60px;
   font-size: 14px;
+}
+
+.evaluate__car__form__grid {
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    row-gap: 25px;
+  }
 }
 
 </style>

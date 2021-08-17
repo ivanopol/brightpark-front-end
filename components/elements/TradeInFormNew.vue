@@ -49,8 +49,27 @@
         >
           <form id="offlineWidgetForm">
             <div class="trade-in_form__offline__fields">
-              <input type="text" name="name" placeholder="Ваше имя">
-              <input type="tel" name="phone" placeholder="Контактный телефон">
+              <div class="input-field">
+                <input type="text" name="name"v-model="usersName">
+
+                <span
+                  class="input-field__placeholder"
+                  :class="[usersName !== '' ? 'active' : false]"
+                >
+                  Ваше имя
+                </span>
+              </div>
+
+              <div class="input-field">
+                <input type="tel" name="phone" v-model="usersPhone">
+
+                <span
+                  class="input-field__placeholder"
+                  :class="[usersPhone !== '' ? 'active' : false]"
+                >
+                  Контактный телефон
+                </span>
+              </div>
             </div>
 
             <ButtonNew
@@ -71,7 +90,7 @@
               <div class="select-field">
                 <span
                   class="select-field__placeholder"
-                  :class="[selectedMark !== null ? 'active' : false]"
+                  :class="[selectedMark.label !== '' ? 'active' : false]"
                 >
                   Марка автомобиля
                 </span>
@@ -128,6 +147,7 @@
                     v-for="modification in allModifications"
                     :key="allModifications.indexOf(modification)"
                     :data-param="modification.tech_param_id"
+                    :data-label="modification.label"
                   >
                     {{ modification.label }}
                   </option>
@@ -212,9 +232,18 @@
     <ModalThanks />
   </modal>
 
-  <modal name="form-evaluate" height="auto" :adaptive="true" class="form-evaluate">
+  <modal name="form-evaluate" height="auto" width="970px" :adaptive="true" class="form-evaluate" @closed="hide('form-evaluate')">
     <div id="form_evaluate_close" class="close event" @click="hide('form-evaluate')"></div>
-    <FormEvaluate />
+    <FormEvaluate
+      :mark="selectedMark.label"
+      :model="selectedModel.label"
+      :mileage="selectedMileage"
+      :modification="selectedModification.label"
+      :transmission="selectedTransmission"
+      :year="selectedYear"
+      :priceFrom="pricesRange.from"
+      :priceTo="pricesRange.to"
+    />
   </modal>
 </section>
 </template>
@@ -230,9 +259,15 @@ export default {
       isOfflineWidget: false,
       allMarks: null,
       allModels: null,
-      selectedMark: null,
-      selectedModel: null,
-      selectedModification: null,
+      selectedMark: {
+        label: '',
+      },
+      selectedModel: {
+        label: '',
+      },
+      selectedModification: {
+        label: '',
+      },
       allModifications: null,
       selectedMileage: null,
       years: null,
@@ -253,12 +288,19 @@ export default {
       ],
       submitButtonText: 'Рассчитать',
 
-      pricesRange: [],
+      pricesRange: {
+        from: '',
+        to: '',
+      },
 
       values: {
         model: null,
         modification: null,
+        mark: null,
       },
+
+      usersName: '',
+      usersPhone: '',
     }
   },
 
@@ -266,7 +308,6 @@ export default {
     toggleWidget(event, widget) {
       const btn = event.target;
       const buttons = document.querySelectorAll('.trade-in__form__toggle__btn');
-      console.log(window);
 
       buttons.forEach( function(elem) {
         elem.classList.remove('active');
@@ -319,20 +360,20 @@ export default {
         .finally(() => {
         });
 
-      if (this.selectedMark !== null) {
-        this.selectedModel = null;
-        // this.selected_modification = null;
-        // this.selected_year = null;
-        // this.selected_mileage = null;
-        // this.selected_tech_param_id = null;
-        // this.estimation = null;
-        // this.tradeInEstimation = 0;
-        // this.brightParkEstimation = 0;
-        // this.step_two = false;
-        // this.step_three = false;
-        // this.step_four = false;
-        // this.step_five = false;
-      }
+      // if (this.selectedMark !== null) {
+      //   this.selectedModel = null;
+      //   // this.selected_modification = null;
+      //   // this.selected_year = null;
+      //   // this.selected_mileage = null;
+      //   // this.selected_tech_param_id = null;
+      //   // this.estimation = null;
+      //   // this.tradeInEstimation = 0;
+      //   // this.brightParkEstimation = 0;
+      //   // this.step_two = false;
+      //   // this.step_three = false;
+      //   // this.step_four = false;
+      //   // this.step_five = false;
+      // }
       // this.step_one = true;
       // this.selected_brand = input;
 
@@ -358,7 +399,10 @@ export default {
 
     getYears: function(event) {
       const target = event.target;
-      this.selectedModification = target.options[target.selectedIndex].dataset.param;
+      this.selectedModification = {
+        label: target.options[target.selectedIndex].dataset.label,
+        param: target.options[target.selectedIndex].dataset.param,
+      };
 
       var currentYear = new Date().getFullYear(), years = [];
       var startYear = 1980;
@@ -377,7 +421,7 @@ export default {
 
     getResult: function() {
       const data = JSON.stringify({
-        tech_param_id: this.selectedModification,
+        tech_param_id: this.selectedModification.param,
         km_age: this.selectedMileage,
         year: this.selectedYear
       });
@@ -385,16 +429,22 @@ export default {
       axios.post(process.env.apiUrl + '/api/get_estimation/', data)
         .then((response) => {
           console.log(response.data.estimation.prices.autoru);
-          this.pricesRange = response.data.estimation.prices.autoru;
+          this.pricesRange.from = response.data.estimation.prices.autoru.from;
+          this.pricesRange.to = response.data.estimation.prices.autoru.to;
+
+          this.show('form-evaluate');
         });
     },
 
     show(modal) {
       this.$modal.show(modal);
+      document.body.style.overflow = 'hidden';
     },
 
     hide(modal) {
       this.$modal.hide(modal);
+      document.body.style.overflow = 'unset';
+
     },
   },
 
@@ -450,7 +500,7 @@ export default {
   },
 
   mounted() {
-    this.show('form-evaluate');
+    // this.show('form-evaluate');
   }
 }
 </script>
@@ -644,6 +694,15 @@ export default {
       &:last-child {
         margin-bottom: 0;
       }
+
+      &:focus + .input-field__placeholder {
+        transition: .2s ease;
+        font-size: 12px;
+        transorm: unset;
+        top: 15px;
+        left: 19px;
+
+      }
     }
   }
 
@@ -686,9 +745,8 @@ export default {
     }
   }
 
-  .select-field {
+  .select-field, .input-field {
     position: relative;
-
     margin-bottom: 20px;
 
     @media (min-width: 1000px) {
@@ -696,7 +754,7 @@ export default {
     }
   }
 
-  .select-field__placeholder {
+  .select-field__placeholder, .input-field__placeholder {
     position: absolute;
     left: 22px;
     font-weight: 500;
@@ -713,7 +771,7 @@ export default {
       font-size: 12px;
       transorm: unset;
       top: 15px;
-      left: 23px;
+      left: 19px;
     }
   }
 
@@ -743,5 +801,9 @@ export default {
     border-radius: 0;
     height: 100vh !important;
     overflow-y: auto;
+
+    @media (min-width: 1024px) {
+      max-width: 970px;
+    }
   }
 </style>
