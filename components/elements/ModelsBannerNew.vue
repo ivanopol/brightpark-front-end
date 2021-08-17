@@ -23,8 +23,8 @@
         </div>
 
         <div class="banner__inner__info">
-          <h1>{{ mainHeading }}</h1>
-          <p class="banner__inner__info__price">от {{ price }}</p>
+          <h1>Новая LADA {{ model }} {{ type }} в {{ $store.state.city.dative }}</h1>
+          <p class="banner__inner__info__price">от {{ prices.special_price | formatPrice }} ₽</p>
           <div class="banner__inner__info__credit">
             <p>Или в кредит <span> от 4 821 ₽ / месяц </span></p>
             <button type="button">Рассчитать кредит</button>
@@ -58,10 +58,16 @@
 </template>
 
 <script>
+import format_price from "@/mixins/format_price";
+
 export default {
+  mixins: [format_price],
   name: "ModelsBannerNew",
 
   props: {
+    prices: Object,
+    model: String,
+    type: String,
     colors: Array,
     form_id: {
       default: '',
@@ -71,11 +77,10 @@ export default {
 
   data: function () {
     return {
-      model: '',
       seo: {},
       count: 0,
-      mainHeading: 'Новая LADA Granta Sedan в Перми',
-      price: '495 900 ₽',
+    //  mainHeading: 'Новая LADA Granta Sedan в Перми',
+     // price: '495 900 ₽',
       currentImage: "",
       currentColor: -1,
     }

@@ -7,6 +7,9 @@
         <ModelsBannerNew
           class="models-banner"
           :colors="model.colors"
+          :prices="model.car_attrs"
+          :model="model.model"
+          :type="model.type"
           :form_id="'model__banner-new_'"
         />
         <TestDriveBanner />
