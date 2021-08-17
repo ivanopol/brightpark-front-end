@@ -60,6 +60,7 @@
       <color-choose-mobile
         :colors="colors"
         @changeColor="changeColorMobile"
+        :active-color="currentColor"
       />
     </modal>
   </section>
