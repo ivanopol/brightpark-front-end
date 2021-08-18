@@ -7,131 +7,14 @@
         </h2>
 
         <div class="models-features__items">
-          <div class="models-features__items__item">
+          <div class="models-features__items__item" v-for="param in params" :key="param.icon">
             <div class="models-features__items__item__icon">
-              <img src="~static/images/icons/models-features/body.svg" alt="">
+              <img :src="'/images/icons/models-features/' + param.icon + '.svg'" :alt="param.title">
             </div>
 
             <div class="models-features__items__item__text">
-              <h5>
-                Кузов
-              </h5>
-
-              <p>
-                {{ body }}
-              </p>
-            </div>
-          </div>
-
-          <div class="models-features__items__item">
-            <div class="models-features__items__item__icon">
-              <img src="~static/images/icons/models-features/drive.svg" alt="">
-            </div>
-
-            <div class="models-features__items__item__text">
-              <h5>
-                Привод
-              </h5>
-
-              <p>
-                {{ drive_type }}
-              </p>
-            </div>
-          </div>
-
-          <div class="models-features__items__item">
-            <div class="models-features__items__item__icon">
-              <img src="~static/images/icons/models-features/engine.svg" alt="">
-            </div>
-
-            <div class="models-features__items__item__text">
-              <h5>
-                объём двигателя
-              </h5>
-
-              <p>
-                {{ engine }}
-              </p>
-            </div>
-          </div>
-
-          <div class="models-features__items__item">
-            <div class="models-features__items__item__icon">
-              <img src="~static/images/icons/models-features/transmission.svg" alt="">
-            </div>
-
-            <div class="models-features__items__item__text">
-              <h5>
-                коробка двигателя
-              </h5>
-
-              <p>
-                {{ transmission }}
-              </p>
-            </div>
-          </div>
-
-          <div class="models-features__items__item">
-            <div class="models-features__items__item__icon">
-              <img src="~static/images/icons/models-features/seats.svg" alt="">
-            </div>
-
-            <div class="models-features__items__item__text">
-              <h5>
-                места
-              </h5>
-
-              <p>
-                {{ seats }}
-              </p>
-            </div>
-          </div>
-
-          <div class="models-features__items__item">
-            <div class="models-features__items__item__icon">
-              <img src="~static/images/icons/models-features/fuel.svg" alt="">
-            </div>
-
-            <div class="models-features__items__item__text">
-              <h5>
-                расход топлива
-              </h5>
-
-              <p>
-                {{ fuel }}
-              </p>
-            </div>
-          </div>
-
-          <div class="models-features__items__item">
-            <div class="models-features__items__item__icon">
-              <img src="~static/images/icons/models-features/fuel_type.svg" alt="">
-            </div>
-
-            <div class="models-features__items__item__text">
-              <h5>
-                топливо
-              </h5>
-
-              <p>
-                {{ fuel_type }}
-              </p>
-            </div>
-          </div>
-
-          <div class="models-features__items__item">
-            <div class="models-features__items__item__icon">
-              <img src="~static/images/icons/models-features/speed.svg" alt="">
-            </div>
-
-            <div class="models-features__items__item__text">
-              <h5>
-                макс. скорость
-              </h5>
-
-              <p>
-                {{ speed }}
-              </p>
+              <h5>{{ param.title }}</h5>
+              <p>{{ param.name }}</p>
             </div>
           </div>
         </div>
@@ -148,48 +31,245 @@
 <script>
 export default {
   name: "ModelsFeatures",
-
-  props: {
-    body: {
-      type: String,
-      default: 'Седан'
-    },
-
-    drive_type: {
-      type: String,
-      default: 'Передний'
-    },
-
-    transmission: {
-      type: String,
-      default: 'MT / AT'
-    },
-
-    engine: {
-      type: String,
-      default: '1.6 л'
-    },
-
-    seats: {
-      type: String,
-      default: '5'
-    },
-
-    fuel_type: {
-      type: String,
-      default: 'Бензин'
-    },
-
-    fuel: {
-      type: String,
-      default: 'от 5,2л / 100км'
-    },
-
-    speed: {
-      type: String,
-      default: 'до 184 км/ч'
+  data: function () {
+    return {
+      params: {},
+    }
+  },
+  async fetch() {
+    let bodies = {
+      drive_active: [
+        {
+          name: 'Drive Active',
+          title: 'Кузов',
+          icon: 'body'
+        },
+        {
+          name: 'Передний',
+          title: 'Привод',
+          icon: 'drive',
+        },
+        {
+          name: '1.6 л',
+          title:'объём двигателя',
+          icon: 'engine',
+        },
+        {
+          name: 'МТ',
+          title: 'коробка двигателя',
+          icon: 'transmission',
+        },
+        {
+          name: '5',
+          title: 'места',
+          icon: 'seats',
+        },
+        {
+          name: 'Бензин',
+          title: 'топливо',
+          icon: 'fuel_type',
+        },
+        {
+          name: 'от 5,2л / 100км',
+          title: 'расход топлива',
+          icon: 'fuel'
+        },
+        {
+          name: 'до 184 км/ч',
+          title: 'макс. скорость',
+          icon: 'speed',
+        },
+      ],
+        hatchback: [
+        {
+          name: 'Хэтчбек',
+          title: 'Кузов',
+          icon: 'body'
+        },
+        {
+          name: 'Передний',
+          title: 'Привод',
+          icon: 'drive',
+        },
+        {
+          name: '1.6 л',
+          title:'объём двигателя',
+          icon: 'engine',
+        },
+        {
+          name: 'MT / AT',
+          title: 'коробка двигателя',
+          icon: 'transmission',
+        },
+        {
+          name: '5',
+          title: 'места',
+          icon: 'seats',
+        },
+        {
+          name: 'Бензин',
+          title: 'топливо',
+          icon: 'fuel_type',
+        },
+        {
+          name: 'от 5,3л / 100км',
+          title: 'расход топлива',
+          icon: 'fuel'
+        },
+        {
+          name: 'до 176 км/ч',
+          title: 'макс. скорость',
+          icon: 'speed',
+        },
+      ],
+        liftback: [
+        {
+          name: 'Лифтбек',
+          title: 'Кузов',
+          icon: 'body'
+        },
+        {
+          name: 'Передний',
+          title: 'Привод',
+          icon: 'drive',
+        },
+        {
+          name: '1.6 л',
+          title:'объём двигателя',
+          icon: 'engine',
+        },
+        {
+          name: 'MT / AT',
+          title: 'коробка двигателя',
+          icon: 'transmission',
+        },
+        {
+          name: '5',
+          title: 'места',
+          icon: 'seats',
+        },
+        {
+          name: 'Бензин',
+          title: 'топливо',
+          icon: 'fuel_type',
+        },
+        {
+          name: 'от 5,2л / 100км',
+          title: 'расход топлива',
+          icon: 'fuel'
+        },
+        {
+          name: 'до 183 км/ч',
+          title: 'макс. скорость',
+          icon: 'speed',
+        },
+      ],
+        sedan: [
+        {
+          name: 'Седан',
+          title: 'Кузов',
+          icon: 'body'
+        },
+        {
+          name: 'Передний',
+          title: 'Привод',
+          icon: 'drive',
+        },
+        {
+          name: '1.6 л',
+          title:'объём двигателя',
+          icon: 'engine',
+        },
+        {
+          name: 'MT / AT',
+          title: 'коробка двигателя',
+          icon: 'transmission',
+        },
+        {
+          name: '5',
+          title: 'места',
+          icon: 'seats',
+        },
+        {
+          name: 'Бензин',
+          title: 'топливо',
+          icon: 'fuel_type',
+        },
+        {
+          name: 'от 5,2л / 100км',
+          title: 'расход топлива',
+          icon: 'fuel'
+        },
+        {
+          name: 'до 184 км/ч',
+          title: 'макс. скорость',
+          icon: 'speed',
+        },
+      ],
+        universal: [
+        {
+          name: 'Универсал',
+          title: 'Кузов',
+          icon: 'body'
+        },
+        {
+          name: 'Передний',
+          title: 'Привод',
+          icon: 'drive',
+        },
+        {
+          name: '1.6 л',
+          title:'объём двигателя',
+          icon: 'engine',
+        },
+        {
+          name: 'MT / AT',
+          title: 'коробка двигателя',
+          icon: 'transmission',
+        },
+        {
+          name: '5',
+          title: 'места',
+          icon: 'seats',
+        },
+        {
+          name: 'Бензин',
+          title: 'топливо',
+          icon: 'fuel_type',
+        },
+        {
+          name: 'от 5,2л / 100км',
+          title: 'расход топлива',
+          icon: 'fuel'
+        },
+        {
+          name: 'до 182 км/ч',
+          title: 'макс. скорость',
+          icon: 'speed',
+        },
+      ],
     }
 
+    switch(this.$route.params.model) {
+      case 'drive-active':
+        this.params = bodies.drive_active
+        break;
+      case 'hatchback':
+        this.params = bodies.hatchback
+        break;
+      case 'liftback':
+        this.params = bodies.liftback
+        break;
+      case 'sedan':
+        this.params = bodies.sedan
+        break;
+      case 'universal':
+        this.params = bodies.universal
+        break;
+    }
+  },
+  created() {
+    console.log(this.params)
   }
 }
 </script>

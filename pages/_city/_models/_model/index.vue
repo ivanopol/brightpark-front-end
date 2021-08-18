@@ -16,11 +16,7 @@
 
         <TestDriveBanner />
         <AdvantagesNew class="models-advantages"/>
-        <ModelsFeatures
-          :body="'Хэтчбек'"
-          :drive_type="'Передний'"
-          :transmission="'MT'"
-        />
+        <ModelsFeatures/>
         <ModelsEquipments class="equipments-block"/>
         <TradeInFormNew />
         <ModelsAbout />
