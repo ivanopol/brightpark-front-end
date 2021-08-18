@@ -7,321 +7,490 @@
       </h2>
 
       <div class="equipments__items">
-        <div class="equipments__items__item">
+        <div class="equipments__items__item" v-for="param in params" :key="param.id">
           <div class="equipments__items__item__option">
-            <h5>
-              Двигатель
-            </h5>
-
-            <p>
-              1,6л
-              <span>
-            8-кл.
-          </span>
-            </p>
+            <h5>Двигатель</h5>
+            <p>{{param.engine}} <span>{{param.flap}}</span></p>
           </div>
 
           <div class="equipments__items__item__option">
-            <h5>
-              Мощность
-            </h5>
-
-            <p>
-              90л.с
-            </p>
+            <h5>Мощность</h5>
+            <p>{{param.capacity}}</p>
           </div>
 
           <div class="equipments__items__item__option">
-            <h5>
-              Коробка передач
-            </h5>
-
-            <p>
-              5MT
-            </p>
+            <h5>Коробка передач</h5>
+            <p>{{param.transmission}}</p>
           </div>
 
           <div class="equipments__items__item__option">
-            <h5>
-              Комплектация
-            </h5>
-
-            <p>
-              Standart
-            </p>
+            <h5>Комплектация</h5>
+            <p>{{param.title}}</p>
           </div>
 
           <div class="equipments__items__item__option">
-            <h5>
-              Цена
-            </h5>
-
-            <p class="equipments__items__item__option__price">
-              519 000 ₽
-            </p>
+            <h5>Цена</h5>
+            <p class="equipments__items__item__option__price">{{param.price | formatPrice}} ₽</p>
           </div>
 
           <div class="equipments__items__item__option">
-            <ButtonNew :button-text="'Выбрать'" :height="'100%'" class="equipments__items__item__option__button"/>
-          </div>
-        </div>
-
-        <div class="equipments__items__item">
-          <div class="equipments__items__item__option">
-            <h5>
-              Двигатель
-            </h5>
-
-            <p>
-              1,6л
-              <span>
-            8-кл.
-          </span>
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Мощность
-            </h5>
-
-            <p>
-              90л.с
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Коробка передач
-            </h5>
-
-            <p>
-              5MT
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Комплектация
-            </h5>
-
-            <p>
-              Standart
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Цена
-            </h5>
-
-            <p class="equipments__items__item__option__price">
-              519 000 ₽
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <ButtonNew :button-text="'Выбрать'" :height="'100%'" class="equipments__items__item__option__button"/>
-          </div>
-        </div>
-
-        <div class="equipments__items__item">
-          <div class="equipments__items__item__option">
-            <h5>
-              Двигатель
-            </h5>
-
-            <p>
-              1,6л
-              <span>
-            8-кл.
-          </span>
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Мощность
-            </h5>
-
-            <p>
-              90л.с
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Коробка передач
-            </h5>
-
-            <p>
-              5MT
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Комплектация
-            </h5>
-
-            <p>
-              Standart
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Цена
-            </h5>
-
-            <p class="equipments__items__item__option__price">
-              519 000 ₽
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <ButtonNew :button-text="'Выбрать'" :height="'100%'" class="equipments__items__item__option__button"/>
-          </div>
-        </div>
-
-        <div class="equipments__items__item best-price">
-          <div class="equipments__items__item__option">
-            <h5>
-              Двигатель
-            </h5>
-
-            <p>
-              1,6л
-              <span>
-            8-кл.
-          </span>
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Мощность
-            </h5>
-
-            <p>
-              90л.с
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Коробка передач
-            </h5>
-
-            <p>
-              5MT
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Комплектация
-            </h5>
-
-            <p>
-              Standart
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Цена
-            </h5>
-
-            <p class="equipments__items__item__option__price">
-              519 000 ₽
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <ButtonNew :button-text="'Выбрать'" :height="'100%'" class="equipments__items__item__option__button"/>
-          </div>
-        </div>
-
-        <div class="equipments__items__item">
-          <div class="equipments__items__item__option">
-            <h5>
-              Двигатель
-            </h5>
-
-            <p>
-              1,6л
-              <span>
-            8-кл.
-          </span>
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Мощность
-            </h5>
-
-            <p>
-              90л.с
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Коробка передач
-            </h5>
-
-            <p>
-              5MT
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Комплектация
-            </h5>
-
-            <p>
-              Standart
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <h5>
-              Цена
-            </h5>
-
-            <p class="equipments__items__item__option__price">
-              519 000 ₽
-            </p>
-          </div>
-
-          <div class="equipments__items__item__option">
-            <ButtonNew :button-text="'Выбрать'" :height="'100%'" class="equipments__items__item__option__button"/>
+            <ButtonNew
+              :button-text="'Выбрать'"
+              :height="'100%'"
+              class="equipments__items__item__option__button"
+              @click.native="show(
+                    'Комплектации и цены',
+                    $store.state._page + '__modal-banner-new_',
+                    1,
+                    'complectations'
+                  )"
+            />
           </div>
         </div>
       </div>
 
-      <button type="button" class="equipments__button">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10.1667 1C9.33333 1 8.77778 1.83333 8.77778 3.22222C8.77778 7.94444 14.3333 16 19.3333 16C20.1667 16 21 15.4444 21 14.6111C21 13.7778 20.1667 12.9444 17.9444 12.9444C12.6667 12.9444 1 16.5556 1 19.6111C1 20.1667 1.55556 21 2.66667 21C6 21 11.5556 10.1667 11.5556 3.22222C11.5556 2.11111 11 1 10.1667 1Z" stroke="white" stroke-width="1.5"/>
-        </svg>
 
-        Скачать прайс-лист
-      </button>
+      <LinkNew
+        class="equipments__button"
+        button-text="Скачать прайс-лист"
+        :path="path"
+        :with_icon='true'
+      />
     </div>
   </div>
+  <modal name="form-complectation" height="auto" :adaptive="true" class="models-banner__modal">
+    <div :id="form_id + '_close'" class="close event" @click="hide"></div>
+    <FormLeadNew />
+  </modal>
 </section>
 </template>
 
 <script>
+import format_price from "@/mixins/format_price";
+
 export default {
+  mixins: [format_price],
   name: "ModelsEquipments",
 
   data: function () {
     return {
+      params: {},
+      path: '',
+      form_id: ''
+    }
+  },
+  methods: {
+    show(title, form_id, form_type, goal) {
+      this.form_title = title;
+      this.form_id = form_id;
+      this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
+      this.goal = goal;
 
+      //  console.log(this.$modal);
+      this.$modal.show("form-complectation");
+      /*      () => {
+             callibriInit();
+           }*/
+    },
+    hide() {
+      this.$modal.hide("form-complectation");
+    },
+  },
+  async fetch() {
+    let complectations = {
+      drive_active: [
+        {
+          id: 1,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5МТ',
+          title: 'Comfort Light',
+          price: 719900,
+        },
+        {
+          id: 2,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5МТ',
+          title: 'Comfort',
+          price: 726900,
+        },
+      ],
+      hatchback: [
+        {
+          id: 1,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5МТ',
+          title: 'Classic',
+          price: 577500,
+        },
+        {
+          id: 2,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5МТ',
+          title: 'Comfort Light',
+          price: 618500,
+        },
+        {
+          id: 3,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5МТ',
+          title: 'Comfort',
+          price: 625500,
+        },
+        {
+          id: 4,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '98 л.с.',
+          transmission: '4AТ',
+          title: 'Comfort',
+          price: 715500,
+        },
+        {
+          id: 5,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '98 л.с.',
+          transmission: '4AТ',
+          title: 'Luxe',
+          price: 759800,
+        },
+      ],
+      liftback: [
+        {
+          id: 1,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Standard',
+          price: 553900,
+        },
+        {
+          id: 2,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Classic',
+          price: 582500,
+        },
+        {
+          id: 3,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Comfort Light',
+          price: 623500,
+        },
+        {
+          id: 4,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Comfort',
+          price: 630500,
+        },
+        {
+          id: 5,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: '#CLUB',
+          price: 652900,
+        },
+        {
+          id: 6,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Luxe',
+          price: 674800,
+        },
+        {
+          id: 7,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5MT',
+          title: 'Comfort Light',
+          price: 648500,
+        },
+        {
+          id: 8,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5MT',
+          title: 'Comfort',
+          price: 655500,
+        },
+        {
+          id: 9,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5MT',
+          title: '#CLUB',
+          price: 677900,
+        },
+        {
+          id: 10,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5MT',
+          title: 'Luxe',
+          price: 699800,
+        },
+        {
+          id: 11,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '98 л.с.',
+          transmission: '4AT',
+          title: 'Comfort',
+          price: 720500,
+        },
+        {
+          id: 12,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '98 л.с.',
+          transmission: '4AT',
+          title: 'Luxe',
+          price: 764800,
+        },
+      ],
+      sedan: [
+        {
+          id: 1,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Standard',
+          price: 531900,
+        },
+        {
+          id: 2,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Classic',
+          price: 562500,
+        },
+        {
+          id: 3,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Comfort Light',
+          price: 603500,
+        },
+        {
+          id: 4,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Comfort',
+          price: 610500,
+        },
+        {
+          id: 5,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: '#CLUB',
+          price: 632900,
+        },
+        {
+          id: 6,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Luxe',
+          price: 654800,
+        },
+        {
+          id: 7,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5MT',
+          title: 'Comfort Light',
+          price: 628500,
+        },
+        {
+          id: 8,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5MT',
+          title: 'Comfort',
+          price: 635500,
+        },
+        {
+          id: 9,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5MT',
+          title: '#CLUB',
+          price: 657900,
+        },
+        {
+          id: 10,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5MT',
+          title: 'Luxe',
+          price: 679800,
+        },
+        {
+          id: 11,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '98 л.с.',
+          transmission: '4AT',
+          title: 'Comfort Light',
+          price: 693500,
+        },
+        {
+          id: 12,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '98 л.с.',
+          transmission: '4AT',
+          title: 'Comfort',
+          price: 700500,
+        },
+        {
+          id: 13,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '98 л.с.',
+          transmission: '4AT',
+          title: 'Luxe',
+          price: 744800,
+        },
+      ],
+      universal: [
+        {
+          id: 1,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Standard',
+          price: 560900,
+        },
+        {
+          id: 2,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Classic',
+          price: 589500,
+        },
+        {
+          id: 3,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Comfort Light',
+          price: 630500,
+        },
+        {
+          id: 4,
+          engine: '1,6 л',
+          flap: '8-кл.',
+          capacity: '90 л.с.',
+          transmission: '5MT',
+          title: 'Comfort',
+          price: 637500,
+        },
+        {
+          id: 5,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5MT',
+          title: 'Comfort',
+          price: 662500,
+        },
+        {
+          id: 6,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '106 л.с.',
+          transmission: '5MT',
+          title: 'Luxe',
+          price: 706800,
+        },
+        {
+          id: 7,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '98 л.с.',
+          transmission: '4AT',
+          title: 'Comfort',
+          price: 727500,
+        },
+        {
+          id: 8,
+          engine: '1,6 л',
+          flap: '16-кл.',
+          capacity: '98 л.с.',
+          transmission: '4AT',
+          title: 'Luxe',
+          price: 771800,
+        },
+      ]
+    }
+
+    switch(this.$route.params.model) {
+      case 'drive-active':
+        this.params = complectations.drive_active
+        this.path = '/files/complectations_granta_drive_active.pdf'
+        break;
+      case 'hatchback':
+        this.params = complectations.hatchback
+        this.path = '/files/complectations_granta_hatchback.pdf'
+        break;
+      case 'liftback':
+        this.params = complectations.liftback
+        this.path = '/files/complectations_granta_liftback.pdf'
+        break;
+      case 'sedan':
+        this.params = complectations.sedan
+        this.path = '/files/complectationss_granta_sedan.pdf'
+        break;
+      case 'universal':
+        this.params = complectations.universal
+        this.path = '/files/complectations_granta_universal.pdf'
+        break;
     }
   }
 }

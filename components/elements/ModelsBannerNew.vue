@@ -35,10 +35,10 @@
             :buttonText="'Оставить заявку'"
             class="banner__inner__info__button"
             @click.native="show(
-                    'Записаться на тест-драйв',
+                    'Оставить заявку',
                     $store.state._page + '__modal-banner-new_',
                     1,
-                    'test_drive'
+                    'request'
                   )"
           />
         </div>

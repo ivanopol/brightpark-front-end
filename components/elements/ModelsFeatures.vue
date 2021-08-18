@@ -19,9 +19,10 @@
           </div>
         </div>
 
-        <ButtonNew
+        <LinkNew
           class="models-features__button"
           :button-text="'все характеристики'"
+          :path="path"
         />
       </div>
     </div>
@@ -34,6 +35,7 @@ export default {
   data: function () {
     return {
       params: {},
+      path: '',
     }
   },
   async fetch() {
@@ -253,24 +255,26 @@ export default {
     switch(this.$route.params.model) {
       case 'drive-active':
         this.params = bodies.drive_active
+        this.path = '/files/specifications_granta_drive_active.pdf'
         break;
       case 'hatchback':
         this.params = bodies.hatchback
+        this.path = '/files/specifications_granta_hatchback.pdf'
         break;
       case 'liftback':
         this.params = bodies.liftback
+        this.path = '/files/specifications_granta_liftback.pdf'
         break;
       case 'sedan':
         this.params = bodies.sedan
+        this.path = '/files/specifications_granta_sedan.pdf'
         break;
       case 'universal':
         this.params = bodies.universal
+        this.path = '/files/specifications_granta_universal.pdf'
         break;
     }
   },
-  created() {
-    console.log(this.params)
-  }
 }
 </script>
 
