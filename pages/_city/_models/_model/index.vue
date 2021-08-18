@@ -21,7 +21,7 @@
         <ModelsEquipments class="equipments-block" :complectations="complectations"/>
         <TradeInFormNew />
         <ModelsAbout />
-        <CreditNew id="creditCalc" />
+        <CreditNew id="creditCalc" :equipments="complectations"/>
         <ModelsWarranty />
         <BookCarNew class="book-section"/>
       </div>
