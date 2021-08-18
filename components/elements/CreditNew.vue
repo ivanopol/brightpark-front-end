@@ -53,6 +53,7 @@
 
           <div class="range-field__wrap">
             <vue-slider v-model="firstPaymentPercent"
+                        ref="firstPayment"
                         @change="changeFirstPayment($event)"
                         :height="6"
                         :interval="1"
@@ -99,10 +100,26 @@
             Выберите банк и программу
           </p>
 
-          <select v-model="creditPercent" class="input-field">
-            <option value="11,5">ПАО "Совкомбанк"</option>
-            <option value="9,5">Comfort</option>
-          </select>
+<!--          <select v-model="creditPercent" class="input-field">-->
+<!--            <option value="11,5">ПАО "Совкомбанк"</option>-->
+<!--            <option value="9,5">Comfort</option>-->
+<!--          </select>-->
+
+          <v-select
+            :options="banks"
+            :get-option-label="(option) => option.percent + ' ' + option.bank"
+            class="v-select-field"
+            v-model="creditPercent"
+            @input="changeBank"
+          >
+            <template #option="{ program, bank, percent }">
+              <span class="v-select-field__bold-text">
+                {{ percent }}
+              </span> - {{ program }}
+              <br />
+              {{ bank }}
+            </template>
+          </v-select>
         </div>
       </div>
 
@@ -156,21 +173,12 @@ export default {
       creditPercent: '',
       sliderOne:
         {
-          marks: {
-            0: {
-              label: '0%'
-            },
-            50: {
-              label: '50%'
-            },
-          },
           min: 0,
-          max: 50
+          max: 90
         },
 
       sliderTwo:
         {
-          marks: [12, 60],
           min: 12,
           max: 60
         },
@@ -180,6 +188,312 @@ export default {
      // periodText: '5 месяцев',
       firstPayment: null,
       mounthlyPayment: '',
+      bankPercent: 0,
+
+      banks: [
+        {
+          bank: 'Сетелем банк',
+          program: 'Авто Лайт ( Каско, СЖ )',
+          percent: '11.5%',
+          percentNum: 11.5,
+          period: {
+            min: 24,
+            max: 84,
+          },
+
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'Сетелем банк',
+          program: 'Автолайт ( Каско )',
+          percent: '11.5%',
+          percentNum: 11.5,
+          period: {
+            min: 24,
+            max: 84,
+          },
+
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'Сетелем банк',
+          program: 'Автолайт: без каско',
+          percent: '13.5%',
+          percentNum: 13.5,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'Сетелем банк',
+          program: 'Автолайт промо',
+          percent: '12.5%',
+          percentNum: 12.5,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'Сетелем банк',
+          program: 'Драйв А: с каско',
+          percent: '14.9%',
+          percentNum: 14.9,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 0,
+        },
+
+        {
+          bank: 'Сетелем банк',
+          program: 'Лайт ( Каско, СЖ )',
+          percent: '7.5%',
+          percentNum: 7.5,
+          period: {
+            min: 24,
+            max: 60,
+          },
+          firstPayment: 20,
+        },
+
+        {
+          bank: 'ВТБ Банк',
+          program: 'Автодрайв партнер мастер 125 ( КАСКО )',
+          percent: '7.5%',
+          percentNum: 7.5,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'ВТБ Банк',
+          program: 'Автодрайв  мастер 97',
+          percent: '12.5%',
+          percentNum: 12.5,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'ВТБ Банк',
+          program: 'Экстралайт',
+          percent: '0.7%',
+          percentNum: 0.7,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 20,
+        },
+
+        {
+          bank: 'ВТБ Банк',
+          program: 'АвтоГигант (ДЛЯ КОРПОРАТИВНЫХ КЛИЕНТОВ)',
+          percent: '0.1%',
+          percentNum: 0.1,
+          period: {
+            min: 24,
+            max: 60,
+          },
+          firstPayment: 20,
+        },
+
+        {
+          bank: 'Росбанк',
+          program: 'СПЕЦ Промо ВАЗ',
+          percent: '13.5%',
+          percentNum: 13.5,
+          period: {
+            min: 36,
+            max: 48,
+          },
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'Росбанк',
+          program: 'СПЕЦ Промо ВАЗ',
+          percent: '11.9%',
+          percentNum: 11.9,
+          period: {
+            min: 36,
+            max: 48,
+          },
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'Росбанк',
+          program: 'СПЕЦ Промо ВАЗ',
+          percent: '11.5%',
+          percentNum: 11.5,
+          period: {
+            min: 60,
+            max: 84,
+          },
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'Росбанк',
+          program: 'СПЕЦ Промо ВАЗ',
+          percent: '10.9%',
+          percentNum: 10.9,
+          period: {
+            min: 60,
+            max: 84,
+          },
+          firstPayment: 10,
+        },
+
+
+        {
+          bank: 'Совком Банк',
+          program: 'Лада Финанс Спешл',
+          percent: '8.99%',
+          percentNum: 8.99,
+          period: {
+            min: 36,
+            max: 60,
+          },
+          firstPayment: 20,
+        },
+
+        {
+          bank: 'Совком Банк',
+          program: 'Лада Финанс',
+          percent: '12.5%',
+          percentNum: 12.5,
+          period: {
+            min: 24,
+            max: 72,
+          },
+          firstPayment: 0,
+        },
+
+        {
+          bank: 'РН Банк',
+          program: 'Lada Promo',
+          percent: '11%',
+          percentNum: 11,
+          period: {
+            min: 36,
+            max: 84,
+          },
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'РН Банк',
+          program: 'Lada Promo',
+          percent: '10%',
+          percentNum: 10,
+          period: {
+            min: 36,
+            max: 84,
+          },
+          firstPayment: 20,
+        },
+
+        {
+          bank: 'РН Банк',
+          program: 'Lada Promo',
+          percent: '9%',
+          percentNum: 9,
+          period: {
+            min: 36,
+            max: 84,
+          },
+          firstPayment: 30,
+        },
+
+        {
+          bank: 'РН Банк',
+          program: 'Lada Classic',
+          percent: '14.5%',
+          percentNum: 14.5,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'РН Банк',
+          program: 'Lada Classic',
+          percent: '13.5%',
+          percentNum: 13.5,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 20,
+        },
+
+        {
+          bank: 'РН Банк',
+          program: 'Lada Classic',
+          percent: '12.5%',
+          percentNum: 12.5,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 30,
+        },
+
+        {
+          bank: 'РН Банк',
+          program: 'Lada Classic',
+          percent: '17%',
+          percentNum: 17,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 10,
+        },
+
+        {
+          bank: 'РН Банк',
+          program: 'Lada Classic',
+          percent: '16%',
+          percentNum: 16,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 20,
+        },
+
+        {
+          bank: 'РН Банк',
+          program: 'Lada Classic',
+          percent: '15%',
+          percentNum: 15,
+          period: {
+            min: 24,
+            max: 84,
+          },
+          firstPayment: 30,
+        },
+      ]
     }
   },
 
@@ -237,6 +551,17 @@ export default {
         }
       }
     },
+
+    changeBank(data) {
+      console.log(data);
+      this.sliderOne.min = data.firstPayment;
+      this.$refs.firstPayment.setValue(data.firstPayment + 5);
+
+      this.sliderTwo.min = data.period.min;
+      this.sliderTwo.max = data.period.max;
+
+      this.bankPercent = data.percentNum;
+    }
   },
 
   computed: {
@@ -393,7 +718,7 @@ select {
   }
 }
 
-.input-field {
+.input-field, .v-select {
   height: 70px;
   border-radius: 5px;
   width: 100%;
@@ -404,6 +729,10 @@ select {
   padding-left: 15px;
   font-size: 24px;
   font-weight: 500;
+
+  .vs__dropdown-toggle {
+    border: none;
+  }
 
 }
 
@@ -569,5 +898,32 @@ select {
       }
     }
   }
+}
+
+.v-select-field {
+  .vs__dropdown-toggle {
+    border: none;
+  }
+
+  .vs__selected {
+    padding: 5px 0 0;
+    color: white;
+    font-family: 'Factor A';
+  }
+
+  .vs__dropdown-menu {
+    font-family: "Factor A";
+    font-size: 14px;
+
+    li {
+      border-bottom: 1px solid rgba(0, 0, 0, .5);
+    }
+  }
+}
+
+.v-select-field__bold-text {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #514EA1;
 }
 </style>
