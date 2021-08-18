@@ -275,9 +275,6 @@ export default {
         break;
     }
   },
-  created() {
-    console.log(this.params)
-  }
 }
 </script>
 
