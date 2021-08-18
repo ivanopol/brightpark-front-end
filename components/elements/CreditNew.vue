@@ -29,10 +29,25 @@
             Выберите комплектацию
           </p>
 
-          <select v-model="equipment" class="input-field">
-            <option value="519000">Standart</option>
-            <option value="569000">Comfort</option>
-          </select>
+<!--          <select v-model="equipment" class="input-field">-->
+<!--            <option value="519000">Standart</option>-->
+<!--            <option value="569000">Comfort</option>-->
+<!--          </select>-->
+
+          <v-select
+            :options="params"
+            :get-option-label="(option) => option.price.toLocaleString('ru-RU') + ' ₽'"
+            class="v-select-field"
+            v-model="equipment"
+          >
+            <template #option="{ title, transmission, price, capacity }">
+              <span class="v-select-field__bold-text">
+                {{ price.toLocaleString('ru-RU') }}&nbsp;₽
+              </span>
+              <br />
+              {{ title }} / {{ transmission }} / {{ capacity }}
+            </template>
+          </v-select>
         </div>
 
         <div class="range-field">
@@ -164,6 +179,10 @@ export default {
     CheckIcon
   },
 
+  props: {
+    equipments: Object
+  },
+
   data: function () {
 
     return {
@@ -189,6 +208,7 @@ export default {
       firstPayment: null,
       mounthlyPayment: '',
       bankPercent: 0,
+      params: '',
 
       banks: [
         {
@@ -614,6 +634,26 @@ export default {
       }
     }
   },
+
+  created() {
+    switch(this.$route.params.model) {
+      case 'drive-active':
+        this.params = this.equipments.drive_active
+        break;
+      case 'hatchback':
+        this.params = this.equipments.hatchback
+        break;
+      case 'liftback':
+        this.params = this.equipments.liftback
+        break;
+      case 'sedan':
+        this.params = this.equipments.sedan
+        break;
+      case 'universal':
+        this.params = this.equipments.universal
+        break;
+    }
+  }
 }
 </script>
 
