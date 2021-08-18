@@ -39,6 +39,8 @@
             :get-option-label="(option) => option.price.toLocaleString('ru-RU') + ' ₽'"
             class="v-select-field"
             v-model="equipment"
+            @input="changeEquipment"
+            :searchable="false"
           >
             <template #option="{ title, transmission, price, capacity }">
               <span class="v-select-field__bold-text">
@@ -63,7 +65,10 @@
               min="0"
               :max="Math.round(carPrice /2)"
               @:keyup="inputChangePayment($event)"
-              v-model="firstPayment">
+              v-model="firstPayment"
+              readonly
+            >
+
           </div>
 
           <div class="range-field__wrap">
@@ -94,6 +99,7 @@
               type="text"
               name="period"
               class="input-field"
+              readonly
               v-model="period">
           </div>
 
@@ -106,6 +112,7 @@
                         :drag-on-click="true"
                         :min="sliderTwo.min"
                         :max="sliderTwo.max"
+                        ref="period"
                         />
           </div>
         </div>
@@ -126,6 +133,7 @@
             class="v-select-field"
             v-model="creditPercent"
             @input="changeBank"
+            :searchable="false"
           >
             <template #option="{ program, bank, percent }">
               <span class="v-select-field__bold-text">
@@ -145,7 +153,7 @@
           </p>
 
           <p class="credit__bottom__payment__price">
-            5 013 ₽
+            {{ mounthlyPayment ? mounthlyPayment.toLocaleString('ru-RU') : 0 }} ₽
           </p>
         </div>
 
@@ -206,7 +214,7 @@ export default {
       period: 24,
      // periodText: '5 месяцев',
       firstPayment: null,
-      mounthlyPayment: '',
+      mounthlyPayment: 0,
       bankPercent: 0,
       params: '',
 
@@ -555,21 +563,33 @@ export default {
 
     calculateMonthlyPayment() {
       let debt = this.carPrice - this.firstPayment;
+      console.log(debt)
+      let monthlyPercentRate = this.bankPercent / 12 / 100;
+      console.log(monthlyPercentRate)
 
-      if (this.credit_programs !== undefined && this.credit_programs !== null) {
+      let mathPow1 = Math.pow(1 + monthlyPercentRate, this.period);
+      let res1 = monthlyPercentRate * mathPow1;
+      let res2 = mathPow1 - 1;
+      let annualCoefficient = (res1 / res2);
+      // this.credit_programs[i]['monthly_payment'] = Math.round(debt * annualCoefficient);
+      this.mounthlyPayment = Math.round(debt * annualCoefficient);
 
-        for (let i = 0; i <= this.credit_programs.length; i++) {
-          if (this.credit_programs[i] !== undefined) {
-            let monthlyPercentRate = this.credit_programs[i]['percent_rate'] / 12 / 100;
-            let mathPow1 = Math.pow(1 + monthlyPercentRate, this.period);
-            let res1 = monthlyPercentRate * mathPow1;
-            let res2 = mathPow1 - 1;
-            let annualCoefficient = (res1 / res2);
-            // this.credit_programs[i]['monthly_payment'] = Math.round(debt * annualCoefficient);
-            this.mounthlyPayment = Math.round(debt * annualCoefficient);
-          }
-        }
-      }
+
+
+      // if (this.credit_programs !== undefined && this.credit_programs !== null) {
+      //
+      //   for (let i = 0; i <= this.credit_programs.length; i++) {
+      //     if (this.credit_programs[i] !== undefined) {
+      //       let monthlyPercentRate = this.bankPercent / 12 / 100;
+      //       let mathPow1 = Math.pow(1 + monthlyPercentRate, this.period);
+      //       let res1 = monthlyPercentRate * mathPow1;
+      //       let res2 = mathPow1 - 1;
+      //       let annualCoefficient = (res1 / res2);
+      //       // this.credit_programs[i]['monthly_payment'] = Math.round(debt * annualCoefficient);
+      //       this.mounthlyPayment = Math.round(debt * annualCoefficient);
+      //     }
+      //   }
+      // }
     },
 
     changeBank(data) {
@@ -579,8 +599,16 @@ export default {
 
       this.sliderTwo.min = data.period.min;
       this.sliderTwo.max = data.period.max;
+      this.$refs.period.setValue(data.period.min + 5);
 
       this.bankPercent = data.percentNum;
+
+      this.calculateMonthlyPayment();
+    },
+
+    changeEquipment(data) {
+      this.carPrice = data.price;
+      this.calculateMonthlyPayment();
     }
   },
 
