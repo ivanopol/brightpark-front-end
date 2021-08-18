@@ -73,11 +73,6 @@ export default {
     model: String,
     type: String,
     colors: Array,
-    form_id: {
-      default: '',
-      type: String
-    },
-    goal: String,
   },
 
   data: function () {
@@ -89,6 +84,8 @@ export default {
       currentImage: "",
       currentColor: -1,
       colorClass: "",
+      form_id: '',
+      goal: '',
     }
   },
 

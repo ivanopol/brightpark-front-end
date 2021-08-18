@@ -62,7 +62,36 @@
 <script>
 export default {
   name: "FormLeadNew",
-
+  props: {
+    button_text: {
+      default: "Записаться",
+      type: String
+    },
+    form_id: {
+      default: "form",
+      type: String
+    },
+    form_title: {
+      default: "",
+      type: String
+    },
+    is_comment: {
+      default: false,
+      type: Boolean
+    },
+    form_type: {
+      default: 1,
+      type: Number
+    },
+    goal: {
+      default: "",
+      type: String
+    },
+    goal_call: {
+      default: "zvonok",
+      type: String
+    }
+  },
   data: function () {
     return {
       name: '',
@@ -182,6 +211,10 @@ export default {
       });
       return {};
     },
+
+    decodeCookie(obj) {
+      return JSON.parse(decodeURIComponent(escape(atob(obj))));
+    }
   },
   mounted() {
     if (this.$cookies.get("bp_uid") !== undefined) {
