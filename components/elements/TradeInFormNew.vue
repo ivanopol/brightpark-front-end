@@ -704,6 +704,12 @@ export default {
         left: 19px;
       }
     }
+
+    select {
+      option {
+        color: black;
+      }
+    }
   }
 
 
