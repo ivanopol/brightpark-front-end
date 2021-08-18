@@ -40,6 +40,7 @@
             class="v-select-field"
             v-model="equipment"
             @input="changeEquipment"
+            :searchable="false"
           >
             <template #option="{ title, transmission, price, capacity }">
               <span class="v-select-field__bold-text">
@@ -64,7 +65,10 @@
               min="0"
               :max="Math.round(carPrice /2)"
               @:keyup="inputChangePayment($event)"
-              v-model="firstPayment">
+              v-model="firstPayment"
+              readonly
+            >
+
           </div>
 
           <div class="range-field__wrap">
@@ -95,6 +99,7 @@
               type="text"
               name="period"
               class="input-field"
+              readonly
               v-model="period">
           </div>
 
@@ -107,6 +112,7 @@
                         :drag-on-click="true"
                         :min="sliderTwo.min"
                         :max="sliderTwo.max"
+                        ref="period"
                         />
           </div>
         </div>
@@ -127,6 +133,7 @@
             class="v-select-field"
             v-model="creditPercent"
             @input="changeBank"
+            :searchable="false"
           >
             <template #option="{ program, bank, percent }">
               <span class="v-select-field__bold-text">
@@ -592,6 +599,7 @@ export default {
 
       this.sliderTwo.min = data.period.min;
       this.sliderTwo.max = data.period.max;
+      this.$refs.period.setValue(data.period.min + 5);
 
       this.bankPercent = data.percentNum;
 
