@@ -584,6 +584,7 @@ export default {
         position: absolute;
         left: 0;
         top: -8px;
+        pointer-events: none;
 
         img {
           margin: 0;
