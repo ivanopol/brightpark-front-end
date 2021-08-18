@@ -12,6 +12,7 @@
           :type="model.type"
           :form_id="'model__banner-new_'"
           @scrollTo="scrollToCredit"
+          :goal="'fixconditions'"
         />
 
         <TestDriveBanner />

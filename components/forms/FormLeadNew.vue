@@ -10,7 +10,15 @@
     </p>
   </div>
 
-  <form class="new-lead__body">
+  <form
+    :id="form_id"
+    class="new-lead__body"
+    action="#"
+    method="POST"
+    name="feedback"
+    @submit="send"
+    :data-goal="goal"
+  >
     <div class="new-lead__field">
       <input type="text" name="name" v-model="name">
 
@@ -78,7 +86,110 @@ export default {
       } else if (field === 'phone') {
         this.phone = '';
       }
+    },
+
+    send: function(event) {
+      event.preventDefault();
+      this.isLoading = true;
+
+      let formData = {
+        phone: this.clearMask(this.phone),
+        name: this.name,
+        city: this.$store.state.city.value,
+        url: this.url,
+        caption: this.form_title,
+        form_id: this.form_id,
+        comment: this.comment,
+        form_type: this.form_type,
+        utm: this.utm
+      };
+
+      this.$axios({
+        method: "post",
+        url: process.env.apiUrl + "/api/send_contact_form",
+        data: formData
+      })
+        .then(response => {
+          this.clearInput();
+          this.success = true;
+          this.isLoading = false;
+          this.status = true;
+          //console.log(window);
+          try {
+            this.sendGoals(this.goal);
+          } catch (err) {
+            console.log(err);
+          }
+          return {};
+        })
+        .catch(error => {
+          this.error = true;
+          this.clearInput();
+          return {};
+        });
+    },
+
+    clearInput: function() {
+      this.phone = null;
+      this.name = null;
+      this.comment = null;
+      return {};
+    },
+
+    clearMask: function(value) {
+      return value.replace(/\D/g, "");
+    },
+
+    sendGoals: function(goal) {
+      if (goal) {
+        let ym_ids = this.getCountersIds();
+        let goalArr = goal.match(/^(.+?):(.+?)$/);
+        let target_goal = goalArr === null ? goal : goalArr[2];
+
+        ym_ids.forEach(function(item) {
+          window["yaCounter" + item].reachGoal(target_goal);
+        });
+      }
+      return {};
+    },
+
+    getCountersIds: function() {
+      var id_list = [];
+
+      window.ym.a.forEach(function(item) {
+        id_list.push(item[0]);
+      });
+      return id_list;
+    },
+
+    attachHandler: function() {
+      function attachHandler(el, evtname, fn) {
+        if (el.addEventListener) {
+          el.addEventListener(evtname, fn.bind(el), false);
+        } else if (el.attachEvent) {
+          el.attachEvent("on" + evtname, fn.bind(el));
+        }
+      }
+
+      attachHandler(window, "load", () => {
+        var ele = document.querySelector(
+          "input[id=" + this.form_id + "_input_phone]"
+        );
+        attachHandler(ele, "invalid", function() {
+          this.setCustomValidity("Please enter at least 5 characters.");
+          this.setCustomValidity("");
+        });
+      });
+      return {};
+    },
+  },
+  mounted() {
+    if (this.$cookies.get("bp_uid") !== undefined) {
+      this.utm = this.decodeCookie(this.$cookies.get("bp_uid"));
     }
+  },
+  beforeMount() {
+    this.attachHandler();
   }
 }
 </script>

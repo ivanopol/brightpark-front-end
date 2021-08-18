@@ -47,12 +47,7 @@
 
     <modal name="form-callback4" height="auto" :adaptive="true" class="models-banner__modal">
       <div :id="form_id + '_close'" class="close event" @click="hide"></div>
-<!--      <FormTestDriveOrder-->
-<!--        :form_id="form_id"-->
-<!--        :goal="goal"-->
-<!--      />-->
-
-      <FormLeadNew />
+      <FormLeadNew :form_id="form_id" :goal="goal"/>
     </modal>
 
     <modal name="color-choose" height="auto" :adaptive="true" class="color-choose">
@@ -81,7 +76,8 @@ export default {
     form_id: {
       default: '',
       type: String
-    }
+    },
+    goal: String,
   },
 
   data: function () {
