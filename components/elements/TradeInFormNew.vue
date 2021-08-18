@@ -584,6 +584,7 @@ export default {
         position: absolute;
         left: 0;
         top: -8px;
+        pointer-events: none;
 
         img {
           margin: 0;
@@ -701,6 +702,12 @@ export default {
         transorm: unset;
         top: 15px;
         left: 19px;
+      }
+    }
+
+    select {
+      option {
+        color: black;
       }
     }
   }
