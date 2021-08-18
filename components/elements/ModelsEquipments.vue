@@ -34,7 +34,17 @@
           </div>
 
           <div class="equipments__items__item__option">
-            <ButtonNew :button-text="'Выбрать'" :height="'100%'" class="equipments__items__item__option__button"/>
+            <ButtonNew
+              :button-text="'Выбрать'"
+              :height="'100%'"
+              class="equipments__items__item__option__button"
+              @click.native="show(
+                    'Комплектации и цены',
+                    $store.state._page + '__modal-banner-new_',
+                    1,
+                    'complectations'
+                  )"
+            />
           </div>
         </div>
       </div>
@@ -44,10 +54,14 @@
         class="equipments__button"
         button-text="Скачать прайс-лист"
         :path="path"
-        with_icon="true"
+        :with_icon='true'
       />
     </div>
   </div>
+  <modal name="form-complectation" height="auto" :adaptive="true" class="models-banner__modal">
+    <div :id="form_id + '_close'" class="close event" @click="hide"></div>
+    <FormLeadNew />
+  </modal>
 </section>
 </template>
 
@@ -62,7 +76,25 @@ export default {
     return {
       params: {},
       path: '',
+      form_id: ''
     }
+  },
+  methods: {
+    show(title, form_id, form_type, goal) {
+      this.form_title = title;
+      this.form_id = form_id;
+      this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
+      this.goal = goal;
+
+      //  console.log(this.$modal);
+      this.$modal.show("form-complectation");
+      /*      () => {
+             callibriInit();
+           }*/
+    },
+    hide() {
+      this.$modal.hide("form-complectation");
+    },
   },
   async fetch() {
     let complectations = {

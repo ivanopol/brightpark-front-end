@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "ButtonNew",
+  name: "LinkNew",
   props: {
     with_icon: {
       default: false,

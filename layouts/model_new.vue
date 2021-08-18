@@ -6,7 +6,6 @@
     </client-only>
     <HeaderNew :line="true" :car="$store.state.car" />
     <Nuxt keep-alive />
-    <Footer :page="$store.state._page" />
     <client-only placeholder="Загрузка...">
       <Scripts keep-alive/>
       <ScrollEvents />
