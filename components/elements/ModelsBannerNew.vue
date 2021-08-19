@@ -47,7 +47,7 @@
 
     <modal name="form-callback4" height="auto" :adaptive="true" class="models-banner__modal">
       <div :id="form_id + '_close'" class="close event" @click="hide"></div>
-      <FormLeadNew :form_id="form_id" :goal="goal"/>
+      <FormLeadNew :form_id="form_id" :goal="goal" :form_title="form_title":form_type="form_type"/>
     </modal>
 
     <modal name="color-choose" height="auto" :adaptive="true" class="color-choose">
@@ -79,13 +79,13 @@ export default {
     return {
       seo: {},
       count: 0,
-    //  mainHeading: 'Новая LADA Granta Sedan в Перми',
-     // price: '495 900 ₽',
       currentImage: "",
       currentColor: -1,
       colorClass: "",
       form_id: '',
       goal: '',
+      form_type: 1,
+      form_title: ''
     }
   },
 
