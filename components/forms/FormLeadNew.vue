@@ -1,9 +1,7 @@
 <template>
 <div class="new-lead">
   <div class="new-lead__head">
-    <h4 class="new-lead__title">
-      Оставить заявку
-    </h4>
+    <h4 class="new-lead__title">{{form_title}}</h4>
 
     <p class="new-lead__desc">
       В&nbsp;ближайшее время мы&nbsp;свяжемся с&nbsp;вами, уточним все детали заявки,а также ответим на&nbsp;все возникшие у&nbsp;вас вопросы
