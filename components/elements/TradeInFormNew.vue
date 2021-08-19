@@ -808,7 +808,7 @@ export default {
     max-width: unset;
     width: 100%;
     border-radius: 0;
-    height: 100vh !important;
+    //height: 100vh !important;
     overflow-y: auto;
 
     @media (min-width: 1024px) {
