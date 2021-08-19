@@ -91,7 +91,14 @@
 
     <img src="~static/images/coins.png" alt="" class="evaluate__car-info__form__coins">
 
-    <form class="evaluate__car__form">
+    <form class="evaluate__car__form"
+          :id="form_id"
+          action="#"
+          method="POST"
+          name="feedback"
+          @submit="send"
+          :data-goal="goal"
+    >
 
       <div class="evaluate__car__form__grid">
         <h5 class="evaluate__car__form__heading">
@@ -103,17 +110,24 @@
         </p>
 
         <div class="evaluate__car__form__field">
-          <input type="text" v-model="nameVal">
+          <input type="text" v-model="name">
 
-          <span class="field-placeholder" :class="[nameVal !== '' ? 'active' : '']">
+          <span class="field-placeholder" :class="[name !== '' ? 'active' : '']">
             Ваше имя
           </span>
         </div>
 
         <div class="evaluate__car__form__field">
-          <input type="text" v-model="phoneVal">
+          <the-mask
+              :id="form_id + '_input_phone'"
+              pattern=".{18,}"
+              mask="+# (###)-###-##-##"
+              v-model="phone"
+              type="tel"
+              required="true"
+          ></the-mask>
 
-          <span class="field-placeholder" :class="[phoneVal !== '' ? 'active' : '']">
+          <span class="field-placeholder" :class="[phone !== '' ? 'active' : '']">
             Контактный телефон
           </span>
         </div>
@@ -142,12 +156,112 @@ export default {
     transmission: String,
     priceFrom: Number,
     priceTo: Number,
+    form_id: {
+      default: "models__modal-car-appraisal_",
+      type: String
+    },
+    form_title: {
+      default: "Оценка вашего автомобиля",
+      type: String
+    },
+    is_comment: {
+      default: false,
+      type: Boolean
+    },
+    form_type: {
+      default: 1,
+      type: Number
+    },
+    goal: {
+      default: "online",
+      type: String
+    },
   },
 
   data: function() {
     return {
-      nameVal: '',
-      phoneVal: '',
+      name: '',
+      phone: '',
+    }
+  },
+  methods: {
+    send: function(event) {
+      event.preventDefault();
+      this.isLoading = true;
+
+      let formData = {
+        phone: this.clearMask(this.phone),
+        name: this.name,
+        city: this.$store.state.city.value,
+        url: this.url,
+        caption: this.form_title,
+        form_id: this.form_id,
+        comment: this.comment,
+        form_type: this.form_type,
+        utm: this.utm
+      };
+
+      this.$axios({
+        method: "post",
+        url: process.env.apiUrl + "/api/send_contact_form",
+        data: formData
+      })
+          .then(response => {
+            this.clearInput();
+            this.success = true;
+            this.isLoading = false;
+            this.status = true;
+            //console.log(window);
+            try {
+              this.sendGoals(this.goal);
+            } catch (err) {
+              console.log(err);
+            }
+            return {};
+          })
+          .catch(error => {
+            this.error = true;
+            this.clearInput();
+            return {};
+          });
+    },
+    clearInput: function() {
+      this.phone = null;
+      this.name = null;
+      this.comment = null;
+      return {};
+    },
+    clearMask: function(value) {
+      return value.replace(/\D/g, "");
+    },
+    sendGoals: function(goal) {
+      if (goal) {
+        let ym_ids = this.getCountersIds();
+        let goalArr = goal.match(/^(.+?):(.+?)$/);
+        let target_goal = goalArr === null ? goal : goalArr[2];
+
+        ym_ids.forEach(function(item) {
+          window["yaCounter" + item].reachGoal(target_goal);
+        });
+      }
+      return {};
+    },
+
+    getCountersIds: function() {
+      var id_list = [];
+
+      window.ym.a.forEach(function(item) {
+        id_list.push(item[0]);
+      });
+      return id_list;
+    },
+    decodeCookie(obj) {
+      return JSON.parse(decodeURIComponent(escape(atob(obj))));
+    }
+  },
+  mounted() {
+    if (this.$cookies.get("bp_uid") !== undefined) {
+      this.utm = this.decodeCookie(this.$cookies.get("bp_uid"));
     }
   },
 
