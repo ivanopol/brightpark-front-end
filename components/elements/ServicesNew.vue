@@ -78,13 +78,14 @@ export default {
     box-shadow: 0px 15px 60px rgba(0, 0, 0, 0.1), 0px 16px 16px rgba(0, 0, 0, 0.05), 0px 20px 60px -40px rgba(0, 0, 0, 0.15);
     position: relative;
     width: 90%;
-    min-height: 300px;
+    min-height: 265px;
     margin: 0 auto 30px;
     overflow: hidden;
     max-width: 500px;
 
     @media (min-width: 1367px) {
       transition: .2s ease-out;
+      min-height: 300px;
 
       &:hover {
         transform: scale(1.1);
