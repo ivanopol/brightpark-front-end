@@ -8,7 +8,7 @@
           <ul class="banner__inner__car__colors">
             <li
               v-for="color in colors"
-              :key="colors.id"
+              :key="color.id"
               :class="[currentColor === color.id ? 'active-color' : '']"
               @click="changeColor(color.id)"
               >
