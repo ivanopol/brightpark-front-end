@@ -118,7 +118,7 @@ export default {
         break;
       case 'sedan':
         this.params = this.complectations.sedan
-        this.path = '/files/complectationss_granta_sedan.pdf'
+        this.path = '/files/complectations_granta_sedan.pdf'
         break;
       case 'universal':
         this.params = this.complectations.universal
