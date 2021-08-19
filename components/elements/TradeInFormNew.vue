@@ -57,6 +57,16 @@
           >
             <div class="trade-in_form__offline__fields">
               <div class="input-field">
+                
+                <!--<input type="text" name="name" v-model="usersName">
+
+                <span
+                  class="input-field__placeholder"
+                  :class="[usersName !== '' ? 'active' : false]"
+                >
+                  Ваше имя
+                </span> -->
+
                 <input type="text" name="name" v-model="name">
                 <span class="input-field__placeholder" :class="[name !== '' ? 'active' : false]">Ваше имя</span>
               </div>
@@ -92,13 +102,7 @@
           <form id="onlineWidgetForm" >
             <div class="trade-in__form__online__fields">
               <div class="select-field">
-                <span
-                  class="select-field__placeholder"
-                  :class="[selectedMark.label !== '' ? 'active' : false]"
-                >
-                  Марка автомобиля
-                </span>
-                <select @change="getModels($event)">
+                <!-- <select @change="getModels($event)">
                   <option value="" disabled selected></option>
 
                   <option
@@ -110,17 +114,57 @@
                   >
                     {{ mark.label }}
                   </option>
-                </select>
+                </select> -->
+
+                <v-select
+                  :options="allMarks"
+                  :get-option-label="(option) => option.label"
+                  class="v-select-field"
+                  @input="getModels"
+                  v-model="selectedMark"
+                  @search:focus="placeholderControl('mark')"
+                  @search:blur="placeholderControl('mark')"
+                >
+                  <template #option="{ label }">
+                    <span class="v-select-field__bold-text">
+                      {{ label }}
+                    </span>
+                  </template>
+                </v-select>
+
+                <span
+                  class="select-field__placeholder"
+                  :class="[selectedMark.label !== '' || isMarkActive ? 'active' : false]"
+                >
+                  Марка автомобиля
+                </span>
+                
               </div>
 
               <div class="select-field">
+                <v-select
+                  :options="allModels"
+                  :get-option-label="(option) => option.label"
+                  class="v-select-field"
+                  @input="getModifications"
+                  v-model="selectedModel"
+                  @search:focus="placeholderControl('model')"
+                  @search:blur="placeholderControl('model')"
+                >
+                  <template #option="{ label }">
+                    <span class="v-select-field__bold-text">
+                      {{ label }}
+                    </span>
+                  </template>
+                </v-select>
+
                 <span
                   class="select-field__placeholder"
-                  :class="[values.model !== null ? 'active' : false]"
+                  :class="[selectedModel.label !== '' || isModelActive ? 'active' : false]"
                 >
                   Модель автомобиля
                 </span>
-
+<!--
                 <select @change="getModifications($event)" v-model="values.model">
                   <option value="" disabled selected></option>
                   <option
@@ -133,18 +177,35 @@
                     {{ model.label }}
                   </option>
                 </select>
+                -->
               </div>
 
               <div class="select-field">
+
+                <v-select
+                    :options="allModifications"
+                    :get-option-label="(option) => option.label"
+                    class="v-select-field"
+                    @input="getYears"
+                    v-model="selectedModification"
+                    :searchable="false"
+                  >
+                  <template #option="{ label }">
+                    <span class="v-select-field__bold-text">
+                      {{ label }}
+                    </span>
+                  </template>
+                </v-select>
+
                 <span
                   class="select-field__placeholder"
-                  :class="[values.modification !== null ? 'active' : false]"
+                  :class="[selectedModification.label !== '' ? 'active' : false]"
                 >
                   Модификация автомобиля
                 </span>
 
 
-                <select @change="getYears" v-model="values.modification">
+                <!--<select @change="getYears" v-model="values.modification">
                   <option value="" disabled selected></option>
                   <option
                     :value="modification.id"
@@ -155,18 +216,32 @@
                   >
                     {{ modification.label }}
                   </option>
-                </select>
+                </select>-->
               </div>
 
               <div class="select-field">
+                <v-select
+                  :options="years"
+                  :get-option-label="(option) => option.label"
+                  class="v-select-field"
+                  v-model="selectedYear"
+                  :searchable="false"
+                >
+                  <template #option="{ label }">
+                    <span class="v-select-field__bold-text">
+                      {{ label }}
+                    </span>
+                  </template>
+                </v-select>
+
                 <span
                   class="select-field__placeholder"
-                  :class="[selectedYear !== null ? 'active' : false]"
+                  :class="[selectedYear.label !== '' ? 'active' : false]"
                 >
                   Год выпуска
                 </span>
 
-                <select  placeholder="Модель автомобиля" @change="setYear($event)">
+               <!-- <select  placeholder="Модель автомобиля" @change="setYear($event)">
                   <option value="" disabled selected></option>
                   <option
                     v-for="year in years"
@@ -175,18 +250,33 @@
                   >
                     {{ year.value }}
                   </option>
-                </select>
+                </select> -->
               </div>
 
               <div class="select-field">
+
+                <v-select
+                  :options="mileages"
+                  :get-option-label="(option) => option.label"
+                  class="v-select-field"
+                  v-model="selectedMileage"
+                  :searchable="false"
+                >
+                  <template #option="{ label }">
+                    <span class="v-select-field__bold-text">
+                      {{ label }}
+                    </span>
+                  </template>
+                </v-select>
+
                 <span
                   class="select-field__placeholder"
-                  :class="[selectedMileage !== null ? 'active' : false]"
+                  :class="[selectedMileage.label !== '' ? 'active' : false]"
                 >
                   Пробег
                 </span>
 
-                <select  placeholder="Модель автомобиля" v-model="selectedMileage">
+               <!-- <select  placeholder="Модель автомобиля" v-model="selectedMileage">
                   <option value="" disabled selected></option>
                   <option
                     v-for="mileage in mileages"
@@ -195,18 +285,33 @@
                   >
                     {{ mileage.label }}
                   </option>
-                </select>
+                </select> -->
               </div>
 
               <div class="select-field">
+
+                <v-select
+                  :options="transmissions"
+                  :get-option-label="(option) => option.label"
+                  class="v-select-field"
+                  v-model="selectedTransmission"
+                  :searchable="false"
+                >
+                  <template #option="{ label }">
+                    <span class="v-select-field__bold-text">
+                      {{ label }}
+                    </span>
+                  </template>
+                </v-select>
+
                 <span
                   class="select-field__placeholder"
-                  :class="[selectedTransmission !== null ? 'active' : false]"
+                  :class="[selectedTransmission.label !== '' ? 'active' : false]"
                 >
                   Коробка передач
                 </span>
 
-                <select v-model="selectedTransmission">
+               <!-- <select v-model="selectedTransmission">
                   <option value="" disabled selected></option>
                   <option
                     v-for="transmission in transmissions"
@@ -215,7 +320,7 @@
                   >
                     {{ transmission }}
                   </option>
-                </select>
+                </select> -->
               </div>
             </div>
 
@@ -241,10 +346,10 @@
     <FormEvaluate
       :mark="selectedMark.label"
       :model="selectedModel.label"
-      :mileage="selectedMileage"
+      :mileage="selectedMileage.label"
       :modification="selectedModification.label"
-      :transmission="selectedTransmission"
-      :year="selectedYear"
+      :transmission="selectedTransmission.label"
+      :year="selectedYear.label"
       :priceFrom="pricesRange.from"
       :priceTo="pricesRange.to"
     />
@@ -261,8 +366,8 @@ export default {
   data: function () {
     return {
       isOfflineWidget: false,
-      allMarks: null,
-      allModels: null,
+      allMarks: [],
+      allModels: [],
       selectedMark: {
         label: '',
       },
@@ -272,11 +377,17 @@ export default {
       selectedModification: {
         label: '',
       },
-      allModifications: null,
-      selectedMileage: null,
-      years: null,
-      selectedYear: null,
-      selectedTransmission: null,
+      allModifications: [],
+      selectedMileage: {
+        label: ''
+      },
+      years: [],
+      selectedYear: {
+        label: ''
+      },
+      selectedTransmission: {
+        label: ''
+      },
       mileages: [
         {label: 'До 10 000', value: 5000},
         {label: '10 000 - 30 000', value: 20000},
@@ -288,7 +399,21 @@ export default {
         {label: 'более 200 000', value: 1250000}
       ],
       transmissions: [
-        'Автоматическая', 'Роботизированная', 'Механическая', 'Вариатор'
+        {
+          label: 'Автоматическая'
+        },
+
+        {
+          label: 'Роботизированная'
+        },
+
+        {
+          label:  'Механическая'
+        }, 
+
+        {
+          label: 'Вариатор'
+        }
       ],
       submitButtonText: 'Рассчитать',
 
@@ -297,11 +422,8 @@ export default {
         to: '',
       },
 
-      values: {
-        model: null,
-        modification: null,
-        mark: null,
-      },
+      isModelActive: false,
+      isMarkActive: false,
 
       name: '',
       phone: '',
@@ -430,86 +552,29 @@ export default {
       }
     },
 
-    getModels(event) {
-      const target = event.target;
-      const selectedOption = target.options[target.selectedIndex];
-
-      this.selectedMark = {
-        label: selectedOption.dataset.label,
-        id: target.value,
-        code: selectedOption.dataset.code,
-      };
-
-      this.values.model = null;
-      this.values.modification = null;
-
-
-
-      // fetch(`http://10.0.41.205/ajax/getModels?mark_id=${this.selectedMark}`)
-      //   .then(res => res.json())
-      //   .then(data => {
-      //     this.allModels = data.models;
-      //   })
-      //   .catch(err => console.log(err))
-
+    getModels(data) {
       axios.get(process.env.apiUrl + '/api/get_brand_models', {
         params: {
-          model_id: this.selectedMark.id
+          model_id: data.id,
         }
       })
         .then((response) => {
           this.allModels = response.data.models;
         })
         .catch((error) => {
-          // console.log(error);
+          console.log(error);
         })
-        .finally(() => {
-        });
-
-      // if (this.selectedMark !== null) {
-      //   this.selectedModel = null;
-      //   // this.selected_modification = null;
-      //   // this.selected_year = null;
-      //   // this.selected_mileage = null;
-      //   // this.selected_tech_param_id = null;
-      //   // this.estimation = null;
-      //   // this.tradeInEstimation = 0;
-      //   // this.brightParkEstimation = 0;
-      //   // this.step_two = false;
-      //   // this.step_three = false;
-      //   // this.step_four = false;
-      //   // this.step_five = false;
-      // }
-      // this.step_one = true;
-      // this.selected_brand = input;
-
     },
 
-    getModifications: function(event) {
-      const target = event.target;
-      const selectedOption = target.options[target.selectedIndex];
-      this.selectedModel = {
-        id: target.value,
-        label: selectedOption.dataset.label,
-        code: selectedOption.dataset.code
-      };
-
-      this.values.modification = null;
-
-      axios.get(process.env.apiUrl + '/api/get_complectations/' + this.selectedMark.code.toString() + '/' + this.selectedModel.code.toString(),
+    getModifications: function(data) {
+      axios.get(process.env.apiUrl + '/api/get_complectations/' + this.selectedMark.code.toString() + '/' + data.code.toString(),
         {})
         .then((response) => {
           this.allModifications = response.data.modifications;
         });
     },
 
-    getYears: function(event) {
-      const target = event.target;
-      this.selectedModification = {
-        label: target.options[target.selectedIndex].dataset.label,
-        param: target.options[target.selectedIndex].dataset.param,
-      };
-
+    getYears: function(data) {
       var currentYear = new Date().getFullYear(), years = [];
       var startYear = 1980;
       while (currentYear >= startYear) {
@@ -520,16 +585,13 @@ export default {
       this.years = years;
     },
 
-    setYear: function(event) {
-      const target = event.target;
-      this.selectedYear = target.value;
-    },
+  
 
     getResult: function() {
       const data = JSON.stringify({
-        tech_param_id: this.selectedModification.param,
-        km_age: this.selectedMileage,
-        year: this.selectedYear
+        tech_param_id: this.selectedModification.tech_param_id,
+        km_age: this.selectedMileage.value,
+        year: this.selectedYear.value
       });
 
       axios.post(process.env.apiUrl + '/api/get_estimation/', data)
@@ -552,6 +614,17 @@ export default {
       document.body.style.overflow = 'unset';
 
     },
+
+    placeholderControl(placeholder) {
+      switch (placeholder) {
+        case "mark":
+          this.isMarkActive = !this.isMarkActive;
+          break;
+        case "model":
+          this.isModelActive = !this.isModelActive;
+          break;
+      }
+    }
   },
 
 
@@ -760,6 +833,7 @@ export default {
     @media (min-width: 1000px) {
       background: url("~static/images/trade-in-form/bg-layer.svg") no-repeat;
       position: relative;
+      background-size: cover;
     }
   }
 
@@ -793,7 +867,7 @@ export default {
       &:focus + .input-field__placeholder {
         transition: .2s ease;
         font-size: 12px;
-        transorm: unset;
+        transform: unset;
         top: 15px;
         left: 19px;
       }
@@ -872,11 +946,25 @@ export default {
     &.active {
       transition: .2s ease;
       font-size: 12px;
-      transorm: unset;
+      transform: unset;
       top: 15px;
       left: 19px;
     }
   }
+
+  .v-select {
+    height: 70px;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding-top: 22px;
+    padding-left: 15px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
 
 </style>
 
@@ -909,4 +997,11 @@ export default {
       max-width: 970px;
     }
   }
+
+  .v-select-field .vs__dropdown-toggle {
+    height: 100%;
+  }
+
 </style>
+
+

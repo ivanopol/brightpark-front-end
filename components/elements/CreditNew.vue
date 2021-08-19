@@ -982,10 +982,21 @@ select {
   .vs__dropdown-menu {
     font-family: "Factor A";
     font-size: 14px;
+    padding-top: 0;
 
     li {
-      border-bottom: 1px solid rgba(0, 0, 0, .5);
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+      padding: 10px;
     }
+  }
+
+  .vs__search {
+    color: white;
+    font-family: "Factor A";
+    font-weight: 500;
+    padding: 5px 0 0;
+    margin: 4px 2px 0;
+    font-size: 24px;
   }
 }
 
@@ -994,4 +1005,5 @@ select {
   font-size: 1.1em;
   color: #514EA1;
 }
+
 </style>
