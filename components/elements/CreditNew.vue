@@ -621,7 +621,7 @@ export default {
   mounted() {
     this.firstPayment = Math.round(this.carPrice / 100 * this.firstPaymentPercent);
 
-    axios.get(this.host_url + '/api/get_credit_programs')
+    axios.get(process.env.apiUrl + '/api/get_credit_programs')
       .then((response) => {
         this.credit_programs = response.data;
 
