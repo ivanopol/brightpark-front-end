@@ -47,29 +47,33 @@
           id="offlineWidget"
           v-if="isOfflineWidget"
         >
-          <form id="offlineWidgetForm">
+          <form
+            id="offlineWidgetForm"
+            action="#"
+            method="POST"
+            name="offlineForm"
+            @submit="send"
+            :data-goal="goal"
+          >
             <div class="trade-in_form__offline__fields">
               <div class="input-field">
-                <input type="text" name="name"v-model="usersName">
-
-                <span
-                  class="input-field__placeholder"
-                  :class="[usersName !== '' ? 'active' : false]"
-                >
-                  Ваше имя
-                </span>
+                <input type="text" name="name" v-model="name">
+                <span class="input-field__placeholder" :class="[name !== '' ? 'active' : false]">Ваше имя</span>
               </div>
 
               <div class="input-field">
-                <input type="tel" name="phone" v-model="usersPhone">
-
-                <span
-                  class="input-field__placeholder"
-                  :class="[usersPhone !== '' ? 'active' : false]"
-                >
-                  Контактный телефон
-                </span>
+                <the-mask
+                  :id="form_id + '_input_phone'"
+                  name="phone"
+                  pattern=".{18,}"
+                  mask="+# (###)-###-##-##"
+                  v-model="phone"
+                  type="tel"
+                  required="true"
+                ></the-mask>
+                <span class="input-field__placeholder" :class="[phone !== '' ? 'active' : false]">Контактный телефон</span>
               </div>
+
             </div>
 
             <ButtonNew
@@ -85,7 +89,7 @@
           id="onlineWidget"
           v-if="!isOfflineWidget"
         >
-          <form id="onlineWidgetForm">
+          <form id="onlineWidgetForm" >
             <div class="trade-in__form__online__fields">
               <div class="select-field">
                 <span
@@ -299,12 +303,114 @@ export default {
         mark: null,
       },
 
-      usersName: '',
-      usersPhone: '',
+      name: '',
+      phone: '',
+      form_id: "models__test-drive_",
+      form_title: "Оцените автомобиль в салоне",
+      comment: '',
+      form_type: 1,
+      goal: "offline",
     }
   },
 
   methods: {
+    send: function(event) {
+      event.preventDefault();
+      this.isLoading = true;
+
+      let formData = {
+        phone: this.clearMask(this.phone),
+        name: this.name,
+        city: this.$store.state.city.value,
+        url: this.url,
+        caption: this.form_title,
+        form_id: this.form_id,
+        comment: this.comment,
+        form_type: this.form_type,
+        utm: this.utm
+      };
+
+      this.$axios({
+        method: "post",
+        url: process.env.apiUrl + "/api/send_contact_form",
+        data: formData
+      })
+        .then(response => {
+          this.clearInput();
+          this.success = true;
+          this.isLoading = false;
+          this.status = true;
+          //console.log(window);
+          try {
+            this.sendGoals(this.goal);
+          } catch (err) {
+            console.log(err);
+          }
+          return {};
+        })
+        .catch(error => {
+          this.error = true;
+          this.clearInput();
+          return {};
+        });
+    },
+    clearInput: function() {
+      this.phone = null;
+      this.name = null;
+      this.comment = null;
+      return {};
+    },
+    clearMask: function(value) {
+      return value.replace(/\D/g, "");
+    },
+    sendGoals: function(goal) {
+      if (goal) {
+        let ym_ids = this.getCountersIds();
+        let goalArr = goal.match(/^(.+?):(.+?)$/);
+        let target_goal = goalArr === null ? goal : goalArr[2];
+
+        ym_ids.forEach(function(item) {
+          window["yaCounter" + item].reachGoal(target_goal);
+        });
+      }
+      return {};
+    },
+
+    getCountersIds: function() {
+      var id_list = [];
+
+      window.ym.a.forEach(function(item) {
+        id_list.push(item[0]);
+      });
+      return id_list;
+    },
+
+/*    attachHandler: function() {
+      function attachHandler(el, evtname, fn) {
+        if (el.addEventListener) {
+          el.addEventListener(evtname, fn.bind(el), false);
+        } else if (el.attachEvent) {
+          el.attachEvent("on" + evtname, fn.bind(el));
+        }
+      }
+
+      attachHandler(window, "load", () => {
+        console.log(this.form_id + "_input_phone")
+        var ele = document.querySelector(
+          "input[id=" + this.form_id + "_input_phone]"
+        );
+        attachHandler(ele, "invalid", function() {
+          this.setCustomValidity("Please enter at least 5 characters.");
+          this.setCustomValidity("");
+        });
+      });
+      return {};
+    },*/
+
+    decodeCookie(obj) {
+      return JSON.parse(decodeURIComponent(escape(atob(obj))));
+    },
+
     toggleWidget(event, widget) {
       const btn = event.target;
       const buttons = document.querySelectorAll('.trade-in__form__toggle__btn');
@@ -474,22 +580,14 @@ export default {
     }
   },
 
-  created() {
-    // fetch('http://10.0.41.205/ajax/getMarks')
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     this.allMarks = data.models;
-    //   })
-    //   .catch(err => console.log(err))
-    //
-    // async fetch() {
-    //   const brands = await fetch(
-    //     process.env.apiUrl + `/api/get_cars_brands`
-    //   ).then(res => res.json())
-    //
-    //   this.brands = brands
-    // }
+  mounted() {
+    if (this.$cookies.get("bp_uid") !== undefined) {
+      this.utm = this.decodeCookie(this.$cookies.get("bp_uid"));
+    }
   },
+/*  beforeMount() {
+    this.attachHandler();
+  },*/
 
   async fetch() {
     const brands = await fetch(
@@ -498,10 +596,6 @@ export default {
 
     this.allMarks = brands
   },
-
-  mounted() {
-    // this.show('form-evaluate');
-  }
 }
 </script>
 
