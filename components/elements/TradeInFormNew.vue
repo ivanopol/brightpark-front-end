@@ -57,7 +57,7 @@
           >
             <div class="trade-in_form__offline__fields">
               <div class="input-field">
-                
+
                 <!--<input type="text" name="name" v-model="usersName">
 
                 <span
@@ -138,7 +138,7 @@
                 >
                   Марка автомобиля
                 </span>
-                
+
               </div>
 
               <div class="select-field">
@@ -409,7 +409,7 @@ export default {
 
         {
           label:  'Механическая'
-        }, 
+        },
 
         {
           label: 'Вариатор'
@@ -585,7 +585,7 @@ export default {
       this.years = years;
     },
 
-  
+
 
     getResult: function() {
       const data = JSON.stringify({
@@ -612,7 +612,6 @@ export default {
     hide(modal) {
       this.$modal.hide(modal);
       document.body.style.overflow = 'unset';
-
     },
 
     placeholderControl(placeholder) {

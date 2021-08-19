@@ -60,7 +60,12 @@
   </div>
   <modal name="form-complectation" height="auto" :adaptive="true" class="models-banner__modal">
     <div :id="form_id + '_close'" class="close event" @click="hide"></div>
-    <FormLeadNew />
+    <FormLeadNew
+      :form_title="form_title"
+      :form_id="form_id"
+      :form_type="form_type"
+      :goal="goal"
+    />
   </modal>
 </section>
 </template>
@@ -82,7 +87,10 @@ export default {
     return {
       params: {},
       path: '',
-      form_id: ''
+      form_id: '',
+      form_title: '',
+      form_type: 1,
+      goal: '',
     }
   },
   methods: {

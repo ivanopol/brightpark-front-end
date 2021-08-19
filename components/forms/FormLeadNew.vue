@@ -94,10 +94,17 @@ export default {
     return {
       name: '',
       phone: '',
-      activePlaceholder: 'active'
+      activePlaceholder: 'active',
     }
   },
-
+  computed: {
+    url: function () {
+      return {
+        href: window.location.href,
+        search: window.location.search
+      };
+    },
+  },
   methods: {
     focusedInput (field) {
       if (field === 'name') {

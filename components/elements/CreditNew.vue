@@ -157,11 +157,16 @@
           </p>
         </div>
 
-       <div class="credit__bottom__button__wrap">
+      <div class="credit__bottom__button__wrap">
          <ButtonNew
            :button-text="'оставить заявку'"
            class="credit__button"
-         />
+           @click.native="show(
+              'Рассчитайте кредит на покупку LADA ' + $store.state.car.model_full,
+              $store.state._page + '__modal-credit-new_',
+              1,
+              'credit'
+           )"/>
 
          <p class="credit__bottom__warning">
            Расчет ежемесячного платежа, сформированный при помощи кредитного калькулятора, является предварительным
@@ -169,6 +174,16 @@
        </div>
       </div>
     </div>
+
+    <modal name="form-credit" height="auto" :adaptive="true" class="models-banner__modal">
+      <div :id="form_id + '_close'" class="close event" @click="hide"></div>
+      <FormLeadNew
+        :form_title="form_title"
+        :form_id="form_id"
+        :form_type="form_type"
+        :goal="goal"
+      />
+    </modal>
   </section>
 </template>
 
@@ -188,12 +203,15 @@ export default {
   },
 
   props: {
-    equipments: Object
+    equipments: Object,
   },
 
   data: function () {
-
     return {
+      form_id: '',
+      form_title: '',
+      form_type: 1,
+      goal: '',
       equipment: '',
       activePlaceholder: 'active',
       firstPaymentPercent: 45,
@@ -526,6 +544,19 @@ export default {
   },
 
   methods: {
+    show(title, form_id, form_type, goal) {
+      this.form_title = title;
+      this.form_id = form_id;
+      this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
+      this.goal = goal;
+
+      if (this.mounthlyPayment > 0) {
+        this.$modal.show("form-credit");
+      }
+    },
+    hide() {
+      this.$modal.hide("form-credit");
+    },
     inputChangePayment(event) {
       const target = event.target;
       console.log(target);

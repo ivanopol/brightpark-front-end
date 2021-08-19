@@ -266,6 +266,13 @@ export default {
   },
 
   computed: {
+    url: function () {
+      return {
+        href: window.location.href,
+        search: window.location.search
+      };
+    },
+
     priceFromChanged() {
       return this.priceFrom.toLocaleString('ru-RU');
     },
