@@ -7,7 +7,7 @@
       <FormConsultation style="margin-bottom: 50px" :form_id="'main__consult_'" goal="consult" />
     </div>
 
-    <MegaTeasers/>
+    <ServicesNew class="services-block"/>
     <div class="container">
       <Advantages />
       <div class="advantages_form">
@@ -29,8 +29,6 @@
         <p><span><span>Приобретение авто у&nbsp;</span><span>официального дилера</span><span>&nbsp;— гарантия надежной технической поддержки. Выполняем гарантийное и&nbsp;постгарантийное обслуживание автомобиля. Вы&nbsp;сможете обратиться к&nbsp;нам по&nbsp;любому вопросу на&nbsp;протяжении всего срока службы автомобиля: мы&nbsp;всегда на&nbsp;связи.</span></span></p>
       </div>
     </div>
-
-    <ServicesNew class="services-block"/>
     <Banks/>
     <nuxt-child/>
   </div>
