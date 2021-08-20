@@ -605,7 +605,6 @@ export default {
 
       axios.post(process.env.apiUrl + '/api/get_estimation/', data)
         .then((response) => {
-          console.log(response.data.estimation.prices.autoru);
           this.pricesRange.from = response.data.estimation.prices.autoru.from;
           this.pricesRange.to = response.data.estimation.prices.autoru.to;
 

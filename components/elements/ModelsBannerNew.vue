@@ -145,7 +145,6 @@ export default {
   },
 
   mounted() {
-    console.log(this.$store.state)
     this.currentColor = this.colors[0].id;
     this.currentImage = this.colors[0].image;
     this.colorClass = this.colors[0].class;

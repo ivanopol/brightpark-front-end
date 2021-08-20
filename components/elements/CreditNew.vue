@@ -182,6 +182,13 @@
         :form_id="form_id"
         :form_type="form_type"
         :goal="goal"
+        :comment="$store.state.car.model_full + '; ' +
+                  'Комплектация: ' + equipment.title + ' / ' + equipment.transmission + ' / ' + equipment.engine + ' ' + equipment.capacity + ' ' + equipment.flap + ' / ' + equipment.price + ' руб., ' +
+                  'Первоначальный взнос: ' + firstPayment + ' руб., ' +
+                  'Срок кредита: ' + period + ' мес., ' +
+                  'Банк и программа: ' + creditPercent.bank + ' ' + creditPercent.percent + ', ' + creditPercent.program + ', ' +
+                  'Ежемесячный платеж: ' + mounthlyPayment.toLocaleString('ru-RU') + ' ₽'
+                "
       />
     </modal>
   </section>
@@ -559,7 +566,7 @@ export default {
     },
     inputChangePayment(event) {
       const target = event.target;
-      console.log(target);
+
       target.value = target.value.replace(/[^\d]/g,'');
 
       if (parseInt(target.value) > parseInt(Math.round(this.carPrice / 2))) {
@@ -594,9 +601,8 @@ export default {
 
     calculateMonthlyPayment() {
       let debt = this.carPrice - this.firstPayment;
-      console.log(debt)
       let monthlyPercentRate = this.bankPercent / 12 / 100;
-      console.log(monthlyPercentRate)
+
 
       let mathPow1 = Math.pow(1 + monthlyPercentRate, this.period);
       let res1 = monthlyPercentRate * mathPow1;
@@ -624,7 +630,6 @@ export default {
     },
 
     changeBank(data) {
-      console.log(data);
       this.sliderOne.min = data.firstPayment;
       this.$refs.firstPayment.setValue(data.firstPayment + 5);
 
@@ -633,7 +638,6 @@ export default {
       this.$refs.period.setValue(data.period.min + 5);
 
       this.bankPercent = data.percentNum;
-
       this.calculateMonthlyPayment();
     },
 
