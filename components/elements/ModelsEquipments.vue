@@ -42,7 +42,9 @@
                     'Комплектации и цены',
                     $store.state._page + '__modal-banner-new_',
                     1,
-                    'complectations'
+                    'complectations',
+                    $store.state.car.model_full + '. Двигатель: ' + param.engine + ', ' + param.flap + ', Мощность: ' + param.capacity + ', Коробка передач: '
+                    + param.transmission + ', Комплектаци: ' + param.title + ', Цена: ' + param.price + ' руб.'
                   )"
             />
           </div>
@@ -65,6 +67,7 @@
       :form_id="form_id"
       :form_type="form_type"
       :goal="goal"
+      :comment="comment"
     />
   </modal>
 </section>
@@ -91,20 +94,17 @@ export default {
       form_title: '',
       form_type: 1,
       goal: '',
+      comment: '',
     }
   },
   methods: {
-    show(title, form_id, form_type, goal) {
+    show(title, form_id, form_type, goal, comment) {
       this.form_title = title;
       this.form_id = form_id;
       this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
       this.goal = goal;
-
-      //  console.log(this.$modal);
+      this.comment = comment;
       this.$modal.show("form-complectation");
-      /*      () => {
-             callibriInit();
-           }*/
     },
     hide() {
       this.$modal.hide("form-complectation");

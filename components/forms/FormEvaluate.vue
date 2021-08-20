@@ -151,8 +151,8 @@ export default {
     mark: String,
     model: String,
     modification: String,
-    mileage: Number,
-    year: String,
+    mileage: String,
+    year: Number,
     transmission: String,
     priceFrom: Number,
     priceTo: Number,
@@ -176,6 +176,10 @@ export default {
       default: "online",
       type: String
     },
+    comment: {
+      default: "",
+      type: String
+    }
   },
 
   data: function() {
