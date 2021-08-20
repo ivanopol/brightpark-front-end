@@ -3,7 +3,7 @@
   <div class="container">
     <ul class="models__list">
       <li v-for="body in bodies" :key="body.id">
-        <a :href="body.path">
+        <a :href="body.path" :class="[body.is_active ? 'nuxt-link-active' : '']">
           <img :src="body.image" :alt="body.name">
           <span>{{body.name}}</span>
         </a>
@@ -23,35 +23,44 @@ export default {
           id: '0',
           name: 'Drive Active',
           path: 'drive-active',
-          image: '/images/models/da.png'
+          image: '/images/models/da.png',
+          is_active: false,
         },
         {
           id: '1',
           name: 'Хэтчбэк',
           path: 'hatchback',
-          image: '/images/models/hatchback.png'
+          image: '/images/models/hatchback.png',
+          is_active: false,
         },
         {
           id: '2',
           name: 'Лифтбек',
           path: 'liftback',
-          image: '/images/models/liftback.png'
+          image: '/images/models/liftback.png',
+          is_active: false,
         },
         {
           id: '3',
           name: 'Седан',
           path: 'sedan',
-          image: '/images/models/sedan.png'
+          image: '/images/models/sedan.png',
+          is_active: false,
         },
         {
           id: '4',
           name: 'Универсал',
           path: 'universal',
-          image: '/images/models/wagon.png'
+          image: '/images/models/wagon.png',
+          is_active: false,
         },
 
       ],
     }
+  },
+  async fetch() {
+    let bodyId = this.bodies.find(body => body.path === this.$route.params.model).id
+    this.bodies[bodyId].is_active = true
   },
 }
 </script>
