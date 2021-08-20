@@ -3,7 +3,7 @@
     <div class="container banner__container">
       <div class="banner__inner">
         <div class="banner__inner__car">
-          <img :src="currentImage" alt="" class="banner__inner__car__image">
+          <img :src="currentImage" :alt="colorTitle" :title="colorTitle" class="banner__inner__car__image">
 
           <ul class="banner__inner__car__colors">
             <li
@@ -11,6 +11,7 @@
               :key="color.id"
               :class="[currentColor === color.id ? 'active-color' : '']"
               @click="changeColor(color.id)"
+              :title="color.title"
               >
               <div :class="'banner__inner__car__colors__color ' + color.class" />
             </li>
@@ -47,7 +48,13 @@
 
     <modal name="form-callback4" height="auto" :adaptive="true" class="models-banner__modal">
       <div :id="form_id + '_close'" class="close event" @click="hide"></div>
-      <FormLeadNew :form_id="form_id" :goal="goal" :form_title="form_title":form_type="form_type"/>
+      <FormLeadNew
+        :form_id="form_id"
+        :form_title="form_title"
+        :form_type="form_type"
+        :goal="goal"
+        :comment="$store.state.car.model_full + ', цвет: ' + colorTitle"
+      />
     </modal>
 
     <modal name="color-choose" height="auto" :adaptive="true" class="color-choose">
@@ -82,6 +89,7 @@ export default {
       currentImage: "",
       currentColor: -1,
       colorClass: "",
+      colorTitle: "",
       form_id: '',
       goal: '',
       form_type: 1,
@@ -120,12 +128,12 @@ export default {
         if (el.id == color) {
           this.currentImage = el.image;
           this.currentColor = el.id;
+          this.colorTitle = el.title
         }
       })
     },
 
     changeColorMobile(data) {
-      console.log(data);
       this.currentImage = data.image;
       this.currentColor = data.colorId;
       this.colorClass = data.colorClass;
@@ -137,9 +145,11 @@ export default {
   },
 
   mounted() {
+    console.log(this.$store.state)
     this.currentColor = this.colors[0].id;
     this.currentImage = this.colors[0].image;
     this.colorClass = this.colors[0].class;
+    this.colorTitle = this.colors[0].title;
   },
 
 }

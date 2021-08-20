@@ -88,6 +88,10 @@ export default {
     goal_call: {
       default: "zvonok",
       type: String
+    },
+    comment: {
+      default: '',
+      type: String
     }
   },
   data: function () {
