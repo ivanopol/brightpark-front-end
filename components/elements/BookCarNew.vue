@@ -23,18 +23,14 @@
       >
         <div class="book__form__fields">
           <div class="book__form__field">
+            <input type="text" v-model="name">
+
             <p class="book__form__field__placeholder" :class="[name !== '' ? activePlaceholder : '']">
               Ваше имя
             </p>
-
-            <input type="text" v-model="name" @focus="focusedInput('name')" @blur="bluredInput('name')">
           </div>
 
           <div class="book__form__field">
-            <p class="book__form__field__placeholder" :class="[phone !== '' ? activePlaceholder : '']">
-              Номер телефона
-            </p>
-
             <the-mask
               :id="form_id + '_input_phone'"
               pattern=".{18,}"
@@ -42,9 +38,11 @@
               v-model="phone"
               type="tel"
               required="true"
-              @focus="focusedInput('phone')"
-              @blur="bluredInput('phone')"
             ></the-mask>
+
+            <p class="book__form__field__placeholder" :class="[phone !== '' ? activePlaceholder : '']">
+              Номер телефона
+            </p>
 
 <!--            <input type="text" v-model="phone" @focus="focusedInput('phone')" @blur="bluredInput('phone')">-->
           </div>
@@ -255,6 +253,14 @@ export default {
     background: rgba(255, 255, 255, .2);
     width: 100%;
     max-width: unset;
+    font-family: 'Factor A';
+
+    &:focus + .book__form__field__placeholder {
+      font-size: 12px;
+      top: 16px;
+      left: 26px;
+      transition: .2s ease;
+    }
   }
 }
 
@@ -270,8 +276,9 @@ export default {
   font-family: "Factor A";
 
   &.active {
-    font-size: 14px;
-    top: 12px;
+    font-size: 12px;
+    top: 16px;
+    left: 26px;
     transition: .2s ease;
   }
 }
