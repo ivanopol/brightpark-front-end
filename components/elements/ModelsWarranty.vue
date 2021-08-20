@@ -2,7 +2,7 @@
   <section class="warranty">
     <div class="container warranty__container">
       <div class="warranty__preview">
-        <img src="~static/images/warranty/warranty-granta.png" alt="">
+        <img :src="path + filename" alt="">
       </div>
 
       <div class="warranty__text">
@@ -27,7 +27,39 @@
 
 <script>
 export default {
-  name: "ModelsWarranty"
+  name: "ModelsWarranty",
+  data: function () {
+    return {
+      path: '/images/warranty/',
+      filename: '',
+      models: {
+        drive_active: 'warranty_granta_drive-active.png',
+        hatchback: 'warranty_granta_hatchback.png',
+        liftback: 'warranty_granta_liftback.png',
+        sedan: 'warranty_granta_sedan.png',
+        universal: 'warranty_granta_universal.png',
+      }
+    }
+  },
+  created() {
+    switch (this.$route.params.model) {
+      case 'drive-active':
+        this.filename = this.models.drive_active
+        break;
+      case 'hatchback':
+        this.filename = this.models.hatchback
+        break;
+      case 'liftback':
+        this.filename = this.models.liftback
+        break;
+      case 'sedan':
+        this.filename = this.models.sedan
+        break;
+      case 'universal':
+        this.filename = this.models.universal
+        break;
+    }
+  },
 }
 </script>
 
