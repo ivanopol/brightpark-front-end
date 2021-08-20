@@ -18,7 +18,10 @@
         <ModelsFeatures/>
         <ModelsEquipments class="equipments-block" :complectations="complectations"/>
         <TradeInFormNew />
-        <ModelsAbout />
+        <ModelsAbout
+          :model="model.model_slug"
+          :cars-body="model.type_slug"
+        />
         <CreditNew id="creditCalc" :equipments="complectations"/>
         <ModelsWarranty />
         <BookCarNew class="book-section"/>
