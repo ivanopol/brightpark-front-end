@@ -176,6 +176,10 @@ export default {
       default: "online",
       type: String
     },
+    comment: {
+      default: "",
+      type: String
+    }
   },
 
   data: function() {

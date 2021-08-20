@@ -352,6 +352,15 @@
       :year="selectedYear.label"
       :priceFrom="pricesRange.from"
       :priceTo="pricesRange.to"
+      :comment="'Интересуется: ' + $store.state.car.model_full + '.' +
+                'АВТОМОБИЛЬ КЛИЕНТА: ' +
+                'марка: ' + selectedMark.label + ', ' +
+                'модель: ' + selectedModel.label + ', ' +
+                'модификация: ' + selectedModification.label + ' , ' +
+                'год: ' + selectedYear.label + ', ' +
+                'пробег: ' + selectedMileage.label + ' км., ' +
+                'коробка передач: ' + selectedTransmission.label + ',' +
+                'предварительная стоимость: ' + pricesRange.from + ' - ' + pricesRange.to + ' руб.'"
     />
   </modal>
 </section>
