@@ -4,8 +4,10 @@
     <ul class="models__list">
       <li v-for="model in models" :key="model.id">
         <a :href="'/' + $store.state.city.value + model.path"
-                   :id="$store.state._page + '__models__list__' + model.name.toLowerCase()"
-                   class="event">
+           :id="$store.state._page + '__models__list__' + model.name.toLowerCase()"
+           class="event"
+           :class="[model.is_active ? 'nuxt-link-active' : '']"
+        >
           <span>
             {{ model.name }}
           </span>
@@ -27,42 +29,51 @@ export default {
         {
           id: '0',
           name: 'Granta',
-          path: '/granta'
+          path: '/granta',
+          is_active: false,
         },
 
         {
           id: '1',
           name: 'Vesta',
-          path: '/vesta'
+          path: '/vesta',
+          is_active: false,
         },
 
         {
           id: '2',
           name: 'XRAY',
-          path: '/xray'
+          path: '/xray',
+          is_active: false,
         },
 
         {
           id: '3',
           name: 'Largus',
-          path: '/largus'
+          path: '/largus',
+          is_active: false,
         },
 
         {
           id: '4',
           name: 'Niva',
-          path: '/niva'
+          path: '/niva',
+          is_active: false,
         },
 
         {
           id: '5',
           name: '4x4',
-          path: '/4x4'
+          path: '/4x4',
+          is_active: false,
         },
       ],
     }
   },
-
+  async fetch() {
+    let modelId = this.models.find(model => model.path === '/' + this.$route.params.models).id
+    this.models[modelId].is_active = true
+  },
 }
 </script>
 
