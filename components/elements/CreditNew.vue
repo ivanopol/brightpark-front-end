@@ -64,7 +64,7 @@
           </v-select>
         </div>
 
-        <div class="range-field">
+        <div class="range-field" id="firstPaymentRange">
           <div class="range-field__input">
             <p class="range-field__placeholder" :class="[firstPaymentPercent !== '' ? activePlaceholder : '']">
               Первоначальный взнос
@@ -79,6 +79,7 @@
               @:keyup="inputChangePayment($event)"
               v-model="firstPayment"
               readonly
+              @input="setFieldShadow('firstPaymentRange')"
             >
 
           </div>
@@ -86,7 +87,9 @@
           <div class="range-field__wrap">
             <vue-slider v-model="firstPaymentPercent"
                         ref="firstPayment"
-                        @change="changeFirstPayment($event)"
+                        @change="changeFirstPayment($event), setFieldShadow('firstPaymentRange')"
+                        @dragging="setFieldShadow('firstPaymentRange')"
+                        @drag-end="setFieldShadow('firstPaymentRange')"
                         :height="6"
                         :interval="1"
                         :dotSize="25"
@@ -101,7 +104,7 @@
           </span>
         </div>
 
-        <div class="range-field">
+        <div class="range-field" id="creditPeriod">
           <div class="range-field__input">
             <p class="range-field__placeholder" :class="[period !== '' ? activePlaceholder : '']">
               Срок погашения в месяцах
@@ -117,7 +120,9 @@
 
           <div class="range-field__wrap">
             <vue-slider v-model="period"
-                        @change="changeFirstPayment"
+                        @change="changeFirstPayment, setFieldShadow('creditPeriod')"
+                        @dragging="setFieldShadow('creditPeriod')"
+                        @drag-end="setFieldShadow('creditPeriod')"
                         :height="6"
                         :interval="1"
                         :dotSize="25"
@@ -644,7 +649,8 @@ export default {
       this.calculateMonthlyPayment();
     },
 
-    changeFirstPayment() {
+    changeFirstPayment( event ) {
+      console.log(event);
       this.firstPayment = Math.round(this.carPrice / 100 * this.firstPaymentPercent);
       const target = document.querySelector('input[name="firstPayment"]');
       target.value = Number(this.firstPayment).toLocaleString('ru');
@@ -666,7 +672,6 @@ export default {
       let annualCoefficient = (res1 / res2);
       // this.credit_programs[i]['monthly_payment'] = Math.round(debt * annualCoefficient);
       this.mounthlyPayment = Math.round(debt * annualCoefficient);
-
 
 
       // if (this.credit_programs !== undefined && this.credit_programs !== null) {
@@ -700,6 +705,16 @@ export default {
     changeEquipment(data) {
       this.carPrice = data.price;
       this.calculateMonthlyPayment();
+    },
+
+    setFieldShadow( targetId ) {
+      setTimeout(() => {
+        const target = document.getElementById(targetId);
+        const field = target.querySelector('.range-field__input');
+        const currentWidth = target.querySelector('.vue-slider-process').style.width;
+        const shadowStyle = `linear-gradient(90deg, rgba(255, 255, 255, 0.15) ${currentWidth}, rgba(255, 255, 255, 0) ${currentWidth})`;
+        field.style.background = shadowStyle;
+      }, 10);
     }
   },
 
@@ -732,6 +747,9 @@ export default {
       }).catch(error => {
       // console.log(error)
     });
+
+    this.setFieldShadow('creditPeriod');
+    this.setFieldShadow('firstPaymentRange');
   },
 
   filters: {
@@ -910,6 +928,7 @@ select {
 
 .range-field__input {
   position: relative;
+  background-image: linear-gradient(90deg, rgba(255,255,255,.15) 15%, rgba(255,255,255,0) 15%);
 }
 
 .range-field__placeholder {
