@@ -96,6 +96,7 @@
                         :drag-on-click="true"
                         :min="sliderOne.min"
                         :max="sliderOne.max"
+                        :marks="sliderOne.marks"
                         :tooltip-formatter="formatter1" />
           </div>
 
@@ -129,6 +130,7 @@
                         :drag-on-click="true"
                         :min="sliderTwo.min"
                         :max="sliderTwo.max"
+                        :marks="sliderTwo.marks"
                         ref="period"
                         />
           </div>
@@ -256,17 +258,19 @@ export default {
       creditPercent: '',
       sliderOne:
         {
-          min: 0,
+          marks: ['10%', '90%'],
+          min: 10,
           max: 90
         },
 
       sliderTwo:
         {
+          marks: [12, 60],
           min: 12,
           max: 60
         },
       formatter1: '{value}%',
-      carPrice: 500000,
+      carPrice: 0,
       period: 24,
      // periodText: '5 месяцев',
       firstPayment: null,
@@ -620,7 +624,6 @@ export default {
     },
 
     changeFirstPayment( event ) {
-      console.log(event);
       this.firstPayment = Math.round(this.carPrice / 100 * this.firstPaymentPercent);
       const target = document.querySelector('input[name="firstPayment"]');
       target.value = Number(this.firstPayment).toLocaleString('ru');
@@ -663,7 +666,9 @@ export default {
     changeBank(data) {
       this.sliderOne.min = data.firstPayment;
       this.$refs.firstPayment.setValue(data.firstPayment + 5);
+      this.sliderOne.marks = [data.firstPayment + '%', '90%'];
 
+      this.sliderTwo.marks = [data.period.min, data.period.max];
       this.sliderTwo.min = data.period.min;
       this.sliderTwo.max = data.period.max;
       this.$refs.period.setValue(data.period.min + 5);
@@ -674,6 +679,7 @@ export default {
 
     changeEquipment(data) {
       this.carPrice = data.price;
+      this.changeFirstPayment();
       this.calculateMonthlyPayment();
     },
 
@@ -720,6 +726,8 @@ export default {
 
     this.setFieldShadow('creditPeriod');
     this.setFieldShadow('firstPaymentRange');
+
+    this.banks.sort( ( a, b ) => a.percentNum - b.percentNum );
   },
 
   filters: {
@@ -949,7 +957,7 @@ select {
 }
 
 .credit__bottom {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .credit__bottom__payment {
@@ -1043,6 +1051,22 @@ select {
 
       &:after {
         display: none;
+      }
+    }
+
+    .vue-slider-mark-label {
+      color: white;
+      font-family: "Factor A";
+      margin: 7px 0 0;
+    }
+
+    .vue-slider-mark {
+      &:first-child {
+        left: 1% !important;
+      }
+
+      &:last-child {
+        left: 99% !important;
       }
     }
   }
