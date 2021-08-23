@@ -42,6 +42,18 @@
             @input="changeEquipment"
             :searchable="false"
           >
+            <template #selected-option="{ title, transmission, price, capacity }">
+              <div style="display: flex; align-items: baseline;">
+                <span style="margin-right: 15px;">
+                  {{ price.toLocaleString('ru-RU') }}&nbsp;₽
+                </span>
+
+                <span class="v-select-field__more" style="font-size: 14px;">
+                  {{ title }} / {{ transmission }} / {{ capacity }}
+                </span>
+              </div>
+            </template>
+
             <template #option="{ title, transmission, price, capacity }">
               <span class="v-select-field__bold-text">
                 {{ price.toLocaleString('ru-RU') }}&nbsp;₽
@@ -135,6 +147,20 @@
             @input="changeBank"
             :searchable="false"
           >
+
+            <template #selected-option="{ program, bank, percent }">
+              <div style="display: flex; align-items: baseline;">
+                <span style="margin-right: 15px;">
+                  {{ percent }}
+                </span>
+
+                <span class="v-select-field__more" style="font-size: 14px;">
+                  {{ bank }} — {{ program }}
+                </span>
+              </div>
+            </template>
+
+
             <template #option="{ program, bank, percent }">
               <span class="v-select-field__bold-text">
                 {{ percent }}
@@ -1041,4 +1067,8 @@ select {
   color: #514EA1;
 }
 
+.v-select-field__more {
+  font-weight: 400;
+  font-size: 14px;
+}
 </style>
