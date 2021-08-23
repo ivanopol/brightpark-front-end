@@ -3,6 +3,16 @@
     <div class="container banner__container">
       <div class="banner__inner">
         <div class="banner__inner__car">
+          <div class="banner__inner__car__hit" v-if="isHit">
+            <span>
+              хит продаж
+            </span>
+
+            <svg width="135" height="104" viewBox="0 0 135 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M129.936 93.5843L134.387 11.3205C134.713 5.31105 129.695 0.377862 123.692 0.805412L9.34428 8.94953C3.69317 9.35202 -0.495308 14.3642 0.112402 19.9969L7.03662 84.1761C7.54539 88.8919 11.2969 92.6014 16.018 93.0572L118.99 102.998C124.652 103.544 129.629 99.2643 129.936 93.5843Z" fill="#FFCA0D"/>
+            </svg>
+          </div>
+
           <img :src="currentImage" :alt="colorTitle" :title="colorTitle" class="banner__inner__car__image">
 
           <ul class="banner__inner__car__colors">
@@ -80,6 +90,10 @@ export default {
     model: String,
     type: String,
     colors: Array,
+    isHit: {
+      type: Boolean,
+      default: true,
+    }
   },
 
   data: function () {
@@ -552,6 +566,38 @@ export default {
 
   @media (min-width: 1000px) {
     margin: 30px 0;
+  }
+}
+
+.banner__inner__car__hit {
+  display: none;
+
+  @media (min-width: 1024px) {
+    width: 136px;
+    height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    span {
+      color: white;
+      font-size: 20px;
+      font-family: "Factor A";
+      text-transform: uppercase;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    svg {
+      width: 100%;
+      position: absolute;
+
+    }
   }
 }
 </style>

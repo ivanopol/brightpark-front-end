@@ -127,6 +127,7 @@ export default {
         font-weight: 500;
         color: #000;
         font-size: 16px;
+        transition: .2s ease;
 
         &.nuxt-link-active {
           color: #514EA1;
@@ -144,6 +145,11 @@ export default {
               height: 3px;
             }
           }
+        }
+
+        &:hover {
+          color: #514EA1;
+          transition: .2s ease;
         }
 
       }
