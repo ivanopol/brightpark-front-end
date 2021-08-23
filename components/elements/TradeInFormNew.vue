@@ -6,8 +6,8 @@
       <div class="trade-in__head">
 
         <picture>
-          <source srcset="~static/images/trade-in-form/granta-desk.png" media="(min-width: 1000px)">
-          <img src="~static/images/trade-in-form/granta.png" alt="">
+          <source :srcset="path.desktop" media="(min-width: 1000px)">
+          <img :src="path.mobile" :alt="path.title">
         </picture>
 
         <h2 class="trade-in__head__title">
@@ -57,16 +57,6 @@
           >
             <div class="trade-in_form__offline__fields">
               <div class="input-field">
-
-                <!--<input type="text" name="name" v-model="usersName">
-
-                <span
-                  class="input-field__placeholder"
-                  :class="[usersName !== '' ? 'active' : false]"
-                >
-                  Ваше имя
-                </span> -->
-
                 <input type="text" name="name" v-model="name">
                 <span class="input-field__placeholder" :class="[name !== '' ? 'active' : false]">Ваше имя</span>
               </div>
@@ -102,20 +92,6 @@
           <form id="onlineWidgetForm" >
             <div class="trade-in__form__online__fields">
               <div class="select-field">
-                <!-- <select @change="getModels($event)">
-                  <option value="" disabled selected></option>
-
-                  <option
-                    :value="mark.id"
-                    v-for="mark in allMarks"
-                    :key="allMarks.indexOf(mark)"
-                    :data-code="mark.code"
-                    :data-label="mark.label"
-                  >
-                    {{ mark.label }}
-                  </option>
-                </select> -->
-
                 <v-select
                   :options="allMarks"
                   :get-option-label="(option) => option.label"
@@ -164,20 +140,6 @@
                 >
                   Модель автомобиля
                 </span>
-<!--
-                <select @change="getModifications($event)" v-model="values.model">
-                  <option value="" disabled selected></option>
-                  <option
-                    :value="model.id"
-                    v-for="model in allModels"
-                    :key="allModels.indexOf(model)"
-                    :data-code="model.code"
-                    :data-label="model.label"
-                  >
-                    {{ model.label }}
-                  </option>
-                </select>
-                -->
               </div>
 
               <div class="select-field">
@@ -203,20 +165,6 @@
                 >
                   Модификация автомобиля
                 </span>
-
-
-                <!--<select @change="getYears" v-model="values.modification">
-                  <option value="" disabled selected></option>
-                  <option
-                    :value="modification.id"
-                    v-for="modification in allModifications"
-                    :key="allModifications.indexOf(modification)"
-                    :data-param="modification.tech_param_id"
-                    :data-label="modification.label"
-                  >
-                    {{ modification.label }}
-                  </option>
-                </select>-->
               </div>
 
               <div class="select-field">
@@ -240,17 +188,6 @@
                 >
                   Год выпуска
                 </span>
-
-               <!-- <select  placeholder="Модель автомобиля" @change="setYear($event)">
-                  <option value="" disabled selected></option>
-                  <option
-                    v-for="year in years"
-                    :key="years.indexOf(year)"
-                    :value="year.value"
-                  >
-                    {{ year.value }}
-                  </option>
-                </select> -->
               </div>
 
               <div class="select-field">
@@ -275,17 +212,6 @@
                 >
                   Пробег
                 </span>
-
-               <!-- <select  placeholder="Модель автомобиля" v-model="selectedMileage">
-                  <option value="" disabled selected></option>
-                  <option
-                    v-for="mileage in mileages"
-                    :key="mileages.indexOf(mileage)"
-                    :value="mileage.value"
-                  >
-                    {{ mileage.label }}
-                  </option>
-                </select> -->
               </div>
 
               <div class="select-field">
@@ -310,17 +236,6 @@
                 >
                   Коробка передач
                 </span>
-
-               <!-- <select v-model="selectedTransmission">
-                  <option value="" disabled selected></option>
-                  <option
-                    v-for="transmission in transmissions"
-                    :key="transmissions.indexOf(transmission)"
-                    :value="transmission"
-                  >
-                    {{ transmission }}
-                  </option>
-                </select> -->
               </div>
             </div>
 
@@ -374,6 +289,36 @@ export default {
 
   data: function () {
     return {
+      path: {},
+      images: {
+        granta: {
+          'drive-active': {
+            title: 'Granta Drive Active',
+            desktop: '/images/trade-in-form/granta/drive_active/photo_desktop.png',
+            mobile: '/images/trade-in-form/granta/drive_active/photo_mobile.png',
+          },
+          sedan: {
+            title: 'Granta Седан',
+            desktop: '/images/trade-in-form/granta/sedan/photo_desktop.png',
+            mobile: '/images/trade-in-form/granta/sedan/photo_mobile.png',
+          },
+          liftback: {
+            title: 'Granta Лифтбек',
+            desktop: '/images/trade-in-form/granta/liftback/photo_desktop.png',
+            mobile: '/images/trade-in-form/granta/liftback/photo_mobile.png',
+          },
+          hatchback: {
+            title: 'Granta Хэтчбэк',
+            desktop: '/images/trade-in-form/granta/hatchback/photo_desktop.png',
+            mobile: '/images/trade-in-form/granta/hatchback/photo_mobile.png',
+          },
+          universal: {
+            title: 'Granta Хэтчбэк',
+            desktop: '/images/trade-in-form/granta/universal/photo_desktop.png',
+            mobile: '/images/trade-in-form/granta/universal/photo_mobile.png',
+          },
+        }
+      },
       isOfflineWidget: false,
       allMarks: [],
       allModels: [],
@@ -665,9 +610,9 @@ export default {
       this.utm = this.decodeCookie(this.$cookies.get("bp_uid"));
     }
   },
-/*  beforeMount() {
-    this.attachHandler();
-  },*/
+  created() {
+     this.path = this.images[this.$route.params.models][this.$route.params.model]
+  },
 
   async fetch() {
     const brands = await fetch(
