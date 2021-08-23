@@ -3,7 +3,7 @@
     <div class="container credit__container">
       <div class="credit__head">
         <div class="credit__inner">
-          <img src="~static/images/credit-section/granta.png" alt="granta" class="credit__inner__car">
+          <img :src="path.desktop" :alt="path.title" class="credit__inner__car">
 
           <div class="credit__inner__text">
             <h2 class="credit__inner__title">
@@ -248,6 +248,36 @@ export default {
 
   data: function () {
     return {
+      path: {},
+      images: {
+        granta: {
+          'drive-active': {
+            title: 'Granta Drive Active',
+            desktop: '/images/credit-section/granta/drive_active/photo_desktop.png',
+            mobile: '/images/credit-section/granta/drive_active/photo_mobile.png',
+          },
+          sedan: {
+            title: 'Granta Седан',
+            desktop: '/images/credit-section/granta/sedan/photo_desktop.png',
+            mobile: '/images/credit-section/granta/sedan/photo_mobile.png',
+          },
+          liftback: {
+            title: 'Granta Лифтбек',
+            desktop: '/images/credit-section/granta/liftback/photo_desktop.png',
+            mobile: '/images/credit-section/granta/liftback/photo_mobile.png',
+          },
+          hatchback: {
+            title: 'Granta Хэтчбэк',
+            desktop: '/images/credit-section/granta/hatchback/photo_desktop.png',
+            mobile: '/images/credit-section/granta/hatchback/photo_mobile.png',
+          },
+          universal: {
+            title: 'Granta Хэтчбэк',
+            desktop: '/images/credit-section/granta/universal/photo_desktop.png',
+            mobile: '/images/credit-section/granta/universal/photo_mobile.png',
+          },
+        }
+      },
       form_id: '',
       form_title: '',
       form_type: 1,
@@ -751,6 +781,8 @@ export default {
   },
 
   created() {
+    this.path = this.images[this.$route.params.models][this.$route.params.model]
+
     switch(this.$route.params.model) {
       case 'drive-active':
         this.params = this.equipments.drive_active
