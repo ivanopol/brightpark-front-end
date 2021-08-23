@@ -3,7 +3,7 @@
     <section class="test-drive-banner">
       <div class="container test-drive-banner__container">
         <div class="test-drive-banner__wrapper">
-          <img src="~static/images/credit-section/granta/drive_active/photo_mobile.png" alt="" class="test-drive-banner__pic">
+          <img :src="path.mobile" :alt="path.title" class="test-drive-banner__pic">
 
           <div class="test-drive-banner__text">
             <h2>Испытай новую LADA Granta в деле!</h2>
@@ -45,6 +45,31 @@ export default {
       form_title: "",
       form_type: 1,
       goal: "",
+      path: {},
+      images: {
+        granta: {
+          'drive-active': {
+            title: 'Granta Drive Active',
+            mobile: '/images/credit-section/granta/drive_active/photo_mobile.png',
+          },
+          sedan: {
+            title: 'Granta Седан',
+            mobile: '/images/credit-section/granta/sedan/photo_mobile.png',
+          },
+          liftback: {
+            title: 'Granta Лифтбек',
+            mobile: '/images/credit-section/granta/liftback/photo_mobile.png',
+          },
+          hatchback: {
+            title: 'Granta Хэтчбэк',
+            mobile: '/images/credit-section/granta/hatchback/photo_mobile.png',
+          },
+          universal: {
+            title: 'Granta Хэтчбэк',
+            mobile: '/images/credit-section/granta/universal/photo_mobile.png',
+          },
+        }
+      },
     }
   },
 
@@ -64,6 +89,9 @@ export default {
     hide() {
       this.$modal.hide("form-callback3");
     },
+  },
+  created() {
+    this.path = this.images[this.$route.params.models][this.$route.params.model]
   }
 }
 </script>
