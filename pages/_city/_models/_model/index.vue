@@ -11,6 +11,7 @@
           :model="model.model"
           :type="model.type"
           @scrollTo="scrollToCredit"
+          :isHit="model.model_slug === 'granta' && model.type_slug === 'sedan' ? true : false"
         />
 
         <TestDriveBanner />
@@ -80,6 +81,7 @@ export default Vue.extend({
       model: '',
       seo: {},
       count: 0,
+      isHitOfSales: false,
       complectations: {
         drive_active: [
           {
