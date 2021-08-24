@@ -630,7 +630,6 @@ export default {
     padding: 17px 0 0;
     border-radius: 10px;
     position: relative;
-    overflow: hidden;
     margin: 30px 15px;
 
     @media (min-width: 1000px) {
@@ -641,6 +640,7 @@ export default {
   .trade-in__container {
     position: relative;
     z-index: 1;
+    overflow: unset;
   }
 
   .bg-figure {
@@ -702,7 +702,7 @@ export default {
       picture {
         position: absolute;
         left: 0;
-        top: -8px;
+        top: 0px;
         pointer-events: none;
 
         img {
@@ -741,6 +741,8 @@ export default {
       padding: 33px 45px 40px 43px;
       font-size: 18px;
       max-width: 500px;
+      background-image: url("../../static/images/credit-section/advantages-wrap.svg");
+      background-size: cover;
     }
   }
 
@@ -837,6 +839,11 @@ export default {
     margin-top: 20px;
     height: 60px;
     font-size: 14px;
+    max-width: 276px;
+
+    @media (min-width: 1000px) {
+      max-width: 340px;
+    }
   }
 
   .trade-in_form__offline__fields {

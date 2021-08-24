@@ -991,6 +991,11 @@ select {
     right: 0px;
     top: 47%;
     transform: translate(0, -50%);
+    background-image: url("../../static/images/trade-in-form/advantages-wrap.svg");
+    background-size: cover;
+    border: none;
+    padding: 43px;
+    min-width: 480px;
   }
 }
 
