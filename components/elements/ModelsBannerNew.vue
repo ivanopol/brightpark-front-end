@@ -619,4 +619,10 @@ export default {
     }
   }
 }
+
+.color-choose {
+  .vm--modal {
+    overflow-y: auto;
+  }
+}
 </style>
