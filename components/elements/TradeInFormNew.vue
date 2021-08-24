@@ -630,7 +630,6 @@ export default {
     padding: 17px 0 0;
     border-radius: 10px;
     position: relative;
-    overflow: hidden;
     margin: 30px 15px;
 
     @media (min-width: 1000px) {
@@ -641,6 +640,7 @@ export default {
   .trade-in__container {
     position: relative;
     z-index: 1;
+    overflow: unset;
   }
 
   .bg-figure {
@@ -702,7 +702,7 @@ export default {
       picture {
         position: absolute;
         left: 0;
-        top: -8px;
+        top: 0px;
         pointer-events: none;
 
         img {
