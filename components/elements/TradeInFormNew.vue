@@ -837,6 +837,11 @@ export default {
     margin-top: 20px;
     height: 60px;
     font-size: 14px;
+    max-width: 276px;
+
+    @media (min-width: 1000px) {
+      max-width: 340px;
+    }
   }
 
   .trade-in_form__offline__fields {
