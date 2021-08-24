@@ -179,6 +179,38 @@
         </div>
       </div>
 
+      <div class="credit__checkboxes">
+        <div class="control-group">
+          <label
+            class="control control-checkbox"
+          >
+            <span>КАСКО</span>
+
+            <input
+              type="checkbox"
+              v-model="isCascoChecked"
+              disabled
+            />
+            <div class="control_indicator"></div>
+          </label>
+        </div>
+
+        <div class="control-group">
+          <label
+            class="control control-checkbox"
+          >
+            <span>Страхование жизни</span>
+
+            <input
+              type="checkbox"
+              v-model="isLifeInsurenceChecked"
+              disabled
+            />
+            <div class="control_indicator"></div>
+          </label>
+        </div>
+      </div>
+
       <div class="credit__bottom">
         <div class="credit__bottom__payment">
           <p class="credit__bottom__payment__heading">
@@ -307,6 +339,8 @@ export default {
       mounthlyPayment: 0,
       bankPercent: 0,
       params: '',
+      isCascoChecked: false,
+      isLifeInsurenceChecked: false,
 
       banks: [
         {
@@ -320,6 +354,8 @@ export default {
           },
 
           firstPayment: 10,
+          casco: true,
+          life_insurance: true,
         },
 
         {
@@ -333,6 +369,8 @@ export default {
           },
 
           firstPayment: 10,
+          casco: true,
+          life_insurance: false,
         },
 
         {
@@ -345,6 +383,8 @@ export default {
             max: 84,
           },
           firstPayment: 10,
+          casco: false,
+          life_insurance: false,
         },
 
         {
@@ -357,6 +397,8 @@ export default {
             max: 84,
           },
           firstPayment: 10,
+          casco: true,
+          life_insurance: true,
         },
 
         {
@@ -369,11 +411,13 @@ export default {
             max: 84,
           },
           firstPayment: 0,
+          casco: true,
+          life_insurance: false,
         },
 
         {
           bank: 'Сетелем банк',
-          program: 'Лайт ( Каско, СЖ )',
+          program: 'Лайт',
           percent: '7.5%',
           percentNum: 7.5,
           period: {
@@ -381,6 +425,8 @@ export default {
             max: 60,
           },
           firstPayment: 20,
+          casco: true,
+          life_insurance: true,
         },
 
         {
@@ -393,6 +439,8 @@ export default {
             max: 84,
           },
           firstPayment: 10,
+          casco: true,
+          life_insurance: false,
         },
 
         {
@@ -405,6 +453,8 @@ export default {
             max: 84,
           },
           firstPayment: 10,
+          casco: true,
+          life_insurance: false,
         },
 
         {
@@ -417,6 +467,8 @@ export default {
             max: 84,
           },
           firstPayment: 20,
+          casco: false,
+          life_insurance: true,
         },
 
         {
@@ -429,6 +481,8 @@ export default {
             max: 60,
           },
           firstPayment: 20,
+          casco: false,
+          life_insurance: true,
         },
 
         {
@@ -441,6 +495,8 @@ export default {
             max: 48,
           },
           firstPayment: 10,
+          casco: false,
+          life_insurance: false,
         },
 
         {
@@ -453,6 +509,8 @@ export default {
             max: 48,
           },
           firstPayment: 10,
+          casco: true,
+          life_insurance: false,
         },
 
         {
@@ -465,6 +523,8 @@ export default {
             max: 84,
           },
           firstPayment: 10,
+          casco: false,
+          life_insurance: false,
         },
 
         {
@@ -477,6 +537,8 @@ export default {
             max: 84,
           },
           firstPayment: 10,
+          casco: true,
+          life_insurance: false,
         },
 
 
@@ -490,6 +552,8 @@ export default {
             max: 60,
           },
           firstPayment: 20,
+          casco: true,
+          life_insurance: false,
         },
 
         {
@@ -502,6 +566,8 @@ export default {
             max: 72,
           },
           firstPayment: 0,
+          casco: true,
+          life_insurance: true,
         },
 
         {
@@ -514,6 +580,8 @@ export default {
             max: 84,
           },
           firstPayment: 10,
+          casco: true,
+          life_insurance: true,
         },
 
         {
@@ -526,6 +594,8 @@ export default {
             max: 84,
           },
           firstPayment: 20,
+          casco: true,
+          life_insurance: true,
         },
 
         {
@@ -538,6 +608,8 @@ export default {
             max: 84,
           },
           firstPayment: 30,
+          casco: true,
+          life_insurance: true,
         },
 
         {
@@ -550,6 +622,8 @@ export default {
             max: 84,
           },
           firstPayment: 10,
+          casco: true,
+          life_insurance: true,
         },
 
         {
@@ -562,6 +636,8 @@ export default {
             max: 84,
           },
           firstPayment: 20,
+          casco: true,
+          life_insurance: true,
         },
 
         {
@@ -574,6 +650,8 @@ export default {
             max: 84,
           },
           firstPayment: 30,
+          casco: true,
+          life_insurance: true,
         },
 
         {
@@ -586,6 +664,8 @@ export default {
             max: 84,
           },
           firstPayment: 10,
+          casco: true,
+          life_insurance: false,
         },
 
         {
@@ -598,6 +678,8 @@ export default {
             max: 84,
           },
           firstPayment: 20,
+          casco: true,
+          life_insurance: false,
         },
 
         {
@@ -610,6 +692,8 @@ export default {
             max: 84,
           },
           firstPayment: 30,
+          casco: true,
+          life_insurance: false,
         },
       ]
     }
@@ -704,6 +788,10 @@ export default {
       this.$refs.period.setValue(data.period.min + 5);
 
       this.bankPercent = data.percentNum;
+
+      this.isLifeInsurenceChecked = data.life_insurance;
+      this.isCascoChecked = data.casco;
+
       this.calculateMonthlyPayment();
     },
 
@@ -805,6 +893,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "./assets/scss/_controls.scss";
 
 select {
   option {
@@ -1145,5 +1234,23 @@ select {
 .v-select-field__more {
   font-weight: 400;
   font-size: 14px;
+}
+
+.credit__checkboxes {
+  display: flex;
+  max-width: 585px;
+  width: 100%;
+  margin-left: auto;
+
+  .control-group {
+    margin-right: 25px;
+    .control {
+      padding-top: 5px;
+    }
+    span {
+      color: white;
+      font-family: "Factor A";
+    }
+  }
 }
 </style>
