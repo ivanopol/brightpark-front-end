@@ -35,7 +35,7 @@
 
         <div class="banner__inner__info">
           <h1>Новая LADA {{ model }} {{ type }} в {{ $store.state.city.dative }}</h1>
-          <p class="banner__inner__info__price">от {{ prices.special_price | formatPrice }} ₽</p>
+          <p class="banner__inner__info__price color-primary-color">от {{ prices.special_price | formatPrice }} ₽</p>
           <div class="banner__inner__info__credit">
             <p>Или в кредит <span> от {{ prices.credit_from | formatPrice }} ₽ / месяц </span></p>
             <button type="button" @click="scrollTo">Рассчитать кредит</button>
@@ -107,7 +107,7 @@ export default {
       form_id: '',
       goal: '',
       form_type: 1,
-      form_title: ''
+      form_title: '',
     }
   },
 
@@ -169,6 +169,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "./assets/scss/_colors.scss";
+
 
 .banner__container {
   overflow: unset;
@@ -497,8 +499,8 @@ export default {
   background: #1B65F5;
 }
 
+
 .banner__inner__info__price {
-  color: #5CBE86;
   font-weight: 700;
   text-align: center;
   font-size: 36px;
