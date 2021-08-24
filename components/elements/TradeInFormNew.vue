@@ -741,6 +741,8 @@ export default {
       padding: 33px 45px 40px 43px;
       font-size: 18px;
       max-width: 500px;
+      background-image: url("../../static/images/credit-section/advantages-wrap.svg");
+      background-size: cover;
     }
   }
 
