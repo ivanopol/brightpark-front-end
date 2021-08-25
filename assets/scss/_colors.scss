@@ -1,0 +1,102 @@
+
+$orange: #EE6723;
+$yellow: #FFCA0D;
+$green: #5CBE86;
+$purple: #514EA1;
+
+$orange-path: '/images/decorations/model-figure-orange.svg';
+$yellow-path: '/images/decorations/model-figure-yellow.svg';
+$green-path: '/images/decorations/model-figure-green.svg';
+$purple-path: '/images/decorations/model-figure-purple.svg';
+
+.theme-01 {
+  $primary-color: $orange;
+  $secondary-color: $yellow;
+  $figure: $orange-path;
+
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
+}
+
+.theme-02 {
+  $primary-color: $yellow;
+  $secondary-color: $green;
+  $figure: $yellow-path;
+
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
+}
+
+.theme-03 {
+  $primary-color: $green;
+  $secondary-color: $orange;
+  $figure: $green-path;
+
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
+}
+
+.theme-04 {
+  $primary-color: $purple;
+  $secondary-color: $green;
+  $figure: $purple-path;
+
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
+
+}
+
+.theme-05 {
+  $primary-color: $purple;
+  $secondary-color: $yellow;
+  $figure: $purple-path;
+
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
+}
+
+

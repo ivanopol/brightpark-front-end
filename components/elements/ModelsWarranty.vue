@@ -17,7 +17,7 @@
         </p>
 
         <advantages-list-mini
-          class="warranty__advantages"
+          class="warranty__advantages color-primary-color"
           :advantages="['15 банков-партнеров', 'Одобрение по кредиту 30 минут', 'Вероятность одобрения 98%']"
         />
       </div>
@@ -64,6 +64,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "./assets/scss/_colors.scss";
 
   .warranty {
     padding-top: 30px;
@@ -129,7 +130,6 @@ export default {
   }
 
   .warranty__advantages {
-    color: #514EA1;
     font-size: 18px;
     margin-top: 20px;
   }

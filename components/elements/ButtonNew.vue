@@ -1,5 +1,5 @@
 <template>
-  <button :type="buttonType" :style="{ backgroundColor: buttonColor }">
+  <button :type="buttonType"  class="color-secondary-background">
     {{ buttonText }}
   </button>
 </template>
@@ -18,10 +18,6 @@ export default {
     buttonHeight: {
       type: String
     },
-    buttonColor: {
-      type: String,
-      default: '#5CBE86',
-    },
     buttonType: {
       type: String
     },
@@ -36,6 +32,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "./assets/scss/_colors.scss";
 
 button {
   display: flex;

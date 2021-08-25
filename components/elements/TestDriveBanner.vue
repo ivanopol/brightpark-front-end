@@ -2,7 +2,7 @@
   <div>
     <section class="test-drive-banner">
       <div class="container test-drive-banner__container">
-        <div class="test-drive-banner__wrapper">
+        <div class="test-drive-banner__wrapper color-primary-background">
           <img :src="path.mobile" :alt="path.title" class="test-drive-banner__pic">
 
           <div class="test-drive-banner__text">
@@ -97,8 +97,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "./assets/scss/_colors.scss";
+
   .test-drive-banner__wrapper {
-    background-color: #514EA1;
     padding: 30px 20px 40px;
     position: relative;
 

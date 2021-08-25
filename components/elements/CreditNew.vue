@@ -1,5 +1,5 @@
 <template>
-  <section class="credit">
+  <section class="credit color-primary-background">
     <div class="container credit__container">
       <div class="credit__head">
         <div class="credit__inner">
@@ -893,6 +893,7 @@ export default {
 
 <style scoped lang="scss">
 @import "./assets/scss/_controls.scss";
+@import "./assets/scss/_colors.scss";
 
 select {
   option {
@@ -900,7 +901,6 @@ select {
   }
 }
 .credit {
-  background: #514EA1;
   padding: 15px 0;
 
   @media (min-width: 1024px) {
