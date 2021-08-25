@@ -56,7 +56,10 @@
         />
       </form>
 
-      <img src="~static/images/consult_block/girl.png" alt="" class="book__inner__girl">
+      <img src="~static/images/book-car-figure.png" alt="" class="book__inner__figure">
+      <img src="~static/images/book-girl.png" alt="" class="book__inner__girl-mob">
+      <img src="~static/images/book-girl-desk.png" alt="" class="book__inner__girl">
+
     </div>
   </div>
 </section>
@@ -203,6 +206,15 @@ export default {
   }
 }
 
+.book__container {
+  overflow: unset;
+}
+
+.book__text {
+  position: relative;
+  z-index: 1;
+}
+
 .book__inner {
   padding: 35px 20px;
   position: relative;
@@ -292,20 +304,46 @@ export default {
     margin: 20px 0 0;
     max-width: 270px;
   }
+
+  &:hover {
+    box-shadow: 0 3px 5px rgba(255, 255, 255, .3);
+  }
 }
 
 .book__inner__girl {
-  pointer-events: none;
-  max-width: 200px;
-  position: absolute;
-  right: 0;
-  top: -20px;
   display: none;
+
   @media (min-width: 1024px) {
-    max-width: 450px;
-    bottom: 0;
+    max-width: 380px;
+    bottom: -60px;
     display: block;
-    top: unset;
+    right: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+}
+
+.book__inner__girl-mob {
+  pointer-events: none;
+  max-width: 170px;
+  position: absolute;
+  right: -26px;
+  top: -42px;
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.book__inner__figure {
+  display: none;
+
+  @media (min-width: 1367px) {
+    position: absolute;
+    pointer-events: none;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    display: block;
   }
 }
 </style>

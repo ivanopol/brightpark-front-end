@@ -117,7 +117,7 @@
 
               </div>
 
-              <div class="select-field">
+              <div class="select-field" :class="allModels.length === 0 ? 'disabled' : false">
                 <v-select
                   :options="allModels"
                   :get-option-label="(option) => option.label"
@@ -126,6 +126,7 @@
                   v-model="selectedModel"
                   @search:focus="placeholderControl('model')"
                   @search:blur="placeholderControl('model')"
+                  :disabled="allModels.length === 0 ? true : false"
                 >
                   <template #option="{ label }">
                     <span class="v-select-field__bold-text">
@@ -142,7 +143,7 @@
                 </span>
               </div>
 
-              <div class="select-field">
+              <div class="select-field" :class="allModifications.length === 0 ? 'disabled' : false">
 
                 <v-select
                     :options="allModifications"
@@ -151,7 +152,8 @@
                     @input="getYears"
                     v-model="selectedModification"
                     :searchable="false"
-                  >
+                    :disabled="allModifications.length === 0 ? true : false"
+                >
                   <template #option="{ label }">
                     <span class="v-select-field__bold-text">
                       {{ label }}
@@ -167,13 +169,14 @@
                 </span>
               </div>
 
-              <div class="select-field">
+              <div class="select-field" :class="years.length === 0 ? 'disabled' : false">
                 <v-select
                   :options="years"
                   :get-option-label="(option) => option.label"
                   class="v-select-field"
                   v-model="selectedYear"
                   :searchable="false"
+                  :disabled="years.length === 0 ? true : false"
                 >
                   <template #option="{ label }">
                     <span class="v-select-field__bold-text">
@@ -190,7 +193,7 @@
                 </span>
               </div>
 
-              <div class="select-field">
+              <div class="select-field" :class="selectedYear.label === '' ? 'disabled' : false">
 
                 <v-select
                   :options="mileages"
@@ -198,6 +201,7 @@
                   class="v-select-field"
                   v-model="selectedMileage"
                   :searchable="false"
+                  :disabled="selectedYear.label === '' ? true : false"
                 >
                   <template #option="{ label }">
                     <span class="v-select-field__bold-text">
@@ -214,7 +218,7 @@
                 </span>
               </div>
 
-              <div class="select-field">
+              <div class="select-field" :class="selectedMileage.label === '' ? 'disabled' : false">
 
                 <v-select
                   :options="transmissions"
@@ -222,6 +226,7 @@
                   class="v-select-field"
                   v-model="selectedTransmission"
                   :searchable="false"
+                  :disabled="selectedMileage.label === '' ? true : false"
                 >
                   <template #option="{ label }">
                     <span class="v-select-field__bold-text">
@@ -846,6 +851,10 @@ export default {
     @media (min-width: 1000px) {
       max-width: 340px;
     }
+
+    &:hover {
+      box-shadow: 0 3px 5px rgba(255, 255, 255, .3);
+    }
   }
 
   .trade-in_form__offline__fields {
@@ -890,6 +899,10 @@ export default {
       margin: 0;
       max-width: unset;
     }
+  }
+
+  .select-field.disabled {
+    opacity: .7;
   }
 
   .select-field__placeholder, .input-field__placeholder {
@@ -963,6 +976,20 @@ export default {
     height: 100%;
   }
 
+  .v-select-field {
+    &.vs--disabled .vs__clear,
+    &.vs--disabled .vs__dropdown-toggle,
+    &.vs--disabled .vs__open-indicator,
+    &.vs--disabled .vs__search,
+    &.vs--disabled .vs__selected {
+      background-color: transparent;
+    }
+
+    &.vs--disabled {
+      background: rgba(222, 215, 215, 0.2);
+
+    }
+  }
 </style>
 
 

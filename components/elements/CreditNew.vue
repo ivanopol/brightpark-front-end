@@ -74,11 +74,10 @@
               type="text"
               name="firstPayment"
               class="input-field"
-              min="0"
-              :max="Math.round(carPrice /2)"
-              @:keyup="inputChangePayment($event)"
-              v-model="firstPayment"
-              readonly
+              :min="Math.round(carPrice * (sliderOne.min / 100) )"
+              :max="Math.round(carPrice * (sliderOne.max / 100) )"
+              @keyup="inputChangePayment($event)"
+              value="0"
               @input="setFieldShadow('firstPaymentRange')"
             >
 
@@ -116,7 +115,8 @@
               name="period"
               class="input-field"
               readonly
-              v-model="period">
+              v-model="period"
+            >
           </div>
 
           <div class="range-field__wrap">
@@ -716,7 +716,6 @@ export default {
     },
     inputChangePayment(event) {
       const target = event.target;
-
       target.value = target.value.replace(/[^\d]/g,'');
 
       if (parseInt(target.value) > parseInt(Math.round(this.carPrice / 2))) {
@@ -993,10 +992,10 @@ select {
     top: 47%;
     transform: translate(0, -50%);
     background-image: url("../../static/images/trade-in-form/advantages-wrap.svg");
-    background-size: cover;
+    background-size: 100% 100%;
     border: none;
-    padding: 43px;
-    min-width: 480px;
+    padding: 64px 68px 42px 42px;
+    min-width: 494px;
   }
 }
 
@@ -1011,6 +1010,7 @@ select {
   padding-left: 15px;
   font-size: 24px;
   font-weight: 500;
+  font-family: 'Factor A';
 
   .vs__dropdown-toggle {
     border: none;
@@ -1063,9 +1063,14 @@ select {
   }
 }
 
-.range-field {
+.range-field, .select-field {
   position: relative;
   padding-bottom: 15px;
+  margin-bottom: 20px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+  }
 }
 
 .range-field__result {
@@ -1078,10 +1083,6 @@ select {
   font-family: "Factor A"
 }
 
-.select-field {
-  position: relative;
-  padding-bottom: 15px;
-}
 
 .credit__bottom {
   margin-top: 30px;
@@ -1112,6 +1113,10 @@ select {
   @media (min-width: 1024px) {
     margin: 0;
   }
+
+  &:hover {
+    box-shadow: 0 3px 5px rgba(255, 255, 255, .3);
+  }
 }
 
 .credit__bottom__warning {
@@ -1140,6 +1145,32 @@ select {
     align-items: center;
   }
 
+}
+
+.credit__checkboxes {
+  display: flex;
+  max-width: 585px;
+  width: 100%;
+  margin-left: auto;
+  justify-content: center;
+  .control-group {
+    margin-right: 25px;
+    .control {
+      padding-top: 5px;
+    }
+    span {
+      color: white;
+      font-family: "Factor A";
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
 }
 </style>
 
@@ -1242,21 +1273,4 @@ select {
   font-size: 14px;
 }
 
-.credit__checkboxes {
-  display: flex;
-  max-width: 585px;
-  width: 100%;
-  margin-left: auto;
-
-  .control-group {
-    margin-right: 25px;
-    .control {
-      padding-top: 5px;
-    }
-    span {
-      color: white;
-      font-family: "Factor A";
-    }
-  }
-}
 </style>
