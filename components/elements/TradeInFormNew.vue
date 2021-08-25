@@ -844,6 +844,10 @@ export default {
     @media (min-width: 1000px) {
       max-width: 340px;
     }
+
+    &:hover {
+      box-shadow: 0 3px 5px rgba(255, 255, 255, .3);
+    }
   }
 
   .trade-in_form__offline__fields {
