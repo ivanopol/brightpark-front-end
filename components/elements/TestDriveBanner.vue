@@ -158,5 +158,9 @@ export default {
     @media (min-width: 1367px) {
       margin: 0 0 0 auto;
     }
+
+    &:hover {
+      box-shadow: 0 3px 5px rgba(255, 255, 255, .3);
+    }
   }
 </style>
