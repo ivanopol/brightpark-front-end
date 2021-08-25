@@ -600,6 +600,6 @@ export default Vue.extend({
   }
 
   .book-section {
-    margin-top: 20px;
+    margin: 20px 0 60px;
   }
 </style>
