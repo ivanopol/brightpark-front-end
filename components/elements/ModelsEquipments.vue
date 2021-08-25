@@ -35,6 +35,7 @@
 
           <div class="equipments__items__item__option">
             <ButtonNew
+              buttonColor="color-secondary-background"
               :button-text="'Выбрать'"
               :height="'100%'"
               class="equipments__items__item__option__button"

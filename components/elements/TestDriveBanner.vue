@@ -11,6 +11,7 @@
           </div>
 
           <ButtonNew
+            buttonColor="color-secondary-background"
             class="test-drive-banner__signup"
             :button-text="'Записаться на тест-драйв'"
             :button-type="'button'"

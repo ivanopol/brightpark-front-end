@@ -50,6 +50,7 @@
         </div>
 
         <ButtonNew
+          buttonColor="color-secondary-background"
           :button-text="buttonText"
           class="book__form__submit"
         />

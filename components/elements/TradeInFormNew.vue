@@ -23,7 +23,7 @@
         :tick-color="'#fff'"
         :advantages="['Скидка при обмене 40 000 ₽', 'Оценка на 7% ниже рынка', 'Пакет доп. оборудования со скидкой 50%']"
       />
-      <div class="trade-in__form">
+      <div class="trade-in__form color-svg-traid-in">
         <div class="trade-in__form__toggle">
           <button
             type="button"
@@ -240,6 +240,7 @@
             </div>
 
             <ButtonNew
+              buttonColor="color-primary-background"
               :button-text="submitButtonText"
               :button-color="'#514EA1'"
               class="trade-in__form__offline__submit"
@@ -781,14 +782,14 @@ export default {
   }
 
   .trade-in__form {
-    background: url("~static/images/trade-in-form/bg-layer-mob.svg") no-repeat;
-    background-size: cover;
+/*    background: url("~static/images/trade-in-form/bg-layer-mob.svg") no-repeat;
+    background-size: cover;*/
     padding: 50px 0 30px;
 
     @media (min-width: 1000px) {
-      background: url("~static/images/trade-in-form/bg-layer.svg") no-repeat;
+/*      background: url("~static/images/trade-in-form/bg-layer.svg") no-repeat;
+      background-size: cover;*/
       position: relative;
-      background-size: cover;
     }
   }
 

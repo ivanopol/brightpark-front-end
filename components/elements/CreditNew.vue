@@ -224,6 +224,7 @@
 
       <div class="credit__bottom__button__wrap">
          <ButtonNew
+             buttonColor="color-secondary-background"
            :button-text="'оставить заявку'"
            class="credit__button"
            @click.native="show(

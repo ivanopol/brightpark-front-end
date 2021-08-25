@@ -1,5 +1,5 @@
 <template>
-  <button :type="buttonType"  class="color-secondary-background">
+  <button :type="buttonType"  :class="buttonColor">
     {{ buttonText }}
   </button>
 </template>
@@ -21,6 +21,9 @@ export default {
     buttonType: {
       type: String
     },
+    buttonColor: {
+      type: String
+    }
   },
 
   data: function () {

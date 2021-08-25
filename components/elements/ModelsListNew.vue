@@ -1,6 +1,6 @@
 <template>
 <nav class="models">
-  <div class="container">
+  <div class="container color-svg-decor">
     <ul class="models__list">
       <li v-for="model in models" :key="model.id">
         <a :href="'/' + $store.state.city.value + model.path"
@@ -78,6 +78,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "./assets/scss/_colors.scss";
+
 .models {
   display: none;
 
@@ -91,16 +93,15 @@ export default {
       overflow: visible;
       position: relative;
 
-      &:after {
+/*      &:after {
         content: "";
         position: absolute;
         right: -350px;
         top: -17px;
-        background: url("~static/images/decorations/models-decor.png") no-repeat;
         width: 576px;
         height: 249px;
         display: block;
-      }
+      }*/
     }
 
   }

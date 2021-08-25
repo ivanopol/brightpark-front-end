@@ -1,7 +1,7 @@
 <template>
 <div class="new-lead">
   <div class="new-lead__head">
-    <h4 class="new-lead__title">{{form_title}}</h4>
+    <h4 class="new-lead__title color-primary-color">{{form_title}}</h4>
 
     <p class="new-lead__desc">
       В&nbsp;ближайшее время мы&nbsp;свяжемся с&nbsp;вами, уточним все детали заявки,а также ответим на&nbsp;все возникшие у&nbsp;вас вопросы
@@ -43,13 +43,13 @@
 
     <button
       type="submit"
-      class="new-lead__body__submit"
+      class="new-lead__body__submit color-primary-background"
     >
       Оставить заявку
     </button>
 
     <p class="new-lead__body__copies">
-      Нажимая кнопку «Оставить заявку», вы соглашаетесь с <span>условиями обработки и хранения персональных данных</span>
+      Нажимая кнопку «Оставить заявку», вы соглашаетесь с <span class="color-primary-color">условиями обработки и хранения персональных данных</span>
     </p>
   </form>
 
@@ -237,6 +237,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "./assets/scss/_colors.scss";
+
 .new-lead {
   padding: 45px 60px;
   background: white;
@@ -245,7 +247,6 @@ export default {
 }
 
 .new-lead__body__submit {
-  background: #514EA1;
   color: white;
   text-transform: uppercase;
   height: 60px;
@@ -263,7 +264,6 @@ export default {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 15px;
-  color: #514EA1;
   font-family: "Bright Park Display";
 }
 
@@ -338,7 +338,6 @@ export default {
   margin-top: 18px;
   span {
     font-weight: 700;
-    color: #514EA1;
     display: inline-block;
   }
 }

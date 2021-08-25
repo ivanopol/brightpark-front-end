@@ -34,13 +34,14 @@
 
         <div class="banner__inner__info">
           <h1>Новая LADA {{ model }} {{ type }} в {{ $store.state.city.dative }}</h1>
-          <p class="banner__inner__info__price color-primary-color">от {{ prices.special_price | formatPrice }} ₽</p>
+          <p class="banner__inner__info__price color-secondary-color">от {{ prices.special_price | formatPrice }} ₽</p>
           <div class="banner__inner__info__credit">
             <p>Или в кредит <span> от {{ prices.credit_from | formatPrice }} ₽ / месяц </span></p>
             <button type="button" class="color-primary-color" @click="scrollTo">Рассчитать кредит</button>
           </div>
 
           <ButtonNew
+            buttonColor="color-secondary-background"
             :type="'submit'"
             :buttonText="'Оставить заявку'"
             class="banner__inner__info__button"
@@ -606,15 +607,6 @@ export default {
     border-radius: 0;
   }
 
-  .close {
-    &:before {
-      background-color: #514EA1;
-    }
-
-    &:after {
-      background-color: #514EA1;
-    }
-  }
 }
 
 .color-choose {
