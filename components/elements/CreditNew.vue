@@ -1062,9 +1062,14 @@ select {
   }
 }
 
-.range-field {
+.range-field, .select-field {
   position: relative;
   padding-bottom: 15px;
+  margin-bottom: 20px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+  }
 }
 
 .range-field__result {
@@ -1077,10 +1082,6 @@ select {
   font-family: "Factor A"
 }
 
-.select-field {
-  position: relative;
-  padding-bottom: 15px;
-}
 
 .credit__bottom {
   margin-top: 30px;
@@ -1139,6 +1140,32 @@ select {
     align-items: center;
   }
 
+}
+
+.credit__checkboxes {
+  display: flex;
+  max-width: 585px;
+  width: 100%;
+  margin-left: auto;
+  justify-content: center;
+  .control-group {
+    margin-right: 25px;
+    .control {
+      padding-top: 5px;
+    }
+    span {
+      color: white;
+      font-family: "Factor A";
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
 }
 </style>
 
@@ -1241,21 +1268,4 @@ select {
   font-size: 14px;
 }
 
-.credit__checkboxes {
-  display: flex;
-  max-width: 585px;
-  width: 100%;
-  margin-left: auto;
-
-  .control-group {
-    margin-right: 25px;
-    .control {
-      padding-top: 5px;
-    }
-    span {
-      color: white;
-      font-family: "Factor A";
-    }
-  }
-}
 </style>
