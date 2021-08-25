@@ -994,8 +994,8 @@ select {
     background-image: url("../../static/images/trade-in-form/advantages-wrap.svg");
     background-size: cover;
     border: none;
-    padding: 43px;
-    min-width: 480px;
+    padding: 42px 69px 42px 42px;
+    min-width: 494px;
   }
 }
 
