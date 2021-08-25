@@ -55,7 +55,10 @@
         />
       </form>
 
-      <img src="~static/images/book-girl.png" alt="" class="book__inner__girl">
+      <img src="~static/images/book-car-figure.png" alt="" class="book__inner__figure">
+      <img src="~static/images/book-girl.png" alt="" class="book__inner__girl-mob">
+      <img src="~static/images/book-girl-desk.png" alt="" class="book__inner__girl">
+
     </div>
   </div>
 </section>
@@ -306,16 +309,39 @@ export default {
 }
 
 .book__inner__girl {
+  display: none;
+
+  @media (min-width: 1024px) {
+    max-width: 380px;
+    bottom: -60px;
+    display: block;
+    right: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+}
+
+.book__inner__girl-mob {
   pointer-events: none;
   max-width: 170px;
   position: absolute;
   right: -26px;
   top: -42px;
   @media (min-width: 1024px) {
-    max-width: 450px;
+    display: none;
+  }
+}
+
+.book__inner__figure {
+  display: none;
+
+  @media (min-width: 1367px) {
+    position: absolute;
+    pointer-events: none;
     bottom: 0;
+    right: 0;
+    height: 100%;
     display: block;
-    top: unset;
   }
 }
 </style>
