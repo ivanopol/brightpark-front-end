@@ -25,12 +25,12 @@ $green-path-4: '/images/trade-in-form/traid-in-bg-green-mob.svg';
 $purple-path-4: '/images/trade-in-form/traid-in-bg-purple-mob.svg';
 
 .theme-01 {
-  $primary-color: $orange;
-  $secondary-color: $yellow;
-  $figure: $orange-path;
-  $decor: $orange-path-2;
-  $traid-in: $yellow-path-3;
-  $traid-in-mob: $yellow-path-4;
+  $primary-color: $purple;
+  $secondary-color: $orange;
+  $figure: $purple-path;
+  $decor: $purple-path-2;
+  $traid-in: $orange-path-3;
+  $traid-in-mob: $orange-path-4;
 
   .color-primary-color { color: $primary-color; }
   .color-primary-background { background-color: $primary-color; }
@@ -123,12 +123,12 @@ $purple-path-4: '/images/trade-in-form/traid-in-bg-purple-mob.svg';
 }
 
 .theme-03 {
-  $primary-color: $green;
-  $secondary-color: $orange;
-  $figure: $green-path;
-  $decor: $green-path-2;
-  $traid-in: $orange-path-3;
-  $traid-in-mob: $orange-path-4;
+  $primary-color: $purple;
+  $secondary-color: $yellow;
+  $figure: $purple-path;
+  $decor: $purple-path-2;
+  $traid-in: $yellow-path-3;
+  $traid-in-mob: $yellow-path-4;
 
   .color-primary-color { color: $primary-color; }
   .color-primary-background { background-color: $primary-color; }
