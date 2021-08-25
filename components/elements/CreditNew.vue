@@ -74,11 +74,10 @@
               type="text"
               name="firstPayment"
               class="input-field"
-              min="0"
-              :max="Math.round(carPrice /2)"
-              @:keyup="inputChangePayment($event)"
-              v-model="firstPayment"
-              readonly
+              :min="Math.round(carPrice * (sliderOne.min / 100) )"
+              :max="Math.round(carPrice * (sliderOne.max / 100) )"
+              @keyup="inputChangePayment($event)"
+              value="0"
               @input="setFieldShadow('firstPaymentRange')"
             >
 
@@ -715,7 +714,6 @@ export default {
     },
     inputChangePayment(event) {
       const target = event.target;
-
       target.value = target.value.replace(/[^\d]/g,'');
 
       if (parseInt(target.value) > parseInt(Math.round(this.carPrice / 2))) {
