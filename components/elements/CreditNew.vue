@@ -115,7 +115,8 @@
               name="period"
               class="input-field"
               readonly
-              v-model="period">
+              v-model="period"
+            >
           </div>
 
           <div class="range-field__wrap">
@@ -990,9 +991,9 @@ select {
     top: 47%;
     transform: translate(0, -50%);
     background-image: url("../../static/images/trade-in-form/advantages-wrap.svg");
-    background-size: cover;
+    background-size: 100% 100%;
     border: none;
-    padding: 42px 69px 42px 42px;
+    padding: 64px 68px 42px 42px;
     min-width: 494px;
   }
 }
@@ -1008,6 +1009,7 @@ select {
   padding-left: 15px;
   font-size: 24px;
   font-weight: 500;
+  font-family: 'Factor A';
 
   .vs__dropdown-toggle {
     border: none;
