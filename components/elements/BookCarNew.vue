@@ -299,6 +299,10 @@ export default {
     margin: 20px 0 0;
     max-width: 270px;
   }
+
+  &:hover {
+    box-shadow: 0 3px 5px rgba(255, 255, 255, .3);
+  }
 }
 
 .book__inner__girl {
