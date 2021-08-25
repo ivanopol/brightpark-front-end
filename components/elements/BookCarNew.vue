@@ -55,7 +55,7 @@
         />
       </form>
 
-      <img src="~static/images/consult_block/girl.png" alt="" class="book__inner__girl">
+      <img src="~static/images/book-girl.png" alt="" class="book__inner__girl">
     </div>
   </div>
 </section>
@@ -200,6 +200,15 @@ export default {
   }
 }
 
+.book__container {
+  overflow: unset;
+}
+
+.book__text {
+  position: relative;
+  z-index: 1;
+}
+
 .book__inner {
   background: #514EA1;
   padding: 35px 20px;
@@ -294,11 +303,10 @@ export default {
 
 .book__inner__girl {
   pointer-events: none;
-  max-width: 200px;
+  max-width: 170px;
   position: absolute;
-  right: 0;
-  top: -20px;
-  display: none;
+  right: -26px;
+  top: -42px;
   @media (min-width: 1024px) {
     max-width: 450px;
     bottom: 0;
