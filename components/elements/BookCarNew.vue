@@ -1,7 +1,7 @@
 <template>
 <section class="book">
   <div class="container book__container">
-    <div class="book__inner">
+    <div class="book__inner color-primary-background">
       <div class="book__text">
         <h2 class="book__title">
           {{form_title}}
@@ -190,6 +190,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "./assets/scss/_colors.scss";
+
 .book__form__fields {
   @media (min-width: 1024px) {
     display: grid;
@@ -201,7 +203,6 @@ export default {
 }
 
 .book__inner {
-  background: #514EA1;
   padding: 35px 20px;
   position: relative;
 

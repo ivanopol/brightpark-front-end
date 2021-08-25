@@ -4,52 +4,99 @@ $yellow: #FFCA0D;
 $green: #5CBE86;
 $purple: #514EA1;
 
-.theme-01 {
-  .color-primary-color {
-    color: #EE6723;
-  }
+$orange-path: '/images/decorations/model-figure-orange.svg';
+$yellow-path: '/images/decorations/model-figure-yellow.svg';
+$green-path: '/images/decorations/model-figure-green.svg';
+$purple-path: '/images/decorations/model-figure-purple.svg';
 
-  .color-secondary-color {
-    color: #FFCA0D
-  }
+.theme-01 {
+  $primary-color: $orange;
+  $secondary-color: $yellow;
+  $figure: $orange-path;
+
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
 }
 
 .theme-02 {
-  .color-primary-color {
-    color: #FFCA0D;
-  }
+  $primary-color: $yellow;
+  $secondary-color: $green;
+  $figure: $yellow-path;
 
-  .color-secondary-color {
-    color: #5CBE86
-  }
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
 }
 
 .theme-03 {
-  .color-primary-color {
-    color: #514EA1;
-  }
+  $primary-color: $green;
+  $secondary-color: $orange;
+  $figure: $green-path;
 
-  .color-secondary-color {
-    color: #FFCA0D
-  }
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
 }
+
 .theme-04 {
-  .color-primary-color {
-    color: #514EA1;
-  }
+  $primary-color: $purple;
+  $secondary-color: $green;
+  $figure: $purple-path;
 
-  .color-secondary-color {
-    color: #5CBE86
-  }
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
+
 }
-.theme-05 {
-  .color-primary-color {
-    color: #5CBE86;
-  }
 
-  .color-secondary-color {
-    color: #EE6723
-  }
+.theme-05 {
+  $primary-color: $purple;
+  $secondary-color: $yellow;
+  $figure: $purple-path;
+
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
 }
 
 

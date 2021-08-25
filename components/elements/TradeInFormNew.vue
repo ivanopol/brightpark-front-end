@@ -2,7 +2,7 @@
 <section class="trade-in">
   <div class="container trade-in__container">
 
-    <div class="trade-in__wrapper">
+    <div class="trade-in__wrapper color-primary-background">
       <div class="trade-in__head">
 
         <picture>
@@ -625,8 +625,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "./assets/scss/_colors.scss";
+
   .trade-in__wrapper {
-    background: #514EA1;
     padding: 17px 0 0;
     border-radius: 10px;
     position: relative;

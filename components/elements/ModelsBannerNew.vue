@@ -2,14 +2,13 @@
   <section class="banner">
     <div class="container banner__container">
       <div class="banner__inner">
-        <div class="banner__inner__car">
+        <div class="banner__inner__car color-svg-figure">
           <div class="banner__inner__car__hit" v-if="isHit">
             <span>
               хит продаж
             </span>
-
             <svg width="135" height="104" viewBox="0 0 135 104" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M129.936 93.5843L134.387 11.3205C134.713 5.31105 129.695 0.377862 123.692 0.805412L9.34428 8.94953C3.69317 9.35202 -0.495308 14.3642 0.112402 19.9969L7.03662 84.1761C7.54539 88.8919 11.2969 92.6014 16.018 93.0572L118.99 102.998C124.652 103.544 129.629 99.2643 129.936 93.5843Z" fill="#FFCA0D"/>
+              <path fill="#FFCA0D" d="M129.936 93.5843L134.387 11.3205C134.713 5.31105 129.695 0.377862 123.692 0.805412L9.34428 8.94953C3.69317 9.35202 -0.495308 14.3642 0.112402 19.9969L7.03662 84.1761C7.54539 88.8919 11.2969 92.6014 16.018 93.0572L118.99 102.998C124.652 103.544 129.629 99.2643 129.936 93.5843Z" />
             </svg>
           </div>
 
@@ -38,7 +37,7 @@
           <p class="banner__inner__info__price color-primary-color">от {{ prices.special_price | formatPrice }} ₽</p>
           <div class="banner__inner__info__credit">
             <p>Или в кредит <span> от {{ prices.credit_from | formatPrice }} ₽ / месяц </span></p>
-            <button type="button" @click="scrollTo">Рассчитать кредит</button>
+            <button type="button" class="color-primary-color" @click="scrollTo">Рассчитать кредит</button>
           </div>
 
           <ButtonNew
@@ -185,13 +184,10 @@ export default {
 }
 
 .banner__inner__car {
-  background: url("~static/images/decorations/model-figure.svg") no-repeat;
-  background-size: contain;
   flex: .6;
   position: relative;
   height: 255px;
   margin-top: 54px;
-  background-position: center;
 
   @media (min-width: 1000px) {
     height: 415px;
@@ -536,7 +532,6 @@ export default {
     text-transform: uppercase;
     font-size: 12px;
     margin-top: 8px;
-    color: #514EA1;
     font-weight: 700;
     font-family: "Factor A";
     border-bottom: 1px dashed rgba(81, 78, 161, 0.35);

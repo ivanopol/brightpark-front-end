@@ -30,7 +30,7 @@
 
           <div class="equipments__items__item__option">
             <h5>Цена</h5>
-            <p class="equipments__items__item__option__price">{{param.price | formatPrice}} ₽</p>
+            <p class="equipments__items__item__option__price color-primary-color">{{param.price | formatPrice}} ₽</p>
           </div>
 
           <div class="equipments__items__item__option">
@@ -138,6 +138,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "./assets/scss/_colors.scss";
 
   .equipments {
     background: rgba(81, 78, 161, 0.05);
@@ -238,7 +239,6 @@ export default {
       }
 
       &.equipments__items__item__option__price {
-        color: #514EA1;
         font-size: 24px;
       }
     }
