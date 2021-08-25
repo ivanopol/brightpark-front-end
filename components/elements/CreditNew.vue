@@ -1112,6 +1112,10 @@ select {
   @media (min-width: 1024px) {
     margin: 0;
   }
+
+  &:hover {
+    box-shadow: 0 3px 5px rgba(255, 255, 255, .3);
+  }
 }
 
 .credit__bottom__warning {
