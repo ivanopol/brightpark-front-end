@@ -247,7 +247,7 @@ export default {
             },
 
             safety: {
-              mobImage: require('../../static/images/model-about/granta-hatchback-safety.jpg'),
+              mobImage: require('../../static/images/model-about/granta-hatchback-safety-mob.png'),
               image: require('../../static/images/model-about/granta-hatchback-safety.jpg'),
               title: 'Островок безопасности',
               description: 'Автомобиль помогает видеть все, уверенно маневрировать, а когда нужно – эффективно замедляться и разгоняться. Он как будто повышает квалификацию водителя.\n' +
@@ -357,7 +357,7 @@ export default {
       window.innerWidth < 1024 ? this.isMobile = true : this.isMobile = false;
     }
 
-    this.initHeight();
+    setTimeout(this.initHeight, 500);
 
   },
 
@@ -494,6 +494,8 @@ export default {
 
   img {
     width: 100%;
+    height: 330px;
+    object-fit: cover;
   }
 }
 
