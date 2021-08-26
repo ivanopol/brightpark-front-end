@@ -68,7 +68,6 @@
   </div>
 </template>
 
-<!--<script lang="ts">-->
 <script>
 import Vue from 'vue'
 import MegaTeasers2 from "@/components/elements/MegaTeasers2";

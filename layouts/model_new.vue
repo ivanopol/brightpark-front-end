@@ -2,7 +2,7 @@
   <div :class="'wrapper ' + $store.state._background">
     <client-only placeholder="Загрузка...">
       <TabBar />
-      <HeaderStickyModel />
+      <HeaderSticky />
     </client-only>
     <HeaderNew :line="true" :car="$store.state.car" />
     <Nuxt keep-alive />
