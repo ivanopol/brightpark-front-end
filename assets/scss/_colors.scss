@@ -54,11 +54,11 @@ $purple-path-4: '/images/trade-in-form/traid-in-bg-purple-mob.svg';
     display: block;
   }
   .color-svg-traid-in {
-    background: url($traid-in) no-repeat;
+    background: url($traid-in-mob) no-repeat;
     background-size: cover;
 
     @media (min-width: 1000px) {
-      background: url($traid-in-mob) no-repeat;
+      background: url($traid-in) no-repeat;
       background-size: cover;
     }
   }
@@ -103,11 +103,11 @@ $purple-path-4: '/images/trade-in-form/traid-in-bg-purple-mob.svg';
         display: block;
   }
   .color-svg-traid-in {
-    background: url($traid-in) no-repeat;
+    background: url($traid-in-mob) no-repeat;
     background-size: cover;
 
     @media (min-width: 1000px) {
-      background: url($traid-in-mob) no-repeat;
+      background: url($traid-in) no-repeat;
       background-size: cover;
     }
   }
@@ -152,11 +152,11 @@ $purple-path-4: '/images/trade-in-form/traid-in-bg-purple-mob.svg';
         display: block;
   }
   .color-svg-traid-in {
-    background: url($traid-in) no-repeat;
+    background: url($traid-in-mob) no-repeat;
     background-size: cover;
 
     @media (min-width: 1000px) {
-      background: url($traid-in-mob) no-repeat;
+      background: url($traid-in) no-repeat;
       background-size: cover;
     }
   }
@@ -200,11 +200,11 @@ $purple-path-4: '/images/trade-in-form/traid-in-bg-purple-mob.svg';
         display: block;
   }
   .color-svg-traid-in {
-    background: url($traid-in) no-repeat;
+    background: url($traid-in-mob) no-repeat;
     background-size: cover;
 
     @media (min-width: 1000px) {
-      background: url($traid-in-mob) no-repeat;
+      background: url($traid-in) no-repeat;
       background-size: cover;
     }
   }
@@ -250,14 +250,14 @@ $purple-path-4: '/images/trade-in-form/traid-in-bg-purple-mob.svg';
         display: block;
   }
   .color-svg-traid-in {
-    background: url($traid-in) no-repeat;
-    background-size: cover;
+       background: url($traid-in-mob) no-repeat;
+       background-size: cover;
 
-    @media (min-width: 1000px) {
-      background: url($traid-in-mob) no-repeat;
-      background-size: cover;
-    }
-  }
+       @media (min-width: 1000px) {
+         background: url($traid-in) no-repeat;
+         background-size: cover;
+       }
+     }
 
   .models-banner__modal {
     .close {
