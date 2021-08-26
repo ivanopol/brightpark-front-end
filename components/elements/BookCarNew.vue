@@ -71,7 +71,7 @@ export default {
 
   data: function () {
     return {
-      buttonText: 'Оставить заявку',
+      buttonText: 'Забронировать',
       phone: '',
       name: '',
       activePlaceholder: 'active',
