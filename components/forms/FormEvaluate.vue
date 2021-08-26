@@ -1,0 +1,520 @@
+<template>
+<div class="evaluate">
+  <img src="~static/images/evaluate-img.png" alt="" class="evaluate__decor">
+
+
+  <h4 class="evaluate__title">
+    Оценка вашего автомобиля
+  </h4>
+
+  <div class="evaluate__car-info">
+    <div class="evaluate__car-info__item">
+      <h5 class="evaluate__car-info__item__heading">
+        Марка автомобиля
+      </h5>
+
+      <p class="evaluate__car-info__item__value">
+        {{ mark }}
+      </p>
+    </div>
+
+    <div class="evaluate__car-info__item">
+      <h5 class="evaluate__car-info__item__heading">
+        Модель автомобиля
+      </h5>
+
+      <p class="evaluate__car-info__item__value">
+        {{ model }}
+      </p>
+    </div>
+
+    <div class="evaluate__car-info__item">
+      <h5 class="evaluate__car-info__item__heading">
+        Пробег автомобиля, км
+      </h5>
+
+      <p class="evaluate__car-info__item__value">
+        {{ mileage }}
+      </p>
+    </div>
+
+    <div class="evaluate__car-info__item">
+      <h5 class="evaluate__car-info__item__heading">
+        Модификация
+      </h5>
+
+      <p class="evaluate__car-info__item__value">
+        {{ modification }}
+      </p>
+    </div>
+
+    <div class="evaluate__car-info__item">
+      <h5 class="evaluate__car-info__item__heading">
+        Год выпуска
+      </h5>
+
+      <p class="evaluate__car-info__item__value">
+        {{ year }}
+      </p>
+    </div>
+
+    <div class="evaluate__car-info__item">
+      <h5 class="evaluate__car-info__item__heading">
+        Коробка передач
+      </h5>
+
+      <p class="evaluate__car-info__item__value">
+        {{ transmission }}
+      </p>
+    </div>
+
+  </div>
+
+
+
+  <div class="evaluate__car__prices">
+    <p class="evaluate__car__prices__description">
+      Предварительная стоимость
+      <span>(в зависимости от состояния)</span>
+    </p>
+
+    <p class="evaluate__car__prices__range">
+      {{ priceFromChanged }} ₽ — {{ priceToChanged }} ₽*
+    </p>
+
+    <p class="evaluate__car__prices__warning">
+      * — Расчет является ориентировочным, более точный расчет производится в салоне при осмотре автомобиля.
+    </p>
+  </div>
+
+  <div class="evaluate__car__form-wrapper">
+
+    <img src="~static/images/coins.png" alt="" class="evaluate__car-info__form__coins">
+
+    <form class="evaluate__car__form"
+          :id="form_id"
+          action="#"
+          method="POST"
+          name="feedback"
+          @submit="send"
+          :data-goal="goal"
+    >
+
+      <div class="evaluate__car__form__grid">
+        <h5 class="evaluate__car__form__heading">
+          Хотите + 10 000&nbsp;₽ к&nbsp;оценочной стоимости?
+        </h5>
+
+        <p class="evaluate__car__form__description">
+          Оставьте ваши контактные данные, вам придёт код, при предъявлении которого, мы&nbsp;добавим 10&nbsp;000 рублей к&nbsp;оценочной стоимости вашего авто в&nbsp;салоне.
+        </p>
+
+        <div class="evaluate__car__form__field">
+          <input type="text" v-model="name">
+
+          <span class="field-placeholder" :class="[name !== '' ? 'active' : '']">
+            Ваше имя
+          </span>
+        </div>
+
+        <div class="evaluate__car__form__field">
+          <the-mask
+              :id="form_id + '_input_phone'"
+              pattern=".{18,}"
+              mask="+# (###)-###-##-##"
+              v-model="phone"
+              type="tel"
+              required="true"
+          ></the-mask>
+
+          <span class="field-placeholder" :class="[phone !== '' ? 'active' : '']">
+            Контактный телефон
+          </span>
+        </div>
+      </div>
+
+      <ButtonNew
+        button-color="#514EA1"
+        button-text="Получить код"
+        class="evaluate__form__submit"
+      />
+    </form>
+  </div>
+</div>
+</template>
+
+<script>
+export default {
+  name: "FormEvaluate",
+
+  props: {
+    mark: String,
+    model: String,
+    modification: String,
+    mileage: String,
+    year: Number,
+    transmission: String,
+    priceFrom: Number,
+    priceTo: Number,
+    form_id: {
+      default: "models__modal-car-appraisal_",
+      type: String
+    },
+    form_title: {
+      default: "Оценка вашего автомобиля",
+      type: String
+    },
+    is_comment: {
+      default: false,
+      type: Boolean
+    },
+    form_type: {
+      default: 1,
+      type: Number
+    },
+    goal: {
+      default: "online",
+      type: String
+    },
+    comment: {
+      default: "",
+      type: String
+    }
+  },
+
+  data: function() {
+    return {
+      name: '',
+      phone: '',
+    }
+  },
+  methods: {
+    send: function(event) {
+      event.preventDefault();
+      this.isLoading = true;
+
+      let formData = {
+        phone: this.clearMask(this.phone),
+        name: this.name,
+        city: this.$store.state.city.value,
+        url: this.url,
+        caption: this.form_title,
+        form_id: this.form_id,
+        comment: this.comment,
+        form_type: this.form_type,
+        utm: this.utm
+      };
+
+      this.$axios({
+        method: "post",
+        url: process.env.apiUrl + "/api/send_contact_form",
+        data: formData
+      })
+          .then(response => {
+            this.clearInput();
+            this.success = true;
+            this.isLoading = false;
+            this.status = true;
+            //console.log(window);
+            try {
+              this.sendGoals(this.goal);
+            } catch (err) {
+              console.log(err);
+            }
+            return {};
+          })
+          .catch(error => {
+            this.error = true;
+            this.clearInput();
+            return {};
+          });
+    },
+    clearInput: function() {
+      this.phone = null;
+      this.name = null;
+      this.comment = null;
+      return {};
+    },
+    clearMask: function(value) {
+      return value.replace(/\D/g, "");
+    },
+    sendGoals: function(goal) {
+      if (goal) {
+        let ym_ids = this.getCountersIds();
+        let goalArr = goal.match(/^(.+?):(.+?)$/);
+        let target_goal = goalArr === null ? goal : goalArr[2];
+
+        ym_ids.forEach(function(item) {
+          window["yaCounter" + item].reachGoal(target_goal);
+        });
+      }
+      return {};
+    },
+
+    getCountersIds: function() {
+      var id_list = [];
+
+      window.ym.a.forEach(function(item) {
+        id_list.push(item[0]);
+      });
+      return id_list;
+    },
+    decodeCookie(obj) {
+      return JSON.parse(decodeURIComponent(escape(atob(obj))));
+    }
+  },
+  mounted() {
+    if (this.$cookies.get("bp_uid") !== undefined) {
+      this.utm = this.decodeCookie(this.$cookies.get("bp_uid"));
+    }
+  },
+
+  computed: {
+    url: function () {
+      return {
+        href: window.location.href,
+        search: window.location.search
+      };
+    },
+
+    priceFromChanged() {
+      return this.priceFrom.toLocaleString('ru-RU');
+    },
+
+    priceToChanged() {
+      return this.priceTo.toLocaleString('ru-RU');
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.evaluate {
+  background: white;
+  padding: 48px 0 0;
+
+  @media (min-width: 1024px) {
+    max-width: 970px;
+    width: 100%;
+    position: relative;
+  }
+}
+
+.evaluate__decor {
+  display: none;
+
+  @media (min-width: 1024px) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    pointer-events: none;
+  }
+}
+
+.evaluate__title {
+  color: #514EA1;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: "Bright Park Display";
+  padding: 0 20px;
+
+  @media (min-width: 1024px) {
+    padding-left: 300px;
+    margin-bottom: 30px;
+  }
+}
+
+.evaluate__car-info__item {
+  margin-bottom: 20px;
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+  }
+}
+
+.evaluate__car-info {
+  padding: 0 20px;
+
+  @media (min-width: 1024px) {
+    padding-left: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+  }
+}
+
+.evaluate__car-info__item__heading {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Factor A";
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, .5);
+  margin-bottom: 4px;
+}
+
+.evaluate__car-info__item__value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  font-family: "Factor A";
+}
+
+.evaluate__car__prices {
+  margin-top: 50px;
+
+  @media (min-width: 1024px) {
+    padding-left: 300px;
+  }
+}
+
+.evaluate__car__prices__description {
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, .5);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Factor A";
+  line-height: 16px;
+  span {
+    display: block;
+  }
+
+  @media (min-width: 1024px) {
+    text-align: left;
+
+    span {
+      display: inline-block;
+    }
+  }
+}
+
+.evaluate__car__prices__range {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  color: #514EA1;
+  font-family: "Factor A";
+  margin: 15px 0;
+
+  @media (min-width: 1024px) {
+    text-align: left;
+    font-size: 30px;
+    margin: 5px 0;
+  }
+}
+
+.evaluate__car__prices__warning {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, .5);
+  font-family: "Factor A";
+  text-align: center;
+
+  @media (min-width: 1024px) {
+    text-align: left;
+    max-width: 370px;
+  }
+}
+
+.evaluate__car__form-wrapper {
+  background: url("~static/images/trade-in-form/bg-layer-mob.svg") no-repeat;
+  background-size: cover;
+  padding: 70px 0;
+  position: relative;
+  margin-top: 50px;
+
+  @media (min-width: 1024px) {
+    padding: 80px 99px 50px;
+    background: url("~static/images/trade-in-form/bg-layer.svg") no-repeat;
+  }
+}
+
+.evaluate__car__form__field {
+  position: relative;
+  input {
+    background: rgba(255, 255, 255, .2);
+    border-radius: 5px;
+    height: 60px;
+    max-width: unset;
+    width: 100%;
+    padding: 15px 23px 0;
+    color: white;
+    border: none;
+
+    &:focus + .field-placeholder {
+      font-size: 12px;
+      top: 10px;
+      transition: .2s ease-in;
+    }
+  }
+}
+
+.field-placeholder {
+  position: absolute;
+  top: 22px;
+  left: 23px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Factor A";
+  transition: .2s ease-out;
+  pointer-events: none;
+
+  &.active {
+    font-size: 12px;
+    top: 10px;
+    transition: .2s ease-in;
+  }
+}
+
+.evaluate__car__form__heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  font-family: "Bright Park Display";
+  margin-bottom: 20px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+  }
+}
+
+.evaluate__car-info__form__coins {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  @media (min-width: 1024px) {
+    right: 50%;
+    top: -15px;
+  }
+}
+
+.evaluate__car__form__description {
+  font-size: 14px;
+  font-family: "Factor A";
+  margin-bottom: 24px;
+  color: white;
+  line-height: 20px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+  }
+}
+
+.evaluate__form__submit {
+  height: 60px;
+  font-size: 14px;
+}
+
+.evaluate__car__form__grid {
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    row-gap: 25px;
+  }
+}
+
+</style>

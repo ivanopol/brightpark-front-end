@@ -1,39 +1,68 @@
 <template>
-  <div>
+  <div class="models-page" :class="theme">
     <div>
-      <div class="container model-breadcrumbs">
-          <BreadCrumbs :breadcrumbs="makeBreadcrumbs"/>
+      <div v-if="new_design">
+        <ModelsListNew />
+        <BodiesListNew />
+        <ModelsBannerNew
+          class="models-banner"
+          :colors="model.colors"
+          :prices="model.car_attrs"
+          :model="model.model"
+          :type="model.type"
+          @scrollTo="scrollToCredit"
+          :isHit="model.model_slug === 'granta' && model.type_slug === 'sedan' ? true : false"
+        />
+
+        <TestDriveBanner />
+        <AdvantagesNew class="models-advantages"/>
+        <ModelsFeatures/>
+        <ModelsEquipments class="equipments-block" :complectations="complectations"/>
+        <TradeInFormNew />
+        <ModelsAbout
+          :model="model.model_slug"
+          :cars-body="model.type_slug"
+        />
+        <CreditNew id="creditCalc" :equipments="complectations"/>
+        <ModelsWarranty />
+        <BookCarNew class="book-section"/>
       </div>
 
-      <ModelBanner :data="model.slider" />
-      <MegaTeasers2 />
-      <ModelInfo v-for="(info, index) in model.blocks" v-bind:key="info.id"
-        :block="info"
-        :n="index"
-        :model="model.model_id"
-        :type="model.type_id"
-      />
-     <ColorChoose :colors="model.colors" :model="model.model_slug" :type="model.type_slug" v-if="model.colors.length !== 0"/>
-
-      <section class="model-details">
-        <div class="trigger-wrap" >
-         <p class="trigger-wrap-text" v-if="!this.is_niva">Осталось <span class="model-count-text">{{count}}</span> {{model.model_full}} по цене лучше, чем на сайте</p>
+      <div v-else>
+        <div class="container model-breadcrumbs">
+            <BreadCrumbs :breadcrumbs="makeBreadcrumbs"/>
         </div>
-        <steps  :car_model='model.model'
-                :car_type='model.type'
-                :car_attrs='model.car_attrs'
-                :form_id="$store.state._page + '__fill-form_'"
-                :goal="'fixconditions'"
-                :prefix="$store.state._page + '__'">
-        </steps>
-      </section>
 
-      <Reviews v-if="model.reviews.length !== 0"
-               :reviews='model.reviews'
-               :model_name="model.model_full"/>
-      <Plate :text="plate"/>
-      <NextAction />
-      <Feedback :model_full="model.model_full" />
+        <ModelBanner :data="model.slider" />
+        <MegaTeasers2 />
+        <ModelInfo v-for="(info, index) in model.blocks" v-bind:key="info.id"
+          :block="info"
+          :n="index"
+          :model="model.model_id"
+          :type="model.type_id"
+        />
+       <ColorChoose :colors="model.colors" :model="model.model_slug" :type="model.type_slug" v-if="model.colors.length !== 0"/>
+
+        <section class="model-details">
+          <div class="trigger-wrap" >
+           <p class="trigger-wrap-text" v-if="!this.is_niva">Осталось <span class="model-count-text">{{count}}</span> {{model.model_full}} по цене лучше, чем на сайте</p>
+          </div>
+          <steps  :car_model='model.model'
+                  :car_type='model.type'
+                  :car_attrs='model.car_attrs'
+                  :form_id="$store.state._page + '__fill-form_'"
+                  :goal="'fixconditions'"
+                  :prefix="$store.state._page + '__'">
+          </steps>
+        </section>
+
+        <Reviews v-if="model.reviews.length !== 0"
+                 :reviews='model.reviews'
+                 :model_name="model.model_full"/>
+        <Plate :text="plate"/>
+        <NextAction />
+        <Feedback :model_full="model.model_full" />
+      </div>
     </div>
     <nuxt-child/>
   </div>
@@ -48,12 +77,418 @@ export default Vue.extend({
   components: {MegaTeasers2},
   data: function () {
     return {
+      new_design: false,
       model: '',
       seo: {},
       count: 0,
+      isHitOfSales: false,
+      theme: '',
+      themes: {
+        'drive-active': 'theme-01',
+        hatchback: 'theme-02',
+        liftback: 'theme-03',
+        sedan: 'theme-04',
+        universal: 'theme-05',
+      },
+/*      colors: {
+        drive_active: {
+          colorMain: '#EE6723', // Оранжевый
+          colorSecond: '#FFCA0D', // Желтый
+        },
+        hatchback: {
+          colorMain: '#FFCA0D',  // Желтый
+          colorSecond: '#5CBE86', // Зеленый
+        },
+        liftback: {
+          colorMain: '#514EA1',  // Фиолетовый
+          colorSecond: '#FFCA0D', // Желтый
+        },
+        sedan: {
+          colorMain: '#514EA1', // Фиолетовый
+          colorSecond: '#5CBE86', // Зеленый
+        },
+        universal: {
+          colorMain: '#5CBE86', // Зеленый
+          colorSecond: '#EE6723', // Оранжевый
+        },
+      },*/
+      complectations: {
+        drive_active: [
+          {
+            id: 1,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5МТ',
+            title: 'Comfort Light',
+            price: 719900,
+          },
+          {
+            id: 2,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5МТ',
+            title: 'Comfort',
+            price: 726900,
+          },
+        ],
+        hatchback: [
+          {
+            id: 1,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5МТ',
+            title: 'Classic',
+            price: 577500,
+          },
+          {
+            id: 2,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5МТ',
+            title: 'Comfort Light',
+            price: 618500,
+          },
+          {
+            id: 3,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5МТ',
+            title: 'Comfort',
+            price: 625500,
+          },
+          {
+            id: 4,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '98 л.с.',
+            transmission: '4AТ',
+            title: 'Comfort',
+            price: 715500,
+          },
+          {
+            id: 5,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '98 л.с.',
+            transmission: '4AТ',
+            title: 'Luxe',
+            price: 759800,
+          },
+        ],
+        liftback: [
+          {
+            id: 1,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Standard',
+            price: 553900,
+          },
+          {
+            id: 2,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Classic',
+            price: 582500,
+          },
+          {
+            id: 3,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Comfort Light',
+            price: 623500,
+          },
+          {
+            id: 4,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Comfort',
+            price: 630500,
+          },
+          {
+            id: 5,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: '#CLUB',
+            price: 652900,
+          },
+          {
+            id: 6,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Luxe',
+            price: 674800,
+          },
+          {
+            id: 7,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5MT',
+            title: 'Comfort Light',
+            price: 648500,
+          },
+          {
+            id: 8,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5MT',
+            title: 'Comfort',
+            price: 655500,
+          },
+          {
+            id: 9,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5MT',
+            title: '#CLUB',
+            price: 677900,
+          },
+          {
+            id: 10,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5MT',
+            title: 'Luxe',
+            price: 699800,
+          },
+          {
+            id: 11,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '98 л.с.',
+            transmission: '4AT',
+            title: 'Comfort',
+            price: 720500,
+          },
+          {
+            id: 12,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '98 л.с.',
+            transmission: '4AT',
+            title: 'Luxe',
+            price: 764800,
+          },
+        ],
+        sedan: [
+          {
+            id: 1,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Standard',
+            price: 531900,
+          },
+          {
+            id: 2,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Classic',
+            price: 562500,
+          },
+          {
+            id: 3,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Comfort Light',
+            price: 603500,
+          },
+          {
+            id: 4,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Comfort',
+            price: 610500,
+          },
+          {
+            id: 5,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: '#CLUB',
+            price: 632900,
+          },
+          {
+            id: 6,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Luxe',
+            price: 654800,
+          },
+          {
+            id: 7,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5MT',
+            title: 'Comfort Light',
+            price: 628500,
+          },
+          {
+            id: 8,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5MT',
+            title: 'Comfort',
+            price: 635500,
+          },
+          {
+            id: 9,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5MT',
+            title: '#CLUB',
+            price: 657900,
+          },
+          {
+            id: 10,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5MT',
+            title: 'Luxe',
+            price: 679800,
+          },
+          {
+            id: 11,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '98 л.с.',
+            transmission: '4AT',
+            title: 'Comfort Light',
+            price: 693500,
+          },
+          {
+            id: 12,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '98 л.с.',
+            transmission: '4AT',
+            title: 'Comfort',
+            price: 700500,
+          },
+          {
+            id: 13,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '98 л.с.',
+            transmission: '4AT',
+            title: 'Luxe',
+            price: 744800,
+          },
+        ],
+        universal: [
+          {
+            id: 1,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Standard',
+            price: 560900,
+          },
+          {
+            id: 2,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Classic',
+            price: 589500,
+          },
+          {
+            id: 3,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Comfort Light',
+            price: 630500,
+          },
+          {
+            id: 4,
+            engine: '1,6 л',
+            flap: '8-кл.',
+            capacity: '90 л.с.',
+            transmission: '5MT',
+            title: 'Comfort',
+            price: 637500,
+          },
+          {
+            id: 5,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5MT',
+            title: 'Comfort',
+            price: 662500,
+          },
+          {
+            id: 6,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '106 л.с.',
+            transmission: '5MT',
+            title: 'Luxe',
+            price: 706800,
+          },
+          {
+            id: 7,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '98 л.с.',
+            transmission: '4AT',
+            title: 'Comfort',
+            price: 727500,
+          },
+          {
+            id: 8,
+            engine: '1,6 л',
+            flap: '16-кл.',
+            capacity: '98 л.с.',
+            transmission: '4AT',
+            title: 'Luxe',
+            price: 771800,
+          },
+        ]
+      }
     }
   },
-  layout: 'model',
+  layout (context) {
+    return context.route.params.models === 'granta' ? 'model_new' : 'model'
+  },
   validate: function ({params, store}) {
     let validate_city = false
     let validate_model = false
@@ -75,6 +510,11 @@ export default Vue.extend({
       process.env.apiUrl + `/api/model?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
     )
 
+    let new_design = false
+    if (context.route.params.models === 'granta') {
+      new_design = true
+    }
+
     let car = {
       model_full: model.model_full,
       url: '/' + context.route.params.city + '/' + model.model_slug + '/' + model.type_slug + '/model-details'
@@ -85,7 +525,7 @@ export default Vue.extend({
       route: context.route.fullPath
     })
 
-    return { model: model, seo: seo }
+    return { model: model, seo: seo, new_design: new_design }
   },
   head() {
     if (Object.keys(this.seo).length == 0) {
@@ -154,9 +594,16 @@ export default Vue.extend({
   methods: {
     getRandomInt: function (min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
-    }
+    },
+
+    scrollToCredit() {
+      const element = document.getElementById('creditCalc');
+      element.scrollIntoView({block: 'start', behavior: 'smooth'});
+    },
   },
   created() {
+    this.theme = this.themes[this.$route.params.model]
+
     if(this.$cookies.get('count') === undefined) {
       this.count = this.getRandomInt(7, 15)
 
@@ -171,6 +618,20 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  .models-advantages {
+    margin: 60px 0 40px;
+  }
 
+  .models-banner {
+    margin-bottom: 60px;
+  }
+
+  .equipments-block {
+    margin-top: 90px;
+  }
+
+  .book-section {
+    margin: 20px 0 60px;
+  }
 </style>
