@@ -134,7 +134,6 @@
       </div>
 
       <ButtonNew
-        button-color="#514EA1"
         button-text="Получить код"
         class="evaluate__form__submit"
       />

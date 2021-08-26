@@ -82,7 +82,7 @@ export default Vue.extend({
       seo: {},
       count: 0,
       isHitOfSales: false,
-      theme: '',
+      theme: 'theme-01',
       themes: {
         'drive-active': 'theme-01',
         hatchback: 'theme-02',
@@ -90,28 +90,6 @@ export default Vue.extend({
         sedan: 'theme-04',
         universal: 'theme-05',
       },
-/*      colors: {
-        drive_active: {
-          colorMain: '#EE6723', // Оранжевый
-          colorSecond: '#FFCA0D', // Желтый
-        },
-        hatchback: {
-          colorMain: '#FFCA0D',  // Желтый
-          colorSecond: '#5CBE86', // Зеленый
-        },
-        liftback: {
-          colorMain: '#514EA1',  // Фиолетовый
-          colorSecond: '#FFCA0D', // Желтый
-        },
-        sedan: {
-          colorMain: '#514EA1', // Фиолетовый
-          colorSecond: '#5CBE86', // Зеленый
-        },
-        universal: {
-          colorMain: '#5CBE86', // Зеленый
-          colorSecond: '#EE6723', // Оранжевый
-        },
-      },*/
       complectations: {
         drive_active: [
           {
@@ -602,7 +580,7 @@ export default Vue.extend({
     },
   },
   created() {
-    this.theme = this.themes[this.$route.params.model]
+    //this.theme = this.themes[this.$route.params.model]
 
     if(this.$cookies.get('count') === undefined) {
       this.count = this.getRandomInt(7, 15)

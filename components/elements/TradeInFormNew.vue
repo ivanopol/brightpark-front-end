@@ -77,6 +77,7 @@
             </div>
 
             <ButtonNew
+              buttonColor="color-primary-background"
               :button-text="'Оставить заявку'"
               :button-color="'#514EA1'"
               class="trade-in__form__offline__submit"

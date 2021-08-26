@@ -22,6 +22,7 @@ export default {
       type: String
     },
     buttonColor: {
+      default: 'color-primary-background',
       type: String
     }
   },
