@@ -49,7 +49,7 @@
                     'Оставить заявку',
                     $store.state._page + '__modal-banner-new_',
                     1,
-                    'request'
+                    'model_banner_modal-request'
                   )"
           />
         </div>

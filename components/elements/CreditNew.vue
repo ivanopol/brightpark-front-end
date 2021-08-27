@@ -231,7 +231,7 @@
               'Рассчитайте кредит на покупку LADA ' + $store.state.car.model_full,
               $store.state._page + '__modal-credit-new_',
               1,
-              'credit'
+              'model_credit_modal-request'
            )"/>
 
          <p class="credit__bottom__warning">

@@ -43,7 +43,7 @@
                     'Комплектации и цены',
                     $store.state._page + '__modal-banner-new_',
                     1,
-                    'complectations',
+                    'model_complectations_modal-request',
                     $store.state.car.model_full + '. Двигатель: ' + param.engine + ', ' + param.flap + ', Мощность: ' + param.capacity + ', Коробка передач: '
                     + param.transmission + ', Комплектаци: ' + param.title + ', Цена: ' + param.price + ' руб.'
                   )"

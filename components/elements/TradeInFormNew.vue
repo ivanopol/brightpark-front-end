@@ -274,6 +274,7 @@
       :year="selectedYear.label"
       :priceFrom="pricesRange.from"
       :priceTo="pricesRange.to"
+      goal="model_traid-in_modal-request"
       :comment="'Интересуется: ' + $store.state.car.model_full + '.' +
                 'АВТОМОБИЛЬ КЛИЕНТА: ' +
                 'марка: ' + selectedMark.label + ', ' +
@@ -392,7 +393,7 @@ export default {
       form_title: "Оцените автомобиль в салоне",
       comment: '',
       form_type: 1,
-      goal: "offline",
+      goal: " model_traid-in_offline-request",
     }
   },
 
@@ -561,6 +562,7 @@ export default {
           this.pricesRange.to = response.data.estimation.prices.autoru.to;
 
           this.show('form-evaluate');
+          this.sendGoals('model_traid-in_online-button')
         });
     },
 

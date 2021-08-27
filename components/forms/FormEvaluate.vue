@@ -172,7 +172,7 @@ export default {
       type: Number
     },
     goal: {
-      default: "online",
+      default: "",
       type: String
     },
     comment: {

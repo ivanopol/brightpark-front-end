@@ -78,7 +78,7 @@ export default {
       form_id: 'models__book-your-car_',
       form_title: 'Забронируйте свой автомобиль',
       form_type: 1,
-      goal: '',
+      goal: 'model_book_request',
     }
   },
   computed: {

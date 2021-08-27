@@ -23,6 +23,7 @@
           class="models-features__button"
           :button-text="'все характеристики'"
           :path="path"
+          goal="model_features_all-features"
         />
       </div>
     </div>

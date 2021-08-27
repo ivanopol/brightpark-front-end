@@ -19,7 +19,7 @@
                     'Записаться на тест-драйв',
                     $store.state._page + '__modal-models-test-drive_',
                     1,
-                    'test_drive'
+                    'model_test-drive_modal-request'
                   )"
           />
         </div>
