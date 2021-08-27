@@ -6,8 +6,37 @@
         Комплектации и цены
       </h2>
 
+
       <div class="equipments__items">
-        <div class="equipments__items__item" v-for="param in params" :key="param.id">
+        <header class="equipments__items__header">
+          <p>
+            двигатель
+          </p>
+
+          <p>
+            мощность
+          </p>
+
+          <p>
+            Коробка передач
+          </p>
+
+          <p>
+            Комплектация
+          </p>
+
+          <p>
+            Цена
+          </p>
+
+        </header>
+
+        <div
+          class="equipments__items__item"
+          v-for="param in params"
+          :key="param.id"
+          v-if="params.indexOf(param) <= 5 ? true : isShowAll"
+        >
           <div class="equipments__items__item__option">
             <h5>Двигатель</h5>
             <p>{{param.engine}} <span>{{param.flap}}</span></p>
@@ -20,12 +49,19 @@
 
           <div class="equipments__items__item__option">
             <h5>Коробка передач</h5>
-            <p>{{param.transmission}}</p>
+            <p>
+              {{ param.transmission }}
+            </p>
           </div>
 
           <div class="equipments__items__item__option">
             <h5>Комплектация</h5>
-            <p>{{param.title}}</p>
+            <p>
+              {{param.title}}
+              <span v-if="param.title === '#CLUB' ? true : false">
+                Специальная серия
+              </span>
+            </p>
           </div>
 
           <div class="equipments__items__item__option">
@@ -52,6 +88,14 @@
         </div>
       </div>
 
+      <button
+        class="equipments__show-more"
+        type="button"
+        @click="isShowAll = !isShowAll"
+        v-if="params.length > 6"
+      >
+        {{ isShowAll ? 'скрыть' : 'показать ещё' }}
+      </button>
 
       <LinkNew
         class="equipments__button"
@@ -96,6 +140,7 @@ export default {
       form_type: 1,
       goal: '',
       comment: '',
+      isShowAll: false,
     }
   },
   methods: {
@@ -218,6 +263,29 @@ export default {
     }
   }
 
+  .equipments__items__header {
+    display: none;
+
+    @media (min-width: 1367px) {
+      margin-bottom: 10px;
+      display: grid;
+      grid-template-columns: 160px 160px 180px 300px 140px 100px;
+      height: 50px;
+      background: white;
+      align-items: center;
+      padding: 20px;
+      grid-gap: 25px;
+
+      p {
+        text-transform: uppercase;
+        font-family: "Factor A";
+        font-weight: 700;
+        font-size: 12px;
+        color: #514EA1;
+      }
+    }
+  }
+
   .equipments__items__item__option {
     font-family: "Factor A";
     letter-spacing: 0.05em;
@@ -237,6 +305,8 @@ export default {
 
       span {
         color: rgba(0, 0, 0, .5);
+        font-size: 13px;
+        display: none;
       }
 
       &.equipments__items__item__option__price {
@@ -254,6 +324,10 @@ export default {
       p {
         font-weight: 400;
         font-size: 20px;
+
+        span {
+          display: inline-block;
+        }
       }
     }
   }
@@ -288,6 +362,28 @@ export default {
     @media (min-width: 1000px) {
       margin: 30px auto 0;
       max-width: 380px;
+    }
+  }
+
+  .equipments__show-more {
+    text-align: center;
+    display: block;
+    max-width: fit-content;
+    margin: 20px auto 0;
+    background: none;
+    border: none;
+    color: #707176;
+    border-bottom: 1px solid #707176;
+    text-transform: uppercase;
+    font-family: "Factor A";
+    padding: 0;
+    cursor: pointer;
+    transition: .2s ease;
+    font-size: 12px;
+
+    &:hover {
+      transition: .2s ease;
+      opacity: .7;
     }
   }
 </style>
