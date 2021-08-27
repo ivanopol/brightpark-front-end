@@ -250,6 +250,7 @@
               :button-text="submitButtonText"
               :button-color="'#514EA1'"
               class="trade-in__form__offline__submit"
+              goal="model_traid-in_online-button"
               @click.prevent.native="getResult"
             />
           </form>
@@ -393,7 +394,7 @@ export default {
       form_title: "Оцените автомобиль в салоне",
       comment: '',
       form_type: 1,
-      goal: " model_traid-in_offline-request",
+      goal: "model_traid-in_offline-request",
     }
   },
 
