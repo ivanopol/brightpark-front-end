@@ -40,12 +40,12 @@ export default {
   },
   data: function () {
     return {
-
+      isProduction: process.env.NODE_ENV === 'production',
     }
   },
   methods: {
     sendGoals: function() {
-      if (this.goal) {
+      if (this.goal && this.isProduction) {
         let goal = this.goal
         let ym_ids = this.getCountersIds();
         let goalArr = goal.match(/^(.+?):(.+?)$/);
