@@ -102,6 +102,7 @@
         button-text="Скачать прайс-лист"
         :path="path"
         :with_icon='true'
+        goal="model_complectations_price-list"
       />
     </div>
   </div>

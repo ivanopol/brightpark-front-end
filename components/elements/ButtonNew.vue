@@ -1,5 +1,5 @@
 <template>
-  <button :type="buttonType"  :class="buttonColor">
+  <button :type="buttonType"  :class="buttonColor" @click="sendGoals">
     {{ buttonText }}
   </button>
 </template>
@@ -24,14 +24,41 @@ export default {
     buttonColor: {
       default: 'color-primary-background',
       type: String
+    },
+    goal: {
+      default: '',
+      type: String
     }
   },
 
   data: function () {
     return {
-
+      isProduction: process.env.NODE_ENV === 'production',
     }
   },
+  methods: {
+    sendGoals: function() {
+      if (this.goal && this.isProduction) {
+        let goal = this.goal
+        let ym_ids = this.getCountersIds();
+        let goalArr = goal.match(/^(.+?):(.+?)$/);
+        let target_goal = goalArr === null ? goal : goalArr[2];
+
+        ym_ids.forEach(function(item) {
+          window["yaCounter" + item].reachGoal(target_goal);
+        });
+      }
+      return {};
+    },
+    getCountersIds: function() {
+      var id_list = [];
+
+      window.ym.a.forEach(function(item) {
+        id_list.push(item[0]);
+      });
+      return id_list;
+    },
+  }
 }
 </script>
 
