@@ -11,12 +11,13 @@
             </h2>
 
             <p class="credit__inner__desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere massa nam facilisi sed vestibulum.
+              Более 15 банков-партнеров, специальные предложения по кредитованию и страхованию каждый день.<br>
+              Одобрение занимает всего 15 минут.
             </p>
           </div>
 
           <AdvantagesListMini
-            :advantages="['12 банков-партнеров', 'Одобрение по кредиту 30 минут', 'Вероятность одобрения 96%']"
+            :advantages="['98% одобренных кредитов', 'Первоначальный взнос от 10%', 'Низкие процентные ставки']"
             :tick-color="'#fff'"
             class="credit__advantages"
           />

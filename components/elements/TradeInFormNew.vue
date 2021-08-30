@@ -21,7 +21,7 @@
       <advantages-list-mini
         class="trade-in__advantages"
         :tick-color="'#fff'"
-        :advantages="['Скидка при обмене 40 000 ₽', 'Оценка на 7% ниже рынка', 'Пакет доп. оборудования со скидкой 50%']"
+        :advantages="['Скидка при обмене 50 000 ₽', 'Юридическая чистота сделки', 'Справедливая оценка автомобиля']"
       />
       <div class="trade-in__form color-svg-traid-in">
         <div class="trade-in__form__toggle">
