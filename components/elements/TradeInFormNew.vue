@@ -15,13 +15,13 @@
         </h2>
 
         <p class="trade-in__head__desc">
-          Бесплатная оценка и диагностика специалистом
+          Сдайте свой автомобиль и получите первый взнос на покупку новой LADA!
         </p>
       </div>
       <advantages-list-mini
         class="trade-in__advantages"
         :tick-color="'#fff'"
-        :advantages="['Скидка при обмене 50 000 ₽', 'Юридическая чистота сделки', 'Справедливая оценка автомобиля']"
+        :advantages="['Выгода при обмене до 50 000 ₽', 'Юридическая чистота сделки', 'Справедливая оценка автомобиля']"
       />
       <div class="trade-in__form color-svg-traid-in">
         <div class="trade-in__form__toggle">
@@ -730,7 +730,8 @@ export default {
 
   .trade-in__head__desc {
     font-size: 16px;
-    font-family: "Factor A";
+    line-height: 26px;
+    //font-family: "Factor A";
 
     @media (min-width: 1000px) {
       text-align: left;
