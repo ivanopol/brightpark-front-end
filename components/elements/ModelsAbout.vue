@@ -419,7 +419,9 @@ export default {
     // Ставим высоту по умолчанию открытому элементу
     initHeight() {
       const elem = document.querySelector('.models-about__item.opened');
-      elem.style.height = elem.offsetHeight + 'px';
+      if (elem) {
+        elem.style.height = elem.offsetHeight + 'px';
+      }
     },
 
     switchWidget(event, widget) {
