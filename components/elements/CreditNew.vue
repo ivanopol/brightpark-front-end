@@ -97,7 +97,9 @@
                         :min="sliderOne.min"
                         :max="sliderOne.max"
                         :marks="sliderOne.marks"
-                        :tooltip-formatter="formatter1" />
+                        :tooltip-formatter="formatter1"
+            />
+
           </div>
 
           <span class="range-field__result">
@@ -322,7 +324,14 @@ export default {
       creditPercent: '',
       sliderOne:
         {
-          marks: ['10%', '90%'],
+          marks: {
+            '10': {
+              label: '10%'
+            },
+            '90' : {
+              label: '90%'
+            }
+          },
           min: 10,
           max: 90
         },
@@ -739,7 +748,7 @@ export default {
     },
 
     changeFirstPayment( event ) {
-      this.firstPayment = Math.round(this.carPrice / 100 * this.firstPaymentPercent);
+      this.firstPayment = this.carPrice ? Math.round(this.carPrice / 100 * this.firstPaymentPercent) : 0;
       const target = document.querySelector('input[name="firstPayment"]');
       target.value = Number(this.firstPayment).toLocaleString('ru');
 
@@ -820,7 +829,7 @@ export default {
   },
 
   mounted() {
-    this.firstPayment = Math.round(this.carPrice / 100 * this.firstPaymentPercent);
+    this.firstPayment = this.carPrice ? Math.round(this.carPrice / 100 * this.firstPaymentPercent) : 0;
 
     axios.get(process.env.apiUrl + '/api/get_credit_programs')
       .then((response) => {
