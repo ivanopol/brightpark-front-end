@@ -143,12 +143,6 @@
           <p class="range-field__placeholder select-field__placeholder" :class="[creditPercent !== '' ? activePlaceholder : '']">
             Выберите банк и программу
           </p>
-
-<!--          <select v-model="creditPercent" class="input-field">-->
-<!--            <option value="11,5">ПАО "Совкомбанк"</option>-->
-<!--            <option value="9,5">Comfort</option>-->
-<!--          </select>-->
-
           <v-select
             :options="banks"
             :get-option-label="(option) => option.percent + ' ' + option.bank"
@@ -770,27 +764,15 @@ export default {
       // this.credit_programs[i]['monthly_payment'] = Math.round(debt * annualCoefficient);
       this.mounthlyPayment = Math.round(debt * annualCoefficient);
 
-
-      // if (this.credit_programs !== undefined && this.credit_programs !== null) {
-      //
-      //   for (let i = 0; i <= this.credit_programs.length; i++) {
-      //     if (this.credit_programs[i] !== undefined) {
-      //       let monthlyPercentRate = this.bankPercent / 12 / 100;
-      //       let mathPow1 = Math.pow(1 + monthlyPercentRate, this.period);
-      //       let res1 = monthlyPercentRate * mathPow1;
-      //       let res2 = mathPow1 - 1;
-      //       let annualCoefficient = (res1 / res2);
-      //       // this.credit_programs[i]['monthly_payment'] = Math.round(debt * annualCoefficient);
-      //       this.mounthlyPayment = Math.round(debt * annualCoefficient);
-      //     }
-      //   }
-      // }
     },
 
     changeBank(data) {
       this.sliderOne.min = data.firstPayment;
       this.$refs.firstPayment.setValue(data.firstPayment + 5);
-      this.sliderOne.marks = [data.firstPayment + '%', '90%'];
+     // this.sliderOne.marks = {data.firstPayment: data.firstPayment + '%', '90': '90%'};
+      this.sliderOne.marks = {};
+      this.sliderOne.marks[data.firstPayment] = data.firstPayment + '%'
+      this.sliderOne.marks['90'] = '90%'
 
       this.sliderTwo.marks = [data.period.min, data.period.max];
       this.sliderTwo.min = data.period.min;
