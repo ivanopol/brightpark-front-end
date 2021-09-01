@@ -11,14 +11,12 @@
         </h2>
 
         <p class="warranty__desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae est, fringilla elementum, tristique a quam metus diam integer.
-          Sagittis facilisi dictum dignissim suspendisse nunc, ut arcu nullam. Sollicitudin amet, erat ipsum, commodo viverra enim sagittis.
-          Neque in nunc faucibus fringilla consequat tristique.
+          Брайт Парк является официальным дилером  LADA и оказывает услуги по  сервисному, кузовному и гарантийному обслуживанию автомобилей LADA.
         </p>
 
         <advantages-list-mini
           class="warranty__advantages color-primary-color"
-          :advantages="['15 банков-партнеров', 'Одобрение по кредиту 30 минут', 'Вероятность одобрения 98%']"
+          :advantages="['Принятие решения в день обращения', 'Сертифицированные специалисты', 'Более 50 000 запасных частей в наличии', 'Бесплатная диагностика машины при обращении']"
         />
       </div>
     </div>

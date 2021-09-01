@@ -11,12 +11,13 @@
             </h2>
 
             <p class="credit__inner__desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere massa nam facilisi sed vestibulum.
+              Более 15 банков-партнеров, специальные предложения по кредитованию и страхованию каждый день.<br>
+              Одобрение занимает всего 15 минут.
             </p>
           </div>
 
           <AdvantagesListMini
-            :advantages="['12 банков-партнеров', 'Одобрение по кредиту 30 минут', 'Вероятность одобрения 96%']"
+            :advantages="['98% одобренных кредитов', 'Первоначальный взнос от 10%', 'Низкие процентные ставки']"
             :tick-color="'#fff'"
             class="credit__advantages"
           />
@@ -96,7 +97,9 @@
                         :min="sliderOne.min"
                         :max="sliderOne.max"
                         :marks="sliderOne.marks"
-                        :tooltip-formatter="formatter1" />
+                        :tooltip-formatter="formatter1"
+            />
+
           </div>
 
           <span class="range-field__result">
@@ -140,12 +143,6 @@
           <p class="range-field__placeholder select-field__placeholder" :class="[creditPercent !== '' ? activePlaceholder : '']">
             Выберите банк и программу
           </p>
-
-<!--          <select v-model="creditPercent" class="input-field">-->
-<!--            <option value="11,5">ПАО "Совкомбанк"</option>-->
-<!--            <option value="9,5">Comfort</option>-->
-<!--          </select>-->
-
           <v-select
             :options="banks"
             :get-option-label="(option) => option.percent + ' ' + option.bank"
@@ -321,7 +318,14 @@ export default {
       creditPercent: '',
       sliderOne:
         {
-          marks: ['10%', '90%'],
+          marks: {
+            '10': {
+              label: '10%'
+            },
+            '90' : {
+              label: '90%'
+            }
+          },
           min: 10,
           max: 90
         },
@@ -738,7 +742,7 @@ export default {
     },
 
     changeFirstPayment( event ) {
-      this.firstPayment = Math.round(this.carPrice / 100 * this.firstPaymentPercent);
+      this.firstPayment = this.carPrice ? Math.round(this.carPrice / 100 * this.firstPaymentPercent) : 0;
       const target = document.querySelector('input[name="firstPayment"]');
       target.value = Number(this.firstPayment).toLocaleString('ru');
 
@@ -760,27 +764,15 @@ export default {
       // this.credit_programs[i]['monthly_payment'] = Math.round(debt * annualCoefficient);
       this.mounthlyPayment = Math.round(debt * annualCoefficient);
 
-
-      // if (this.credit_programs !== undefined && this.credit_programs !== null) {
-      //
-      //   for (let i = 0; i <= this.credit_programs.length; i++) {
-      //     if (this.credit_programs[i] !== undefined) {
-      //       let monthlyPercentRate = this.bankPercent / 12 / 100;
-      //       let mathPow1 = Math.pow(1 + monthlyPercentRate, this.period);
-      //       let res1 = monthlyPercentRate * mathPow1;
-      //       let res2 = mathPow1 - 1;
-      //       let annualCoefficient = (res1 / res2);
-      //       // this.credit_programs[i]['monthly_payment'] = Math.round(debt * annualCoefficient);
-      //       this.mounthlyPayment = Math.round(debt * annualCoefficient);
-      //     }
-      //   }
-      // }
     },
 
     changeBank(data) {
       this.sliderOne.min = data.firstPayment;
       this.$refs.firstPayment.setValue(data.firstPayment + 5);
-      this.sliderOne.marks = [data.firstPayment + '%', '90%'];
+     // this.sliderOne.marks = {data.firstPayment: data.firstPayment + '%', '90': '90%'};
+      this.sliderOne.marks = {};
+      this.sliderOne.marks[data.firstPayment] = data.firstPayment + '%'
+      this.sliderOne.marks['90'] = '90%'
 
       this.sliderTwo.marks = [data.period.min, data.period.max];
       this.sliderTwo.min = data.period.min;
@@ -819,7 +811,7 @@ export default {
   },
 
   mounted() {
-    this.firstPayment = Math.round(this.carPrice / 100 * this.firstPaymentPercent);
+    this.firstPayment = this.carPrice ? Math.round(this.carPrice / 100 * this.firstPaymentPercent) : 0;
 
     axios.get(process.env.apiUrl + '/api/get_credit_programs')
       .then((response) => {
