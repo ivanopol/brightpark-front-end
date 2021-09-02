@@ -196,30 +196,38 @@
 
               <div class="select-field" :class="selectedYear.label === '' ? 'disabled' : false">
 
-                <v-select
-                  :options="mileages"
-                  :get-option-label="(option) => option.label"
-                  class="v-select-field"
+<!--                <v-select-->
+<!--                  :options="mileages"-->
+<!--                  :get-option-label="(option) => option.label"-->
+<!--                  class="v-select-field"-->
+<!--                  v-model="selectedMileage"-->
+<!--                  :searchable="false"-->
+<!--                  :disabled="selectedYear.label === '' ? true : false"-->
+<!--                >-->
+<!--                  <template #option="{ label }">-->
+<!--                    <span class="v-select-field__bold-text">-->
+<!--                      {{ label }}-->
+<!--                    </span>-->
+<!--                  </template>-->
+<!--                </v-select>-->
+
+                <input
+                  type="text"
+                  class="v-select-field v-select"
                   v-model="selectedMileage"
-                  :searchable="false"
-                  :disabled="selectedYear.label === '' ? true : false"
+                  @keypress="digitsValidation($event)"
+                  :disabled="selectedYear.label === '' ? true: false"
                 >
-                  <template #option="{ label }">
-                    <span class="v-select-field__bold-text">
-                      {{ label }}
-                    </span>
-                  </template>
-                </v-select>
 
                 <span
                   class="select-field__placeholder"
-                  :class="[selectedMileage.label !== '' ? 'active' : false]"
+                  :class="[selectedMileage !== '' ? 'active' : false]"
                 >
                   Пробег
                 </span>
               </div>
 
-              <div class="select-field" :class="selectedMileage.label === '' ? 'disabled' : false">
+              <div class="select-field" :class="selectedMileage === '' ? 'disabled' : false">
 
                 <v-select
                   :options="transmissions"
@@ -227,7 +235,7 @@
                   class="v-select-field"
                   v-model="selectedTransmission"
                   :searchable="false"
-                  :disabled="selectedMileage.label === '' ? true : false"
+                  :disabled="selectedMileage === '' ? true : false"
                 >
                   <template #option="{ label }">
                     <span class="v-select-field__bold-text">
@@ -269,7 +277,7 @@
     <FormEvaluate
       :mark="selectedMark.label"
       :model="selectedModel.label"
-      :mileage="selectedMileage.label"
+      :mileage="selectedMileage"
       :modification="selectedModification.label"
       :transmission="selectedTransmission.label"
       :year="selectedYear.label"
@@ -282,7 +290,7 @@
                 'модель: ' + selectedModel.label + ', ' +
                 'модификация: ' + selectedModification.label + ' , ' +
                 'год: ' + selectedYear.label + ', ' +
-                'пробег: ' + selectedMileage.label + ' км., ' +
+                'пробег: ' + selectedMileage + ' км., ' +
                 'коробка передач: ' + selectedTransmission.label + ',' +
                 'предварительная стоимость: ' + pricesRange.from + ' - ' + pricesRange.to + ' руб.'"
     />
@@ -341,9 +349,7 @@ export default {
         label: '',
       },
       allModifications: [],
-      selectedMileage: {
-        label: ''
-      },
+      selectedMileage: '',
       years: [],
       selectedYear: {
         label: ''
@@ -555,7 +561,7 @@ export default {
     getResult: function() {
       const data = JSON.stringify({
         tech_param_id: this.selectedModification.tech_param_id,
-        km_age: this.selectedMileage.value,
+        km_age: this.selectedMileage,
         year: this.selectedYear.value
       });
 
@@ -588,7 +594,17 @@ export default {
           this.isModelActive = !this.isModelActive;
           break;
       }
-    }
+    },
+
+    digitsValidation(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if ((charCode > 31 && (charCode < 48 || charCode > 57))) {
+        evt.preventDefault();
+      } else {
+        return true;
+      }
+    },
   },
 
 
@@ -963,6 +979,18 @@ export default {
     padding-left: 15px;
     font-size: 24px;
     font-weight: 500;
+  }
+
+  input.v-select {
+    font-size: 24px;
+
+    &:focus + .select-field__placeholder{
+      transition: .2s ease;
+      font-size: 12px;
+      transform: unset;
+      top: 15px;
+      left: 19px;
+    }
   }
 
 
