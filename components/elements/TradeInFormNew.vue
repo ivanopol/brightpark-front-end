@@ -93,7 +93,7 @@
           <form id="onlineWidgetForm" >
             <div class="trade-in__form__online__fields">
               <div class="select-field">
-                <v-select
+<!--                <v-select
                   :options="allMarks"
                   :get-option-label="(option) => option.label"
                   class="v-select-field"
@@ -107,7 +107,7 @@
                       {{ label }}
                     </span>
                   </template>
-                </v-select>
+                </v-select>-->
 
                 <span
                   class="select-field__placeholder"
@@ -517,11 +517,13 @@ export default {
 
     getModels(data) {
       axios.get(process.env.apiUrl + '/api/get_brand_models', {
+   //   axios.get('crm.brightpark.ru/ajax/getMarks', {
         params: {
           model_id: data.id,
         }
       })
         .then((response) => {
+        //  console.log(response.data.models)
           this.allModels = response.data.models;
         })
         .catch((error) => {
@@ -625,10 +627,29 @@ export default {
   },
 
   async fetch() {
-    const brands = await fetch(
-      process.env.apiUrl + `/api/get_cars_brands`
+    const myInit = {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
+      }
+    };
+
+
+    const brands2 = await fetch(
+      `https://crm.brightpark.ru/ajax/getMarks`, myInit
+     // `/api/crm/getMarks`
+    //  process.env.apiUrl + `/api/get_cars_brands`
     ).then(res => res.json())
 
+    console.log(brands2)
+
+    const brands = await fetch(
+        process.env.apiUrl + `/api/get_cars_brands`
+    ).then(res => res.json())
+
+
+    console.log(brands)
     this.allMarks = brands
   },
 }
