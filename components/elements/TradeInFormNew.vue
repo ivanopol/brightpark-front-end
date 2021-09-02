@@ -93,7 +93,7 @@
           <form id="onlineWidgetForm" >
             <div class="trade-in__form__online__fields">
               <div class="select-field">
-<!--                <v-select
+                <v-select
                   :options="allMarks"
                   :get-option-label="(option) => option.label"
                   class="v-select-field"
@@ -107,7 +107,7 @@
                       {{ label }}
                     </span>
                   </template>
-                </v-select>-->
+                </v-select>
 
                 <span
                   class="select-field__placeholder"
@@ -214,7 +214,7 @@
                 <input
                   type="text"
                   class="v-select-field v-select"
-                  v-model="selectedMileage"
+                  v-model="mileage"
                   @keypress="digitsValidation($event)"
                   :disabled="selectedYear.label === '' ? true: false"
                 >
@@ -300,8 +300,11 @@
 
 <script>
 import axios from "axios";
+import format_price from "@/mixins/format_price";
+
 
 export default {
+  mixins: [format_price],
   name: "TradeInFormNew",
 
   data: function () {
@@ -630,6 +633,18 @@ export default {
           return 'Оценить в салоне'
         }
       }
+    },
+    mileage: {
+      get: function () {
+        this.selectedMileage = this.selectedMileage.replace(/\s/gi, '')
+        if (this.selectedMileage.length >= 9) {
+          this.selectedMileage = this.selectedMileage.substr(0,8)
+        }
+          return this.$options.filters.formatPrice(this.selectedMileage)
+      },
+      set: function(newValue) {
+        this.selectedMileage = newValue
+      }
     }
   },
 
@@ -651,11 +666,8 @@ export default {
       }
     };
 
-
     const brands2 = await fetch(
       `https://crm.brightpark.ru/ajax/getMarks`, myInit
-     // `/api/crm/getMarks`
-    //  process.env.apiUrl + `/api/get_cars_brands`
     ).then(res => res.json())
 
     console.log(brands2)
