@@ -28,7 +28,8 @@ export default {
   */
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    apiUrl: process.env.API_URL || 'http://localhost:8081'
+    apiUrl: process.env.API_URL || 'http://localhost:8081',
+    crmUrl: 'https://crm.brightpark.ru',
   },
   head: {
     title: '',

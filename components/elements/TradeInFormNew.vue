@@ -166,7 +166,7 @@
                   class="select-field__placeholder"
                   :class="[selectedModification.label !== '' ? 'active' : false]"
                 >
-                  Модификация автомобиля
+                  Поколения автомобиля
                 </span>
               </div>
 
@@ -174,6 +174,7 @@
                 <v-select
                   :options="years"
                   :get-option-label="(option) => option.label"
+                  @input="getMileages"
                   class="v-select-field"
                   v-model="selectedYear"
                   :searchable="false"
@@ -195,21 +196,6 @@
               </div>
 
               <div class="select-field" :class="selectedYear.label === '' ? 'disabled' : false">
-
-<!--                <v-select-->
-<!--                  :options="mileages"-->
-<!--                  :get-option-label="(option) => option.label"-->
-<!--                  class="v-select-field"-->
-<!--                  v-model="selectedMileage"-->
-<!--                  :searchable="false"-->
-<!--                  :disabled="selectedYear.label === '' ? true : false"-->
-<!--                >-->
-<!--                  <template #option="{ label }">-->
-<!--                    <span class="v-select-field__bold-text">-->
-<!--                      {{ label }}-->
-<!--                    </span>-->
-<!--                  </template>-->
-<!--                </v-select>-->
 
                 <input
                   type="text"
@@ -525,30 +511,54 @@ export default {
     },
 
     getModels(data) {
-      axios.get(process.env.apiUrl + '/api/get_brand_models', {
-   //   axios.get('crm.brightpark.ru/ajax/getMarks', {
-        params: {
-          model_id: data.id,
+      axios.get(
+        process.env.crmUrl +`/ajax/getModelsCORS`, {
+          params: {
+            mark_id: data.id
+          }
         }
+      ).then((response) => {
+        this.clearData(1)
+        this.allModels = this.arrayFormat(response.data.models)
       })
-        .then((response) => {
-        //  console.log(response.data.models)
-          this.allModels = response.data.models;
-        })
-        .catch((error) => {
-          console.log(error);
-        })
     },
 
     getModifications: function(data) {
-      axios.get(process.env.apiUrl + '/api/get_complectations/' + this.selectedMark.code.toString() + '/' + data.code.toString(),
-        {})
+      axios.get(process.env.crmUrl + '/ajax/getCarsGenerationCORS',
+        {
+          params: {
+            model_id: data.id
+          }
+        })
         .then((response) => {
-          this.allModifications = response.data.modifications;
+          this.clearData(2)
+          this.allModifications = this.arrayFormat(response.data.generations, 'title');
         });
     },
 
+    getMileages: function() {
+      this.clearData(4)
+    },
+
+    clearData: function(step) {
+      switch(step) {
+        case 1:
+          this.allModels = []
+          this.selectedModel.label = ''
+        case 2:
+          this.allModifications = []
+          this.selectedModification.label = ''
+        case 3:
+          this.years = []
+          this.selectedYear.label = ''
+        case 4:
+          this.mileage = ''
+          this.selectedMileage = ''
+      }
+    },
+
     getYears: function(data) {
+      this.clearData(3)
       var currentYear = new Date().getFullYear(), years = [];
       var startYear = 1980;
       while (currentYear >= startYear) {
@@ -563,6 +573,25 @@ export default {
 
     getResult: function() {
       const data = JSON.stringify({
+        mark: this.selectedMark.label,
+        markId: 0,
+        model: this.selectedModel.label,
+        generation: this.selectedModification.label,
+        year: this.selectedYear.label,
+        drive: "Передний",
+        transmission: this.selectedTransmission.label,
+        equipment: "Medium Well",
+        modification: "",
+        expense: 0,
+        price: 0,
+        range: 0,
+        region: 1,
+        mileage: this.selectedMileage,
+        adv_url: "",
+      })
+
+      console.log(this.$store.state)
+/*      const data = JSON.stringify({
         tech_param_id: this.selectedModification.tech_param_id,
         km_age: this.selectedMileage,
         year: this.selectedYear.value
@@ -575,7 +604,7 @@ export default {
 
           this.show('form-evaluate');
           this.sendGoals('model_traid-in_online-button')
-        });
+        });*/
     },
 
     show(modal) {
@@ -600,6 +629,7 @@ export default {
     },
 
     digitsValidation(evt) {
+      this.clearData(5)
       evt = (evt) ? evt : window.event;
       var charCode = (evt.which) ? evt.which : evt.keyCode;
       if ((charCode > 31 && (charCode < 48 || charCode > 57))) {
@@ -608,6 +638,20 @@ export default {
         return true;
       }
     },
+
+    arrayFormat(object, field = 'name') {
+      let newObject = []
+
+      Object.keys(object).forEach(function (key){
+        newObject[key] = {
+          id: object[key].id,
+          label: object[key][field],
+          code: object[key][field]
+        }
+      });
+
+      return newObject
+    }
   },
 
 
@@ -666,19 +710,11 @@ export default {
       }
     };
 
-    const brands2 = await fetch(
-      `https://crm.brightpark.ru/ajax/getMarks`, myInit
+    let brands = await fetch(
+      process.env.crmUrl + `/ajax/getMarksCORS`, myInit
     ).then(res => res.json())
 
-    console.log(brands2)
-
-    const brands = await fetch(
-        process.env.apiUrl + `/api/get_cars_brands`
-    ).then(res => res.json())
-
-
-    console.log(brands)
-    this.allMarks = brands
+    this.allMarks = this.arrayFormat(brands.models)
   },
 }
 </script>
