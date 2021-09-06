@@ -40,7 +40,7 @@
 
     <div class="evaluate__car-info__item">
       <h5 class="evaluate__car-info__item__heading">
-        Модификация
+        Поколение
       </h5>
 
       <p class="evaluate__car-info__item__value">
@@ -85,7 +85,7 @@
         </p>
 
         <span>
-          545 000 ₽
+          {{ priceGood }}&nbsp;₽
         </span>
       </div>
 
@@ -95,7 +95,7 @@
         </p>
 
         <span>
-          545 000 ₽
+          {{ priceExcellent }}&nbsp;₽
         </span>
       </div>
 
@@ -105,7 +105,7 @@
         </p>
 
         <span>
-          545 000 ₽
+          {{ pricePerfect }}&nbsp;₽
         </span>
       </div>
     </div>
@@ -181,8 +181,9 @@ export default {
     mileage: String,
     year: Number,
     transmission: String,
-    priceFrom: Number,
-    priceTo: Number,
+    priceGood: String,
+    priceExcellent: String,
+    pricePerfect: String,
     form_id: {
       default: "models__modal-car-appraisal_",
       type: String

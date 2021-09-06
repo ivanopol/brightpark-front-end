@@ -267,8 +267,9 @@
       :modification="selectedModification.label"
       :transmission="selectedTransmission.label"
       :year="selectedYear.label"
-      :priceFrom="pricesRange.from"
-      :priceTo="pricesRange.to"
+      :priceGood="pricesRange.good"
+      :priceExcellent="pricesRange.fine"
+      :pricePerfect="pricesRange.ideal"
       goal="model_traid-in_modal-request"
       :comment="'Интересуется: ' + $store.state.car.model_full + '.' +
                 'АВТОМОБИЛЬ КЛИЕНТА: ' +
