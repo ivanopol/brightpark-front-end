@@ -75,12 +75,40 @@
   <div class="evaluate__car__prices">
     <p class="evaluate__car__prices__description">
       Предварительная стоимость
-      <span>(в зависимости от состояния)</span>
+      <span>В зависимости от состояния автомобиля</span>
     </p>
 
-    <p class="evaluate__car__prices__range">
-      {{ priceFromChanged }} ₽ — {{ priceToChanged }} ₽*
-    </p>
+    <div class="evaluate__car__prices__range">
+      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-good">
+        <p>
+          хорошее
+        </p>
+
+        <span>
+          545 000 ₽
+        </span>
+      </div>
+
+      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-excellent">
+        <p>
+          отличное
+        </p>
+
+        <span>
+          545 000 ₽
+        </span>
+      </div>
+
+      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-perfect">
+        <p>
+          идеальное
+        </p>
+
+        <span>
+          545 000 ₽
+        </span>
+      </div>
+    </div>
 
     <p class="evaluate__car__prices__warning">
       * — Расчет является ориентировочным, более точный расчет производится в салоне при осмотре автомобиля.
@@ -368,22 +396,25 @@ export default {
 }
 
 .evaluate__car__prices__description {
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, .5);
+  color: #514EA1;
   text-align: center;
-  font-size: 12px;
-  font-weight: 500;
-  font-family: "Factor A";
-  line-height: 16px;
+  font-size: 28px;
+  font-weight: 700;
+  font-family: "Bright Park Display";
   span {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Factor A";
+    color: rgba(0, 0, 0, .5);
+    margin-top: 5px;
     display: block;
   }
 
   @media (min-width: 1024px) {
     text-align: left;
-
+    
     span {
-      display: inline-block;
+      padding-left: 2px;
     }
   }
 }
@@ -396,10 +427,11 @@ export default {
   font-family: "Factor A";
   margin: 15px 0;
 
+
   @media (min-width: 1024px) {
     text-align: left;
     font-size: 30px;
-    margin: 5px 0;
+    display: flex;
   }
 }
 
@@ -516,4 +548,43 @@ export default {
   }
 }
 
+.evaluate__car__prices__range__condition {
+  font-family: "Factor A";
+  margin: 15px 0;
+  p {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    color: rgba(0, 0, 0, .5);
+  }
+
+  span {
+    font-weight: 700;
+    font-size: 26px;
+  }
+
+  &.evaluate__car__prices__range__condition-good {
+    span {
+      color: #EE6723;
+    }
+  }
+
+
+  &.evaluate__car__prices__range__condition-excellent {
+    span {
+      color: #514EA1;
+    }
+  }
+
+  &.evaluate__car__prices__range__condition-perfect {
+    span {
+      color: #5CBE86;
+    }
+  }
+
+  @media (min-width: 1367px) {
+    margin: 0 25px 0 0;
+  }
+}
 </style>
