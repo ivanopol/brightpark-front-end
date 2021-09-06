@@ -522,7 +522,6 @@ export default {
         })
         .then((response) => {
           this.clearData(2)
-          console.log(response.data)
           this.allModifications = this.arrayFormat(response.data.generations, 'title', ['year_from', 'year_to']);
         });
     },
@@ -548,13 +547,13 @@ export default {
       }
     },
 
-    getYears: function(data) {
+    getYears: function() {
       this.clearData(3)
-      var currentYear = new Date().getFullYear(), years = [];
-      var startYear = 1980;
-      while (currentYear >= startYear) {
-        years.push({label: currentYear, value: currentYear});
-        currentYear--;
+      let years = []
+      let currentYear = this.selectedModification.year_to === 'н.в.' ?  new Date().getFullYear() : this.selectedModification.year_to
+
+      for (let i=Number(currentYear); i >= Number(this.selectedModification.year_from); i--) {
+        years.push({label: i, value: i});
       }
 
       this.years = years;
