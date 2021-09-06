@@ -357,21 +357,10 @@ export default {
         {label: 'более 200 000', value: 1250000}
       ],
       transmissions: [
-        {
-          label: 'Автоматическая'
-        },
-
-        {
-          label: 'Роботизированная'
-        },
-
-        {
-          label:  'Механическая'
-        },
-
-        {
-          label: 'Вариатор'
-        }
+        { label: 'Автоматическая', value: 'Автомат' },
+        { label: 'Роботизированная', value: 'Робот' },
+        { label: 'Механическая', value: 'Механика' },
+        { label: 'Вариатор', value: 'Вариатор' }
       ],
       submitButtonText: 'Рассчитать',
 
@@ -572,6 +561,28 @@ export default {
 
 
     getResult: function() {
+      let cityCode = 0
+      switch(this.$store.state.city.value) {
+        case 'perm':
+          cityCode = 12
+          break;
+        case 'moscow':
+          cityCode = 29
+          break;
+        case 'magnitogorsk':
+          cityCode = 2
+          break;
+        case 'rostov-na-donu':
+          cityCode = 9
+          break;
+        case 'yekaterinburg':
+          cityCode = 4
+          break;
+        case 'volgograd':
+          cityCode = 39
+          break;
+      }
+
       const data = JSON.stringify({
         mark: this.selectedMark.label,
         markId: 0,
@@ -579,18 +590,36 @@ export default {
         generation: this.selectedModification.label,
         year: this.selectedYear.label,
         drive: "Передний",
-        transmission: this.selectedTransmission.label,
+        transmission: this.selectedTransmission.value,
         equipment: "Medium Well",
         modification: "",
         expense: 0,
         price: 0,
         range: 0,
-        region: 1,
+        region: cityCode,
         mileage: this.selectedMileage,
         adv_url: "",
       })
 
-      console.log(this.$store.state)
+      axios.post(
+        `http://10.0.40.28:6008/calculate_service`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      ).then((response) => {
+        console.log(responce.data)
+
+        this.pricesRange.from = response.data.estimation.prices.autoru.from
+        this.pricesRange.to = response.data.estimation.prices.autoru.to
+
+        this.show('form-evaluate')
+        this.sendGoals('model_traid-in_online-button')
+      })
+
+   //   console.log(this.$store.state)
 /*      const data = JSON.stringify({
         tech_param_id: this.selectedModification.tech_param_id,
         km_age: this.selectedMileage,
