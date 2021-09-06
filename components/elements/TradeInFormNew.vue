@@ -522,7 +522,8 @@ export default {
         })
         .then((response) => {
           this.clearData(2)
-          this.allModifications = this.arrayFormat(response.data.generations, 'title');
+          console.log(response.data)
+          this.allModifications = this.arrayFormat(response.data.generations, 'title', ['year_from', 'year_to']);
         });
     },
 
@@ -652,7 +653,7 @@ export default {
       }
     },
 
-    arrayFormat(object, field = 'name') {
+    arrayFormat(object, field = 'name', additional = []) {
       let newObject = []
 
       Object.keys(object).forEach(function (key){
@@ -660,6 +661,11 @@ export default {
           id: object[key].id,
           label: object[key][field],
           code: object[key][field]
+        }
+        if (additional) {
+          additional.forEach(function (add_key){
+            newObject[key][add_key] = object[key][add_key]
+          })
         }
       });
 
