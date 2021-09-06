@@ -213,6 +213,7 @@ export default {
     return {
       name: '',
       phone: '',
+      isProduction: process.env.NODE_ENV === 'production',
     }
   },
   methods: {
@@ -266,7 +267,7 @@ export default {
       return value.replace(/\D/g, "");
     },
     sendGoals: function(goal) {
-      if (goal) {
+      if (goal && this.isProduction) {
         let ym_ids = this.getCountersIds();
         let goalArr = goal.match(/^(.+?):(.+?)$/);
         let target_goal = goalArr === null ? goal : goalArr[2];
@@ -412,7 +413,7 @@ export default {
 
   @media (min-width: 1024px) {
     text-align: left;
-    
+
     span {
       padding-left: 2px;
     }

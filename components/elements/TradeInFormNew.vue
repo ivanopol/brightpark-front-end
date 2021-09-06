@@ -295,6 +295,7 @@ export default {
 
   data: function () {
     return {
+      isProduction: process.env.NODE_ENV === 'production',
       path: {},
       images: {
         granta: {
@@ -434,7 +435,7 @@ export default {
       return value.replace(/\D/g, "");
     },
     sendGoals: function(goal) {
-      if (goal) {
+      if (goal && this.isProduction) {
         let ym_ids = this.getCountersIds();
         let goalArr = goal.match(/^(.+?):(.+?)$/);
         let target_goal = goalArr === null ? goal : goalArr[2];
