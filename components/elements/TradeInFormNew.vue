@@ -365,8 +365,9 @@ export default {
       submitButtonText: 'Рассчитать',
 
       pricesRange: {
-        from: '',
-        to: '',
+        good: '',
+        fine: '',
+        ideal: '',
       },
 
       isModelActive: false,
@@ -610,30 +611,13 @@ export default {
           }
         }
       ).then((response) => {
-        console.log(responce.data)
-
-        this.pricesRange.from = response.data.estimation.prices.autoru.from
-        this.pricesRange.to = response.data.estimation.prices.autoru.to
+        this.pricesRange.good = this.$options.filters.formatPrice(response.data['Цены'][2]['R2D2Продажа'])
+        this.pricesRange.fine = this.$options.filters.formatPrice(response.data['Цены'][1]['R2D2Продажа'])
+        this.pricesRange.ideal = this.$options.filters.formatPrice(response.data['Цены'][0]['R2D2Продажа'])
 
         this.show('form-evaluate')
         this.sendGoals('model_traid-in_online-button')
       })
-
-   //   console.log(this.$store.state)
-/*      const data = JSON.stringify({
-        tech_param_id: this.selectedModification.tech_param_id,
-        km_age: this.selectedMileage,
-        year: this.selectedYear.value
-      });
-
-      axios.post(process.env.apiUrl + '/api/get_estimation/', data)
-        .then((response) => {
-          this.pricesRange.from = response.data.estimation.prices.autoru.from;
-          this.pricesRange.to = response.data.estimation.prices.autoru.to;
-
-          this.show('form-evaluate');
-          this.sendGoals('model_traid-in_online-button')
-        });*/
     },
 
     show(modal) {
