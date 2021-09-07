@@ -589,9 +589,17 @@ export default {
        })
     },
 
-
-
     getResult: function() {
+      if (!this.selectedMark.label ||
+          !this.selectedModel.label ||
+          !this.selectedModification.label ||
+          !this.selectedYear.label ||
+          !this.selectedTransmission.value ||
+          !this.selectedMileage
+      ) {
+        return false;
+      }
+
       let cityCode = 0
       switch(this.$store.state.city.value) {
         case 'perm':
@@ -1093,6 +1101,9 @@ export default {
 </style>
 
 <style lang="scss">
+  .vs__selected-options {
+    white-space: nowrap;
+  }
   .thanks-modal .vm--modal {
     max-width: 570px;
     border-radius: 10px;
