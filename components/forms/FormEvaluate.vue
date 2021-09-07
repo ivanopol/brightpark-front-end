@@ -78,7 +78,7 @@
       <span>В зависимости от состояния автомобиля</span>
     </p>
 
-    <p v-if="values==0" class="evaluate__car__prices__range">Не удалось провести оценку для указанного автомобиля</p>
+    <p v-if="values == 0" class="evaluate__car__prices__range">Не удалось провести оценку для указанного автомобиля</p>
 
     <p class="evaluate__car__prices__range" v-else-if="values == 1">
       до {{ priceGood }} ₽*
@@ -406,6 +406,7 @@ export default {
 
   @media (min-width: 1024px) {
     padding-left: 300px;
+    padding-right: 20px;
   }
 }
 
