@@ -85,7 +85,7 @@
         </p>
 
         <span>
-          {{ priceGood }}&nbsp;₽
+          до {{ priceGood }}&nbsp;₽
         </span>
       </div>
 
@@ -95,7 +95,7 @@
         </p>
 
         <span>
-          {{ priceExcellent }}&nbsp;₽
+          до {{ priceExcellent }}&nbsp;₽
         </span>
       </div>
 
@@ -105,7 +105,7 @@
         </p>
 
         <span>
-          {{ pricePerfect }}&nbsp;₽
+          до {{ pricePerfect }}&nbsp;₽
         </span>
       </div>
     </div>

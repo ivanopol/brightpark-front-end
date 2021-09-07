@@ -358,12 +358,7 @@ export default {
         {label: '150 000 - 200 000', value: 1250000},
         {label: 'более 200 000', value: 1250000}
       ],
-      transmissions: [
-        { label: 'Автоматическая', value: 'Автомат' },
-        { label: 'Роботизированная', value: 'Робот' },
-        { label: 'Механическая', value: 'Механика' },
-        { label: 'Вариатор', value: 'Вариатор' }
-      ],
+      transmissions: [],
       submitButtonText: 'Рассчитать',
 
       pricesRange: {
@@ -437,12 +432,12 @@ export default {
     },
     sendGoals: function(goal) {
       if (goal && this.isProduction) {
-        let ym_ids = this.getCountersIds();
-        let goalArr = goal.match(/^(.+?):(.+?)$/);
-        let target_goal = goalArr === null ? goal : goalArr[2];
+        let ym_ids = this.getCountersIds()
+        let goalArr = goal.match(/^(.+?):(.+?)$/)
+        let target_goal = goalArr === null ? goal : goalArr[2]
 
         ym_ids.forEach(function(item) {
-          window["yaCounter" + item].reachGoal(target_goal);
+          window["yaCounter" + item].reachGoal(target_goal)
         });
       }
       return {};
@@ -452,7 +447,7 @@ export default {
       var id_list = [];
 
       window.ym.a.forEach(function(item) {
-        id_list.push(item[0]);
+        id_list.push(item[0])
       });
       return id_list;
     },
@@ -559,6 +554,39 @@ export default {
       }
 
       this.years = years;
+
+
+      axios.get(process.env.crmUrl + '/ajax/getCarsModificationCORS',
+       {
+          params: {
+            id: this.selectedModification.id
+          }
+       }
+       ).then((response) => {
+         let carTransitions = []
+         response.data.modifications.forEach(function (el){
+           carTransitions.push(el.transmission)
+         })
+         carTransitions = carTransitions.filter((item, index) => carTransitions.indexOf(item) === index)
+
+          this.transmissions = []
+          carTransitions.forEach((el) => {
+            switch(el) {
+              case 'Автомат':
+                this.transmissions.push({ label: 'Автоматическая', value: 'Автомат' })
+                break;
+              case 'Робот':
+                this.transmissions.push({ label: 'Роботизированная', value: 'Робот' })
+                break;
+              case 'Механика':
+                this.transmissions.push({ label: 'Механическая', value: 'Механика' })
+                break;
+              case 'Вариатор':
+                this.transmissions.push({ label: 'Вариатор', value: 'Вариатор' })
+                break;
+            }
+          })
+       })
     },
 
 
