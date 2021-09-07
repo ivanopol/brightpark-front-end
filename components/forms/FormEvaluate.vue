@@ -78,11 +78,13 @@
       <span>В зависимости от состояния автомобиля</span>
     </p>
 
-    <p class="evaluate__car__prices__range" v-if="values">
+    <p v-if="values==0" class="evaluate__car__prices__range">Не удалось провести оценку для указанного автомобиля</p>
+
+    <p class="evaluate__car__prices__range" v-else-if="values == 1">
       до {{ priceGood }} ₽*
     </p>
 
-    <div class="evaluate__car__prices__range" v-else>
+    <div class="evaluate__car__prices__range" v-else-if="values == 2">
       <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-good">
         <p>
           хорошее
@@ -304,7 +306,10 @@ export default {
 
   computed: {
     values: function() {
-      return this.priceGood == this.priceExcellent && this.priceGood == this.pricePerfect
+      if (this.priceGood == '1 000' && this.priceExcellent == '1 000' && this.pricePerfect == '1 000') {
+        return 0
+      }
+      return this.priceGood == this.priceExcellent && this.priceGood == this.pricePerfect ? 1 : 2
     },
     url: function () {
       return {
