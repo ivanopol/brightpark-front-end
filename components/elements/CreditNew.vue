@@ -124,7 +124,7 @@
 
           <div class="range-field__wrap">
             <vue-slider v-model="period"
-                        @change="changeFirstPayment, setFieldShadow('creditPeriod')"
+                        @change="changeFirstPayment($event), setFieldShadow('creditPeriod')"
                         @dragging="setFieldShadow('creditPeriod')"
                         @drag-end="setFieldShadow('creditPeriod')"
                         :height="6"
