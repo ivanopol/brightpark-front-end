@@ -99,6 +99,7 @@ export default {
       name: '',
       phone: '',
       activePlaceholder: 'active',
+      isProduction: process.env.NODE_ENV === 'production',
     }
   },
   computed: {
@@ -179,7 +180,7 @@ export default {
     },
 
     sendGoals: function(goal) {
-      if (goal) {
+      if (goal && this.isProduction) {
         let ym_ids = this.getCountersIds();
         let goalArr = goal.match(/^(.+?):(.+?)$/);
         let target_goal = goalArr === null ? goal : goalArr[2];

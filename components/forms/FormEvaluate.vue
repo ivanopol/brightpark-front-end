@@ -78,14 +78,18 @@
       <span>В зависимости от состояния автомобиля</span>
     </p>
 
-    <div class="evaluate__car__prices__range">
+    <p class="evaluate__car__prices__range" v-if="values">
+      до {{ priceGood }} ₽*
+    </p>
+
+    <div class="evaluate__car__prices__range" v-else>
       <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-good">
         <p>
           хорошее
         </p>
 
         <span>
-          {{ priceGood }}&nbsp;₽
+          до {{ priceGood }}&nbsp;₽
         </span>
       </div>
 
@@ -95,7 +99,7 @@
         </p>
 
         <span>
-          {{ priceExcellent }}&nbsp;₽
+          до {{ priceExcellent }}&nbsp;₽
         </span>
       </div>
 
@@ -105,7 +109,7 @@
         </p>
 
         <span>
-          {{ pricePerfect }}&nbsp;₽
+          до {{ pricePerfect }}&nbsp;₽
         </span>
       </div>
     </div>
@@ -214,6 +218,7 @@ export default {
     return {
       name: '',
       phone: '',
+      isProduction: process.env.NODE_ENV === 'production',
     }
   },
   methods: {
@@ -267,7 +272,7 @@ export default {
       return value.replace(/\D/g, "");
     },
     sendGoals: function(goal) {
-      if (goal) {
+      if (goal && this.isProduction) {
         let ym_ids = this.getCountersIds();
         let goalArr = goal.match(/^(.+?):(.+?)$/);
         let target_goal = goalArr === null ? goal : goalArr[2];
@@ -298,6 +303,9 @@ export default {
   },
 
   computed: {
+    values: function() {
+      return this.priceGood == this.priceExcellent && this.priceGood == this.pricePerfect
+    },
     url: function () {
       return {
         href: window.location.href,
@@ -413,7 +421,7 @@ export default {
 
   @media (min-width: 1024px) {
     text-align: left;
-    
+
     span {
       padding-left: 2px;
     }
