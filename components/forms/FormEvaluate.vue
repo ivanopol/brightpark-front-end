@@ -73,25 +73,27 @@
 
 
   <div class="evaluate__car__prices">
-    <p class="evaluate__car__prices__description">
+
+    <p class="evaluate__car__prices__description" v-if="values > 0">
       Предварительная стоимость
       <span>В зависимости от состояния автомобиля</span>
     </p>
 
-    <p v-if="values == 0" class="evaluate__car__prices__range">Не удалось провести оценку для указанного автомобиля</p>
+    <p v-if="values == 0" class="evaluate__car__prices__range_no_car">Не&nbsp;удалось провести оценку для указанного автомобиля. Загрузите фото автомобиля и&nbsp;краткое описание через наши каналы : вайбер, вотсапп , телеграмм и&nbsp;вы&nbsp;получите оценку в&nbsp;течение 3&nbsp;минут.</p>
+
 
     <p class="evaluate__car__prices__range" v-else-if="values == 1">
       до {{ priceGood }} ₽*
     </p>
 
     <div class="evaluate__car__prices__range" v-else-if="values == 2">
-      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-good">
+      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-perfect">
         <p>
-          хорошее
+          идеальное
         </p>
 
         <span>
-          до {{ priceGood }}&nbsp;₽
+          до {{ pricePerfect }}&nbsp;₽
         </span>
       </div>
 
@@ -105,18 +107,18 @@
         </span>
       </div>
 
-      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-perfect">
+      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-good">
         <p>
-          идеальное
+          хорошее
         </p>
 
         <span>
-          до {{ pricePerfect }}&nbsp;₽
+          до {{ priceGood }}&nbsp;₽
         </span>
       </div>
     </div>
 
-    <p class="evaluate__car__prices__warning">
+    <p class="evaluate__car__prices__warning" v-if="values > 0">
       * — Расчет является ориентировочным, более точный расчет производится в салоне при осмотре автомобиля.
     </p>
   </div>
@@ -140,7 +142,7 @@
         </h5>
 
         <p class="evaluate__car__form__description">
-          Оставьте ваши контактные данные, вам придёт код, при предъявлении которого, мы&nbsp;добавим 10&nbsp;000 рублей к&nbsp;оценочной стоимости вашего авто в&nbsp;салоне.
+          Оставьте ваши контактные данные, вам перезвонит специалист и&nbsp;назовет код, при предъявлении которого, мы&nbsp;добавим 10&nbsp;000 рублей к&nbsp;оценочной стоимости вашего авто в&nbsp;салоне.
         </p>
 
         <div class="evaluate__car__form__field">
@@ -450,6 +452,25 @@ export default {
   }
 }
 
+.evaluate__car__prices__range_no_car {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  color: #514EA1;
+  font-family: "Factor A";
+  margin: 15px 0;
+
+
+  @media (min-width: 1024px) {
+    line-height: 1.4;
+    text-align: left;
+    font-size: 18px;
+    display: flex;
+    width: 80%;
+  }
+}
+
+
 .evaluate__car__prices__warning {
   font-size: 13px;
   font-weight: 500;
@@ -473,6 +494,7 @@ export default {
   @media (min-width: 1024px) {
     padding: 80px 99px 50px;
     background: url("~static/images/trade-in-form/bg-layer.svg") no-repeat;
+    background-size: cover;
   }
 }
 

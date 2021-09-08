@@ -237,7 +237,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "./assets/scss/_colors.scss";
 
 .new-lead {
@@ -289,6 +289,7 @@ export default {
 
   input {
     max-width: unset;
+    width: 100%;
     height: 100%;
     display: block;
     font-size: 24px;
