@@ -272,15 +272,15 @@
       :pricePerfect="pricesRange.ideal"
       goal="model_traid-in_modal-request"
       :comment="'Интересуется: ' + $store.state.car.model_full + '. ' +
-                'АВТОМОБИЛЬ КЛИЕНТА: ' +
-                'марка: ' + selectedMark.label + ', ' +
-                'модель: ' + selectedModel.label + ', ' +
-                'модификация: ' + selectedModification.label + ' , ' +
-                'год: ' + selectedYear.label + ', ' +
-                'пробег: ' + selectedMileage + ' км., ' +
-                'коробка передач: ' + selectedTransmission.label + ',' +
-                'оценка по состоянию: ' + rateCar +
-                'КОД: ' + getCode "
+                'w--АВТОМОБИЛЬ КЛИЕНТА: ' +
+                'w--марка: ' + selectedMark.label + ', ' +
+                'w--модель: ' + selectedModel.label + ', ' +
+                'w--модификация: ' + selectedModification.label + ' , ' +
+                'w--год: ' + selectedYear.label + ', ' +
+                'w--пробег: ' + selectedMileage + ' км., ' +
+                'w--коробка передач: ' + selectedTransmission.label + ',' +
+                'w--оценка по состоянию: ' + rateCar + '; ' +
+                'w--КОД: ' + getCode "
     />
   </modal>
 </section>
