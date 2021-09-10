@@ -1,0 +1,76 @@
+
+$orange: #EE6723;
+$yellow: #FFCA0D;
+$green: #5CBE86;
+$purple: #514EA1;
+
+$orange-path: '/images/decorations/model-figure-orange.svg';
+$yellow-path: '/images/decorations/model-figure-yellow.svg';
+$green-path: '/images/decorations/model-figure-green.svg';
+$purple-path: '/images/decorations/model-figure-purple.svg';
+
+$orange-path-2: '/images/decorations/models-decor-orange.png';
+$yellow-path-2: '/images/decorations/models-decor-yellow.png';
+$green-path-2: '/images/decorations/models-decor-green.png';
+$purple-path-2: '/images/decorations/models-decor-purple.png';
+
+$orange-path-3: '/images/trade-in-form/traid-in-bg-orange.svg';
+$yellow-path-3: '/images/trade-in-form/traid-in-bg-yellow.svg';
+$green-path-3: '/images/trade-in-form/traid-in-bg-green.svg';
+$purple-path-3: '/images/trade-in-form/traid-in-bg-purple.svg';
+
+$orange-path-4: '/images/trade-in-form/traid-in-bg-orange-mob.svg';
+$yellow-path-4: '/images/trade-in-form/traid-in-bg-yellow-mob.svg';
+$green-path-4: '/images/trade-in-form/traid-in-bg-green-mob.svg';
+$purple-path-4: '/images/trade-in-form/traid-in-bg-purple-mob.svg';
+
+.theme-01 {
+  $primary-color: $purple;
+  $secondary-color: $green;
+  $figure: $purple-path;
+  $decor: $purple-path-2;
+  $traid-in: $green-path-3;
+  $traid-in-mob: $green-path-4;
+
+  .color-primary-color { color: $primary-color; }
+  .color-primary-background { background-color: $primary-color; }
+  .color-primary-stroke { stroke: $primary-color; }
+  .color-primary-fill { fill: $primary-color; }
+
+  .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background { background-color: $secondary-color; }
+  .color-secondary-stroke { stroke: $secondary-color; }
+  .color-secondary-fill { fill: $secondary-color; }
+
+  .color-svg-figure { background: center / contain no-repeat url($figure); }
+  .color-svg-decor::after {
+    content: "";
+    position: absolute;
+    background: url($decor) no-repeat;
+    right: -350px;
+    top: -17px;
+    width: 576px;
+    height: 249px;
+    display: block;
+  }
+  .color-svg-traid-in {
+    background: url($traid-in-mob) no-repeat;
+    background-size: cover;
+
+    @media (min-width: 1000px) {
+      background: url($traid-in) no-repeat;
+      background-size: cover;
+    }
+  }
+
+  .form-evaluate,
+  .models-banner__modal {
+    .close {
+      &:before,
+      &:after {
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+

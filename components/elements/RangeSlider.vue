@@ -103,13 +103,13 @@
 </template>
 
 <script>
-    import VueSlider from 'vue-slider-component/dist-css/vue-slider-component.umd.min.js'
-    import 'vue-slider-component/dist-css/vue-slider-component.css'
-    import 'vue-slider-component/theme/default.css'
-    import CheckIcon from '~/components/icons/CheckIcon.vue';
-    import axios from "axios";
+import VueSlider from 'vue-slider-component/dist-css/vue-slider-component.umd.min.js'
+import 'vue-slider-component/dist-css/vue-slider-component.css'
+import 'vue-slider-component/theme/default.css'
+import CheckIcon from '~/components/icons/CheckIcon.vue';
+import axios from "axios";
 
-    export default {
+export default {
         props: ['car_price', 'prefix'],
         components: {
             VueSlider,

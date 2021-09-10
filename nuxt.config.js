@@ -13,10 +13,10 @@ export default {
   ...(!isDev && {
     modern: 'client'
   }),
-/*  server: {
-    port: 3000,
-    host: '0.0.0.0',
-  },*/
+  // server: {
+  //   port: 3000,
+  //   host: '0.0.0.0',
+  // },
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
@@ -28,7 +28,8 @@ export default {
   */
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    apiUrl: process.env.API_URL || 'http://localhost:8081'
+    apiUrl: process.env.API_URL || 'http://localhost:8081',
+    crmUrl: 'https://crm.brightpark.ru',
   },
   head: {
     title: '',

@@ -17,7 +17,9 @@
 </template>
 
 <script>
+import HeaderNew from "../components/header/HeaderNew";
 export default {
+  components: {HeaderNew},
   head () {
     const canonical = `${process.env.baseUrl}${this.$route.path
       .toLowerCase()

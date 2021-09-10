@@ -62,7 +62,7 @@ a.dropdown {
     content: '';
     border: 5px solid transparent;
     border-top: 5px solid black;
-    margin-top: 5px;
+    margin-top: 3px;
     margin-left: 5px;
     display: block;
     position: absolute;
@@ -75,7 +75,7 @@ a.dropdown {
       content: '';
       border: 5px solid transparent;
       border-top: 5px solid #FF8351;
-      margin-top: 5px;
+      margin-top: 3px;
       margin-left: 5px;
     }
   }
