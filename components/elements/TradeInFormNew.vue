@@ -271,7 +271,7 @@
       :priceExcellent="pricesRange.fine"
       :pricePerfect="pricesRange.ideal"
       goal="model_traid-in_modal-request"
-      :comment="'Интересуется: ' + $store.state.car.model_full + '.' +
+      :comment="'Интересуется: ' + $store.state.car.model_full + '. ' +
                 'АВТОМОБИЛЬ КЛИЕНТА: ' +
                 'марка: ' + selectedMark.label + ', ' +
                 'модель: ' + selectedModel.label + ', ' +
@@ -279,7 +279,8 @@
                 'год: ' + selectedYear.label + ', ' +
                 'пробег: ' + selectedMileage + ' км., ' +
                 'коробка передач: ' + selectedTransmission.label + ',' +
-                'предварительная стоимость: ' + pricesRange.from + ' - ' + pricesRange.to + ' руб.'"
+                'оценка по состоянию: ' + rateCar +
+                'КОД: ' + getCode "
     />
   </modal>
 </section>
@@ -711,6 +712,15 @@ export default {
 
 
   computed: {
+    getCode() {
+      return Math.random().toString(36).slice(-6);
+    },
+    rateCar() {
+      if (this.pricesRange.good === '1 000' && this.pricesRange.fine === '1 000' && this.pricesRange.ideal === '1 000') {
+        return 'Оценка не произведена'
+      }
+      return this.pricesRange.ideal === this.pricesRange.good && this.pricesRange.ideal === this.pricesRange.fine ? this.pricesRange.good : 'идеальное - ' + this.pricesRange.ideal + 'руб., отличное - ' + this.pricesRange.fine + 'руб., хорошее - ' + this.pricesRange.good + 'руб.'
+    },
     widgetOnlineText() {
       if (typeof window !== 'undefined') {
 
