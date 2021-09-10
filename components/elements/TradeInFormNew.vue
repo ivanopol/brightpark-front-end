@@ -209,7 +209,7 @@
                   class="select-field__placeholder"
                   :class="[selectedMileage !== '' ? 'active' : false]"
                 >
-                  Пробег
+                  Пробег (тыс. км)
                 </span>
               </div>
 
@@ -622,6 +622,9 @@ export default {
           break;
       }
 
+      let milliage = this.selectedMileage.replace(/\s/gi, '')
+      milliage =  milliage.replace(/[а-я]/gi, '')
+
       const data = JSON.stringify({
         mark: this.selectedMark.label,
         markId: 0,
@@ -636,7 +639,7 @@ export default {
         price: 0,
         range: 0,
         region: cityCode,
-        mileage: this.selectedMileage,
+        mileage: milliage,
         adv_url: "",
       })
 
@@ -737,12 +740,19 @@ export default {
     mileage: {
       get: function () {
         this.selectedMileage = this.selectedMileage.replace(/\s/gi, '')
+        this.selectedMileage = this.selectedMileage.replace(/[а-я]/gi, '')
         if (this.selectedMileage.length >= 9) {
           this.selectedMileage = this.selectedMileage.substr(0,8)
         }
-          return this.$options.filters.formatPrice(this.selectedMileage)
+          return this.$options.filters.formatPrice(this.selectedMileage) ? this.$options.filters.formatPrice(this.selectedMileage) + ' км' : ''
       },
       set: function(newValue) {
+        newValue = newValue.replace(/\s/gi, '')
+        newValue = newValue.replace(/[а-я]/gi, '')
+
+        if (newValue.length === this.selectedMileage.length) {
+          newValue = newValue.slice(0,-1)
+        }
         this.selectedMileage = newValue
       }
     }

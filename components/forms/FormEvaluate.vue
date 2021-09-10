@@ -79,14 +79,34 @@
       <span>В зависимости от состояния автомобиля</span>
     </p>
 
-    <p v-if="values == 0" class="evaluate__car__prices__range_no_car">Не&nbsp;удалось провести оценку для указанного автомобиля. Загрузите фото автомобиля и&nbsp;краткое описание через наши каналы : вайбер, вотсапп , телеграмм и&nbsp;вы&nbsp;получите оценку в&nbsp;течение 3&nbsp;минут.</p>
+    <div v-if="values === 0" class="evaluate__car__prices__range_no_car">
+      <p>Не&nbsp;удалось провести оценку для указанного автомобиля.
+      Загрузите фото автомобиля и&nbsp;краткое описание через наши каналы:</p>
+      <ul class="socials_list">
+<!--        <li>
+          <a class="event" :href="'tg://msg?text=' + encodeURI(message) + '&to=' + messangerPhone2" target="_blank">
+            <img src="~static/images/icons/socials/telegram.svg" alt="Telegram">
+          </a>
+        </li>-->
+        <li>
+          <a class="event" :href="'viber://chat?number=%2B' + messangerPhone" target="_blank">
+            <img src="~static/images/icons/socials/viber.svg" alt="Viber">
+          </a>
+        </li>
+        <li>
+          <a class="event" :href="'https://wa.me/' + messangerPhone2 + '?text=' + encodeURI(message)" target="_blank">
+            <img src="~static/images/icons/socials/whatsapp.svg" alt="WhatsApp">
+          </a>
+        </li>
+      </ul>
+      <p>вы&nbsp;получите оценку в&nbsp;течение 3&nbsp;минут.</p>
+    </div>
 
-
-    <p class="evaluate__car__prices__range" v-else-if="values == 1">
+    <p class="evaluate__car__prices__range" v-else-if="values === 1">
       до {{ priceGood }} ₽*
     </p>
 
-    <div class="evaluate__car__prices__range" v-else-if="values == 2">
+    <div class="evaluate__car__prices__range" v-else-if="values === 2">
       <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-perfect">
         <p>
           идеальное
@@ -222,6 +242,8 @@ export default {
     return {
       name: '',
       phone: '',
+      messangerPhone: '79223066403',
+      messangerPhone2: '79638761452',
       isProduction: process.env.NODE_ENV === 'production',
     }
   },
@@ -307,11 +329,18 @@ export default {
   },
 
   computed: {
+    message: function () {
+      return 'Привет, оцените автомобиль:\n' +
+                    this.mark + ' ' + this.model + ' ' + this.modification + '\n' +
+                    'пробег: ' + this.mileage + ' км \n' +
+                    'год: ' + this.year + '\n' +
+                    'коробка передач: ' + this.transmission
+    },
     values: function() {
-      if (this.priceGood == '1 000' && this.priceExcellent == '1 000' && this.pricePerfect == '1 000') {
+      if (this.priceGood === '1 000' && this.priceExcellent === '1 000' && this.pricePerfect === '1 000') {
         return 0
       }
-      return this.priceGood == this.priceExcellent && this.priceGood == this.pricePerfect ? 1 : 2
+      return this.priceGood === this.priceExcellent && this.priceGood === this.pricePerfect ? 1 : 2
     },
     url: function () {
       return {
@@ -465,8 +494,22 @@ export default {
     line-height: 1.4;
     text-align: left;
     font-size: 18px;
-    display: flex;
     width: 80%;
+  }
+
+  .socials_list {
+    display: flex;
+    justify-content: center;
+    li {
+      margin: 10px 10px 5px 0;
+      img {
+        width: 50px;
+      }
+    }
+
+    @media (min-width: 1367px) {
+      justify-content: unset;
+    }
   }
 }
 
