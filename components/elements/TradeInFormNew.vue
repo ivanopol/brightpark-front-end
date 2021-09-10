@@ -644,14 +644,10 @@ export default {
       })
 
       axios.post(
-        `http://10.0.40.28:6008/calculate_service`,
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
+        process.env.crmUrl + '/ajax/calculateService',
+        data
       ).then((response) => {
+
         this.pricesRange.good = this.$options.filters.formatPrice(response.data['Цены'][2]['R2D2Продажа'])
         this.pricesRange.fine = this.$options.filters.formatPrice(response.data['Цены'][1]['R2D2Продажа'])
         this.pricesRange.ideal = this.$options.filters.formatPrice(response.data['Цены'][0]['R2D2Продажа'])
