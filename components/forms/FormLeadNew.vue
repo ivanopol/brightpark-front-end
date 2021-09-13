@@ -1,14 +1,22 @@
 <template>
 <div class="new-lead">
   <div class="new-lead__head">
-    <h4 class="new-lead__title color-primary-color">{{form_title}}</h4>
+    <div v-if="!result">
+      <h4 class="new-lead__title color-primary-color" >{{form_title}}</h4>
+      <p class="new-lead__desc" v-if="!result">
+        В&nbsp;ближайшее время мы&nbsp;свяжемся с&nbsp;вами, уточним все детали заявки,а также ответим на&nbsp;все возникшие у&nbsp;вас вопросы
+      </p>
+    </div>
 
-    <p class="new-lead__desc">
-      В&nbsp;ближайшее время мы&nbsp;свяжемся с&nbsp;вами, уточним все детали заявки,а также ответим на&nbsp;все возникшие у&nbsp;вас вопросы
-    </p>
+    <div v-else-if="result">
+      <h4 class="new-lead__title color-primary-color" >Благодарим Вас за&nbsp;обращение</h4>
+      <p class="new-lead__desc">
+        Мы&nbsp;свяжемся в&nbsp;Вами в&nbsp;ближайшее время
+      </p>
+    </div>
   </div>
 
-  <form
+  <form v-if="!result"
     :id="form_id"
     class="new-lead__body"
     action="#"
@@ -53,7 +61,6 @@
     </p>
   </form>
 
-
 </div>
 </template>
 
@@ -96,6 +103,7 @@ export default {
   },
   data: function () {
     return {
+      result: false,
       name: '',
       phone: '',
       activePlaceholder: 'active',
@@ -159,6 +167,7 @@ export default {
           } catch (err) {
             console.log(err);
           }
+          this.result = true
           return {};
         })
         .catch(error => {
