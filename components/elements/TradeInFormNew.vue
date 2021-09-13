@@ -209,7 +209,7 @@
                   class="select-field__placeholder"
                   :class="[selectedMileage !== '' ? 'active' : false]"
                 >
-                  Пробег
+                  Пробег (тыс. км)
                 </span>
               </div>
 
@@ -271,15 +271,16 @@
       :priceExcellent="pricesRange.fine"
       :pricePerfect="pricesRange.ideal"
       goal="model_traid-in_modal-request"
-      :comment="'Интересуется: ' + $store.state.car.model_full + '.' +
-                'АВТОМОБИЛЬ КЛИЕНТА: ' +
-                'марка: ' + selectedMark.label + ', ' +
-                'модель: ' + selectedModel.label + ', ' +
-                'модификация: ' + selectedModification.label + ' , ' +
-                'год: ' + selectedYear.label + ', ' +
-                'пробег: ' + selectedMileage + ' км., ' +
-                'коробка передач: ' + selectedTransmission.label + ',' +
-                'предварительная стоимость: ' + pricesRange.from + ' - ' + pricesRange.to + ' руб.'"
+      :comment="'Интересуется: ' + $store.state.car.model_full + '. ' +
+                'w--АВТОМОБИЛЬ КЛИЕНТА: ' +
+                'w--марка: ' + selectedMark.label + ', ' +
+                'w--модель: ' + selectedModel.label + ', ' +
+                'w--модификация: ' + selectedModification.label + ' , ' +
+                'w--год: ' + selectedYear.label + ', ' +
+                'w--пробег: ' + selectedMileage + ' км., ' +
+                'w--коробка передач: ' + selectedTransmission.label + ',' +
+                'w--оценка по состоянию: ' + rateCar + '; ' +
+                'w--КОД: ' + getCode "
     />
   </modal>
 </section>
@@ -622,6 +623,9 @@ export default {
           break;
       }
 
+      let milliage = this.selectedMileage.replace(/\s/gi, '')
+      milliage =  milliage.replace(/[а-я]/gi, '')
+
       const data = JSON.stringify({
         mark: this.selectedMark.label,
         markId: 0,
@@ -636,19 +640,15 @@ export default {
         price: 0,
         range: 0,
         region: cityCode,
-        mileage: this.selectedMileage,
+        mileage: milliage,
         adv_url: "",
       })
 
       axios.post(
-        `http://10.0.40.28:6008/calculate_service`,
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
+        process.env.crmUrl + '/ajax/calculateService',
+        data
       ).then((response) => {
+
         this.pricesRange.good = this.$options.filters.formatPrice(response.data['Цены'][2]['R2D2Продажа'])
         this.pricesRange.fine = this.$options.filters.formatPrice(response.data['Цены'][1]['R2D2Продажа'])
         this.pricesRange.ideal = this.$options.filters.formatPrice(response.data['Цены'][0]['R2D2Продажа'])
@@ -712,6 +712,15 @@ export default {
 
 
   computed: {
+    getCode() {
+      return Math.random().toString(36).slice(-6);
+    },
+    rateCar() {
+      if (this.pricesRange.good === '1 000' && this.pricesRange.fine === '1 000' && this.pricesRange.ideal === '1 000') {
+        return 'Оценка не произведена'
+      }
+      return this.pricesRange.ideal === this.pricesRange.good && this.pricesRange.ideal === this.pricesRange.fine ? this.pricesRange.good : 'идеальное - ' + this.pricesRange.ideal + 'руб., отличное - ' + this.pricesRange.fine + 'руб., хорошее - ' + this.pricesRange.good + 'руб.'
+    },
     widgetOnlineText() {
       if (typeof window !== 'undefined') {
 
@@ -737,12 +746,19 @@ export default {
     mileage: {
       get: function () {
         this.selectedMileage = this.selectedMileage.replace(/\s/gi, '')
+        this.selectedMileage = this.selectedMileage.replace(/[а-я]/gi, '')
         if (this.selectedMileage.length >= 9) {
           this.selectedMileage = this.selectedMileage.substr(0,8)
         }
-          return this.$options.filters.formatPrice(this.selectedMileage)
+          return this.$options.filters.formatPrice(this.selectedMileage) ? this.$options.filters.formatPrice(this.selectedMileage) + ' км' : ''
       },
       set: function(newValue) {
+        newValue = newValue.replace(/\s/gi, '')
+        newValue = newValue.replace(/[а-я]/gi, '')
+
+        if (newValue.length === this.selectedMileage.length) {
+          newValue = newValue.slice(0,-1)
+        }
         this.selectedMileage = newValue
       }
     }

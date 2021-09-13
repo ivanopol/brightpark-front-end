@@ -73,25 +73,47 @@
 
 
   <div class="evaluate__car__prices">
-    <p class="evaluate__car__prices__description">
+
+    <p class="evaluate__car__prices__description" v-if="values > 0">
       Предварительная стоимость
       <span>В зависимости от состояния автомобиля</span>
     </p>
 
-    <p v-if="values==0" class="evaluate__car__prices__range">Не удалось провести оценку для указанного автомобиля</p>
+    <div v-if="values === 0" class="evaluate__car__prices__range_no_car">
+      <p>Не&nbsp;удалось провести оценку для указанного автомобиля.
+      Загрузите фото автомобиля и&nbsp;краткое описание через наши каналы:</p>
+      <ul class="socials_list">
+<!--        <li>
+          <a class="event" :href="'tg://msg?text=' + encodeURI(message) + '&to=' + messangerPhone2" target="_blank">
+            <img src="~static/images/icons/socials/telegram.svg" alt="Telegram">
+          </a>
+        </li>-->
+        <li>
+          <a class="event" :href="'viber://chat?number=%2B' + messangerPhone" target="_blank">
+            <img src="~static/images/icons/socials/viber.svg" alt="Viber">
+          </a>
+        </li>
+        <li>
+          <a class="event" :href="'https://wa.me/' + messangerPhone2 + '?text=' + encodeURI(message)" target="_blank">
+            <img src="~static/images/icons/socials/whatsapp.svg" alt="WhatsApp">
+          </a>
+        </li>
+      </ul>
+      <p>вы&nbsp;получите оценку в&nbsp;течение 3&nbsp;минут.</p>
+    </div>
 
-    <p class="evaluate__car__prices__range" v-else-if="values == 1">
+    <p class="evaluate__car__prices__range" v-else-if="values === 1">
       до {{ priceGood }} ₽*
     </p>
 
-    <div class="evaluate__car__prices__range" v-else-if="values == 2">
-      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-good">
+    <div class="evaluate__car__prices__range" v-else-if="values === 2">
+      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-perfect">
         <p>
-          хорошее
+          идеальное
         </p>
 
         <span>
-          до {{ priceGood }}&nbsp;₽
+          до {{ pricePerfect }}&nbsp;₽
         </span>
       </div>
 
@@ -105,18 +127,18 @@
         </span>
       </div>
 
-      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-perfect">
+      <div class="evaluate__car__prices__range__condition evaluate__car__prices__range__condition-good">
         <p>
-          идеальное
+          хорошее
         </p>
 
         <span>
-          до {{ pricePerfect }}&nbsp;₽
+          до {{ priceGood }}&nbsp;₽
         </span>
       </div>
     </div>
 
-    <p class="evaluate__car__prices__warning">
+    <p class="evaluate__car__prices__warning" v-if="values > 0">
       * — Расчет является ориентировочным, более точный расчет производится в салоне при осмотре автомобиля.
     </p>
   </div>
@@ -140,7 +162,7 @@
         </h5>
 
         <p class="evaluate__car__form__description">
-          Оставьте ваши контактные данные, вам придёт код, при предъявлении которого, мы&nbsp;добавим 10&nbsp;000 рублей к&nbsp;оценочной стоимости вашего авто в&nbsp;салоне.
+          Оставьте ваши контактные данные, вам перезвонит специалист и&nbsp;назовет код, при предъявлении которого, мы&nbsp;добавим 10&nbsp;000 рублей к&nbsp;оценочной стоимости вашего авто в&nbsp;салоне.
         </p>
 
         <div class="evaluate__car__form__field">
@@ -220,6 +242,8 @@ export default {
     return {
       name: '',
       phone: '',
+      messangerPhone: '79223066403',
+      messangerPhone2: '79638761452',
       isProduction: process.env.NODE_ENV === 'production',
     }
   },
@@ -305,11 +329,18 @@ export default {
   },
 
   computed: {
+    message: function () {
+      return 'Привет, оцените автомобиль:\n' +
+                    this.mark + ' ' + this.model + ' ' + this.modification + '\n' +
+                    'пробег: ' + this.mileage + ' км \n' +
+                    'год: ' + this.year + '\n' +
+                    'коробка передач: ' + this.transmission
+    },
     values: function() {
-      if (this.priceGood == '1 000' && this.priceExcellent == '1 000' && this.pricePerfect == '1 000') {
+      if (this.priceGood === '1 000' && this.priceExcellent === '1 000' && this.pricePerfect === '1 000') {
         return 0
       }
-      return this.priceGood == this.priceExcellent && this.priceGood == this.pricePerfect ? 1 : 2
+      return this.priceGood === this.priceExcellent && this.priceGood === this.pricePerfect ? 1 : 2
     },
     url: function () {
       return {
@@ -406,6 +437,7 @@ export default {
 
   @media (min-width: 1024px) {
     padding-left: 300px;
+    padding-right: 20px;
   }
 }
 
@@ -449,6 +481,39 @@ export default {
   }
 }
 
+.evaluate__car__prices__range_no_car {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  color: #514EA1;
+  font-family: "Factor A";
+  margin: 15px 0;
+
+
+  @media (min-width: 1024px) {
+    line-height: 1.4;
+    text-align: left;
+    font-size: 18px;
+    width: 80%;
+  }
+
+  .socials_list {
+    display: flex;
+    justify-content: center;
+    li {
+      margin: 10px 10px 5px 0;
+      img {
+        width: 50px;
+      }
+    }
+
+    @media (min-width: 1367px) {
+      justify-content: unset;
+    }
+  }
+}
+
+
 .evaluate__car__prices__warning {
   font-size: 13px;
   font-weight: 500;
@@ -472,6 +537,7 @@ export default {
   @media (min-width: 1024px) {
     padding: 80px 99px 50px;
     background: url("~static/images/trade-in-form/bg-layer.svg") no-repeat;
+    background-size: cover;
   }
 }
 
