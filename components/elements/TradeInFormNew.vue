@@ -261,6 +261,7 @@
   <modal name="form-evaluate" height="auto" width="970px" :adaptive="true" class="form-evaluate" @closed="hide('form-evaluate')">
     <div id="form_evaluate_close" class="close event" @click="hide('form-evaluate')"></div>
     <FormEvaluate
+      @result="openResultModal"
       :mark="selectedMark.label"
       :model="selectedModel.label"
       :mileage="selectedMileage"
@@ -382,6 +383,9 @@ export default {
   },
 
   methods: {
+    openResultModal: function(state) {
+      this.$modal.show('thanks-modal');
+    },
     send: function(event) {
       event.preventDefault();
       this.isLoading = true;

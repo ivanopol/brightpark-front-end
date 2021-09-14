@@ -280,6 +280,9 @@ export default {
             } catch (err) {
               console.log(err);
             }
+            this.$modal.hide('form-evaluate');
+            document.body.style.overflow = 'unset';
+            this.$emit('result', true);
             return {};
           })
           .catch(error => {
