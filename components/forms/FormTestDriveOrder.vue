@@ -84,7 +84,11 @@
           </svg>
         </div>
 
-        <button class="test-drive__form__submit">
+        <button
+          class="test-drive__form__submit"
+          :class="{ preloader: isLoading }"
+          v-bind:disabled="isButtonDisabled"
+        >
           Записаться
         </button>
 
@@ -127,13 +131,14 @@ export default {
   },
   data: function() {
     return {
+      status: true,
+      isLoading: false,
       result: false,
       success: false,
       error: false,
       calendarLocale: 'ru-RU',
       selectedCar: "",
       bitrix_responsible: "",
-      status: true,
       cars: [
         "Granta SD AT",
         "Largus Cross",
@@ -169,6 +174,7 @@ export default {
   methods: {
     send: function(event) {
       event.preventDefault();
+      this.isLoading = true;
 
       let formData = {
         phone: this.clearMask(this.fields.phone),
@@ -194,17 +200,18 @@ export default {
         data: formData
       })
         .then(response => {
-          this.clearInput();
-          this.success = true;
-          this.status = true;
-          //console.log(window);
-          try {
-            this.sendGoals(this.goal);
-          } catch (err) {
-            console.log(err);
-          }
-          this.result = true
-          return {};
+           this.clearInput();
+           this.success = true;
+          this.isLoading = false;
+           this.status = true;
+           //console.log(window);
+           try {
+             this.sendGoals(this.goal);
+           } catch (err) {
+             console.log(err);
+           }
+           this.result = true
+           return {};
         })
         .catch(error => {
           this.error = true;
@@ -285,6 +292,22 @@ export default {
 </script>
 
 <style lang="scss">
+
+form button.preloader {
+  color: rgba(255, 255, 255, 0);
+  &:after {
+    content: "";
+    background: url(~static/images/icons/animations/dots.svg) no-repeat center center;
+    z-index: 10;
+    height: 18px;
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+}
+
 .test-drive__desc {
   font-size: 18px;
   line-height: 26px;
@@ -401,8 +424,14 @@ export default {
   color: #514ea1;
   transition: 0.2s;
   margin: 20px 0 10px;
+  position: relative;
 
-  &:hover {
+  &:disabled {
+    background: #ffca0d !important;
+    cursor: default;
+  }
+
+  &:not(:disabled):hover {
     opacity: 0.6;
     transition: 0.2s;
     background: #ffca0d;

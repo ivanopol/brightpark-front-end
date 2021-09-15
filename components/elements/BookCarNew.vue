@@ -53,6 +53,8 @@
           buttonColor="color-secondary-background"
           :button-text="buttonText"
           class="book__form__submit"
+          :class="{ preloader: isLoading }"
+          v-bind:disabled="isButtonDisabled"
         />
       </form>
 
@@ -71,6 +73,9 @@ export default {
 
   data: function () {
     return {
+      status: true,
+      isLoading: false,
+      result: false,
       buttonText: 'Забронировать',
       phone: '',
       name: '',
@@ -82,6 +87,13 @@ export default {
     }
   },
   computed: {
+    isButtonDisabled: function() {
+      if (this.isLoading) {
+        return true;
+      } else {
+        return !this.status;
+      }
+    },
     url: function () {
       return {
         href: window.location.href,
@@ -298,6 +310,7 @@ export default {
 }
 
 .book__form__submit {
+  position: relative;
   height: 60px;
 
   @media (min-width: 1024px) {

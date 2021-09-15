@@ -52,6 +52,8 @@
     <button
       type="submit"
       class="new-lead__body__submit color-primary-background"
+      :class="{ preloader: isLoading }"
+      v-bind:disabled="isButtonDisabled"
     >
       Оставить заявку
     </button>
@@ -103,6 +105,8 @@ export default {
   },
   data: function () {
     return {
+      status: true,
+      isLoading: false,
       result: false,
       name: '',
       phone: '',
@@ -116,6 +120,13 @@ export default {
         href: window.location.href,
         search: window.location.search
       };
+    },
+    isButtonDisabled: function() {
+      if (this.isLoading) {
+        return true;
+      } else {
+        return !this.status;
+      }
     },
   },
   methods: {
@@ -248,6 +259,32 @@ export default {
 
 <style lang="scss">
 @import "./assets/scss/_colors.scss";
+
+form button {
+  &:disabled {
+    cursor: default;
+  }
+
+  &:not(:disabled):hover {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    transition: .2s ease;
+  }
+  .preloader {
+    color: rgba(255, 255, 255, 0);
+
+    &:after {
+      content: "";
+      background: url(~static/images/icons/animations/dots-green.svg) no-repeat center center;
+      z-index: 10;
+      height: 18px;
+      display: block;
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+    }
+  }
+}
 
 .new-lead {
   padding: 45px 60px;

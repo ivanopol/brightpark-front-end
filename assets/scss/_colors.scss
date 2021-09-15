@@ -33,11 +33,19 @@ $purple-path-4: '/images/trade-in-form/traid-in-bg-purple-mob.svg';
   $traid-in-mob: $green-path-4;
 
   .color-primary-color { color: $primary-color; }
+  .color-primary-background:disabled,
+  .color-primary-background[disabled] {
+    background-color: $primary-color!important;
+  }
   .color-primary-background { background-color: $primary-color; }
   .color-primary-stroke { stroke: $primary-color; }
   .color-primary-fill { fill: $primary-color; }
 
   .color-secondary-color { color: $secondary-color; }
+  .color-secondary-background:disabled,
+  .color-secondary-background[disabled] {
+    background-color: $secondary-color!important;
+  }
   .color-secondary-background { background-color: $secondary-color; }
   .color-secondary-stroke { stroke: $secondary-color; }
   .color-secondary-fill { fill: $secondary-color; }
