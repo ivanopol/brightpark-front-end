@@ -98,7 +98,7 @@
                   :get-option-label="(option) => option.label"
                   class="v-select-field"
                   @input="getModels"
-                  v-model="selectedMark"
+                  v-model="selectedMark.label"
                   @search:focus="placeholderControl('mark')"
                   @search:blur="placeholderControl('mark')"
                 >
@@ -503,6 +503,9 @@ export default {
     },
 
     getModels(data) {
+      if (!data) {
+        return false;
+      }
       axios.get(
         process.env.crmUrl +`/ajax/getModelsCORS`, {
           params: {
