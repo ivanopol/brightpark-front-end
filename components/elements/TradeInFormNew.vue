@@ -509,6 +509,7 @@ export default {
       axios.get(
         process.env.crmUrl +`/ajax/getModelsCORS`, {
           params: {
+            city: this.$store.state.city.value,
             mark_id: data.id
           }
         }
