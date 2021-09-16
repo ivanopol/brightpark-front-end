@@ -63,6 +63,11 @@
       <img src="~static/images/book-girl-desk.png" alt="" class="book__inner__girl">
 
     </div>
+
+    <modal name="thanks-modal" height="auto" :adaptive="true" class="thanks-modal">
+      <div id="thanks_modal_close" class="close event" @click="hide('thanks-modal')"></div>
+      <ModalThanks />
+    </modal>
   </div>
 </section>
 </template>
@@ -102,6 +107,15 @@ export default {
     },
   },
   methods: {
+    show(modal) {
+      this.$modal.show(modal);
+      document.body.style.overflow = 'hidden';
+    },
+
+    hide(modal) {
+      this.$modal.hide(modal);
+      document.body.style.overflow = 'unset';
+    },
     focusedInput (field) {
       if (field === 'name') {
         this.name = ' ';
@@ -150,6 +164,8 @@ export default {
           } catch (err) {
             console.log(err);
           }
+
+          this.$modal.show('thanks-modal');
           return {};
         })
         .catch(error => {
