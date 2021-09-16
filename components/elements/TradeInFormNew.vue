@@ -98,7 +98,7 @@
                   :get-option-label="(option) => option.label"
                   class="v-select-field"
                   @input="getModels"
-                  v-model="selectedMark.label"
+                  v-model="selectedMark"
                   @search:focus="placeholderControl('mark')"
                   @search:blur="placeholderControl('mark')"
                 >
