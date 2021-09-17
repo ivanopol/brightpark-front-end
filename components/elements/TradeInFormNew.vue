@@ -791,7 +791,7 @@ export default {
     };
 
     let brands = await fetch(
-      process.env.crmUrl + `/ajax/getMarksCORS`, myInit
+      process.env.crmUrl + `/ajax/getMarksCORS?city=` + this.$store.state.city.value, myInit
     ).then(res => res.json())
 
     this.allMarks = this.arrayFormat(brands.models)
