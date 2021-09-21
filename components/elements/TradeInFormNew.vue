@@ -907,19 +907,20 @@ export default {
   .trade-in__advantages {
     color: white;
     font-size: 15px;
-    max-width: 240px;
+    max-width: 350px;
+    width: 100%;
     margin: 50px auto 30px;
     line-height: 20px;
 
-    @media (min-width: 1000px) {
+    @media (min-width: 1367px) {
       position: absolute;
       top: -16px;
       right: 33px;
-      padding: 33px 45px 40px 43px;
+      padding: 45px 45px 40px 43px;
       font-size: 18px;
       max-width: 500px;
       background-image: url("../../static/images/credit-section/advantages-wrap.svg");
-      background-size: cover;
+      background-size: 100% 100%;
     }
   }
 
@@ -1046,7 +1047,8 @@ export default {
   .trade-in__form__online__fields {
     @media (min-width: 1000px) {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 20px;
       max-width: 1090px;
       margin: auto;
       grid-gap: 20px 30px;
@@ -1056,6 +1058,11 @@ export default {
         margin-bottom: 0;
         max-width: unset;
       }
+    }
+
+    @media (min-width: 1367px) {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0;
     }
   }
 
