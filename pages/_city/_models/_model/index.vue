@@ -78,6 +78,7 @@ export default Vue.extend({
     return {
       new_design: false,
       model: '',
+      car_title: '',
       seo: {},
       count: 0,
       isHitOfSales: false,
@@ -483,6 +484,8 @@ export default Vue.extend({
   async asyncData(context) {
     let new_design = false
     let model = {}
+    let car_title = ''
+    let car = {}
 
     context.store.commit('set_page', 'model')
     context.store.commit('set_bg', '')
@@ -492,23 +495,31 @@ export default Vue.extend({
       model = await context.$axios.$get(
         process.env.apiUrl + `/api/model_new?&city=${context.route.params.city}&model=${context.route.params.models}&type=${context.route.params.model}`
       )
+      car_title = model.model.title + ' ' + model.type.title
+      car = {
+        model_full: car_title,
+        url: '/' + context.route.params.city + '/' + model.model.slug + '/' + model.type.slug + '/model-details'
+      }
     } else {
       model = await context.$axios.$get(
         process.env.apiUrl + `/api/model?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
       )
+      car_title = model.model_full
+      car = {
+        model_full: car_title,
+        url: '/' + context.route.params.city + '/' + model.model_slug + '/' + model.type_slug + '/model-details'
+      }
     }
 
-    let car = {
-      model_full: model.model_full,
-      url: '/' + context.route.params.city + '/' + model.model_slug + '/' + model.type_slug + '/model-details'
-    }
     context.store.commit('set_car', car)
 
     const seo = await context.$axios.$post(process.env.apiUrl + `/api/get_meta_tags`, {
       route: context.route.fullPath
     })
 
-    return { model: model, seo: seo, new_design: new_design }
+
+
+    return { model: model, seo: seo, new_design: new_design, car_title: car_title }
   },
   head() {
     if (Object.keys(this.seo).length == 0) {
@@ -517,7 +528,7 @@ export default Vue.extend({
 
     let image = this.seo.images
 
-    if (this.model.colors.lenght) {
+    if (this.model.colors.length) {
       image = this.model.colors[0].image
     }
 
