@@ -7,11 +7,11 @@
         <ModelsBannerNew
           class="models-banner"
           :colors="model.colors"
-          :prices="model.car_attrs"
-          :model="model.model"
-          :type="model.type"
+          :prices="model.price"
+          :model="model.model.title"
+          :type="model.type.title"
           @scrollTo="scrollToCredit"
-          :isHit="model.model_slug === 'granta' && model.type_slug === 'sedan' ? true : false"
+          :isHit="model.model.slug === 'granta' && model.type.slug === 'sedan' ? true : false"
         />
 
         <TestDriveBanner />
@@ -20,8 +20,8 @@
         <ModelsEquipments class="equipments-block" :complectations="complectations"/>
         <TradeInFormNew />
         <ModelsAbout
-          :model="model.model_slug"
-          :cars-body="model.type_slug"
+          :model="model.model.slug"
+          :cars-body="model.type.slug"
         />
         <CreditNew id="creditCalc" :equipments="complectations"/>
         <ModelsWarranty />
@@ -481,15 +481,21 @@ export default Vue.extend({
     return validate_city && validate_model && validate_type
   },
   async asyncData(context) {
+    let new_design = false
+    let model = {}
+
     context.store.commit('set_page', 'model')
     context.store.commit('set_bg', '')
-    const model = await context.$axios.$get(
-      process.env.apiUrl + `/api/model?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
-    )
 
-    let new_design = false
     if (context.route.params.models === 'granta') {
       new_design = true
+      model = await context.$axios.$get(
+        process.env.apiUrl + `/api/model_new?&city=${context.route.params.city}&model=${context.route.params.models}&type=${context.route.params.model}`
+      )
+    } else {
+      model = await context.$axios.$get(
+        process.env.apiUrl + `/api/model?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
+      )
     }
 
     let car = {
