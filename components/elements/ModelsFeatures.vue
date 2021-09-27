@@ -7,14 +7,14 @@
         </h2>
 
         <div class="models-features__items">
-          <div class="models-features__items__item" v-for="param in params" :key="param.icon">
+          <div class="models-features__items__item" v-for="feature in features" :key="feature.icon">
             <div class="models-features__items__item__icon">
-              <img :src="'/images/icons/models-features/' + param.icon + '.svg'" :alt="param.title">
+              <img :src="'/images/icons/models-features/' + feature.icon + '.svg'" :alt="feature.title">
             </div>
 
             <div class="models-features__items__item__text">
-              <h5>{{ param.title }}</h5>
-              <p>{{ param.name }}</p>
+              <h5>{{ feature.title }}</h5>
+              <p>{{ feature.name }}</p>
             </div>
           </div>
         </div>
@@ -33,248 +33,16 @@
 <script>
 export default {
   name: "ModelsFeatures",
+  props: {
+    features: Array,
+  },
   data: function () {
     return {
-      params: {},
       path: '',
     }
   },
   async fetch() {
-    let bodies = {
-      drive_active: [
-        {
-          name: 'Drive Active',
-          title: 'Кузов',
-          icon: 'body'
-        },
-        {
-          name: 'Передний',
-          title: 'Привод',
-          icon: 'drive',
-        },
-        {
-          name: '1.6 л',
-          title:'объём двигателя',
-          icon: 'engine',
-        },
-        {
-          name: 'МТ',
-          title: 'коробка двигателя',
-          icon: 'transmission',
-        },
-        {
-          name: '5',
-          title: 'места',
-          icon: 'seats',
-        },
-        {
-          name: 'Бензин',
-          title: 'топливо',
-          icon: 'fuel_type',
-        },
-        {
-          name: 'от 5,2л / 100км',
-          title: 'расход топлива',
-          icon: 'fuel'
-        },
-        {
-          name: 'до 184 км/ч',
-          title: 'макс. скорость',
-          icon: 'speed',
-        },
-      ],
-        hatchback: [
-        {
-          name: 'Хэтчбек',
-          title: 'Кузов',
-          icon: 'body'
-        },
-        {
-          name: 'Передний',
-          title: 'Привод',
-          icon: 'drive',
-        },
-        {
-          name: '1.6 л',
-          title:'объём двигателя',
-          icon: 'engine',
-        },
-        {
-          name: 'MT / AT',
-          title: 'коробка двигателя',
-          icon: 'transmission',
-        },
-        {
-          name: '5',
-          title: 'места',
-          icon: 'seats',
-        },
-        {
-          name: 'Бензин',
-          title: 'топливо',
-          icon: 'fuel_type',
-        },
-        {
-          name: 'от 5,3л / 100км',
-          title: 'расход топлива',
-          icon: 'fuel'
-        },
-        {
-          name: 'до 176 км/ч',
-          title: 'макс. скорость',
-          icon: 'speed',
-        },
-      ],
-        liftback: [
-        {
-          name: 'Лифтбек',
-          title: 'Кузов',
-          icon: 'body'
-        },
-        {
-          name: 'Передний',
-          title: 'Привод',
-          icon: 'drive',
-        },
-        {
-          name: '1.6 л',
-          title:'объём двигателя',
-          icon: 'engine',
-        },
-        {
-          name: 'MT / AT',
-          title: 'коробка двигателя',
-          icon: 'transmission',
-        },
-        {
-          name: '5',
-          title: 'места',
-          icon: 'seats',
-        },
-        {
-          name: 'Бензин',
-          title: 'топливо',
-          icon: 'fuel_type',
-        },
-        {
-          name: 'от 5,2л / 100км',
-          title: 'расход топлива',
-          icon: 'fuel'
-        },
-        {
-          name: 'до 183 км/ч',
-          title: 'макс. скорость',
-          icon: 'speed',
-        },
-      ],
-        sedan: [
-        {
-          name: 'Седан',
-          title: 'Кузов',
-          icon: 'body'
-        },
-        {
-          name: 'Передний',
-          title: 'Привод',
-          icon: 'drive',
-        },
-        {
-          name: '1.6 л',
-          title:'объём двигателя',
-          icon: 'engine',
-        },
-        {
-          name: 'MT / AT',
-          title: 'коробка двигателя',
-          icon: 'transmission',
-        },
-        {
-          name: '5',
-          title: 'места',
-          icon: 'seats',
-        },
-        {
-          name: 'Бензин',
-          title: 'топливо',
-          icon: 'fuel_type',
-        },
-        {
-          name: 'от 5,2л / 100км',
-          title: 'расход топлива',
-          icon: 'fuel'
-        },
-        {
-          name: 'до 184 км/ч',
-          title: 'макс. скорость',
-          icon: 'speed',
-        },
-      ],
-        universal: [
-        {
-          name: 'Универсал',
-          title: 'Кузов',
-          icon: 'body'
-        },
-        {
-          name: 'Передний',
-          title: 'Привод',
-          icon: 'drive',
-        },
-        {
-          name: '1.6 л',
-          title:'объём двигателя',
-          icon: 'engine',
-        },
-        {
-          name: 'MT / AT',
-          title: 'коробка двигателя',
-          icon: 'transmission',
-        },
-        {
-          name: '5',
-          title: 'места',
-          icon: 'seats',
-        },
-        {
-          name: 'Бензин',
-          title: 'топливо',
-          icon: 'fuel_type',
-        },
-        {
-          name: 'от 5,2л / 100км',
-          title: 'расход топлива',
-          icon: 'fuel'
-        },
-        {
-          name: 'до 182 км/ч',
-          title: 'макс. скорость',
-          icon: 'speed',
-        },
-      ],
-    }
-
-    switch(this.$route.params.model) {
-      case 'drive-active':
-        this.params = bodies.drive_active
-        this.path = '/files/specifications_granta_drive_active.pdf'
-        break;
-      case 'hatchback':
-        this.params = bodies.hatchback
-        this.path = '/files/specifications_granta_hatchback.pdf'
-        break;
-      case 'liftback':
-        this.params = bodies.liftback
-        this.path = '/files/specifications_granta_liftback.pdf'
-        break;
-      case 'sedan':
-        this.params = bodies.sedan
-        this.path = '/files/specifications_granta_sedan.pdf'
-        break;
-      case 'universal':
-        this.params = bodies.universal
-        this.path = '/files/specifications_granta_universal.pdf'
-        break;
-    }
+    this.path = '/files/specifications_' + this.$route.params.models + '_' + this.$route.params.model.replace("-", "_") + '.pdf'
   },
 }
 </script>

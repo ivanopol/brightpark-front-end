@@ -149,7 +149,7 @@ export default {
       default: 'granta'
     },
 
-    carsBody: {
+    type: {
       type: String,
       default: 'sedan'
     }
@@ -159,6 +159,7 @@ export default {
     return {
       isMobile: true,
       currentWidget: 'exterior',
+      carsBody: '',
 
       models: {
         granta: {
@@ -362,8 +363,10 @@ export default {
   },
 
   created() {
-    if (this.carsBody === 'drive-active') {
+    if (this.type === 'drive-active') {
       this.carsBody = 'driveActive';
+    } else {
+      this.carsBody = this.type
     }
   },
 
