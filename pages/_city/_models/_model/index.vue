@@ -9,7 +9,7 @@
           :colors="model.colors"
           :prices="model.price"
           :model="model.model.title"
-          :type="model.type.title"
+          :type="model.type.title_ru"
           @scrollTo="scrollToCredit"
           :isHit="model.model.slug === 'granta' && model.type.slug === 'sedan' ? true : false"
         />
