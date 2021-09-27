@@ -18,49 +18,22 @@ export default {
   name: "BodiesListNew",
   data: function () {
     return {
-      bodies: [
-        {
-          id: '0',
-          name: 'Drive Active',
-          path: 'drive-active',
-          image: '/images/models/da.png',
-          is_active: false,
-        },
-        {
-          id: '1',
-          name: 'Хэтчбэк',
-          path: 'hatchback',
-          image: '/images/models/hatchback.png',
-          is_active: false,
-        },
-        {
-          id: '2',
-          name: 'Лифтбек',
-          path: 'liftback',
-          image: '/images/models/liftback.png',
-          is_active: false,
-        },
-        {
-          id: '3',
-          name: 'Седан',
-          path: 'sedan',
-          image: '/images/models/sedan.png',
-          is_active: false,
-        },
-        {
-          id: '4',
-          name: 'Универсал',
-          path: 'universal',
-          image: '/images/models/wagon.png',
-          is_active: false,
-        },
-
-      ],
+      bodies: [],
     }
   },
   async fetch() {
-    let bodyId = this.bodies.find(body => body.path === this.$route.params.model).id
-    this.bodies[bodyId].is_active = true
+
+    let bodies = await fetch(
+        process.env.apiUrl + `/api/bodies?&model=${this.$route.params.models}&type=${this.$route.params.model}`
+    ).then(res => res.json())
+
+
+    bodies.forEach((element) => {
+      element.image = '/images/models/' + this.$route.params.models + '/' + element.path + '.png'
+      element.is_active = this.$route.params.model === element.path ? true : false
+    })
+
+    this.bodies = bodies
   },
 }
 </script>
