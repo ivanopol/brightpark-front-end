@@ -11,26 +11,26 @@
           :model="model.model.title"
           :type="model.type.title_ru"
           @scrollTo="scrollToCredit"
-          :isHit="model.model.slug === 'granta' && model.type.slug === 'sedan' ? true : false"
+          :isHit="getHit()"
         />
 
-        <TestDriveBanner />
-        <AdvantagesNew class="models-advantages"/>
-        <ModelsFeatures :features="model.features"/>
-        <ModelsEquipments class="equipments-block"
-                          :complectations="model.complectations"/>
-        <TradeInFormNew :model="model.type.title"
-                        :type="model.type.title_ru"/>
-        <ModelsAbout
-          :model="model.model.slug"
-          :type="model.type.slug"
-        />
-        <CreditNew id="creditCalc"
-                   :model="model.type.title"
-                   :type="model.type.title_ru"
-                   :equipments="model.complectations"/>
-        <ModelsWarranty />
-        <BookCarNew class="book-section"/>
+        <TestDriveBanner :model="model.model.title" :type="model.type.title_ru"/>
+        <!--          <AdvantagesNew class="models-advantages"/>
+                  <ModelsFeatures :features="model.features"/>
+                  <ModelsEquipments class="equipments-block"
+                                    :complectations="model.complectations"/>
+                  <TradeInFormNew :model="model.type.title"
+                                  :type="model.type.title_ru"/>
+                  <ModelsAbout
+                    :model="model.model.slug"
+                    :type="model.type.slug"
+                  />
+                  <CreditNew id="creditCalc"
+                             :model="model.type.title"
+                             :type="model.type.title_ru"
+                             :equipments="model.complectations"/>
+                  <ModelsWarranty />
+                  <BookCarNew class="book-section"/>-->
       </div>
 
       <div v-else>
@@ -91,7 +91,7 @@ export default Vue.extend({
     }
   },
   layout (context) {
-    return context.route.params.models === 'granta' ? 'model_new' : 'model'
+    return context.route.params.models === 'granta' || context.route.params.models === 'vesta' ? 'model_new' : 'model'
   },
   validate: function ({params, store}) {
     let validate_city = false
@@ -116,7 +116,7 @@ export default Vue.extend({
     context.store.commit('set_page', 'model')
     context.store.commit('set_bg', '')
 
-    if (context.route.params.models === 'granta') {
+    if (context.route.params.models === 'granta' || context.route.params.models === 'vesta' ) {
       new_design = true
       model = await context.$axios.$get(
         process.env.apiUrl + `/api/model_new?&city=${context.route.params.city}&model=${context.route.params.models}&type=${context.route.params.model}`
@@ -212,6 +212,14 @@ export default Vue.extend({
     },
   },
   methods: {
+    getHit: function() {
+      if (this.model.model.slug === 'granta' && this.model.type.slug === 'sedan') {
+        return true
+      } else if (this.model.model.slug === 'vesta' && this.model.type.slug === 'sedan') {
+        return true
+      }
+      return false
+    },
     getRandomInt: function (min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
     },

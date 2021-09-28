@@ -92,7 +92,7 @@ export default {
     colors: Array,
     isHit: {
       type: Boolean,
-      default: true,
+      default: false,
     }
   },
 

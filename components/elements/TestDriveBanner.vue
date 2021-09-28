@@ -6,8 +6,8 @@
           <img :src="path.mobile" :alt="path.title" class="test-drive-banner__pic">
 
           <div class="test-drive-banner__text">
-            <h2>Испытай новую LADA Granta в деле!</h2>
-            <p>Ощутите преимущества новой LADA {{this.$store.state.car.model_full}} на собственном опыте</p>
+            <h2>Испытай новую LADA {{model}} в деле!</h2>
+            <p>Ощутите преимущества новой LADA {{model}} {{type}} на собственном опыте</p>
           </div>
 
           <ButtonNew
@@ -39,7 +39,10 @@
 <script>
 export default {
   name: 'TestDriveBanner',
-
+  props: {
+    model: String,
+    type: String,
+  },
   data: function () {
     return {
       form_id: "",
@@ -47,30 +50,6 @@ export default {
       form_type: 1,
       goal: "",
       path: {},
-      images: {
-        granta: {
-          'drive-active': {
-            title: 'Granta Drive Active',
-            mobile: '/images/credit-section/granta/drive_active/photo_mobile.png',
-          },
-          sedan: {
-            title: 'Granta Седан',
-            mobile: '/images/credit-section/granta/sedan/photo_mobile.png',
-          },
-          liftback: {
-            title: 'Granta Лифтбек',
-            mobile: '/images/credit-section/granta/liftback/photo_mobile.png',
-          },
-          hatchback: {
-            title: 'Granta Хэтчбэк',
-            mobile: '/images/credit-section/granta/hatchback/photo_mobile.png',
-          },
-          universal: {
-            title: 'Granta Хэтчбэк',
-            mobile: '/images/credit-section/granta/universal/photo_mobile.png',
-          },
-        }
-      },
     }
   },
 
@@ -92,7 +71,10 @@ export default {
     },
   },
   created() {
-    this.path = this.images[this.$route.params.models][this.$route.params.model]
+    this.path = {
+      title: this.model + ' ' + this.type,
+      mobile: '/images/credit-section/' + this.$route.params.models + '/' + this.$route.params.model.replace("-", "_") + '/photo_mobile.png',
+    }
   }
 }
 </script>
