@@ -15,22 +15,17 @@
         />
 
         <TestDriveBanner :model="model.model.title" :type="model.type.title_ru"/>
-        <!--          <AdvantagesNew class="models-advantages"/>
-                  <ModelsFeatures :features="model.features"/>
-                  <ModelsEquipments class="equipments-block"
-                                    :complectations="model.complectations"/>
-                  <TradeInFormNew :model="model.type.title"
-                                  :type="model.type.title_ru"/>
-                  <ModelsAbout
-                    :model="model.model.slug"
-                    :type="model.type.slug"
-                  />
-                  <CreditNew id="creditCalc"
-                             :model="model.type.title"
-                             :type="model.type.title_ru"
-                             :equipments="model.complectations"/>
-                  <ModelsWarranty />
-                  <BookCarNew class="book-section"/>-->
+        <AdvantagesNew class="models-advantages"/>
+        <ModelsFeatures :features="model.features"/>
+        <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
+        <TradeInFormNew :model="model.type.title" :type="model.type.title_ru"/>
+<!--        <ModelsAbout :model="model.model.slug" :type="model.type.slug" />-->
+        <CreditNew id="creditCalc"
+                   :model="model.model.title"
+                   :type="model.type.title_ru"
+                   :equipments="model.complectations"/>
+        <ModelsWarranty />
+        <BookCarNew class="book-section"/>
       </div>
 
       <div v-else>

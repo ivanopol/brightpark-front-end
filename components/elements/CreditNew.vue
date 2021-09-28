@@ -7,7 +7,7 @@
 
           <div class="credit__inner__text">
             <h2 class="credit__inner__title">
-              Рассчитайте кредит на&nbsp;покупку LADA {{type}}
+              Рассчитайте кредит на&nbsp;покупку LADA {{model}}
             </h2>
 
             <p class="credit__inner__desc">
