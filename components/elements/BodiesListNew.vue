@@ -67,9 +67,13 @@ export default {
 
 <style scoped lang="scss">
 .models {
-  display: none;
+  // display: none;
+
+    padding-top: 20px;
+    margin-bottom: -35px;
 
   @media (min-width: 1024px) {
+    margin-bottom: 0;
     display: block;
     border-top: 1px solid #D9DADA;
     border-bottom: 1px solid #D9DADA;
@@ -82,26 +86,33 @@ export default {
   }
 }
 
-@media (min-width: 1024px) {
-  .models__list {
+.models__list {
     display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
 
     li {
-      margin-right: 30px;
+      margin-right: 10px;
 
       &:last-child {
         margin-right: 0;
       }
 
+      img {
+        max-width: 100px;
+      }
+
       a {
         display: flex;
+        width: 115px;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         font-family: 'Factor A';
         font-weight: 500;
         color: #000;
-        font-size: 16px;
+        font-size: 10px;
         transition: .2s ease;
 
         &.nuxt-link-active {
@@ -109,15 +120,16 @@ export default {
 
           span {
             position: relative;
+            white-space: nowrap;
 
             &:after {
               content: "";
               display: block;
               background-color: #514EA1;
               position: absolute;
-              bottom: -13px;
+              bottom: -1px;
               width: 100%;
-              height: 3px;
+              height: 1px;
             }
           }
         }
@@ -129,6 +141,32 @@ export default {
 
         span {
           margin-top: 11px;
+        }
+      }
+    }
+  }
+@media (min-width: 1024px) {
+  .models__list {
+    overflow: unset;
+    padding-bottom: 0;
+    li {
+      margin-right: 30px;
+
+      img {
+        max-width: 170px;
+      }
+
+      a {
+        font-size: 16px;
+        width: auto;
+
+        &.nuxt-link-active {
+          span {
+            &:after {
+              height: 3px;
+              bottom: -13px;
+            }
+          }
         }
       }
     }
