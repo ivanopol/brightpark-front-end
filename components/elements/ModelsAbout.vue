@@ -12,11 +12,11 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="models[model][carsBody].exterior.mobImage" alt="">
+            <img :src="path + '/mobile/' + about.exterior.image + '.png'" alt="">
 
             <div class="models-about__item__inner__text">
               <p>
-                {{ models[model][carsBody].exterior.description }}
+                {{ about.exterior.description }}
               </p>
             </div>
           </div>
@@ -31,11 +31,11 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="models[model][carsBody].interior.mobImage" alt="">
+            <img :src="path + '/mobile/' + about.interior.image + '.png'" alt="">
 
             <div class="models-about__item__inner__text">
               <p>
-                {{ models[model][carsBody].interior.description }}
+                {{ about.interior.description }}
               </p>
             </div>
 
@@ -51,11 +51,11 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="models[model][carsBody].comfort.mobImage" alt="">
+            <img :src="path + '/mobile/' + about.comfort.image + '.png'" alt="">
 
             <div class="models-about__item__inner__text">
               <p>
-                {{ models[model][carsBody].comfort.description }}
+                {{ about.comfort.description }}
               </p>
             </div>
 
@@ -71,11 +71,11 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="models[model][carsBody].safety.mobImage" alt="">
+            <img :src="path + '/mobile/' + about.safety.image + '.png'" alt="">
 
             <div class="models-about__item__inner__text">
               <p>
-                {{ models[model][carsBody].safety.description }}
+                {{ about.safety.description }}
               </p>
             </div>
 
@@ -142,217 +142,19 @@
 <script>
 export default {
   name: "ModelsAbout",
-
   props: {
-    model: {
-      type: String,
-      default: 'granta'
+    about: {
+      type: Array,
     },
-
-    type: {
-      type: String,
-      default: 'sedan'
-    }
   },
-
   data: function () {
     return {
       isMobile: true,
       currentWidget: 'exterior',
-      carsBody: '',
-
-      models: {
-        granta: {
-          sedan: {
-            exterior: {
-              mobImage: require('../../static/images/model-about/granta-sedan-exterior-mob.png'),
-              image: require('../../static/images/model-about/granta-sedan-exterior.jpg'),
-              title: 'Народный тип кузова',
-              description: 'Седан – всем знакомый формат автомобиля. Это вместительный багажник, гармонично вписанный в стиль. Это серьезный подход к делу. И, конечно, забота о пассажирах, потому что грузовой отсек всегда отделен от салона.'
-            },
-
-            interior: {
-              mobImage: require('../../static/images/model-about/granta-sedan-interior-mob.png'),
-              image: require('../../static/images/model-about/granta-sedan-interior.jpg'),
-              title: 'Уют, доступный каждому',
-              description: 'Просторный салон, практичные обивки. Стильные контрастные вставки и информативный экран мультимедиа. Эффективный кондиционер и отличная обзорность. Многофункциональный автомобиль готов радовать каждого – и дачника, и таксиста, и любителя гаджетов. И опытного водителя, и начинающего. Всех, кто ценит комфорт и рациональность своей среды.',
-            },
-
-            comfort: {
-              mobImage: require('../../static/images/model-about/granta-sedan-comfort-mob.png'),
-              image: require('../../static/images/model-about/granta-sedan-comfort.jpg'),
-              title: 'Комфорт без компромиссов',
-              description: 'Каждая кнопка и рычажок – на своем месте. Удобная настройка водительского места. Набор подстаканников и ниш для мелких вещей. Привычно, понятно и эргономично – в таком автомобиле чувствуешь себя как дома. Потому что все настроено на комфорт и практичность: от хорошо читаемой подсветки приборов до пакета шумоизоляции. От селектора коробки передач до электрокнопки багажника.',
-            },
-
-            safety: {
-              mobImage: require('../../static/images/model-about/granta-sedan-safety-mob.png'),
-              image: require('../../static/images/model-about/granta-sedan-safety.jpg'),
-              title: 'Островок безопасности',
-              description: 'Автомобиль помогает видеть все, уверенно маневрировать, а когда нужно – эффективно замедляться и разгоняться. Он как будто повышает квалификацию водителя.\n' +
-                'Ну а электронные системы безопасности всегда наготове: в современных условиях движения без этого никак.',
-            },
-          },
-
-          liftback: {
-            exterior: {
-              mobImage: require('../../static/images/model-about/granta-liftback-exterior-mob.png'),
-              image: require('../../static/images/model-about/granta-liftback-exterior.jpg'),
-              title: 'Стильный путешественник',
-              description: 'Лифтбек – многогранный тип кузова. В нем есть и вместительность универсала, и динамичный дизайн хэтчбека. И своя собственная черта – восходящая подоконная линия, классический элемент стиля «гран-туризмо». Не нужно выбирать, что важнее, – яркая, узнаваемая внешность автомобиля или его практичность. Можно просто выбрать лифтбек.'
-            },
-
-            interior: {
-              mobImage: require('../../static/images/model-about/granta-sedan-interior-mob.png'),
-              image: require('../../static/images/model-about/granta-sedan-interior.jpg'),
-              title: 'Уют, доступный каждому',
-              description: 'Просторный салон, практичные обивки. Стильные контрастные вставки и информативный экран мультимедиа. Эффективный кондиционер и отличная обзорность. Многофункциональный автомобиль готов радовать каждого – и дачника, и таксиста, и любителя гаджетов. И опытного водителя, и начинающего. Всех, кто ценит комфорт и рациональность своей среды.',
-            },
-
-            comfort: {
-              mobImage: require('../../static/images/model-about/granta-sedan-comfort-mob.png'),
-              image: require('../../static/images/model-about/granta-sedan-comfort.jpg'),
-              title: 'Комфорт без компромиссов',
-              description: 'Каждая кнопка и рычажок – на своем месте. Удобная настройка водительского места. Набор подстаканников и ниш для мелких вещей. Привычно, понятно и эргономично – в таком автомобиле чувствуешь себя как дома. Потому что все настроено на комфорт и практичность: от хорошо читаемой подсветки приборов до пакета шумоизоляции. От селектора коробки передач до электрокнопки багажника.',
-            },
-
-            safety: {
-              mobImage: require('../../static/images/model-about/granta-liftback-safety-mob.png'),
-              image: require('../../static/images/model-about/granta-liftback-safety.jpg'),
-              title: 'Островок безопасности',
-              description: 'Автомобиль помогает видеть все, уверенно маневрировать, а когда нужно – эффективно замедляться и разгоняться. Он как будто повышает квалификацию водителя.\n' +
-                'Ну а электронные системы безопасности всегда наготове: в современных условиях движения без этого никак.',
-            },
-          },
-
-          hatchback: {
-            exterior: {
-              mobImage: require('../../static/images/model-about/granta-hatchback-exterior-mob.png'),
-              image: require('../../static/images/model-about/granta-hatchback-exterior.jpg'),
-              title: 'Городской спринтер',
-              description: 'Компакт для ежедневных поездок по городским улицам, первый автомобиль в карьере молодого водителя, основа болида для любительских гонок. За историю этого хэтчбека у него сложился именно такой имидж, который дополняется молодежным стилем с характерными клиновидными элементами передней части и выразительными задними фонарями особой вертикальной формы.'
-            },
-
-            interior: {
-              mobImage: require('../../static/images/model-about/granta-sedan-interior-mob.png'),
-              image: require('../../static/images/model-about/granta-sedan-interior.jpg'),
-              title: 'Уют, доступный каждому',
-              description: 'Просторный салон, практичные обивки. Стильные контрастные вставки и информативный экран мультимедиа. Эффективный кондиционер и отличная обзорность. Многофункциональный автомобиль готов радовать каждого – и дачника, и таксиста, и любителя гаджетов. И опытного водителя, и начинающего. Всех, кто ценит комфорт и рациональность своей среды.',
-            },
-
-            comfort: {
-              mobImage: require('../../static/images/model-about/granta-sedan-comfort-mob.png'),
-              image: require('../../static/images/model-about/granta-sedan-comfort.jpg'),
-              title: 'Комфорт без компромиссов',
-              description: 'Каждая кнопка и рычажок – на своем месте. Удобная настройка водительского места. Набор подстаканников и ниш для мелких вещей. Привычно, понятно и эргономично – в таком автомобиле чувствуешь себя как дома. Потому что все настроено на комфорт и практичность: от хорошо читаемой подсветки приборов до пакета шумоизоляции. От селектора коробки передач до электрокнопки багажника.',
-            },
-
-            safety: {
-              mobImage: require('../../static/images/model-about/granta-hatchback-safety-mob.png'),
-              image: require('../../static/images/model-about/granta-hatchback-safety.jpg'),
-              title: 'Островок безопасности',
-              description: 'Автомобиль помогает видеть все, уверенно маневрировать, а когда нужно – эффективно замедляться и разгоняться. Он как будто повышает квалификацию водителя.\n' +
-                'Ну а электронные системы безопасности всегда наготове: в современных условиях движения без этого никак.',
-            },
-          },
-
-          cross: {
-            exterior: {
-              mobImage: require('../../static/images/model-about/granta-sedan-exterior-mob.png'),
-              image: require('../../static/images/model-about/granta-cross-exterior.jpg'),
-              title: 'Городской спринтер',
-              description: 'Компакт для ежедневных поездок по городским улицам, первый автомобиль в карьере молодого водителя, основа болида для любительских гонок. За историю этого хэтчбека у него сложился именно такой имидж, который дополняется молодежным стилем с характерными клиновидными элементами передней части и выразительными задними фонарями особой вертикальной формы.'
-            },
-
-            interior: {
-              mobImage: require('../../static/images/model-about/granta-sedan-exterior-mob.png'),
-              image: require('../../static/images/model-about/granta-cross-interior.jpg'),
-              title: 'Уют, доступный каждому',
-              description: 'Просторный салон, практичные обивки. Стильные контрастные вставки и информативный экран мультимедиа. Эффективный кондиционер и отличная обзорность. Многофункциональный автомобиль готов радовать каждого – и дачника, и таксиста, и любителя гаджетов. И опытного водителя, и начинающего. Всех, кто ценит комфорт и рациональность своей среды.',
-            },
-
-            comfort: {
-              mobImage: require('../../static/images/model-about/granta-sedan-exterior-mob.png'),
-              image: require('../../static/images/model-about/granta-cross-comfort.jpg'),
-              title: 'Комфорт без компромиссов',
-              description: 'Каждая кнопка и рычажок – на своем месте. Удобная настройка водительского места. Набор подстаканников и ниш для мелких вещей. Привычно, понятно и эргономично – в таком автомобиле чувствуешь себя как дома. Потому что все настроено на комфорт и практичность: от хорошо читаемой подсветки приборов до пакета шумоизоляции. От селектора коробки передач до электрокнопки багажника.',
-            },
-
-            safety: {
-              mobImage: require('../../static/images/model-about/granta-sedan-exterior-mob.png'),
-              image: require('../../static/images/model-about/granta-cross-safety.jpg'),
-              title: 'Островок безопасности',
-              description: 'Автомобиль помогает видеть все, уверенно маневрировать, а когда нужно – эффективно замедляться и разгоняться. Он как будто повышает квалификацию водителя.\n' +
-                'Ну а электронные системы безопасности всегда наготове: в современных условиях движения без этого никак.',
-            },
-          },
-
-          universal: {
-            exterior: {
-              mobImage: require('../../static/images/model-about/granta-universal-exterior-mob.png'),
-              image: require('../../static/images/model-about/granta-universal-exterior.jpg'),
-              title: 'Сама практичность',
-              description: 'Отправиться на море, отвезти мебель на дачу, съездить за покупками – у семейного автомобиля множество задач. И для каждого дела он умеет преображаться, трансформируя салон, задействуя дополнительные объемы кузова. Деловитый и рачительный, он способен заряжать энергией и позитивом дальних странствий.'
-            },
-
-            interior: {
-              mobImage: require('../../static/images/model-about/granta-sedan-interior-mob.png'),
-              image: require('../../static/images/model-about/granta-sedan-interior.jpg'),
-              title: 'Уют, доступный каждому',
-              description: 'Просторный салон, практичные обивки. Стильные контрастные вставки и информативный экран мультимедиа. Эффективный кондиционер и отличная обзорность. Многофункциональный автомобиль готов радовать каждого – и дачника, и таксиста, и любителя гаджетов. И опытного водителя, и начинающего. Всех, кто ценит комфорт и рациональность своей среды.',
-            },
-
-            comfort: {
-              mobImage: require('../../static/images/model-about/granta-sedan-comfort-mob.png'),
-              image: require('../../static/images/model-about/granta-sedan-comfort.jpg'),
-              title: 'Комфорт без компромиссов',
-              description: 'Каждая кнопка и рычажок – на своем месте. Удобная настройка водительского места. Набор подстаканников и ниш для мелких вещей. Привычно, понятно и эргономично – в таком автомобиле чувствуешь себя как дома. Потому что все настроено на комфорт и практичность: от хорошо читаемой подсветки приборов до пакета шумоизоляции. От селектора коробки передач до электрокнопки багажника.',
-            },
-
-            safety: {
-              mobImage: require('../../static/images/model-about/granta-universal-safety-mob.png'),
-              image: require('../../static/images/model-about/granta-universal-safety.jpg'),
-              title: 'Островок безопасности',
-              description: 'Автомобиль помогает видеть все, уверенно маневрировать, а когда нужно – эффективно замедляться и разгоняться. Он как будто повышает квалификацию водителя.\n' +
-                'Ну а электронные системы безопасности всегда наготове: в современных условиях движения без этого никак.',
-            },
-          },
-
-          driveActive: {
-            exterior: {
-              mobImage: require('../../static/images/model-about/granta-drive-active-exterior-mob.png'),
-              image: require('../../static/images/model-about/granta-drive-active-exterior.jpg'),
-              title: 'Аэродинамика. Скорость. Стиль.',
-              description: 'Заниженный силуэт, чёрный глянец и полированный алюминий колесных дисков, рельефная поверхность бамперов… Несколько точных штрихов, в каждом из которых – опыт, команды LADA Sport и тщательная работа в аэродинамической трубе. Так появился выразительный и узнаваемый стиль LADA Granta Drive Active.'
-            },
-
-            interior: {
-              mobImage: require('../../static/images/model-about/granta-drive-active-interior-mob.png'),
-              image: require('../../static/images/model-about/granta-drive-active-interior.jpg'),
-              title: 'Спорт в каждой линии',
-              description: 'Гоночный стиль, функциональность и комфорт гармонично соединились в дизайне LADA Granta Drive Active. Контрастная строчка и противоскользящие материалы, красные шкалы приборов, перфорированная поверхность, вставки с карбоновой структурой… Множество деталей горячего седана говорят о том, что он настроен для спортивного вождения.',
-            },
-
-            comfort: {
-              mobImage: require('../../static/images/model-about/granta-drive-active-comfort-mob.png'),
-              image: require('../../static/images/model-about/granta-drive-active-comfort.jpg'),
-              title: 'Чувство автомобиля',
-              description: 'Виражи с минимальными кренами, плотная посадка в кресле, точная работа рулевого управления. Ощущение единения с автомобилем – настоящее удовольствие для поклонника активного стиля вождения! Ну а эффективная климат-система и аудио-система повышают удобство любой поездки, будь то скоростной прохват или неспешное путешествие.',
-            },
-
-            safety: {
-              mobImage: require('../../static/images/model-about/granta-drive-active-safety-mob.png'),
-              image: require('../../static/images/model-about/granta-drive-active-safety.jpg'),
-              title: 'Техника безопасности',
-              description: 'Автомобиль помогает видеть все, уверенно маневрировать, а когда нужно – эффективно замедляться и разгоняться. Он как будто повышает квалификацию водителя.\n' +
-                'Ну а электронные системы безопасности всегда наготове: в современных условиях движения без этого никак.',
-            },
-          },
-        },
-      }
+      models: {},
+      path: '/images/model-about/' + this.$route.params.models
     }
   },
-
   mounted() {
     if (typeof window !== 'undefined') {
       window.innerWidth < 1024 ? this.isMobile = true : this.isMobile = false;
@@ -361,42 +163,16 @@ export default {
     setTimeout(this.initHeight, 500);
 
   },
-
-  created() {
-    if (this.type === 'drive-active') {
-      this.carsBody = 'driveActive';
-    } else {
-      this.carsBody = this.type
-    }
-  },
-
   computed: {
     currentTitle() {
-      const carsBody = this.carsBody,
-        model = this.model,
-        currentWidget = this.currentWidget,
-        models = this.models;
-
-      return models[model][carsBody][currentWidget].title;
-
+      return this.about[this.currentWidget].title
     },
-
     currentDescription() {
-      const carsBody = this.carsBody,
-        model = this.model,
-        currentWidget = this.currentWidget,
-        models = this.models;
-
-      return models[model][carsBody][currentWidget].description;
+      return this.about[this.currentWidget].description
     },
 
     currentBackground() {
-      const carsBody = this.carsBody,
-        model = this.model,
-        currentWidget = this.currentWidget,
-        models = this.models;
-
-      return models[model][carsBody][currentWidget].image;
+      return this.path + '/' + this.about[this.currentWidget].image + '.jpg'
     },
   },
 

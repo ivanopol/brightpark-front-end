@@ -18,8 +18,8 @@
         <AdvantagesNew class="models-advantages"/>
         <ModelsFeatures :features="model.features"/>
         <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
-        <TradeInFormNew :model="model.type.title" :type="model.type.title_ru"/>
-<!--        <ModelsAbout :model="model.model.slug" :type="model.type.slug" />-->
+        <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
+        <ModelsAbout :about="model.about" />
         <CreditNew id="creditCalc"
                    :model="model.model.title"
                    :type="model.type.title_ru"
