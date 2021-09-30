@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="dropdown" v-bind:class="{ 'active': opened }" v-click-outside="hide" v-on:click="opened = !opened">Модели
+  <a href="#" class="dropdown" v-bind:class="{ 'active': opened }" v-click-outside="hide" v-on:click="opened = !opened">Купить
     <transition name="fade">
       <ul class="" v-if="opened">
         <li v-for="model in $store.state.models_full" v-bind:key="model.id">
