@@ -5,49 +5,41 @@
         Выбери свой автомобиль
       </h2>
       <div class="cars-offer__content">
-        <div class="cars-offer__content__item">
+        <div class="cars-offer__content__item" v-for="car in cars" :key="car.id">
           <div class="cars-offer__content__item__bg">
-            <img src="~static/images/cars-offer/vesta-bg.jpg" alt="Vesta" />
+            <img :src="'/images/cars-offer/' + car.model.slug + '-bg.jpg'" :alt="car.model.title" />
           </div>
 
           <div class="cars-offer__content__item__car">
             <nuxt-link
-              :to="
-                '/' + $store.state.city.value + '/' + 'vesta' + '/' + 'sedan'
-              "
-              :id="$store.state._page + '__models__' + 'vesta__img'"
+              :to="'/' + $store.state.city.value + '/' + car.model.slug + '/' + car.type.slug"
+              :id="$store.state._page + '__models__' + car.model.slug + '__img'"
               class="event"
             >
-              <img src="~static/images/cars-offer/vesta.png" alt="Vesta" />
+              <img :src="'/images/cars-offer/' + car.model.slug + '.png'" :alt="car.model.title" />
             </nuxt-link>
           </div>
           <h4 class="cars-offer__content__item__title">
             <nuxt-link
-              :to="'/' + $store.state.city.value + '/' + 'vesta' + '/' + 'sedan'"
-              :id="$store.state._page + '__models__' + 'vesta'"
+              :to="'/' + $store.state.city.value + '/' + car.model.slug + '/' + car.type.slug"
+              :id="$store.state._page + '__models__' + car.model.slug"
               class="event"
             >
-              Vesta
+              {{car.model.title}}
             </nuxt-link>
           </h4>
 
           <div class="cars-offer__content__item__info">
             <p class="cars-offer__content__item__info__price">
-              от 783 900 ₽
+              от {{car.price | formatPrice}} ₽
             </p>
 
             <div class="cars-offer__content__item__info__buttons">
               <a
                 class="cars-offer__content__item__info__credit"
-                :href="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  'credit' +
-                  '?car_model=Vesta&car_type=Седан'
-              "
+                :href="'/' + $store.state.city.value + '/credit?car_model=' + car.model.title +'&car_type=' + car.type.title_ru"
               >
-                <span>кредит от 5 877 ₽/мес.</span>
+                <span>кредит от {{car.credit | formatPrice}} ₽/мес.</span>
               </a>
 
 
@@ -88,7 +80,6 @@
                   {{ informerText }}
                 </p>
               </div>
-
             </div>
 
             <div class="cars-offer__content__item__info__buttons">
@@ -103,552 +94,7 @@
                     1,
                     'test_drive'
                   )
-                "
-              >
-                Записаться на тест-драйв
-              </button>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div class="cars-offer__content__item">
-          <div class="cars-offer__content__item__bg">
-            <img src="~static/images/cars-offer/granta-bg.jpg" alt="Granta" />
-          </div>
-
-          <div class="cars-offer__content__item__car">
-            <nuxt-link
-              :to="'/' + $store.state.city.value + '/' + 'granta' + '/' + 'sedan'"
-              :id="$store.state._page + '__models__' + 'granta__img'"
-              class="event"
-            >
-              <img src="~static/images/cars-offer/granta.png" alt="Granta" />
-            </nuxt-link>
-          </div>
-          <h4 class="cars-offer__content__item__title">
-            <nuxt-link
-              :to="
-                '/' + $store.state.city.value + '/' + 'granta' + '/' + 'sedan'
-              "
-              :id="$store.state._page + '__models__' + 'granta'"
-              class="event"
-            >
-              Granta
-            </nuxt-link>
-          </h4>
-
-          <div class="cars-offer__content__item__info">
-            <p class="cars-offer__content__item__info__price">
-              от 545 900 ₽
-            </p>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <a
-                class="cars-offer__content__item__info__credit"
-                :href="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  'credit' +
-                  '?car_model=Granta&car_type=Седан'
-              "
-              >
-                <span>кредит от 4 046 ₽/мес.</span>
-              </a>
-
-              <button
-                class="cars-offer__content__item__informer"
-                @click.prevent="showInformer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="#575757"
-                >
-                  <path
-                    fill="#575757"
-                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
-                  />
-                </svg>
-              </button>
-
-              <div class="cars-offer__informer-wrap">
-                <button
-                  class="cars-offer__informer-wrap__close"
-                  @click.prevent="closeInformer"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
-                    />
-                  </svg>
-                </button>
-                <p>
-                  {{ informerText }}
-                </p>
-              </div>
-            </div>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
-              >
-                Записаться на тест-драйв
-              </button>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div class="cars-offer__content__item">
-          <div class="cars-offer__content__item__bg">
-            <img src="~static/images/cars-offer/xray-bg.jpg" alt="Xray" />
-          </div>
-
-          <div class="cars-offer__content__item__car">
-            <nuxt-link
-              :to="'/' + $store.state.city.value + '/' + 'xray' + '/' + 'cross'"
-              :id="$store.state._page + '__models__' + 'xray__img'"
-              class="event"
-            >
-              <img src="~static/images/cars-offer/xray.png" alt="xray" />
-            </nuxt-link>
-          </div>
-          <h4 class="cars-offer__content__item__title">
-            <nuxt-link
-              :to="'/' + $store.state.city.value + '/' + 'xray' + '/' + 'cross'"
-              :id="$store.state._page + '__models__' + 'xray'"
-              class="event"
-            >
-              Xray
-            </nuxt-link>
-          </h4>
-
-          <div class="cars-offer__content__item__info">
-            <p class="cars-offer__content__item__info__price">
-              от 761 900 ₽
-            </p>
-
-
-            <div class="cars-offer__content__item__info__buttons">
-              <a
-                class="cars-offer__content__item__info__credit"
-                :href="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  'credit' +
-                  '?car_model=Xray&car_type=Cross'
-              "
-              >
-                <span>кредит от 5 708 ₽/мес.</span>
-              </a>
-
-              <button
-                class="cars-offer__content__item__informer"
-                @click.prevent="showInformer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="#575757"
-                >
-                  <path
-                    fill="#575757"
-                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
-                  />
-                </svg>
-              </button>
-
-              <div class="cars-offer__informer-wrap">
-                <button
-                  class="cars-offer__informer-wrap__close"
-                  @click.prevent="closeInformer"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
-                    />
-                  </svg>
-                </button>
-                <p>
-                  {{ informerText }}
-                </p>
-              </div>
-            </div>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
-              >
-                Записаться на тест-драйв
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="cars-offer__content__item">
-          <div class="cars-offer__content__item__bg">
-            <img src="~static/images/cars-offer/largus-bg.jpg" alt="Largus" />
-          </div>
-
-          <div class="cars-offer__content__item__car">
-            <nuxt-link
-              :to="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  'largus' +
-                  '/' +
-                  'universal'
-              "
-              :id="$store.state._page + '__models__' + 'largus__img'"
-              class="event"
-            >
-              <img src="~static/images/cars-offer/largus.png" alt="Largus" />
-            </nuxt-link>
-          </div>
-          <h4 class="cars-offer__content__item__title">
-            <nuxt-link
-              :to="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  'largus' +
-                  '/' +
-                  'universal'
-              "
-              :id="$store.state._page + '__models__' + 'largus'"
-              class="event"
-            >
-              Largus
-            </nuxt-link>
-          </h4>
-
-          <div class="cars-offer__content__item__info">
-            <p class="cars-offer__content__item__info__price">
-              от 768 900 ₽
-            </p>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <a
-                class="cars-offer__content__item__info__credit event"
-                :href="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  'credit' +
-                  '?car_model=Largus&car_type=Universal'
-              "
-              >
-                <span>кредит от 5 762 ₽/мес.</span>
-              </a>
-
-              <button
-                class="cars-offer__content__item__informer"
-                @click.prevent="showInformer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="#575757"
-                >
-                  <path
-                    fill="#575757"
-                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
-                  />
-                </svg>
-              </button>
-
-              <div class="cars-offer__informer-wrap">
-                <button
-                  class="cars-offer__informer-wrap__close"
-                  @click.prevent="closeInformer"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
-                    />
-                  </svg>
-                </button>
-                <p>
-                  {{ informerText }}
-                </p>
-              </div>
-            </div>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
-              >
-                Записаться на тест-драйв
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="cars-offer__content__item">
-          <div class="cars-offer__content__item__bg">
-            <img src="~static/images/cars-offer/travel-bg.jpg" alt="Niva" />
-          </div>
-
-          <div class="cars-offer__content__item__car">
-            <nuxt-link
-              :to="
-                '/' + $store.state.city.value + '/' + 'niva' + '/' + 'travel'
-              "
-              :id="$store.state._page + '__models__' + 'niva__img'"
-              class="event"
-            >
-              <img src="~static/images/cars-offer/travel.png" alt="Niva" />
-            </nuxt-link>
-          </div>
-
-          <h4 class="cars-offer__content__item__title">
-            <nuxt-link
-              :to="'/' + $store.state.city.value + '/' + 'niva' + '/' + 'travel'"
-              :id="$store.state._page + '__models__' + 'niva'"
-              class="event"
-            >
-              Niva Travel
-            </nuxt-link>
-          </h4>
-
-          <div class="cars-offer__content__item__info">
-            <p class="cars-offer__content__item__info__price">
-              от 820 900 ₽
-            </p>
-
-
-            <div class="cars-offer__content__item__info__buttons">
-              <a
-                class="cars-offer__content__item__info__credit event"
-                :href="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  'credit' +
-                  '?car_model=Niva&car_type=Niva'
-              "
-              >
-                <span>кредит от 6 162 ₽/мес.</span>
-              </a>
-
-              <button
-                class="cars-offer__content__item__informer"
-                @click.prevent="showInformer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="#575757"
-                >
-                  <path
-                    fill="#575757"
-                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
-                  />
-                </svg>
-              </button>
-
-              <div class="cars-offer__informer-wrap">
-                <button
-                  class="cars-offer__informer-wrap__close"
-                  @click.prevent="closeInformer"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
-                    />
-                  </svg>
-                </button>
-                <p>
-                  {{ informerText }}
-                </p>
-              </div>
-            </div>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
-              >
-                Записаться на тест-драйв
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="cars-offer__content__item">
-          <div class="cars-offer__content__item__bg">
-            <img src="~static/images/cars-offer/legend-bg.jpg" alt="Legend" />
-          </div>
-
-          <div class="cars-offer__content__item__car">
-            <nuxt-link
-              :to="'/' + $store.state.city.value + '/' + '4x4' + '/' + 'three-doors'"
-              :id="$store.state._page + '__models__' + '4x4'"
-              class="event"
-            >
-              <img src="~static/images/cars-offer/legend.png" alt="Legend" />
-            </nuxt-link>
-          </div>
-
-          <h4 class="cars-offer__content__item__title">
-            <nuxt-link
-              :to="'/' + $store.state.city.value + '/' + '4x4' + '/' + 'three-doors'"
-              :id="$store.state._page + '__models__' + '4x4'"
-              class="event"
-            >
-              legend
-            </nuxt-link>
-          </h4>
-
-          <div class="cars-offer__content__item__info">
-            <p class="cars-offer__content__item__info__price">
-              от 649 900 ₽
-            </p>
-
-
-            <div class="cars-offer__content__item__info__buttons">
-              <a
-                class="cars-offer__content__item__info__credit event"
-                :href="
-                '/' +
-                  $store.state.city.value +
-                  '/' +
-                  'credit' +
-                  '?car_model=4x4&car_type=3 дв.'
-              "
-              >
-                <span>кредит от 4 846 ₽/мес.</span>
-              </a>
-
-              <button
-                class="cars-offer__content__item__informer"
-                @click.prevent="showInformer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="#575757"
-                >
-                  <path
-                    fill="#575757"
-                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"
-                  />
-                </svg>
-              </button>
-
-              <div class="cars-offer__informer-wrap">
-                <button
-                  class="cars-offer__informer-wrap__close"
-                  @click.prevent="closeInformer"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"
-                    />
-                  </svg>
-                </button>
-                <p>
-                  {{ informerText }}
-                </p>
-              </div>
-            </div>
-
-            <div class="cars-offer__content__item__info__buttons">
-              <button
-                class="cars-offer__content__item__info__test-drive"
-                type="button"
-                v-on:click.prevent="
-                  show(
-                    'Записаться на тест-драйв',
-                    $store.state._page + '__modal-models-test-drive_',
-                    'Записаться',
-                    1,
-                    'test_drive'
-                  )
-                "
-              >
+                ">
                 Записаться на тест-драйв
               </button>
             </div>
@@ -659,14 +105,6 @@
 
     <modal name="form-callback3" height="auto" :adaptive="true" class="test-drive-modal">
       <div :id="form_id + '_close'" class="close event" @click="hide"></div>
-      <!--<FormBuy2Component
-        :form_title="form_title"
-        :form_id="form_id"
-        :button_text="button_text"
-        :form_type="form_type"
-        :goal="goal"
-      >
-      </FormBuy2Component>  -->
 
       <FormTestDriveOrder
         :form_id="form_id"
@@ -677,11 +115,14 @@
 </template>
 
 <script>
+import format_price from "@/mixins/format_price";
+
 export default {
   name: "CarsOffer",
+  mixins: [format_price],
   data: function() {
     return {
-      models: [],
+      cars: [],
       form_id: "",
       form_title: "",
       button_text: "",
@@ -706,11 +147,11 @@ export default {
   },
 
   async fetch() {
-    const models = await fetch(
-      process.env.apiUrl + `/api/models_list`
+    const cars = await fetch(
+      process.env.apiUrl + `/api/cars_offer`
     ).then(res => res.json());
 
-    this.models = this.models.concat(models);
+    this.cars = cars;
   },
 
   methods: {

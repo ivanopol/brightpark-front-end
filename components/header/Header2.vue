@@ -29,10 +29,10 @@
               <div class="container navigation">
                   <div class="menu-links">
                     <menu-dropdown />
-
+                    <a href="https://prodai-auto.brightpark.ru/" class="event">Продать</a>
                     <a :href="'/' + $store.state.city.value + '/service'" class="event">Сервис</a>
                     <a :href="'/' + $store.state.city.value + '/stocks'" class="event">Акции</a>
-                    <a :href="'/' + $store.state.city.value + '/credit'" class="event">Заявка на кредит</a>
+<!--                    <a :href="'/' + $store.state.city.value + '/credit'" class="event">Заявка на кредит</a>-->
                     <a :href="'/' + $store.state.city.value + '/about'" class="event">О компании</a>
                     <a :href="'/' + $store.state.city.value + '/contacts'" class="event">Контакты</a>
                   </div>

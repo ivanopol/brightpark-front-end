@@ -53,6 +53,8 @@
           buttonColor="color-secondary-background"
           :button-text="buttonText"
           class="book__form__submit"
+          :class="{ preloader: isLoading }"
+          v-bind:disabled="isButtonDisabled"
         />
       </form>
 
@@ -61,6 +63,11 @@
       <img src="~static/images/book-girl-desk.png" alt="" class="book__inner__girl">
 
     </div>
+
+    <modal name="thanks-modal" height="auto" :adaptive="true" class="thanks-modal">
+      <div id="thanks_modal_close" class="close event" @click="hide('thanks-modal')"></div>
+      <ModalThanks />
+    </modal>
   </div>
 </section>
 </template>
@@ -71,6 +78,9 @@ export default {
 
   data: function () {
     return {
+      status: true,
+      isLoading: false,
+      result: false,
       buttonText: 'Забронировать',
       phone: '',
       name: '',
@@ -82,6 +92,13 @@ export default {
     }
   },
   computed: {
+    isButtonDisabled: function() {
+      if (this.isLoading) {
+        return true;
+      } else {
+        return !this.status;
+      }
+    },
     url: function () {
       return {
         href: window.location.href,
@@ -90,6 +107,15 @@ export default {
     },
   },
   methods: {
+    show(modal) {
+      this.$modal.show(modal);
+      document.body.style.overflow = 'hidden';
+    },
+
+    hide(modal) {
+      this.$modal.hide(modal);
+      document.body.style.overflow = 'unset';
+    },
     focusedInput (field) {
       if (field === 'name') {
         this.name = ' ';
@@ -138,6 +164,8 @@ export default {
           } catch (err) {
             console.log(err);
           }
+
+          this.$modal.show('thanks-modal');
           return {};
         })
         .catch(error => {
@@ -298,6 +326,7 @@ export default {
 }
 
 .book__form__submit {
+  position: relative;
   height: 60px;
 
   @media (min-width: 1024px) {

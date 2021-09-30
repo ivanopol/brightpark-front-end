@@ -192,6 +192,8 @@
       <ButtonNew
         button-text="Получить код"
         class="evaluate__form__submit"
+        :class="{ preloader: isLoading }"
+        v-bind:disabled="isButtonDisabled"
       />
     </form>
   </div>
@@ -240,6 +242,9 @@ export default {
 
   data: function() {
     return {
+      status: true,
+      isLoading: false,
+      result: false,
       name: '',
       phone: '',
       messangerPhone: '79223066403',
@@ -280,6 +285,9 @@ export default {
             } catch (err) {
               console.log(err);
             }
+            this.$modal.hide('form-evaluate');
+            document.body.style.overflow = 'unset';
+            this.$emit('result', true);
             return {};
           })
           .catch(error => {
@@ -329,6 +337,13 @@ export default {
   },
 
   computed: {
+    isButtonDisabled: function() {
+      if (this.isLoading) {
+        return true;
+      } else {
+        return !this.status;
+      }
+    },
     message: function () {
       return 'Привет, оцените автомобиль:\n' +
                     this.mark + ' ' + this.model + ' ' + this.modification + '\n' +

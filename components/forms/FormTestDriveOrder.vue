@@ -1,99 +1,110 @@
 <template>
   <div class="test-drive">
     <h4 class="test-drive__heading" v-text="form_title"/>
-    <form
-      action="#"
-      class="test-drive__form"
-      @submit="send"
-      method="POST"
-      :id="form_id"
-      :data-goal="goal"
-    >
-      <input
-        type="text"
-        placeholder="Ваше имя"
-        name="name"
-        v-model="fields.name"
-        required
-      />
-      <the-mask
-        :id="form_id + '_input_phone'"
-        pattern=".{18,}"
-        mask="+# (###)-###-##-##"
-        v-model="fields.phone"
-        type="tel"
-        required="true"
-        placeholder="Номер телефона"
-      ></the-mask>
-
-      <div class="test-drive__form__row">
-        <v-date-picker
-          :popover="{ visibility: 'click' }"
-          :min-date='new Date()'
-          v-model="fields.date"
-          :input-debounce="500"
-          :locale="calendarLocale"
-          class="test-drive__form__row__date"
-        >
-          <template v-slot="{ inputValue, inputEvents }">
-            <input
-              class="bg-white border px-2 py-1 rounded"
-              :value="inputValue"
-              v-on="inputEvents"
-            />
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path
-                d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z"
-              />
-            </svg>
-          </template>
-        </v-date-picker>
-
-        <the-mask
+    <div v-if="!result">
+      <form
+        action="#"
+        class="test-drive__form"
+        @submit="send"
+        method="POST"
+        :id="form_id"
+        :data-goal="goal"
+      >
+        <input
           type="text"
-          placeholder="Удобное время"
-          pattern=".{5,}"
-          :masked="true"
-          mask="##:##"
-          v-model="fields.time"
-        />
-      </div>
-
-      <div class="test-drive__form__select-wrap">
-        <v-select
+          placeholder="Ваше имя"
+          name="name"
+          v-model="fields.name"
           required
-          class="test-drive__form__select"
-          :options="cars"
-          placeholder="Выберите автомобиль"
-          taggable
-          v-model="fields.car"
-          :searchable="false"
-          :multiple="false"
-        >
-        </v-select>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"
+        />
+        <the-mask
+          :id="form_id + '_input_phone'"
+          pattern=".{18,}"
+          mask="+# (###)-###-##-##"
+          v-model="fields.phone"
+          type="tel"
+          required="true"
+          placeholder="Номер телефона"
+        ></the-mask>
+
+        <div class="test-drive__form__row">
+          <v-date-picker
+            :popover="{ visibility: 'click' }"
+            :min-date='new Date()'
+            v-model="fields.date"
+            :input-debounce="500"
+            :locale="calendarLocale"
+            class="test-drive__form__row__date"
+          >
+            <template v-slot="{ inputValue, inputEvents }">
+              <input
+                class="bg-white border px-2 py-1 rounded"
+                :value="inputValue"
+                v-on="inputEvents"
+              />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z"
+                />
+              </svg>
+            </template>
+          </v-date-picker>
+
+          <the-mask
+            type="text"
+            placeholder="Удобное время"
+            pattern=".{5,}"
+            :masked="true"
+            mask="##:##"
+            v-model="fields.time"
           />
-        </svg>
-      </div>
+        </div>
 
-      <button class="test-drive__form__submit">
-        Записаться
-      </button>
+        <div class="test-drive__form__select-wrap">
+          <v-select
+            required
+            class="test-drive__form__select"
+            :options="cars"
+            placeholder="Выберите автомобиль"
+            taggable
+            v-model="fields.car"
+            :searchable="false"
+            :multiple="false"
+          >
+          </v-select>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"
+            />
+          </svg>
+        </div>
 
-      <p class="test-drive__form__privacy">
-        Нажимая на кнопку "Записаться", вы соглашаетесь с
-        <span>
-          <a :href="'/' + $store.state.city.value + '/privacy'" class="event" target="_blank">Политикой конфиденциальности</a>
-        </span>
+        <button
+          class="test-drive__form__submit"
+          :class="{ preloader: isLoading }"
+          v-bind:disabled="isButtonDisabled"
+        >
+          Записаться
+        </button>
+
+        <p class="test-drive__form__privacy">
+          Нажимая на кнопку "Записаться", вы соглашаетесь с
+          <span>
+            <a :href="'/' + $store.state.city.value + '/privacy'" class="event" target="_blank">Политикой конфиденциальности</a>
+          </span>
+        </p>
+      </form>
+    </div>
+    <div v-else-if="result">
+      <p class="test-drive__desc">Благодарим Вас за&nbsp;обращение.<br>
+        Мы&nbsp;свяжемся в&nbsp;Вами в&nbsp;ближайшее время
       </p>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -120,12 +131,14 @@ export default {
   },
   data: function() {
     return {
+      status: true,
+      isLoading: false,
+      result: false,
       success: false,
       error: false,
       calendarLocale: 'ru-RU',
       selectedCar: "",
       bitrix_responsible: "",
-      status: true,
       cars: [
         "Granta SD AT",
         "Largus Cross",
@@ -161,6 +174,7 @@ export default {
   methods: {
     send: function(event) {
       event.preventDefault();
+      this.isLoading = true;
 
       let formData = {
         phone: this.clearMask(this.fields.phone),
@@ -186,16 +200,18 @@ export default {
         data: formData
       })
         .then(response => {
-          this.clearInput();
-          this.success = true;
-          this.status = true;
-          //console.log(window);
-          try {
-            this.sendGoals(this.goal);
-          } catch (err) {
-            console.log(err);
-          }
-          return {};
+           this.clearInput();
+           this.success = true;
+          this.isLoading = false;
+           this.status = true;
+           //console.log(window);
+           try {
+             this.sendGoals(this.goal);
+           } catch (err) {
+             console.log(err);
+           }
+           this.result = true
+           return {};
         })
         .catch(error => {
           this.error = true;
@@ -276,6 +292,31 @@ export default {
 </script>
 
 <style lang="scss">
+
+form button.preloader {
+  color: rgba(255, 255, 255, 0);
+  &:after {
+    content: "";
+    background: url(~static/images/icons/animations/dots.svg) no-repeat center center;
+    z-index: 10;
+    height: 18px;
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+}
+
+.test-drive__desc {
+  font-size: 18px;
+  line-height: 26px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  color: rgba(0, 0, 0, .7);
+  font-family: "Factor A";
+}
+
 .test-drive {
   padding: 30px 50px;
   background: white;
@@ -383,8 +424,14 @@ export default {
   color: #514ea1;
   transition: 0.2s;
   margin: 20px 0 10px;
+  position: relative;
 
-  &:hover {
+  &:disabled {
+    background: #ffca0d !important;
+    cursor: default;
+  }
+
+  &:not(:disabled):hover {
     opacity: 0.6;
     transition: 0.2s;
     background: #ffca0d;

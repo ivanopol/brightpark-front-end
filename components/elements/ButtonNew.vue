@@ -9,7 +9,7 @@ export default {
   name: "ButtonNew",
   props: {
     buttonText: {
-      default: 'Ыы',
+      default: '',
       type: String
     },
     width: {
@@ -85,6 +85,22 @@ button {
   &:hover {
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     transition: .2s ease;
+  }
+
+  .preloader {
+    color: rgba(255, 255, 255, 0);
+
+    &:after {
+      content: "";
+      background: url(~static/images/icons/animations/dots-green.svg) no-repeat center center;
+      z-index: 10;
+      height: 18px;
+      display: block;
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+    }
   }
 }
 
