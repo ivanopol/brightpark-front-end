@@ -208,6 +208,21 @@ export default Vue.extend({
     },
   },
   methods: {
+    changeTheme: function() {
+      let theme = ''
+      switch (this.$route.params.models) {
+        case 'granta':
+          theme = 'theme-01'
+        break;
+        case 'vesta':
+          theme = 'theme-02'
+        break;
+        default:
+          theme = 'theme-01'
+        break;
+      }
+      return theme
+    },
     getHit: function() {
       if (this.model.model.slug === 'granta' && this.model.type.slug === 'sedan') {
         return true
@@ -226,7 +241,7 @@ export default Vue.extend({
     },
   },
   created() {
-    //this.theme = this.themes[this.$route.params.model]
+    this.theme = this.changeTheme()
 
     if(this.$cookies.get('count') === undefined) {
       this.count = this.getRandomInt(7, 15)
