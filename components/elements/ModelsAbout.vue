@@ -12,7 +12,7 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="path + '/mobile/' + about.exterior.image + '.png'" alt="">
+            <img :src="path + '/mobile/' + about.exterior.image_mobile" alt="">
 
             <div class="models-about__item__inner__text">
               <p>
@@ -31,7 +31,7 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="path + '/mobile/' + about.interior.image + '.png'" alt="">
+            <img :src="path + '/mobile/' + about.interior.image_mobile" alt="">
 
             <div class="models-about__item__inner__text">
               <p>
@@ -51,7 +51,7 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="path + '/mobile/' + about.comfort.image + '.png'" alt="">
+            <img :src="path + '/mobile/' + about.comfort.image_mobile" alt="">
 
             <div class="models-about__item__inner__text">
               <p>
@@ -71,7 +71,7 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="path + '/mobile/' + about.safety.image + '.png'" alt="">
+            <img :src="path + '/mobile/' + about.safety.image_mobile" alt="">
 
             <div class="models-about__item__inner__text">
               <p>
@@ -144,7 +144,7 @@ export default {
   name: "ModelsAbout",
   props: {
     about: {
-      type: Array,
+      type: Object,
     },
   },
   data: function () {
@@ -172,7 +172,7 @@ export default {
     },
 
     currentBackground() {
-      return this.path + '/' + this.about[this.currentWidget].image + '.jpg'
+      return this.path + '/' + this.about[this.currentWidget].image
     },
   },
 
