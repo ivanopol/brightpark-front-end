@@ -7,24 +7,25 @@
         <ModelsBannerNew
           class="models-banner"
           :colors="model.colors"
-          :prices="model.car_attrs"
-          :model="model.model"
-          :type="model.type"
+          :prices="model.price"
+          :model="model.model.title"
+          :type="model.type.title_ru"
           @scrollTo="scrollToCredit"
-          :isHit="model.model_slug === 'granta' && model.type_slug === 'sedan' ? true : false"
+          :isHit="getHit()"
         />
 
-        <TestDriveBanner />
+        <TestDriveBanner :model="model.model.title" :type="model.type.title_ru"/>
         <AdvantagesNew class="models-advantages"/>
-        <ModelsFeatures/>
-        <ModelsEquipments class="equipments-block" :complectations="complectations"/>
-        <TradeInFormNew />
-        <ModelsAbout
-          :model="model.model_slug"
-          :cars-body="model.type_slug"
-        />
-        <CreditNew id="creditCalc" :equipments="complectations"/>
-        <ModelsWarranty />
+        <ModelsFeatures :features="model.features"/>
+        <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
+        <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
+        <ModelsAbout :about="model.about" />
+        <CreditNew id="creditCalc"
+                   :model="model.model.title"
+                   :type="model.type.title_ru"
+                   :equipments="model.complectations"/>
+        <ModelsWarranty :model="model.model.title"
+                        :type="model.type.title_ru"/>
         <BookCarNew class="book-section"/>
       </div>
 
@@ -78,393 +79,15 @@ export default Vue.extend({
     return {
       new_design: false,
       model: '',
+      car_title: '',
       seo: {},
       count: 0,
       isHitOfSales: false,
       theme: 'theme-01',
-      themes: {
-        'drive-active': 'theme-01',
-        hatchback: 'theme-02',
-        liftback: 'theme-03',
-        sedan: 'theme-04',
-        universal: 'theme-05',
-      },
-      complectations: {
-        drive_active: [
-          {
-            id: 1,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5МТ',
-            title: 'Comfort Light',
-            price: 719900,
-          },
-          {
-            id: 2,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5МТ',
-            title: 'Comfort',
-            price: 726900,
-          },
-        ],
-        hatchback: [
-          {
-            id: 1,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5МТ',
-            title: 'Classic',
-            price: 577500,
-          },
-          {
-            id: 2,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5МТ',
-            title: 'Comfort Light',
-            price: 618500,
-          },
-          {
-            id: 3,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5МТ',
-            title: 'Comfort',
-            price: 625500,
-          },
-          {
-            id: 4,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '98 л.с.',
-            transmission: '4AТ',
-            title: 'Comfort',
-            price: 715500,
-          },
-          {
-            id: 5,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '98 л.с.',
-            transmission: '4AТ',
-            title: 'Luxe',
-            price: 759800,
-          },
-        ],
-        liftback: [
-          {
-            id: 1,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Standard',
-            price: 553900,
-          },
-          {
-            id: 2,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Classic',
-            price: 582500,
-          },
-          {
-            id: 3,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Comfort Light',
-            price: 623500,
-          },
-          {
-            id: 4,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Comfort',
-            price: 630500,
-          },
-          {
-            id: 5,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: '#CLUB',
-            price: 652900,
-          },
-          {
-            id: 6,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Luxe',
-            price: 674800,
-          },
-          {
-            id: 7,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5MT',
-            title: 'Comfort Light',
-            price: 648500,
-          },
-          {
-            id: 8,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5MT',
-            title: 'Comfort',
-            price: 655500,
-          },
-          {
-            id: 9,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5MT',
-            title: '#CLUB',
-            price: 677900,
-          },
-          {
-            id: 10,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5MT',
-            title: 'Luxe',
-            price: 699800,
-          },
-          {
-            id: 11,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '98 л.с.',
-            transmission: '4AT',
-            title: 'Comfort',
-            price: 720500,
-          },
-          {
-            id: 12,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '98 л.с.',
-            transmission: '4AT',
-            title: 'Luxe',
-            price: 764800,
-          },
-        ],
-        sedan: [
-          {
-            id: 1,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Standard',
-            price: 531900,
-          },
-          {
-            id: 2,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Classic',
-            price: 562500,
-          },
-          {
-            id: 3,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Comfort Light',
-            price: 603500,
-          },
-          {
-            id: 4,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Comfort',
-            price: 610500,
-          },
-          {
-            id: 5,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: '#CLUB',
-            price: 632900,
-          },
-          {
-            id: 6,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Luxe',
-            price: 654800,
-          },
-          {
-            id: 7,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5MT',
-            title: 'Comfort Light',
-            price: 628500,
-          },
-          {
-            id: 8,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5MT',
-            title: 'Comfort',
-            price: 635500,
-          },
-          {
-            id: 9,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5MT',
-            title: '#CLUB',
-            price: 657900,
-          },
-          {
-            id: 10,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5MT',
-            title: 'Luxe',
-            price: 679800,
-          },
-          {
-            id: 11,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '98 л.с.',
-            transmission: '4AT',
-            title: 'Comfort Light',
-            price: 693500,
-          },
-          {
-            id: 12,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '98 л.с.',
-            transmission: '4AT',
-            title: 'Comfort',
-            price: 700500,
-          },
-          {
-            id: 13,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '98 л.с.',
-            transmission: '4AT',
-            title: 'Luxe',
-            price: 744800,
-          },
-        ],
-        universal: [
-          {
-            id: 1,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Standard',
-            price: 560900,
-          },
-          {
-            id: 2,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Classic',
-            price: 589500,
-          },
-          {
-            id: 3,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Comfort Light',
-            price: 630500,
-          },
-          {
-            id: 4,
-            engine: '1,6 л',
-            flap: '8-кл.',
-            capacity: '90 л.с.',
-            transmission: '5MT',
-            title: 'Comfort',
-            price: 637500,
-          },
-          {
-            id: 5,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5MT',
-            title: 'Comfort',
-            price: 662500,
-          },
-          {
-            id: 6,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '106 л.с.',
-            transmission: '5MT',
-            title: 'Luxe',
-            price: 706800,
-          },
-          {
-            id: 7,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '98 л.с.',
-            transmission: '4AT',
-            title: 'Comfort',
-            price: 727500,
-          },
-          {
-            id: 8,
-            engine: '1,6 л',
-            flap: '16-кл.',
-            capacity: '98 л.с.',
-            transmission: '4AT',
-            title: 'Luxe',
-            price: 771800,
-          },
-        ]
-      }
     }
   },
   layout (context) {
-    return context.route.params.models === 'granta' ? 'model_new' : 'model'
+    return context.route.params.models === 'granta' || context.route.params.models === 'vesta' ? 'model_new' : 'model'
   },
   validate: function ({params, store}) {
     let validate_city = false
@@ -481,28 +104,44 @@ export default Vue.extend({
     return validate_city && validate_model && validate_type
   },
   async asyncData(context) {
+    let new_design = false
+    let model = {}
+    let car_title = ''
+    let car = {}
+
     context.store.commit('set_page', 'model')
     context.store.commit('set_bg', '')
-    const model = await context.$axios.$get(
-      process.env.apiUrl + `/api/model?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
-    )
 
-    let new_design = false
-    if (context.route.params.models === 'granta') {
+    if (context.route.params.models === 'granta' || context.route.params.models === 'vesta' ) {
       new_design = true
+      model = await context.$axios.$get(
+        process.env.apiUrl + `/api/model_new?&city=${context.route.params.city}&model=${context.route.params.models}&type=${context.route.params.model}`
+      )
+      car_title = model.model.title + ' ' + model.type.title
+      car = {
+        model_full: car_title,
+        url: '/' + context.route.params.city + '/' + model.model.slug + '/' + model.type.slug + '/model-details'
+      }
+    } else {
+      model = await context.$axios.$get(
+        process.env.apiUrl + `/api/model?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
+      )
+      car_title = model.model_full
+      car = {
+        model_full: car_title,
+        url: '/' + context.route.params.city + '/' + model.model_slug + '/' + model.type_slug + '/model-details'
+      }
     }
 
-    let car = {
-      model_full: model.model_full,
-      url: '/' + context.route.params.city + '/' + model.model_slug + '/' + model.type_slug + '/model-details'
-    }
     context.store.commit('set_car', car)
 
     const seo = await context.$axios.$post(process.env.apiUrl + `/api/get_meta_tags`, {
       route: context.route.fullPath
     })
 
-    return { model: model, seo: seo, new_design: new_design }
+
+
+    return { model: model, seo: seo, new_design: new_design, car_title: car_title }
   },
   head() {
     if (Object.keys(this.seo).length == 0) {
@@ -511,7 +150,7 @@ export default Vue.extend({
 
     let image = this.seo.images
 
-    if (this.model.colors.lenght) {
+    if (this.model.colors.length) {
       image = this.model.colors[0].image
     }
 
@@ -569,6 +208,29 @@ export default Vue.extend({
     },
   },
   methods: {
+    changeTheme: function() {
+      let theme = ''
+      switch (this.$route.params.models) {
+        case 'granta':
+          theme = 'theme-01'
+        break;
+        case 'vesta':
+          theme = 'theme-02'
+        break;
+        default:
+          theme = 'theme-01'
+        break;
+      }
+      return theme
+    },
+    getHit: function() {
+      if (this.model.model.slug === 'granta' && this.model.type.slug === 'sedan') {
+        return true
+      } else if (this.model.model.slug === 'vesta' && this.model.type.slug === 'sedan') {
+        return true
+      }
+      return false
+    },
     getRandomInt: function (min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
     },
@@ -579,7 +241,7 @@ export default Vue.extend({
     },
   },
   created() {
-    //this.theme = this.themes[this.$route.params.model]
+    this.theme = this.changeTheme()
 
     if(this.$cookies.get('count') === undefined) {
       this.count = this.getRandomInt(7, 15)

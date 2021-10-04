@@ -26,37 +26,18 @@
 <script>
 export default {
   name: "ModelsWarranty",
+  props: {
+    model: String,
+    type: String,
+  },
   data: function () {
     return {
       path: '/images/warranty/',
       filename: '',
-      models: {
-        drive_active: 'warranty_granta_drive-active.png',
-        hatchback: 'warranty_granta_hatchback.png',
-        liftback: 'warranty_granta_liftback.png',
-        sedan: 'warranty_granta_sedan.png',
-        universal: 'warranty_granta_universal.png',
-      }
     }
   },
   created() {
-    switch (this.$route.params.model) {
-      case 'drive-active':
-        this.filename = this.models.drive_active
-        break;
-      case 'hatchback':
-        this.filename = this.models.hatchback
-        break;
-      case 'liftback':
-        this.filename = this.models.liftback
-        break;
-      case 'sedan':
-        this.filename = this.models.sedan
-        break;
-      case 'universal':
-        this.filename = this.models.universal
-        break;
-    }
+    this.filename = this.$route.params.models +  '/' + this.$route.params.model + '.png'
   },
 }
 </script>

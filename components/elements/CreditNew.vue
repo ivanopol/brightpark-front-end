@@ -7,7 +7,7 @@
 
           <div class="credit__inner__text">
             <h2 class="credit__inner__title">
-              Рассчитайте кредит на&nbsp;покупку LADA Granta
+              Рассчитайте кредит на&nbsp;покупку LADA {{model}}
             </h2>
 
             <p class="credit__inner__desc">
@@ -273,41 +273,14 @@ export default {
   },
 
   props: {
-    equipments: Object,
+    model: String,
+    type: String,
+    equipments: Array,
   },
 
   data: function () {
     return {
       path: {},
-      images: {
-        granta: {
-          'drive-active': {
-            title: 'Granta Drive Active',
-            desktop: '/images/credit-section/granta/drive_active/photo_desktop.png',
-            mobile: '/images/credit-section/granta/drive_active/photo_mobile.png',
-          },
-          sedan: {
-            title: 'Granta Седан',
-            desktop: '/images/credit-section/granta/sedan/photo_desktop.png',
-            mobile: '/images/credit-section/granta/sedan/photo_mobile.png',
-          },
-          liftback: {
-            title: 'Granta Лифтбек',
-            desktop: '/images/credit-section/granta/liftback/photo_desktop.png',
-            mobile: '/images/credit-section/granta/liftback/photo_mobile.png',
-          },
-          hatchback: {
-            title: 'Granta Хэтчбэк',
-            desktop: '/images/credit-section/granta/hatchback/photo_desktop.png',
-            mobile: '/images/credit-section/granta/hatchback/photo_mobile.png',
-          },
-          universal: {
-            title: 'Granta Хэтчбэк',
-            desktop: '/images/credit-section/granta/universal/photo_desktop.png',
-            mobile: '/images/credit-section/granta/universal/photo_mobile.png',
-          },
-        }
-      },
       form_id: '',
       form_title: '',
       form_type: 1,
@@ -861,25 +834,13 @@ export default {
   },
 
   created() {
-    this.path = this.images[this.$route.params.models][this.$route.params.model]
-
-    switch(this.$route.params.model) {
-      case 'drive-active':
-        this.params = this.equipments.drive_active
-        break;
-      case 'hatchback':
-        this.params = this.equipments.hatchback
-        break;
-      case 'liftback':
-        this.params = this.equipments.liftback
-        break;
-      case 'sedan':
-        this.params = this.equipments.sedan
-        break;
-      case 'universal':
-        this.params = this.equipments.universal
-        break;
+    this.path = {
+      title: this.model + ' ' + this.type,
+      desktop: '/images/credit-section/' + this.$route.params.models + '/' + this.$route.params.model.replace("-", "_") + '/photo_desktop.png',
+      mobile: '/images/credit-section/' + this.$route.params.models + '/' + this.$route.params.model.replace("-", "_") + '/photo_mobile.png',
     }
+
+    this.params = this.equipments
   }
 }
 </script>

@@ -295,40 +295,14 @@ import format_price from "@/mixins/format_price";
 export default {
   mixins: [format_price],
   name: "TradeInFormNew",
-
+  props: {
+    model: String,
+    type: String,
+  },
   data: function () {
     return {
       isProduction: process.env.NODE_ENV === 'production',
       path: {},
-      images: {
-        granta: {
-          'drive-active': {
-            title: 'Granta Drive Active',
-            desktop: '/images/trade-in-form/granta/drive_active/photo_desktop.png',
-            mobile: '/images/trade-in-form/granta/drive_active/photo_mobile.png',
-          },
-          sedan: {
-            title: 'Granta Седан',
-            desktop: '/images/trade-in-form/granta/sedan/photo_desktop.png',
-            mobile: '/images/trade-in-form/granta/sedan/photo_mobile.png',
-          },
-          liftback: {
-            title: 'Granta Лифтбек',
-            desktop: '/images/trade-in-form/granta/liftback/photo_desktop.png',
-            mobile: '/images/trade-in-form/granta/liftback/photo_mobile.png',
-          },
-          hatchback: {
-            title: 'Granta Хэтчбэк',
-            desktop: '/images/trade-in-form/granta/hatchback/photo_desktop.png',
-            mobile: '/images/trade-in-form/granta/hatchback/photo_mobile.png',
-          },
-          universal: {
-            title: 'Granta Хэтчбэк',
-            desktop: '/images/trade-in-form/granta/universal/photo_desktop.png',
-            mobile: '/images/trade-in-form/granta/universal/photo_mobile.png',
-          },
-        }
-      },
       isOfflineWidget: false,
       allMarks: [],
       allModels: [],
@@ -778,7 +752,11 @@ export default {
     }
   },
   created() {
-     this.path = this.images[this.$route.params.models][this.$route.params.model]
+    this.path = {
+      title: this.model + ' ' + this.type,
+      desktop: '/images/trade-in-form/' + this.$route.params.models + '/' + this.$route.params.model.replace("-", "_") + '/photo_desktop.png',
+      mobile: '/images/trade-in-form/' + this.$route.params.models + '/' + this.$route.params.model.replace("-", "_") + '/photo_mobile.png',
+    }
   },
 
   async fetch() {

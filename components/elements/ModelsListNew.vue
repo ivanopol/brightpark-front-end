@@ -92,16 +92,6 @@ export default {
     .container {
       overflow: visible;
       position: relative;
-
-/*      &:after {
-        content: "";
-        position: absolute;
-        right: -350px;
-        top: -17px;
-        width: 576px;
-        height: 249px;
-        display: block;
-      }*/
     }
 
   }

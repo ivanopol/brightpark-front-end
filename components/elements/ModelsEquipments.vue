@@ -18,32 +18,32 @@
 
         <div
           class="equipments__items__item"
-          v-for="param in params"
-          :key="param.id"
-          v-if="params.indexOf(param) <= 5 ? true : isShowAll"
+          v-for="complectation in complectations"
+          :key="complectation.id"
+          v-if="complectations.indexOf(complectation) <= 5 ? true : isShowAll"
         >
           <div class="equipments__items__item__option">
             <h5>Двигатель</h5>
-            <p>{{param.engine}} <span>{{param.flap}}</span></p>
+            <p>{{complectation.engine}} <span>{{complectation.flap}}</span></p>
           </div>
 
           <div class="equipments__items__item__option">
             <h5>Мощность</h5>
-            <p>{{param.capacity}}</p>
+            <p>{{complectation.capacity}}</p>
           </div>
 
           <div class="equipments__items__item__option">
             <h5>Коробка передач</h5>
             <p>
-              {{ param.transmission }}
+              {{ complectation.transmission }}
             </p>
           </div>
 
           <div class="equipments__items__item__option">
             <h5>Комплектация</h5>
             <p>
-              {{param.title}}
-              <span v-if="param.title === '#CLUB' ? true : false">
+              {{complectation.title}}
+              <span v-if="complectation.title === '#CLUB' ? true : false">
                 Специальная серия
               </span>
             </p>
@@ -51,7 +51,7 @@
 
           <div class="equipments__items__item__option">
             <h5>Цена</h5>
-            <p class="equipments__items__item__option__price color-primary-color">{{param.price | formatPrice}} ₽</p>
+            <p class="equipments__items__item__option__price color-primary-color">{{complectation.price | formatPrice}} ₽</p>
           </div>
 
           <div class="equipments__items__item__option">
@@ -65,8 +65,8 @@
                     $store.state._page + '__modal-banner-new_',
                     1,
                     'model_complectations_modal-request',
-                    $store.state.car.model_full + '. Двигатель: ' + param.engine + ', ' + param.flap + ', Мощность: ' + param.capacity + ', Коробка передач: '
-                    + param.transmission + ', Комплектаци: ' + param.title + ', Цена: ' + param.price + ' руб.'
+                    $store.state.car.model_full + '. Двигатель: ' + complectation.engine + ', ' + complectation.flap + ', Мощность: ' + complectation.capacity + ', Коробка передач: '
+                    + complectation.transmission + ', Комплектаци: ' + complectation.title + ', Цена: ' + complectation.price + ' руб.'
                   )"
             />
           </div>
@@ -77,7 +77,7 @@
         class="equipments__show-more"
         type="button"
         @click="isShowAll = !isShowAll"
-        v-if="params.length > 6"
+        v-if="complectations.length > 6"
       >
         {{ isShowAll ? 'скрыть' : 'показать ещё' }}
       </button>
@@ -114,7 +114,7 @@ export default {
   props: {
     complectations: {
       default: {},
-      type: Object
+      type: Array
     }
   },
   data: function () {
@@ -143,28 +143,7 @@ export default {
     },
   },
   created() {
-    switch(this.$route.params.model) {
-      case 'drive-active':
-        this.params = this.complectations.drive_active
-        this.path = '/files/complectations_granta_drive_active.pdf'
-        break;
-      case 'hatchback':
-        this.params = this.complectations.hatchback
-        this.path = '/files/complectations_granta_hatchback.pdf'
-        break;
-      case 'liftback':
-        this.params = this.complectations.liftback
-        this.path = '/files/complectations_granta_liftback.pdf'
-        break;
-      case 'sedan':
-        this.params = this.complectations.sedan
-        this.path = '/files/complectations_granta_sedan.pdf'
-        break;
-      case 'universal':
-        this.params = this.complectations.universal
-        this.path = '/files/complectations_granta_universal.pdf'
-        break;
-    }
+    this.path =  '/files/complectations_' + this.$route.params.models + '_' + this.$route.params.model.replace("-", "_") + '.pdf'
   }
 }
 </script>
@@ -236,7 +215,7 @@ export default {
     }
 
     @media (min-width: 1367px) {
-      grid-template-columns: 160px 160px 180px 300px 140px 100px;
+      grid-template-columns: 160px 160px 180px 290px 150px 100px;
       padding: 20px;
       transition: .2s ease;
       position: relative;
