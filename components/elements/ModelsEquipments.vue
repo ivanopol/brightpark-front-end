@@ -215,7 +215,7 @@ export default {
     }
 
     @media (min-width: 1367px) {
-      grid-template-columns: 160px 160px 180px 300px 140px 100px;
+      grid-template-columns: 160px 160px 180px 290px 150px 100px;
       padding: 20px;
       transition: .2s ease;
       position: relative;
