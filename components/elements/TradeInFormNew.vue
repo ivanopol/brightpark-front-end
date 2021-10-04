@@ -2,7 +2,7 @@
 <section class="trade-in">
   <div class="container trade-in__container">
 
-    <div class="trade-in__wrapper color-primary-background">
+    <div :class="'trade-in__wrapper ' + backgroundClassPrimary">
       <div class="trade-in__head">
 
         <picture>
@@ -77,7 +77,7 @@
             </div>
 
             <ButtonNew
-              buttonColor="color-primary-background"
+              :buttonColor="backgroundClassPrimary"
               :button-text="'Оставить заявку'"
               :button-color="'#514EA1'"
               class="trade-in__form__offline__submit"
@@ -240,7 +240,7 @@
             </div>
 
             <ButtonNew
-              buttonColor="color-primary-background"
+              :buttonColor="backgroundClassPrimary"
               :button-text="submitButtonText"
               :button-color="'#514EA1'"
               class="trade-in__form__offline__submit"
@@ -301,6 +301,8 @@ export default {
   },
   data: function () {
     return {
+      backgroundClassPrimary: 'color-primary-background',
+      backgroundClassSecondary: '',
       isProduction: process.env.NODE_ENV === 'production',
       path: {},
       isOfflineWidget: false,
@@ -752,6 +754,10 @@ export default {
     }
   },
   created() {
+    if (this.$route.params.models === 'vesta') {
+      this.backgroundClassPrimary = 'color-secondary-background'
+    }
+
     this.path = {
       title: this.model + ' ' + this.type,
       desktop: '/images/trade-in-form/' + this.$route.params.models + '/' + this.$route.params.model.replace("-", "_") + '/photo_desktop.png',
