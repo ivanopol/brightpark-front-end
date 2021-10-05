@@ -13,20 +13,20 @@
           @scrollTo="scrollToCredit"
           :isHit="getHit()"
         />
-
-        <TestDriveBanner :model="model.model.title" :type="model.type.title_ru"/>
-        <AdvantagesNew class="models-advantages"/>
-        <ModelsFeatures :features="model.features"/>
-        <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
-        <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
-        <ModelsAbout :about="model.about" />
-        <CreditNew id="creditCalc"
-                   :model="model.model.title"
-                   :type="model.type.title_ru"
-                   :equipments="model.complectations"/>
-        <ModelsWarranty :model="model.model.title"
-                        :type="model.type.title_ru"/>
-        <BookCarNew class="book-section"/>
+        <!--
+                <TestDriveBanner :model="model.model.title" :type="model.type.title_ru"/>
+                <AdvantagesNew class="models-advantages"/>
+                <ModelsFeatures :features="model.features"/>
+                <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
+                <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
+                <ModelsAbout :about="model.about" />
+                <CreditNew id="creditCalc"
+                           :model="model.model.title"
+                           :type="model.type.title_ru"
+                           :equipments="model.complectations"/>
+                <ModelsWarranty :model="model.model.title"
+                                :type="model.type.title_ru"/>
+                <BookCarNew class="book-section"/>-->
       </div>
 
       <div v-else>
@@ -87,7 +87,7 @@ export default Vue.extend({
     }
   },
   layout (context) {
-    return context.route.params.models === 'granta' || context.route.params.models === 'vesta' ? 'model_new' : 'model'
+    return context.route.params.models === 'granta' || context.route.params.models === 'vesta' || context.route.params.models === 'xray' ? 'model_new' : 'model'
   },
   validate: function ({params, store}) {
     let validate_city = false
@@ -112,7 +112,7 @@ export default Vue.extend({
     context.store.commit('set_page', 'model')
     context.store.commit('set_bg', '')
 
-    if (context.route.params.models === 'granta' || context.route.params.models === 'vesta' ) {
+    if (context.route.params.models === 'granta' || context.route.params.models === 'vesta' || context.route.params.models === 'xray') {
       new_design = true
       model = await context.$axios.$get(
         process.env.apiUrl + `/api/model_new?&city=${context.route.params.city}&model=${context.route.params.models}&type=${context.route.params.model}`
