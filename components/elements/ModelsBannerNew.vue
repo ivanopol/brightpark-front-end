@@ -265,6 +265,10 @@ export default {
   cursor: pointer;
 
   &.color- {
+    &gray-plateau {
+      background-color: #E8F0F2;
+    }
+
     &blue-planet {
       background-color: #0057ae;
     }
