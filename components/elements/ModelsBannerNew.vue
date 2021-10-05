@@ -33,7 +33,7 @@
         </div>
 
         <div class="banner__inner__info">
-          <h1>Новая LADA {{ model }} {{ type }} в {{ $store.state.city.dative }}</h1>
+          <h1>Новая LADA {{ carName }} в {{ $store.state.city.dative }}</h1>
           <p class="banner__inner__info__price color-secondary-color">от {{ prices.value | formatPrice }} ₽</p>
           <div class="banner__inner__info__credit">
             <p>Или в кредит <span> от {{ prices.credit | formatPrice }} ₽ / месяц </span></p>
@@ -158,6 +158,11 @@ export default {
     }
   },
 
+  computed: {
+    carName: function() {
+      return this.model === this.type ? this.model : this.model + ' ' + this.type
+    }
+  },
   mounted() {
     this.currentColor = this.colors[0].id;
     this.currentImage = this.colors[0].image;

@@ -754,7 +754,7 @@ export default {
     }
   },
   created() {
-    if (this.$route.params.models === 'vesta') {
+    if (this.$route.params.models === 'vesta' || this.$route.params.models === 'xray') {
       this.backgroundClassPrimary = 'color-secondary-background'
     }
 

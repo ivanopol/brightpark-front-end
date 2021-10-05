@@ -7,7 +7,7 @@
 
           <div class="test-drive-banner__text">
             <h2>Испытай новую LADA {{model}} в деле!</h2>
-            <p>Ощутите преимущества новой LADA {{model}} {{type}} на собственном опыте</p>
+            <p>Ощутите преимущества новой LADA {{carName}} на собственном опыте</p>
           </div>
 
           <ButtonNew
@@ -69,6 +69,11 @@ export default {
     hide() {
       this.$modal.hide("form-callback3");
     },
+  },
+  computed: {
+    carName: function() {
+      return this.model === this.type ? this.model : this.model + ' ' + this.type
+    }
   },
   created() {
     this.path = {

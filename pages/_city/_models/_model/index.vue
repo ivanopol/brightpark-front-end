@@ -13,20 +13,20 @@
           @scrollTo="scrollToCredit"
           :isHit="getHit()"
         />
-        <!--
-                <TestDriveBanner :model="model.model.title" :type="model.type.title_ru"/>
-                <AdvantagesNew class="models-advantages"/>
-                <ModelsFeatures :features="model.features"/>
-                <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
-                <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
-                <ModelsAbout :about="model.about" />
-                <CreditNew id="creditCalc"
-                           :model="model.model.title"
-                           :type="model.type.title_ru"
-                           :equipments="model.complectations"/>
-                <ModelsWarranty :model="model.model.title"
-                                :type="model.type.title_ru"/>
-                <BookCarNew class="book-section"/>-->
+
+        <TestDriveBanner :model="model.model.title" :type="model.type.title_ru"/>
+        <AdvantagesNew class="models-advantages"/>
+        <ModelsFeatures :features="model.features"/>
+        <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
+        <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
+        <ModelsAbout :about="model.about" />
+        <CreditNew id="creditCalc"
+            :model="model.model.title"
+            :type="model.type.title_ru"
+            :equipments="model.complectations"/>
+        <ModelsWarranty :model="model.model.title"
+             :type="model.type.title_ru"/>
+        <BookCarNew class="book-section"/>
       </div>
 
       <div v-else>
@@ -216,6 +216,9 @@ export default Vue.extend({
         break;
         case 'vesta':
           theme = 'theme-02'
+        break;
+        case 'xray':
+          theme = 'theme-03'
         break;
         default:
           theme = 'theme-01'
