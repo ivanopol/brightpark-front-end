@@ -71,7 +71,7 @@ export default {
     }
   },
   async fetch() {
-    let modelId = this.models.find(model => model.path === '/' + this.$route.params.models).id
+    let modelId = this.models.find(model => model.name.toLowerCase() === this.$route.params.models).id
     this.models[modelId].is_active = true
   },
 }
