@@ -34,7 +34,7 @@
           </div>
           <div class="menu-links">
             <menu-dropdown />
-            <a href="https://prodai-auto.brightpark.ru/" class="event">Продать</a>
+            <a :href="'https://prodai-auto.brightpark.ru/?city=' + $store.state.city.value" class="event">Продать</a>
             <a :href="'/' + $store.state.city.value + '/service'" class="event">Сервис</a>
             <a :href="'/' + $store.state.city.value + '/stocks'" class="event">Акции</a>
 <!--            <a :href="'/' + $store.state.city.value + '/credit'" class="event">Заявка на кредит</a>-->
