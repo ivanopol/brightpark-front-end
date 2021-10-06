@@ -29,42 +29,42 @@ export default {
         {
           id: '0',
           name: 'Granta',
-          path: '/granta',
+          path: '/granta/sedan',
           is_active: false,
         },
 
         {
           id: '1',
           name: 'Vesta',
-          path: '/vesta',
+          path: '/vesta/sedan',
           is_active: false,
         },
 
         {
           id: '2',
           name: 'XRAY',
-          path: '/xray',
+          path: '/xray/xray',
           is_active: false,
         },
 
         {
           id: '3',
           name: 'Largus',
-          path: '/largus',
+          path: '/largus/universal',
           is_active: false,
         },
 
         {
           id: '4',
           name: 'Niva',
-          path: '/niva',
+          path: '/niva/travel',
           is_active: false,
         },
 
         {
           id: '5',
           name: '4x4',
-          path: '/4x4',
+          path: '/4x4/three-doors',
           is_active: false,
         },
       ],
