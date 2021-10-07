@@ -90,8 +90,32 @@
           id="onlineWidget"
           v-if="!isOfflineWidget"
         >
-          <form id="onlineWidgetForm" >
+          <form id="onlineWidgetForm">
             <div class="trade-in__form__online__fields">
+              <div class="input-field">
+                <input type="text" name="name" v-model="name">
+                <span class="input-field__placeholder" :class="[name !== '' ? 'active' : false]">Ваше имя</span>
+              </div>
+
+              <div class="input-field">
+                <the-mask
+                  :id="form_id + '_input_phone'"
+                  name="phone"
+                  pattern=".{18,}"
+                  mask="+# (###)-###-##-##"
+                  v-model="phone"
+                  type="tel"
+                  required="true"
+                ></the-mask>
+                <span class="input-field__placeholder" :class="[phone !== '' ? 'active' : false]">Контактный телефон</span>
+              </div>
+
+              <div class="input-field">
+                <input type="text" name="city" v-model="city" readonly>
+                <span class="input-field__placeholder" :class="[city !== '' ? 'active' : false]">Город</span>
+              </div>
+
+
               <div class="select-field">
                 <v-select
                   :options="allMarks"
@@ -350,6 +374,7 @@ export default {
 
       name: '',
       phone: '',
+      city: '',
       form_id: "models__test-drive_",
       form_title: "Оцените автомобиль в салоне",
       comment: '',
@@ -580,7 +605,9 @@ export default {
           !this.selectedModification.label ||
           !this.selectedYear.label ||
           !this.selectedTransmission.value ||
-          !this.selectedMileage
+          !this.selectedMileage ||
+          !this.phone &&
+          this.phone.length < 18
       ) {
         return false;
       }
@@ -611,6 +638,8 @@ export default {
       milliage =  milliage.replace(/[а-я]/gi, '')
 
       const data = JSON.stringify({
+        name: this.name,
+        phone: this.phone,
         mark: this.selectedMark.label,
         markId: 0,
         model: this.selectedModel.label,
@@ -752,6 +781,8 @@ export default {
     if (this.$cookies.get("bp_uid") !== undefined) {
       this.utm = this.decodeCookie(this.$cookies.get("bp_uid"));
     }
+
+    this.city = this.$store.state.city.label;
   },
   created() {
     if (this.$route.params.models === 'vesta' || this.$route.params.models === 'xray') {
