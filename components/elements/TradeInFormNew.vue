@@ -375,7 +375,7 @@ export default {
       name: '',
       phone: '',
       city: '',
-      form_id: "models__test-drive_",
+      form_id: "models__traid-in_",
       form_title: "Оцените автомобиль в салоне",
       comment: '',
       form_type: 1,
@@ -394,7 +394,7 @@ export default {
       let formData = {
         phone: this.clearMask(this.phone),
         name: this.name,
-        city: this.$store.state.city.value,
+        city: this.city,
         url: this.url,
         caption: this.form_title,
         form_id: this.form_id,
@@ -638,8 +638,6 @@ export default {
       milliage =  milliage.replace(/[а-я]/gi, '')
 
       const data = JSON.stringify({
-        name: this.name,
-        phone: this.phone,
         mark: this.selectedMark.label,
         markId: 0,
         model: this.selectedModel.label,
@@ -657,11 +655,40 @@ export default {
         adv_url: "",
       })
 
+      let comment = 'Интересуется: ' + this.$store.state.car.model_full + '. ' +
+        'w--АВТОМОБИЛЬ КЛИЕНТА: ' +
+        'w--марка: ' + this.selectedMark.label + ', ' +
+        'w--модель: ' + this.selectedModel.label + ', ' +
+        'w--модификация: ' + this.selectedModification.label + ' , ' +
+        'w--год: ' + this.selectedYear.label + ', ' +
+        'w--пробег: ' + this.selectedMileage + ' км., ' +
+        'w--коробка передач: ' + this.selectedTransmission.label + ''
+
+      let formData = {
+        phone: this.clearMask(this.phone),
+        name: this.name,
+        city: this.$store.state.city.value,
+        url: this.url,
+        caption: 'Трейд-ин',
+        form_id: 'models__traid-in__calculate',
+        comment: comment,
+        form_type: 1,
+        utm: this.utm
+      };
+
+      axios.post(
+        process.env.apiUrl + '/api/send_contact_form',
+        formData
+      ).then((response) => {}).catch(error => {
+        this.error = true;
+        this.clearInput();
+        return {};
+      });
+
       axios.post(
         process.env.crmUrl + '/ajax/calculateService',
         data
       ).then((response) => {
-
         this.pricesRange.good = this.$options.filters.formatPrice(response.data['Цены'][2]['R2D2Продажа'])
         this.pricesRange.fine = this.$options.filters.formatPrice(response.data['Цены'][1]['R2D2Продажа'])
         this.pricesRange.ideal = this.$options.filters.formatPrice(response.data['Цены'][0]['R2D2Продажа'])
@@ -774,7 +801,13 @@ export default {
         }
         this.selectedMileage = newValue
       }
-    }
+    },
+    url: function () {
+      return {
+        href: window.location.href,
+        search: window.location.search
+      };
+    },
   },
 
   mounted() {
