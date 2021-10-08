@@ -194,6 +194,7 @@
         class="evaluate__form__submit"
         :class="{ preloader: isLoading }"
         v-bind:disabled="isButtonDisabled"
+        :buttonColor="buttonColor"
       />
     </form>
   </div>
@@ -236,6 +237,14 @@ export default {
     },
     comment: {
       default: "",
+      type: String
+    },
+    buttonColor: {
+      default: 'color-primary-background',
+      type: String
+    },
+    bgColor: {
+      default: 'color-secondary-background',
       type: String
     }
   },

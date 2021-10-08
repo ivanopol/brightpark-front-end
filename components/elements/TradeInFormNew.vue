@@ -286,6 +286,8 @@
     <div id="form_evaluate_close" class="close event" @click="hide('form-evaluate')"></div>
     <FormEvaluate
       @result="openResultModal"
+      :buttonColor="backgroundClassPrimary"
+      :bgColor="backgroundClassSecondary"
       :mark="selectedMark.label"
       :model="selectedModel.label"
       :mileage="selectedMileage"
@@ -326,7 +328,7 @@ export default {
   data: function () {
     return {
       backgroundClassPrimary: 'color-primary-background',
-      backgroundClassSecondary: '',
+      backgroundClassSecondary: 'color-secondary-background',
       isProduction: process.env.NODE_ENV === 'production',
       path: {},
       isOfflineWidget: false,
@@ -820,6 +822,7 @@ export default {
   created() {
     if (this.$route.params.models === 'vesta' || this.$route.params.models === 'xray') {
       this.backgroundClassPrimary = 'color-secondary-background'
+      this.backgroundClassSecondary = 'color-primary-background'
     }
 
     this.path = {
