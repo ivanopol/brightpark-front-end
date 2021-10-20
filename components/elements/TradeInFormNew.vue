@@ -78,6 +78,8 @@
 
             <ButtonNew
               :buttonColor="backgroundClassPrimary"
+              :class="{ preloader: isLoading }"
+              v-bind:disabled="isButtonDisabled"
               :button-text="'Оставить заявку'"
               :button-color="'#514EA1'"
               class="trade-in__form__offline__submit"
@@ -270,6 +272,8 @@
               class="trade-in__form__offline__submit"
               goal="model_traid-in_online-button"
               @click.prevent.native="getResult"
+              :class="{ preloader: isLoading }"
+              v-bind:disabled="isButtonDisabled"
             />
           </form>
         </div>
@@ -327,6 +331,8 @@ export default {
   },
   data: function () {
     return {
+      isLoading: false,
+      status: true,
       backgroundClassPrimary: 'color-primary-background',
       backgroundClassSecondary: 'color-secondary-background',
       isProduction: process.env.NODE_ENV === 'production',
@@ -396,7 +402,7 @@ export default {
       let formData = {
         phone: this.clearMask(this.phone),
         name: this.name,
-        city: this.city,
+        city: this.$store.state.city.value,
         url: this.url,
         caption: this.form_title,
         form_id: this.form_id,
@@ -614,6 +620,8 @@ export default {
         return false;
       }
 
+      this.isLoading = true
+
       let cityCode = 0
       switch(this.$store.state.city.value) {
         case 'perm':
@@ -695,9 +703,12 @@ export default {
         this.pricesRange.fine = this.$options.filters.formatPrice(response.data['Цены'][1]['R2D2Продажа'])
         this.pricesRange.ideal = this.$options.filters.formatPrice(response.data['Цены'][0]['R2D2Продажа'])
 
+        this.isLoading = false
+        this.status = true
         this.show('form-evaluate')
         this.sendGoals('model_traid-in_online-button')
       })
+
     },
 
     show(modal) {
@@ -754,6 +765,13 @@ export default {
 
 
   computed: {
+    isButtonDisabled: function() {
+      if (this.isLoading) {
+        return true;
+      } else {
+        return !this.status;
+      }
+    },
     getCode() {
       return Math.random().toString(36).slice(-6);
     },
