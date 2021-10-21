@@ -16,6 +16,9 @@
 
         <TestDriveBanner :model="model.model.title" :type="model.type.title_ru"/>
         <AdvantagesNew class="models-advantages"/>
+        <div class="container order-call-wrap">
+          <order-call-form /> 
+        </div>
         <ModelsFeatures :features="model.features"/>
         <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
         <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
@@ -275,5 +278,9 @@ export default Vue.extend({
 
   .book-section {
     margin: 20px 0 60px;
+  }
+
+  .order-call-wrap {
+    margin-bottom: 50px;
   }
 </style>
