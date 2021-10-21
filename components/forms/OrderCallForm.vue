@@ -1,7 +1,7 @@
 <template>
-  <section class="color-secondary-background order-call">
+  <section class="order-call" :class="backgroundClassSecondary">
     <svg width="200" height="203" viewBox="0 0 200 203" fill="none" xmlns="http://www.w3.org/2000/svg" class="order-call__decor">
-      <path d="M33.3875 156.178L200 203V0L12.8319 44.9948C3.85682 47.1524 -1.58805 54.8934 0.413581 62.6501L21.7037 145.153C23.0389 150.327 27.48 154.518 33.3875 156.178Z" class="color-primary-fill"/>
+      <path d="M33.3875 156.178L200 203V0L12.8319 44.9948C3.85682 47.1524 -1.58805 54.8934 0.413581 62.6501L21.7037 145.153C23.0389 150.327 27.48 154.518 33.3875 156.178Z" :class="fillClassSecondary"/>
     </svg>
 
     <img src="~static/images/order-call-girl.png" alt="" class="order-call__girl">
@@ -45,7 +45,7 @@
       </div>
 
       <ButtonNew
-              buttonColor="color-primary-background"
+              :buttonColor="backgroundClassPrimary"
               :button-text="buttonText"
               class="order-call__submit"
               :class="{ preloader: isLoading }"
@@ -71,6 +71,9 @@ export default {
       goal: 'model_order_call',
       comment: '',
       utm: '',
+      backgroundClassPrimary: 'color-primary-background',
+      backgroundClassSecondary: 'color-secondary-background',
+      fillClassSecondary: 'color-primary-fill',
     }
   },
   computed: {
@@ -182,6 +185,13 @@ export default {
     if (this.$cookies.get("bp_uid") !== undefined) {
       this.utm = this.decodeCookie(this.$cookies.get("bp_uid"));
     }
+  },
+  created() {
+/*    if (this.$route.params.models === 'vesta' || this.$route.params.models === 'xray') {
+      this.backgroundClassPrimary = 'color-secondary-background'
+      this.backgroundClassSecondary = 'color-primary-background'
+      this.fillClassSecondary = 'color-secondary-fill'
+    }*/
   },
 }
 </script>
