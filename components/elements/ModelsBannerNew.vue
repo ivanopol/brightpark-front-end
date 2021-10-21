@@ -33,7 +33,7 @@
         </div>
 
         <div class="banner__inner__info">
-          <h1>Новая LADA {{ carName }} в {{ $store.state.city.dative }}</h1>
+          <h1>{{ newWord }} LADA {{ carName }} в {{ $store.state.city.dative }}</h1>
           <p class="banner__inner__info__price color-secondary-color">от {{ prices.value | formatPrice }} ₽</p>
           <div class="banner__inner__info__credit">
             <p>Или в кредит <span> от {{ prices.credit | formatPrice }} ₽ / месяц </span></p>
@@ -161,6 +161,9 @@ export default {
   computed: {
     carName: function() {
       return this.model === this.type ? this.model : this.model + ' ' + this.type
+    },
+    newWord: function() {
+      return this.model.toLowerCase() === 'largus' ?  "Новый" : "Новая"
     }
   },
   mounted() {
@@ -270,6 +273,10 @@ export default {
   cursor: pointer;
 
   &.color- {
+    &brune {
+      background-color: #5B4F3F;
+    }
+
     &gray-plateau {
       background-color: #E8F0F2;
     }
