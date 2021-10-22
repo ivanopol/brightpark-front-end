@@ -407,6 +407,7 @@ export default {
   margin: 20px 0 0;
   transition: 0.2s;
   font-family: "Bright Park Display";
+  position: relative;
 
   &:hover {
     transition: 0.2s;
