@@ -119,6 +119,7 @@ export default {
       bitrix_responsible: "", // $store.state.city.bitrix_responsible_id,
       city: "", // $store.state.city.value,
       utm: {},
+      isProduction: process.env.NODE_ENV === 'production',
     }
   },
 
@@ -175,7 +176,7 @@ export default {
         });
     },
     sendGoals: function(goal) {
-      if (goal) {
+      if (goal && this.isProduction) {
         let ym_ids = this.getCountersIds();
         let goalArr = goal.match(/^(.+?):(.+?)$/);
         let target_goal = goalArr === null ? goal : goalArr[2];
