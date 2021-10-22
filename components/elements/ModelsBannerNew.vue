@@ -273,6 +273,10 @@ export default {
   cursor: pointer;
 
   &.color- {
+    &karakum {
+      background-color: #74766A;
+    }
+
     &brune {
       background-color: #5B4F3F;
     }
