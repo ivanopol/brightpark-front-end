@@ -89,6 +89,7 @@ export default {
       form_title: 'Забронируйте свой автомобиль',
       form_type: 1,
       goal: 'model_book_request',
+      utm: '',
     }
   },
   computed: {
