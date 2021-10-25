@@ -23,8 +23,7 @@
              :model="model.model.title"
              :type="model.type.title_ru"
              :equipments="model.complectations"/>
-        <!--    <ModelsWarranty :model="model.model.title"
-                 :type="model.type.title_ru"/> -->
+        <ModelsWarranty :model="model.model.title" :type="model.type.title_ru"/>
         <BookCarNew class="book-section"/>
       </div>
 
