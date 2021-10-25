@@ -226,6 +226,9 @@ export default Vue.extend({
         case 'xray':
           theme = 'theme-03'
         break;
+        case 'largus':
+          theme = 'theme-04'
+          break;
         default:
           theme = 'theme-01'
         break;
