@@ -21,7 +21,7 @@
             <div class="logo-lada" v-if="!button">
               <!-- <logo-lada :theme="theme"></logo-lada> -->
               <a :href="ladaLink" class="logo-lada__link">
-                <img src="~/static/images/lada-logotop.jpg" alt="lada" width="60" class="logo-lada__link__img">
+                <img src="~/static/images/lada-logotop.png" alt="lada" width="60" class="logo-lada__link__img">
                 <logo-lada :theme="theme" class="logo-lada__link__img-mobile"></logo-lada>
               </a>
             </div>
