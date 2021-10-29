@@ -253,6 +253,10 @@ export default {
       display: block;
       letter-spacing: 2px;
       font-weight: 300;
+
+      .bold {
+        font-weight: bold;
+      }
     }
 
     @media only screen and (min-width: 580px) and (max-width: 1400px) {
@@ -295,10 +299,6 @@ export default {
           font-size: 3.86vw; // 16px;
           margin-top: 2.41vw; // 10px;
           letter-spacing: unset;
-
-          .bold {
-            font-weight: bold;
-          }
         }
       }
     }
