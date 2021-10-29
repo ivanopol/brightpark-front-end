@@ -6,6 +6,16 @@
         <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
         <swiper-slide :key="banner.key" v-for="banner in banners">
+          <div v-if="banner.type == 2">
+            <div class="type-2-title">
+              <span class="title">Мы работаем в дежурном режиме</span>
+              <span class="description">Продаем автомобили <span class="bold">онлайн</span></span>
+            </div>
+
+            <div class="type-2-connect">
+              <span class="appeal">По всем вопросам звоните <PhoneSelection class="callibri_tel"/></span>
+            </div>
+          </div>
           <picture>
             <source :srcset="path.mobile + banner.title + '.' + banner.extension + ', ' + path.mobile + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 580px)">
             <source :srcset="path.tablet + banner.title + '.' + banner.extension + ', ' + path.tablet + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 900px)">
@@ -42,38 +52,51 @@ export default {
       banners: [
         {
           key: 1,
+          title: 'mode',
+          extension: 'jpg',
+          buttonColor: '',
+          link: '',
+          type: 2,
+        },
+        {
+          key: 2,
           title: 'yellow',
           extension: 'jpg',
           buttonColor: 'purple',
           link: 'vesta/sedan',
+          type: 1,
         },
         {
-          key: 2,
+          key: 3,
           title: 'green',
           extension: 'jpg',
           buttonColor: 'orange',
           link: 'credit',
+          type: 1,
         },
         {
-          key: 3,
+          key: 4,
           title:'all_inclusive_2',
           extension: 'jpg',
           buttonColor: 'green',
           link: 'vesta/sw',
+          type: 1,
         },
         {
-          key: 4,
+          key: 5,
           title:'purple',
           extension: 'jpg',
           buttonColor: 'green',
           link: 'granta/sedan',
+          type: 1,
         },
       ],
       swiperOption: {
-        autoplay: {
+        autoplay: false,
+/*        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },
+        },*/
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
@@ -205,6 +228,133 @@ export default {
 
       .purple {
         background-color: #504ea0;
+      }
+    }
+  }
+
+  .type-2-title {
+    position: absolute;
+    color: #fff;
+    width: 700px;
+    top: 85px;
+    left: 110px;
+
+    .title {
+      font-family: 'Bright Park Display';
+      font-size: 68px;
+      letter-spacing: 1px;
+      display: block;
+    }
+
+    .description {
+      font-family: 'Factor A';
+      font-size: 41px;
+      margin-top: 20px;
+      display: block;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    @media only screen and (min-width: 580px) and (max-width: 1400px) {
+      & {
+        width: 50vw;
+        top: 6vw;
+        left: 7.85vw;
+
+        .title {
+          font-size: 4.85vw;
+          letter-spacing: unset;
+        }
+
+        .description {
+          font-size: 2.92vw;
+          margin-top: 1.42vw;
+          letter-spacing: unset;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 580px) {
+      & {
+        position: absolute;
+        color: #fff;
+        width: 100%; //300px;
+        top: 28.98vw; // 120px;
+        left: unset;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 10%;
+
+        .title {
+          font-size: 7.24vw; // 30px;
+          letter-spacing: unset;
+        }
+
+        .description {
+          font-size: 3.86vw; // 16px;
+          margin-top: 2.41vw; // 10px;
+          letter-spacing: unset;
+
+          .bold {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .type-2-connect {
+    position: absolute;
+    color: #fff;
+    bottom: 90px;
+    left: 355px;
+
+    .appeal {
+      font-family: 'Bright Park Display';
+      display: block;
+      font-size: 24px;
+
+      a {
+        color: #fff;
+      }
+    }
+
+    @media only screen and (min-width: 980px) and (max-width: 1400px) {
+      & {
+        bottom: 20%; // 90px;
+        left: 24.65vw; // 355px;
+
+        .appeal {
+          font-size: 1.66vw; // 24px;
+        }
+      }
+    }
+
+    @media only screen and (min-width: 581px) and (max-width: 979px) {
+      & {
+        bottom: 17%; // 90px;
+        left: 25.65vw; // 355px;
+
+        .appeal {
+          font-size: 18px; // 24px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 580px) {
+      & {
+        bottom: 7%;
+        left: unset;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0 10%;
+        line-height: 1.4;
+
+        .appeal {
+          font-size: 4.13vw; // 16px;
+        }
       }
     }
   }
