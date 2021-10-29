@@ -317,6 +317,7 @@ export default {
 
       a {
         color: #fff;
+        font-weight: normal;
       }
     }
 
@@ -354,6 +355,10 @@ export default {
 
         .appeal {
           font-size: 4.13vw; // 16px;
+
+          a {
+            font-weight: bold;
+          }
         }
       }
     }
