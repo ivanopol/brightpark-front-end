@@ -349,7 +349,7 @@ export default {
         width: 100%;
         display: flex;
         justify-content: center;
-        padding: 0 10%;
+        padding: 0 15% 0 10%;
         line-height: 1.4;
 
         .appeal {
