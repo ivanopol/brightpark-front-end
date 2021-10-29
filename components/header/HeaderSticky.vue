@@ -344,7 +344,7 @@ header {
   }
 
   .logo-lada__link__img-mobile {
-    width: 75px;
+    width: 100%;
     @media (min-width: 768px) {
       display: none;
     }
