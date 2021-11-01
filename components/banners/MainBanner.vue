@@ -52,6 +52,82 @@ export default {
       banners: [
         {
           key: 1,
+          title: 'yellow',
+          extension: 'jpg',
+          buttonColor: 'purple',
+          link: 'vesta/sedan',
+          type: 1,
+        },
+        {
+          key: 2,
+          title: 'green',
+          extension: 'jpg',
+          buttonColor: 'orange',
+          link: 'credit',
+          type: 1,
+        },
+        {
+          key: 3,
+          title:'all_inclusive_2',
+          extension: 'jpg',
+          buttonColor: 'green',
+          link: 'vesta/sw',
+          type: 1,
+        },
+        {
+          key: 4,
+          title:'purple',
+          extension: 'jpg',
+          buttonColor: 'green',
+          link: 'granta/sedan',
+          type: 1,
+        },
+      ],
+      swiperOption: {
+        autoplay: {
+          delay: 7000,
+          disableOnInteraction: false,
+        },
+        cssMode: false,
+        autoHeight: false,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        slidesPerGroup: 1,
+        loop: true,
+        preventInteractionOnTransition: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      }
+    };
+  },
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.$swiper
+    }
+  },
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  directives: {
+    swiper: directive
+  },
+  mounted: function() {
+
+    if (this.$store.state.city.value === 'perm' ||
+        this.$store.state.city.value === 'moscow' ||
+        this.$store.state.city.value === 'rostov-na-donu'
+    ) {
+      this.banners = [
+        {
+          key: 1,
           title: 'mode',
           extension: 'jpg',
           buttonColor: '',
@@ -90,45 +166,8 @@ export default {
           link: 'granta/sedan',
           type: 1,
         },
-      ],
-      swiperOption: {
-        autoplay: false,
-/*        autoplay: {
-          delay: 7000,
-          disableOnInteraction: false,
-        },*/
-        cssMode: false,
-        autoHeight: false,
-        slidesPerView: 1,
-        spaceBetween: 0,
-        slidesPerGroup: 1,
-        loop: true,
-        preventInteractionOnTransition: true,
-        loopFillGroupWithBlank: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      }
-    };
-  },
-  computed: {
-    swiper() {
-      return this.$refs.mySwiper.$swiper
+      ]
     }
-  },
-  components: {
-    Swiper,
-    SwiperSlide
-  },
-  directives: {
-    swiper: directive
-  },
-  mounted: function() {
   }
 };
 </script>
