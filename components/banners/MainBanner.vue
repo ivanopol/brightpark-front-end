@@ -417,7 +417,7 @@ export default {
           margin-top: 23vw;
 
           .appeal {
-            font-size: 3.4vw;
+            font-size: 3.2vw;
             line-height: 1.4;
           }
         }
