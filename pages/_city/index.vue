@@ -1,5 +1,6 @@
 <template>
   <div>
+    <PlateNew />
     <MainBanner />
     <Advantages2/>
     <CarsOffer style="margin: 40px 0 25px;" />
