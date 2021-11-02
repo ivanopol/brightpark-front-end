@@ -6,6 +6,24 @@
         <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
         <swiper-slide :key="banner.key" v-for="banner in banners">
+          <div v-if="banner.type == 3">
+            <div class="type-3-title">
+              <span class="title">Продаем LADA<br>дистанционно у автосалона</span>
+              <ul>
+                <li>- консультация и продажа здесь и сейчас</li>
+                <li>- оформление кредита онлайн в этот же день</li>
+                <li>- выкуп авто у салона и на выезде</li>
+              </ul>
+              <div class="appeal-wrap">
+                <div class="appeal">Найдем решение для покупки каждому клиенту<br>
+                  По всем вопросам звоните <PhoneSelection class="callibri_tel"/></div>
+                <div class="button">
+                  <a href="#">Подробнее</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div v-if="banner.type == 2">
             <div class="type-2-title">
               <span class="title">Мы работаем в дежурном режиме</span>
@@ -52,6 +70,14 @@ export default {
       banners: [
         {
           key: 1,
+          title: 'prodaem-lada-distancionno',
+          extension: 'jpg',
+          buttonColor: 'yellow',
+          link: '',
+          type: 3,
+        },
+        {
+          key: 2,
           title: 'yellow',
           extension: 'jpg',
           buttonColor: 'purple',
@@ -59,7 +85,7 @@ export default {
           type: 1,
         },
         {
-          key: 2,
+          key: 3,
           title: 'green',
           extension: 'jpg',
           buttonColor: 'orange',
@@ -67,7 +93,7 @@ export default {
           type: 1,
         },
         {
-          key: 3,
+          key: 4,
           title:'all_inclusive_2',
           extension: 'jpg',
           buttonColor: 'green',
@@ -75,7 +101,7 @@ export default {
           type: 1,
         },
         {
-          key: 4,
+          key: 5,
           title:'purple',
           extension: 'jpg',
           buttonColor: 'green',
@@ -120,7 +146,7 @@ export default {
     swiper: directive
   },
   mounted: function() {
-
+/*
     if (this.$store.state.city.value === 'perm' ||
         this.$store.state.city.value === 'moscow' ||
         this.$store.state.city.value === 'rostov-na-donu'
@@ -167,7 +193,7 @@ export default {
           type: 1,
         },
       ]
-    }
+    }*/
   }
 };
 </script>
@@ -257,6 +283,10 @@ export default {
         vertical-align:middle
       }
 
+      .yellow {
+        background-color: #FFCA0D;
+      }
+
       .orange {
         background-color: #e95909;
       }
@@ -270,6 +300,131 @@ export default {
       }
     }
   }
+
+  .type-3-title {
+    position: absolute;
+    color: #504ea0;
+    top: 110px;
+    left: 130px;
+
+    .title {
+      font-family: 'Bright Park Display';
+      font-size: 82px;
+      margin-bottom: 35px;
+      display: block;
+    }
+
+    ul {
+      li {
+        font-family: 'Factor A';
+        font-size: 34px;
+        line-height: 1.2;
+      }
+    }
+
+    .appeal-wrap {
+      margin-top: 35px;
+
+      .appeal {
+        font-family: 'Bright Park Display';
+        font-size: 30px;
+        line-height: 1.2;
+
+        a {
+          color: #504ea0;
+          font-weight: normal;
+        }
+      }
+
+      .button {
+        position: absolute;
+        display: none;
+      }
+    }
+
+    @media only screen and (min-width: 901px) and (max-width: 1400px) {
+      & {
+        top: 7.63vw;
+        left: 9.02vw;
+
+        .title {
+          font-size: 5.59vw;
+          margin-bottom: 2.43vw;
+        }
+
+        ul {
+          li {
+            font-size: 2.36vw;
+          }
+        }
+
+        .appeal-wrap {
+          margin-top: 2.43vw;
+
+          .appeal {
+            font-size: 2.08vw;
+          }
+        }
+      }
+    }
+
+    @media only screen and (min-width: 581px) and (max-width: 900px) {
+      & {
+        top: 13vw;
+        left: 12.2vw;
+        width: 74%;
+
+        .title {
+          font-size: 6vw;
+          margin-bottom: 2vw;
+        }
+
+        ul {
+          li {
+            font-size: 3vw;
+          }
+        }
+
+        .appeal-wrap {
+          margin-top: 2vw;
+
+          .appeal {
+            font-size: 2.8vw;
+          }
+        }
+      }
+    }
+
+    @media only screen and  (max-width: 580px) {
+      & {
+        top: 23vw;
+        left: 9vw;
+        width: 80%;
+
+        .title {
+          font-size: 9vw;
+          margin-bottom: 9vw;
+        }
+
+        ul {
+          li {
+            font-size: 3.6vw;
+            line-height: 1.4;
+          }
+        }
+
+        .appeal-wrap {
+          margin-top: 23vw;
+
+          .appeal {
+            font-size: 3.4vw;
+            line-height: 1.4;
+          }
+        }
+      }
+    }
+  }
+
 
   .type-2-title {
     position: absolute;
