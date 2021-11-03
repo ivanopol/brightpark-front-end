@@ -110,11 +110,10 @@ export default {
         },
       ],
       swiperOption: {
-        autoplay: false,
-/*        autoplay: {
+        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },*/
+        },
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
