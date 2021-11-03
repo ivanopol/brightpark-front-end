@@ -18,7 +18,7 @@
                 <div class="appeal">Найдем решение для покупки каждому клиенту<br>
                   По всем вопросам звоните <PhoneSelection class="callibri_tel"/></div>
                 <div class="button">
-                  <a href="#">Подробнее</a>
+                  <a :href="'/' + $store.state.city.value + '/news/vazhnaya-informaciya-' + $store.state.city.value" :class="'banner-button-2 event ' + banner.buttonColor">Подробнее</a>
                 </div>
               </div>
             </div>
@@ -110,10 +110,11 @@ export default {
         },
       ],
       swiperOption: {
-        autoplay: {
+        autoplay: false,
+/*        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },
+        },*/
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
@@ -146,54 +147,6 @@ export default {
     swiper: directive
   },
   mounted: function() {
-/*
-    if (this.$store.state.city.value === 'perm' ||
-        this.$store.state.city.value === 'moscow' ||
-        this.$store.state.city.value === 'rostov-na-donu'
-    ) {
-      this.banners = [
-        {
-          key: 1,
-          title: 'mode',
-          extension: 'jpg',
-          buttonColor: '',
-          link: '',
-          type: 2,
-        },
-        {
-          key: 2,
-          title: 'yellow',
-          extension: 'jpg',
-          buttonColor: 'purple',
-          link: 'vesta/sedan',
-          type: 1,
-        },
-        {
-          key: 3,
-          title: 'green',
-          extension: 'jpg',
-          buttonColor: 'orange',
-          link: 'credit',
-          type: 1,
-        },
-        {
-          key: 4,
-          title:'all_inclusive_2',
-          extension: 'jpg',
-          buttonColor: 'green',
-          link: 'vesta/sw',
-          type: 1,
-        },
-        {
-          key: 5,
-          title:'purple',
-          extension: 'jpg',
-          buttonColor: 'green',
-          link: 'granta/sedan',
-          type: 1,
-        },
-      ]
-    }*/
   }
 };
 </script>
@@ -324,6 +277,8 @@ export default {
 
     .appeal-wrap {
       margin-top: 35px;
+      display: grid;
+      grid-template-columns: 1.5fr .5fr;
 
       .appeal {
         font-family: 'Bright Park Display';
@@ -337,8 +292,17 @@ export default {
       }
 
       .button {
-        position: absolute;
-        display: none;
+        position: relative;
+
+        .banner-button-2 {
+          position: absolute;
+          color: #fff;
+          font-weight: normal;
+          text-decoration: underline;
+          font-size: 16px;
+          padding: 16px 50px;
+          border-radius: 6px;
+        }
       }
     }
 
@@ -387,9 +351,10 @@ export default {
 
         .appeal-wrap {
           margin-top: 2vw;
+          grid-template-columns: 1.3fr .8fr;
 
           .appeal {
-            font-size: 2.8vw;
+            font-size: 2vw;
           }
         }
       }
@@ -414,11 +379,24 @@ export default {
         }
 
         .appeal-wrap {
-          margin-top: 23vw;
+          margin-top: 14vw;
+          display: flex;
+          flex-direction: column;
 
           .appeal {
             font-size: 3.2vw;
             line-height: 1.4;
+          }
+
+          .button {
+            height: 49px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+
+            .banner-button-2 {
+              position: relative;
+            }
           }
         }
       }
