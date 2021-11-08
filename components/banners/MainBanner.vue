@@ -68,14 +68,14 @@ export default {
         desktop: '/images/main/desktop/',
       },
       banners: [
-        {
+/*        {
           key: 1,
           title: 'prodaem-lada-distancionno',
           extension: 'jpg',
           buttonColor: 'yellow',
           link: '',
           type: 3,
-        },
+        },*/
         {
           key: 2,
           title: 'yellow',
