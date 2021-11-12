@@ -3,7 +3,7 @@
   <section class="models-about" v-if="isMobile">
     <div class="container models-about__container">
       <div class="models-about__wrapper">
-        <div class="models-about__item opened">
+        <div class="models-about__item opened" v-if="about.exterior">
           <button class="models-about__item__head" @click="open($event)">
             Экстерьер
             <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <div class="models-about__item">
+        <div class="models-about__item" v-if="about.interior">
           <button class="models-about__item__head" @click="open($event)">
             Интерьер
             <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <div class="models-about__item">
+        <div class="models-about__item" v-if="about.comfort">
           <button class="models-about__item__head" @click="open($event)">
             Комфорт
             <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +62,7 @@
           </div>
         </div>
 
-        <div class="models-about__item">
+        <div class="models-about__item" v-if="about.safety">
           <button class="models-about__item__head" @click="open($event)">
             Безопасность
             <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
