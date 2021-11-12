@@ -16,6 +16,7 @@ export const state = () => ({
   _month: {},
   _menu: false,
   gift: '',
+  _version: 0,
 })
 
 export const mutations = {
@@ -57,5 +58,8 @@ export const mutations = {
   },
   set_gift(state, giftText) {
     state.gift = giftText
+  },
+  set_version(state, num) {
+    state._version = num
   },
 }

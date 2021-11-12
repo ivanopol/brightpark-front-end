@@ -5,8 +5,10 @@ export default async ({ app, store, redirect, route }) => {
   var route_city = route_segments[0]
   route_city = route_city === undefined ? '' : route_city
   var cookie = app.$cookies.get('bp-city') === undefined ? '' : app.$cookies.get('bp-city')
+  var version = 1
+  var cookieTime = 60 * 60 * 2
 
-  if (cookie && !cookie.city.scripts.hasOwnProperty('tiktok')) {
+  if (cookie && (!cookie.hasOwnProperty('_version') || Number(cookie.hasOwnProperty('_version')) !== version)) {
     app.$cookies.remove('bp-city')
     cookie = undefined
   }
@@ -23,17 +25,19 @@ export default async ({ app, store, redirect, route }) => {
         store.commit('set_cities', response.data.cities.list)
         store.commit('set_models', response.data.models)
         store.commit('set_models_full', response.data.models_full)
+        store.commit('set_version', version)
 
         const data = {
           city: store.state.city,
           list: store.state.cities,
           models: store.state.models,
           models_full: store.state.models_full,
+          _version: version,
         }
 
         app.$cookies.set('bp-city', data, {
           path: '/',
-          maxAge: 60 * 60 * 2
+          maxAge: cookieTime
         })
       }
       return {}
@@ -46,21 +50,24 @@ export default async ({ app, store, redirect, route }) => {
   if (!cookie) {
     return await axios.get(process.env.apiUrl + '/api/get_cities?&city=' + route_city, config).then((response) => {
       if (response.data.status === 'OK') {
+
         store.commit('set_city', response.data.cities.active)
         store.commit('set_cities', response.data.cities.list)
         store.commit('set_models', response.data.models)
         store.commit('set_models_full', response.data.models_full)
+        store.commit('set_version', version)
 
         const data = {
           city: store.state.city,
           list: store.state.cities,
           models: store.state.models,
           models_full: store.state.models_full,
+          _version: version,
         }
 
         app.$cookies.set('bp-city', data, {
           path: '/',
-          maxAge: 60 * 60 * 2
+          maxAge: cookieTime
         })
       } else if (response.data.status === 'ERROR') {
         return false;
@@ -78,6 +85,7 @@ export default async ({ app, store, redirect, route }) => {
       store.commit('set_cities', cities.list)
       store.commit('set_models', cities.models)
       store.commit('set_models_full', cities.models_full)
+      store.commit('set_version', cities._version)
       return {}
     } else {
        return await axios.get(process.env.apiUrl + '/api/get_cities?&city=' + route_city, config).then((response) => {
@@ -86,17 +94,19 @@ export default async ({ app, store, redirect, route }) => {
           store.commit('set_cities', response.data.cities.list)
           store.commit('set_models', response.data.models)
           store.commit('set_models_full', response.data.models_full)
+          store.commit('set_version', version)
 
           const data = {
             city: store.state.city,
             list: store.state.cities,
             models: store.state.models,
             models_full: store.state.models_full,
+            _version: version,
           }
 
           app.$cookies.set('bp-city', data, {
             path: '/',
-            maxAge: 60 * 60 * 24 * 7
+            maxAge: cookieTime
           })
         } else if (response.data.status === 'ERROR') {
           return false;
