@@ -53,25 +53,23 @@ export default {
           path: '/largus/universal',
           is_active: false,
         },
-
         {
           id: '4',
-          name: 'Niva',
-          path: '/niva/travel',
+          name: 'Niva Legend',
+          path: '/niva-legend/three-doors',
           is_active: false,
         },
-
         {
           id: '5',
-          name: '4x4',
-          path: '/4x4/three-doors',
+          name: 'Niva Travel',
+          path: '/niva/travel',
           is_active: false,
         },
       ],
     }
   },
   async fetch() {
-    let modelId = this.models.find(model => model.name.toLowerCase() === this.$route.params.models).id
+    let modelId = this.models.find(model => model.name.toLowerCase().replace(' ', '-') === this.$route.params.models).id
     this.models[modelId].is_active = true
   },
 }
