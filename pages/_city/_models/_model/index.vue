@@ -91,7 +91,9 @@ export default Vue.extend({
     return  context.route.params.models === 'granta' ||
             context.route.params.models === 'vesta' ||
             context.route.params.models === 'xray' ||
-            context.route.params.models === 'largus'
+            context.route.params.models === 'largus' ||
+            context.route.params.models === '4x4' ||
+            context.route.params.models === 'niva-legend'
             ? 'model_new' : 'model'
   },
   validate: function ({params, store}) {
@@ -120,17 +122,21 @@ export default Vue.extend({
     if (context.route.params.models === 'granta' ||
         context.route.params.models === 'vesta' ||
         context.route.params.models === 'xray' ||
-        context.route.params.models === 'largus'
+        context.route.params.models === 'largus' ||
+        context.route.params.models === '4x4' ||
+        context.route.params.models === 'niva-legend'
         ) {
       new_design = true
       model = await context.$axios.$get(
         process.env.apiUrl + `/api/model_new?&city=${context.route.params.city}&model=${context.route.params.models}&type=${context.route.params.model}`
       )
+
       car_title = model.model.title + ' ' + model.type.title
       car = {
         model_full: car_title,
         url: '/' + context.route.params.city + '/' + model.model.slug + '/' + model.type.slug + '/model-details'
       }
+
     } else {
       model = await context.$axios.$get(
         process.env.apiUrl + `/api/model?&city=${context.route.params.city}&models=${context.route.params.models}&model=${context.route.params.model}`
