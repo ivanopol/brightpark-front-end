@@ -96,17 +96,25 @@ export default Vue.extend({
             context.route.params.models === 'niva-legend'
             ? 'model_new' : 'model'
   },
-  validate: function ({params, store}) {
+  async validate(context) {
+
     let validate_city = false
     let validate_model = false
-    let validate_type = true
+    let validate_type = false
 
-    if (!Object.keys(store.state.city).length) {
+    if (!Object.keys(context.store.state.city).length) {
       return false;
     }
 
-    validate_city = store.state.cities.find((city) => city.value === params.city) !== undefined
-    validate_model = store.state.models.indexOf(params.models) >= 0
+    validate_city = context.store.state.cities.find((city) => city.value === context.params.city) !== undefined
+    validate_model = context.store.state.models.indexOf(context.params.models) >= 0
+
+    validate_type = await context.$axios.$post(
+      process.env.apiUrl + `/api/verify_model`, {
+        model: context.params.models,
+        type:  context.params.model,
+        city:  context.params.city,
+      })
 
     return validate_city && validate_model && validate_type
   },
