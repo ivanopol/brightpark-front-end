@@ -37,7 +37,7 @@
              :goal="'fixconditions'"
              :prefix="$store.state._page + '__'" />
       <Baraban />
-      <HookRetarget />
+<!--      <HookRetarget />-->
       <FormRetarget :form_id="$store.state._page + '__leave-request-now_'"
                     :button_text="'Получить лучшие условия'"
                     :form_title="'<span class=\'c_orange\'>Оставьте</span> заявку сейчас'"

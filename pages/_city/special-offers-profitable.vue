@@ -48,7 +48,7 @@
                     :button_text="'Получить лучшие условия'"
                     :form_title="'<span class=\'c_orange\'>Оставьте</span> заявку сейчас'"
                     :goal="'specialoffer2'" />
-      <HookRetarget />
+<!--      <HookRetarget />-->
     </div>
     <nuxt-child/>
 
