@@ -6,33 +6,9 @@
         <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
         <swiper-slide :key="banner.key" v-for="banner in banners">
-          <div v-if="banner.type == 3">
-            <div class="type-3-title">
-              <span class="title">Продаем LADA<br>дистанционно у автосалона</span>
-              <ul>
-                <li>- консультация и продажа здесь и сейчас</li>
-                <li>- оформление кредита онлайн в этот же день</li>
-                <li>- выкуп авто у салона и на выезде</li>
-              </ul>
-              <div class="appeal-wrap">
-                <div class="appeal">Найдем решение для покупки каждому клиенту<br>
-                  По всем вопросам звоните <PhoneSelection class="callibri_tel"/></div>
-                <div class="button">
-                  <a :href="'/' + $store.state.city.value + '/news/vazhnaya-informaciya-' + $store.state.city.value" :class="'banner-button-2 event ' + banner.buttonColor">Подробнее</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div v-if="banner.type == 2">
-            <div class="type-2-title">
-              <span class="title">Мы работаем в дежурном режиме</span>
-              <span class="description">Продаем автомобили <span class="bold">онлайн</span></span>
-            </div>
-
-            <div class="type-2-connect">
-              <span class="appeal">По всем вопросам звоните <PhoneSelection class="callibri_tel"/></span>
-            </div>
+          <div class="type-4" v-if="banner.type === 4">
+            <a :class="'event callibri_tel banner-button ' + banner.buttonColor"
+               :href="'tel:' + $store.state.city.phone">Позвонить</a>
           </div>
           <picture>
             <source :srcset="path.mobile + banner.title + '.' + banner.extension + ', ' + path.mobile + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 580px)">
@@ -68,14 +44,14 @@ export default {
         desktop: '/images/main/desktop/',
       },
       banners: [
-/*        {
+        {
           key: 1,
-          title: 'prodaem-lada-distancionno',
+          title: 'black-friday-2',
           extension: 'jpg',
           buttonColor: 'yellow',
           link: '',
-          type: 3,
-        },*/
+          type: 4,
+        },
         {
           key: 2,
           title: 'yellow',
@@ -110,10 +86,11 @@ export default {
         },
       ],
       swiperOption: {
-        autoplay: {
+        autoplay: false,
+/*        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },
+        },*/
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
