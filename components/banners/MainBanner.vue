@@ -525,7 +525,7 @@ export default {
 
   .banner-button-2 {
     position: absolute;
-    color: #fff;
+    color: #000;
     font-weight: normal;
     text-decoration: none;
     font-size: 16px;
