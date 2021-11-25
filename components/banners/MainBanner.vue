@@ -7,7 +7,7 @@
         <div class="swiper-pagination" slot="pagination"></div>
         <swiper-slide :key="banner.key" v-for="banner in banners">
           <div class="type-4" v-if="banner.type === 4">
-            <a :class="'event callibri_tel banner-button ' + banner.buttonColor"
+            <a :class="'event callibri_tel banner-button-2 ' + banner.buttonColor"
                :href="'tel:' + $store.state.city.phone">Позвонить</a>
           </div>
           <picture>
@@ -86,11 +86,10 @@ export default {
         },
       ],
       swiperOption: {
-        autoplay: false,
-/*        autoplay: {
+        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },*/
+        },
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
@@ -524,6 +523,23 @@ export default {
     bottom: 24%;
   }
 
+  .banner-button-2 {
+    position: absolute;
+    color: #fff;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 16px 50px;
+    border-radius: 6px;
+    left: 5%;
+    bottom: 30%;
+
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
 
 
   @media only screen and (max-width: 900px) {
@@ -531,6 +547,12 @@ export default {
       .banner-button {
         bottom: 12%;
         right: 5%;
+      }
+
+      .banner-button-2 {
+        bottom: 7%;
+        right: 10%;
+        left: unset;
       }
 
       .swiper-pagination {
@@ -547,6 +569,12 @@ export default {
 
       .banner-button {
         bottom: 5vh;
+        right: 50%;
+        transform: translate(50%, 0);
+      }
+
+      .banner-button-2 {
+        bottom: 20vh;
         right: 50%;
         transform: translate(50%, 0);
       }
