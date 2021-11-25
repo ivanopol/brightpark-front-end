@@ -273,6 +273,10 @@ export default {
   cursor: pointer;
 
   &.color- {
+    &amazonia {
+      background-color: #425026;
+    }
+
     &karakum {
       background-color: #74766A;
     }
