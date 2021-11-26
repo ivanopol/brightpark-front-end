@@ -838,7 +838,11 @@ export default {
     this.city = this.$store.state.city.label;
   },
   created() {
-    if (this.$route.params.models === 'vesta' || this.$route.params.models === 'xray' || this.$route.params.models === 'largus') {
+    if (this.$route.params.models === 'vesta' ||
+        this.$route.params.models === 'xray' ||
+        this.$route.params.models === 'largus' ||
+        this.$route.params.models === 'niva'
+    ) {
       this.backgroundClassPrimary = 'color-secondary-background'
       this.backgroundClassSecondary = 'color-primary-background'
     }

@@ -11,22 +11,21 @@
           :model="model.model.title"
           :type="model.type.title_ru"
           @scrollTo="scrollToCredit"
-          :isHit="getHit()"
-        />
+          :isHit="getHit()" />
         <TestDriveBanner :model="model.model.title" :type="model.type.title_ru"/>
         <AdvantagesNew class="models-advantages"/>
         <div class="container order-call-wrap">
-          <OrderCallForm />
+            <OrderCallForm />
         </div>
         <ModelsFeatures :features="model.features"/>
         <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
         <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
-        <ModelsAbout :about="model.about" />
+<!--               <ModelsAbout :about="model.about" />-->
         <CreditNew id="creditCalc"
              :model="model.model.title"
              :type="model.type.title_ru"
              :equipments="model.complectations"/>
-        <ModelsWarranty :model="model.model.title" :type="model.type.title_ru"/>
+        <!--     <ModelsWarranty :model="model.model.title" :type="model.type.title_ru"/>-->
         <BookCarNew class="book-section"/>
       </div>
 
@@ -93,7 +92,8 @@ export default Vue.extend({
             context.route.params.models === 'xray' ||
             context.route.params.models === 'largus' ||
             context.route.params.models === '4x4' ||
-            context.route.params.models === 'niva-legend'
+            context.route.params.models === 'niva-legend' ||
+            context.route.params.models === 'niva'
             ? 'model_new' : 'model'
   },
   async validate(context) {
@@ -132,7 +132,8 @@ export default Vue.extend({
         context.route.params.models === 'xray' ||
         context.route.params.models === 'largus' ||
         context.route.params.models === '4x4' ||
-        context.route.params.models === 'niva-legend'
+        context.route.params.models === 'niva-legend' ||
+        context.route.params.models === 'niva'
         ) {
       new_design = true
       model = await context.$axios.$get(
@@ -238,6 +239,7 @@ export default Vue.extend({
           theme = 'theme-01'
         break;
         case 'vesta':
+        case 'niva':
           theme = 'theme-02'
         break;
         case 'xray':
