@@ -41,7 +41,7 @@ export default {
       path: '',
     }
   },
-  async fetch() {
+  created () {
     this.path = '/files/specifications_' + this.$route.params.models + '_' + this.$route.params.model.replace("-", "_") + '.pdf'
   },
 }
