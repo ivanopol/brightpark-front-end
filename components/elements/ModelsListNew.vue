@@ -61,7 +61,7 @@ export default {
         },
         {
           id: '5',
-          name: 'Niva Travel',
+          name: 'Niva',
           path: '/niva/travel',
           is_active: false,
         },
