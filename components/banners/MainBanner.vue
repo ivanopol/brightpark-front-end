@@ -6,10 +6,6 @@
         <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
         <swiper-slide :key="banner.key" v-for="banner in banners">
-          <div class="type-4" v-if="banner.type === 4">
-            <a :class="'event callibri_tel banner-button-2 ' + banner.buttonColor"
-               :href="'tel:' + $store.state.city.phone">Позвонить</a>
-          </div>
           <picture>
             <source :srcset="path.mobile + banner.title + '.' + banner.extension + ', ' + path.mobile + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 580px)">
             <source :srcset="path.tablet + banner.title + '.' + banner.extension + ', ' + path.tablet + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 900px)">
@@ -44,14 +40,14 @@ export default {
         desktop: '/images/main/desktop/',
       },
       banners: [
-        {
+/*        {
           key: 1,
           title: 'black-friday-2',
           extension: 'jpg',
           buttonColor: 'yellow',
           link: '',
           type: 4,
-        },
+        },*/
         {
           key: 2,
           title: 'yellow',
