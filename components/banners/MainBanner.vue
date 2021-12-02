@@ -40,14 +40,14 @@ export default {
         desktop: '/images/main/desktop/',
       },
       banners: [
-/*        {
+        {
           key: 1,
-          title: 'black-friday-2',
+          title: 'santa',
           extension: 'jpg',
           buttonColor: 'yellow',
           link: '',
-          type: 4,
-        },*/
+          type: 1,
+        },
         {
           key: 2,
           title: 'yellow',
