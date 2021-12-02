@@ -24,7 +24,7 @@
           <li>
             <div class="advantage">
               <span class="icon"><img src="/images/icons/retargeting/doplata.svg" alt="Брайт Парк: Доплатим 40000 р. при обмене вашего авто"></span>
-              <span class="text">От&nbsp;3,5% годовых</span>
+              <span class="text">От&nbsp;1,7% годовых</span>
             </div>
           </li>
           <li>
