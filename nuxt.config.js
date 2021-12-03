@@ -4,7 +4,7 @@ export default {
   /**
    *  Включение/выключение снега
    */
-  snow: false,
+  snow: true,
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
