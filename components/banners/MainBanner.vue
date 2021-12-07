@@ -1,5 +1,10 @@
 <template>
   <section class="main-screen">
+    <picture class="main-screen__new-year-gift">
+      <source srcset="~static/images/banner-new-year-gift-mob.png" media="(max-width: 768px)">
+      <img src="~static/images/banner-new-year-gift.png" alt="Новогодний подарок от Брайт Парк">
+    </picture>
+
     <div class="main-screen__swiper-wrap">
       <swiper id="swiper" class="swiper" ref="mySwiper"  :options="swiperOption">
         <div class="swiper-button-prev" slot="button-prev"></div>
@@ -586,6 +591,41 @@ export default {
       .swiper-button-next {
         display: none;
       }
+    }
+  }
+
+  .main-screen {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .main-screen__new-year-gift {
+    max-width: 266px;
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    z-index: 2;
+
+    img {
+      width: 100%;
+    }
+
+    @media (max-width: 1200px) {
+      max-width: 200px;
+      top: -8px;
+    }
+
+    @media (max-width: 768px) {
+      top: -7px;
+      left: unset;
+      right: -5px;
+    }
+
+    @media (max-width: 570px) {
+      top: unset;
+      bottom: 40%;
+      right: -5px;
     }
   }
 </style>
