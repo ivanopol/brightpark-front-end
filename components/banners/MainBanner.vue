@@ -594,6 +594,10 @@ export default {
     }
   }
 
+</style>
+
+
+<style lang="scss" scoped>
   .main-screen {
     position: relative;
     max-width: 1440px;
