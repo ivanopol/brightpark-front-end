@@ -45,6 +45,7 @@ export default {
       {name: 'msapplication-TileImage', content: '/favicon/ms-icon-144x144.png'},
       {name: 'theme-color', content: '#ffffff'},
       {name: 'yandex-verification', content: 'b3d9ee8d4fb4066b'},
+      {name: 'facebook-domain-verification', content: '056lw9hqes49cny6jw7cs193qfkxv2'},
       {name: 'author', content: 'Брайт Парк'}
     ],
     link: [
