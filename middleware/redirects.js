@@ -13,7 +13,9 @@ export default async ({ redirect, route }) => {
     return {}
   }
 
-  if (segments[segments.length - 1] === 'model_details') {
+  if (segments[segments.length - 1] === 'model_details' ||
+      segments[segments.length - 1] === 'model-details'
+      ) {
     segments_tmp = {
       models: segments[0],
       model:  segments[1]
