@@ -101,7 +101,7 @@ export default {
       'utmSave',
       'location',
       'trailingSlashRedirect',
-     // 'redirects',
+      'redirects',
       'date'
     ]
   },
@@ -137,7 +137,7 @@ export default {
       "vue-scrollto/nuxt",
   ],
   serverMiddleware: [
-    '~/serverMiddleware/redirects.js'
+    //'~/serverMiddleware/redirects.js'
   ],
 
   axios: {
