@@ -1,5 +1,13 @@
 const redirects = require('../301.json')
 
+/*
+* 17.12.2021
+* Отключил эти редиректы middleware и заменил на serverMiddleware
+* Оставил на всякий случай.
+* Чтобы включить надо в nuxt.config.js надо в секции   router => middleware
+* расскоментировать строку redirects, а также закомментировать '~/serverMiddleware/redirects.js'
+* в секции serverMiddleware
+*/
 export default async ({ redirect, route }) => {
 
   var route_str = route.path.slice(1)
