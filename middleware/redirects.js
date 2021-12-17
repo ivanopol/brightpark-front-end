@@ -40,6 +40,6 @@ export default async ({ redirect, route }) => {
     }
 
     redirect_path = '/' + city + isRedirect.to
-    redirect(redirect_path)
+    redirect(301, redirect_path)
   }
 }
