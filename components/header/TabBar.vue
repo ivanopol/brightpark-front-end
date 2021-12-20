@@ -56,13 +56,20 @@
 
                     <div class="other_links">
                         <ul itemscope itemtype="http://schema.org/SiteNavigationElement">
-                            <li>
-                                <a id="common__menu__service" :href="'/' + $store.state.city.value + '/service'" class="event" itemprop="url">
-                                    <div class="title">
-                                        <span><IconSpanner /> СЕРВИС</span>
-                                    </div>
-                                </a>
-                            </li>
+                          <li>
+                            <a id="common__menu__selling" :href="'https://prodai-auto.brightpark.ru/?city=' + $store.state.city.value" class="event" itemprop="url">
+                              <div class="title">
+                                <span>ПРОДАТЬ</span>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                              <a id="common__menu__service" :href="'/' + $store.state.city.value + '/service'" class="event" itemprop="url">
+                                  <div class="title">
+                                      <span>СЕРВИС</span>
+                                  </div>
+                              </a>
+                          </li>
                         </ul>
                     </div>
 
@@ -492,8 +499,13 @@ export default {
         }
 
         .other_links {
+            margin: 15px 0;
+
             ul li {
-                border-bottom: none;
+              //  border-bottom: none;
+                &:last-child {
+                  border-bottom: none;
+                }
                 a .title {
                     display: flex;
                     justify-content: space-between;
