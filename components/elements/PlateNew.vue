@@ -2,7 +2,7 @@
   <div class="container-big plate-new" v-observe-visibility="{ callback: visibilityChanged, intersection: { threshold: 0 }, }">
     <transition-group name="slide-fade" tag="div" v-on:enter="enter">
       <div v-bind:key="1" :class="{'slide-fade-enter-active' : show, 'slide-fade-leave-active slide-fade-leave-to' : !show}">
-        <p>Все дилерские центры Брайт Парк продолжают работать и&nbsp;продавать LADA, с&nbsp;соблюдением всех нормативных требований и&nbsp;правил безопасности</p>
+        <p>31 декабря салоны работают до 14:00, 1 января выходной, со 2 января в обычном режиме</p>
       </div>
     </transition-group>
 <!--    <div class="plate-new__button-wrap">
