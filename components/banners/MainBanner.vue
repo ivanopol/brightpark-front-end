@@ -47,7 +47,7 @@ export default {
       banners: [
         {
           key: 1,
-          title: 'santa',
+          title: 'avtovaz-edet-k-nam',
           extension: 'jpg',
           buttonColor: 'yellow',
           link: '',
@@ -55,6 +55,14 @@ export default {
         },
         {
           key: 2,
+          title: 'santa',
+          extension: 'jpg',
+          buttonColor: 'yellow',
+          link: '',
+          type: 1,
+        },
+        {
+          key: 3,
           title: 'yellow',
           extension: 'jpg',
           buttonColor: 'purple',
@@ -62,7 +70,7 @@ export default {
           type: 1,
         },
         {
-          key: 3,
+          key: 4,
           title: 'green',
           extension: 'jpg',
           buttonColor: 'orange',
@@ -70,7 +78,7 @@ export default {
           type: 1,
         },
         {
-          key: 4,
+          key: 5,
           title:'all_inclusive_2',
           extension: 'jpg',
           buttonColor: 'green',
@@ -78,7 +86,7 @@ export default {
           type: 1,
         },
         {
-          key: 5,
+          key: 6,
           title:'purple',
           extension: 'jpg',
           buttonColor: 'green',
@@ -608,7 +616,7 @@ export default {
     max-width: 266px;
     position: absolute;
     top: -10px;
-    left: 3%;
+    right: 3%;
     z-index: 2;
 
     img {
