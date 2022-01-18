@@ -11,6 +11,11 @@
         <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
         <swiper-slide :key="banner.key" v-for="banner in banners">
+          <div class="banner_btn-call" v-if="banner.type == 2">
+             <ButtonPhone :class="'callibri_tel banner-button-3 ' + banner.buttonColor"
+                          text="Заказать звонок"
+             />
+          </div>
           <picture>
             <source :srcset="path.mobile + banner.title + '.' + banner.extension + ', ' + path.mobile + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 580px)">
             <source :srcset="path.tablet + banner.title + '.' + banner.extension + ', ' + path.tablet + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 900px)">
@@ -51,7 +56,7 @@ export default {
           extension: 'jpg',
           buttonColor: 'yellow',
           link: '',
-          type: 1,
+          type: 2,
         },
         {
           key: 2,
@@ -95,10 +100,11 @@ export default {
         },
       ],
       swiperOption: {
-        autoplay: {
+/*        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },
+        },*/
+        autoplay: false,
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
@@ -549,6 +555,22 @@ export default {
     }
   }
 
+  .banner_btn-call {
+    position: absolute;
+    bottom: 19.9%;
+    left: 6.94%;
+  }
+
+  .banner-button-3 {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 16px 50px;
+    border-radius: 6px;
+    color: #582d96;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+
 
 
   @media only screen and (max-width: 900px) {
@@ -568,9 +590,20 @@ export default {
         bottom: 15px;
       }
     }
+
+    .banner_btn-call {
+      bottom: 19.9%;
+      left: 5.2%;
+    }
   }
 
   @media only screen and (max-width: 580px) {
+
+    .banner_btn-call {
+      left: unset;
+      bottom: 10%;
+    }
+
     #swiper {
       .swiper-pagination {
         display: none;
