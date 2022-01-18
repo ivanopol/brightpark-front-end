@@ -7,9 +7,9 @@
 
     <div class="main-screen__swiper-wrap">
       <swiper id="swiper" class="swiper" ref="mySwiper"  :options="swiperOption">
-        <div class="swiper-button-prev" slot="button-prev"></div>
+<!--        <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-        <div class="swiper-pagination" slot="pagination"></div>
+        <div class="swiper-pagination" slot="pagination"></div>-->
         <swiper-slide :key="banner.key" v-for="banner in banners">
           <div class="banner_btn-call" v-if="banner.type == 2">
              <ButtonPhone :class="'callibri_tel banner-button-3 ' + banner.buttonColor"
@@ -110,17 +110,19 @@ export default {
         slidesPerView: 1,
         spaceBetween: 0,
         slidesPerGroup: 1,
-        loop: true,
+        loop: false,
         preventInteractionOnTransition: true,
         loopFillGroupWithBlank: true,
-        navigation: {
+        navigation: false,
+        pagination: false,
+/*        navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
-        },
-        pagination: {
+        },*/
+/*        pagination: {
           el: '.swiper-pagination',
           clickable: true,
-        },
+        },*/
       }
     };
   },
