@@ -66,14 +66,14 @@ export default {
           link: '',
           type: 1,
         },
-        {
+/*        {
           key: 3,
           title: 'yellow',
           extension: 'jpg',
           buttonColor: 'purple',
           link: 'vesta/sedan',
           type: 1,
-        },
+        },*/
         {
           key: 4,
           title: 'green',
@@ -90,14 +90,14 @@ export default {
           link: 'vesta/sw',
           type: 1,
         },
-        {
+/*        {
           key: 6,
           title:'purple',
           extension: 'jpg',
           buttonColor: 'green',
           link: 'granta/sedan',
           type: 1,
-        },
+        },*/
       ],
       swiperOption: {
 /*        autoplay: {
