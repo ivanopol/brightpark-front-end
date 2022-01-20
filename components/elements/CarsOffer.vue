@@ -11,22 +11,20 @@
           </div>
 
           <div class="cars-offer__content__item__car">
-            <nuxt-link
-              :to="'/' + $store.state.city.value + '/' + car.model.slug + '/' + car.type.slug"
-              :id="$store.state._page + '__models__' + car.model.slug + '__img'"
-              class="event"
+            <a :href="'/' + $store.state.city.value + '/' + car.model.slug + '/' + car.type.slug"
+               :id="$store.state._page + '__models__' + car.model.slug + '__img'"
+               class="event"
             >
               <img :src="'/images/cars-offer/' + car.model.slug + '.png'" :alt="car.model.title" />
-            </nuxt-link>
+            </a>
           </div>
           <h4 class="cars-offer__content__item__title">
-            <nuxt-link
-              :to="'/' + $store.state.city.value + '/' + car.model.slug + '/' + car.type.slug"
-              :id="$store.state._page + '__models__' + car.model.slug"
-              class="event"
+            <a :href="'/' + $store.state.city.value + '/' + car.model.slug + '/' + car.type.slug"
+               :id="$store.state._page + '__models__' + car.model.slug"
+               class="event"
             >
               {{car.model.title}}
-            </nuxt-link>
+            </a>
           </h4>
 
           <div class="cars-offer__content__item__info">
