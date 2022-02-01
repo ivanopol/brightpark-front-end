@@ -1,9 +1,9 @@
 <template>
   <section class="main-screen">
-    <picture class="main-screen__new-year-gift">
+<!--    <picture class="main-screen__new-year-gift">
       <source srcset="~static/images/banner-new-year-gift-mob.png" media="(max-width: 768px)">
       <img src="~static/images/banner-new-year-gift.png" alt="Новогодний подарок от Брайт Парк">
-    </picture>
+    </picture>-->
 
     <div class="main-screen__swiper-wrap">
       <swiper id="swiper" class="swiper" ref="mySwiper"  :options="swiperOption">
