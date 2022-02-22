@@ -9,7 +9,7 @@
     </div>
 
     <ServicesNew class="services-block"/>
-    <div class="theme-03">
+    <div class="theme-03" id="traid-in">
       <TradeInFormNew :models="'Vesta'" :type="'Седан'"/>
     </div>
 
@@ -95,6 +95,15 @@ export default Vue.extend({
       "image": this.seo.images,
     }
   },
+  mounted() {
+    var element = document.getElementById("traid-in");
+    var btn = document.querySelector('.scroll_to_traid-in');
+
+    function handleButtonClick() {
+      element.scrollIntoView({block: "center", behavior: "smooth"});
+    }
+    btn.addEventListener('click', handleButtonClick);
+  }
 })
 </script>
 

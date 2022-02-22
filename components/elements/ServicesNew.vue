@@ -30,7 +30,7 @@
 
         <img src="~static/images/services/bg-3.png" alt="" class="services__item__bg">
 
-        <a :href="'https://prodai-auto.brightpark.ru/?city=' + $store.state.city.value" class="event services__item__link" target="_blank"></a>
+        <a :href="'https://prodai-auto.brightpark.ru/?city=' + $store.state.city.value" class=" services__item__link scroll_to_traid-in" target="_blank"></a>
       </div>
 
       <div class="services__item">
