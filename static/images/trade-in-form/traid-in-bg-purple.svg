@@ -1,4 +1,10 @@
-<svg width="1170" height="382" viewBox="0 0 1170 382" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 63H1170V372C1170 377.523 1165.52 382 1160 382H10C4.47715 382 0 377.523 0 372V63Z" fill="#514EA1"/>
-<path d="M0 48L254.279 2.11508C262.065 0.709993 269.991 0.234001 277.89 0.697091L1170 53V63H0V48Z" fill="#514EA1"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1170 382" style="enable-background:new 0 0 1170 382;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#514EA1;}
+</style>
+<path class="st0" d="M0,59h1170v313c0,5.5-4.5,10-10,10H10c-5.5,0-10-4.5-10-10V59z"/>
+<path class="st0" d="M0,48L254.3,2.1c7.8-1.4,15.7-1.9,23.6-1.4L1170,53v10H0V48z"/>
 </svg>

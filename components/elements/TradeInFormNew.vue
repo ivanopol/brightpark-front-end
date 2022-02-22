@@ -838,10 +838,17 @@ export default {
     this.city = this.$store.state.city.label;
   },
   created() {
-    if (this.$route.params.models === 'vesta' ||
-        this.$route.params.models === 'xray' ||
-        this.$route.params.models === 'largus' ||
-        this.$route.params.models === 'niva'
+    let model = 'xray'
+    let type = 'xray'
+    if(this.$route.params.models) {
+      model = this.$route.params.models
+      type = this.$route.params.model.replace("-", "_")
+    }
+
+    if (model === 'vesta' ||
+        model === 'xray' ||
+        model === 'largus' ||
+        model === 'niva'
     ) {
       this.backgroundClassPrimary = 'color-secondary-background'
       this.backgroundClassSecondary = 'color-primary-background'
@@ -849,9 +856,10 @@ export default {
 
     this.path = {
       title: this.model + ' ' + this.type,
-      desktop: '/images/trade-in-form/' + this.$route.params.models + '/' + this.$route.params.model.replace("-", "_") + '/photo_desktop.png',
-      mobile: '/images/trade-in-form/' + this.$route.params.models + '/' + this.$route.params.model.replace("-", "_") + '/photo_mobile.png',
+      desktop: '/images/trade-in-form/' + model + '/' + type + '/photo_desktop.png',
+      mobile: '/images/trade-in-form/' + model + '/' + type + '/photo_mobile.png',
     }
+
   },
 
   async fetch() {
@@ -1258,3 +1266,103 @@ export default {
 </style>
 
 
+<style lang="scss">
+.range-field__wrap {
+
+  .vue-slider {
+    background: none;
+
+    .vue-slider-rail {
+      background: none;
+    }
+
+    .vue-slider-process {
+      background: white;
+    }
+
+    &:hover {
+      .vue-slider-rail {
+        background: none;
+      }
+
+      .vue-slider-process {
+        background: white;
+      }
+    }
+
+    .vue-slider-dot-handle {
+      border: none;
+      top: 6px;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      background: white;
+      box-shadow: none;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    .vue-slider-mark-label {
+      color: white;
+      font-family: "Factor A";
+      margin: 7px 0 0;
+    }
+
+    .vue-slider-mark {
+      &:first-child {
+        left: 1% !important;
+      }
+
+      &:last-child {
+        left: 99% !important;
+      }
+    }
+  }
+}
+
+.v-select-field {
+  .vs__dropdown-toggle {
+    border: none;
+  }
+
+  .vs__selected {
+    padding: 5px 0 0;
+    color: white;
+    font-family: 'Factor A';
+  }
+
+  .vs__dropdown-menu {
+    font-family: "Factor A";
+    font-size: 14px;
+    padding-top: 0;
+
+    li {
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+      padding: 10px;
+    }
+  }
+
+  .vs__search {
+    color: white;
+    font-family: "Factor A";
+    font-weight: 500;
+    padding: 5px 0 0;
+    margin: 4px 2px 0;
+    font-size: 24px;
+  }
+}
+
+.v-select-field__bold-text {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #514EA1;
+}
+
+.v-select-field__more {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+</style>

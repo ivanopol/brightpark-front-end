@@ -9,6 +9,10 @@
     </div>
 
     <ServicesNew class="services-block"/>
+    <div class="theme-03">
+      <TradeInFormNew :models="'Vesta'" :type="'Седан'"/>
+    </div>
+
     <div class="container">
       <Advantages />
       <div class="advantages_form">
