@@ -989,7 +989,7 @@ export default {
     color: white;
     font-size: 15px;
     max-width: 350px;
-    width: 100%;
+    width: 80%;
     margin: 50px auto 30px;
     line-height: 20px;
 
