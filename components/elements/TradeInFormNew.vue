@@ -302,6 +302,7 @@
       :priceExcellent="pricesRange.fine"
       :pricePerfect="pricesRange.ideal"
       goal="model_traid-in_modal-request"
+      :form_type="form_type"
       :comment="'Интересуется: ' + $store.state.car.model_full + '. ' +
                 'w--АВТОМОБИЛЬ КЛИЕНТА: ' +
                 'w--марка: ' + selectedMark.label + ', ' +
@@ -386,7 +387,7 @@ export default {
       form_id: "models__traid-in_",
       form_title: "Оцените автомобиль в салоне",
       comment: '',
-      form_type: 1,
+      form_type: 3,
       goal: "model_traid-in_offline-request",
     }
   },
@@ -682,7 +683,7 @@ export default {
         caption: 'Трейд-ин',
         form_id: 'models__traid-in__calculate',
         comment: comment,
-        form_type: 1,
+        form_type: 3,
         utm: this.utm
       };
 
