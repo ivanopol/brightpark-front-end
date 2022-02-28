@@ -387,7 +387,7 @@ export default {
       form_id: "models__traid-in_",
       form_title: "Оцените автомобиль в салоне",
       comment: '',
-      form_type: 3,
+      form_type: 1,
       goal: "model_traid-in_offline-request",
     }
   },
@@ -683,7 +683,7 @@ export default {
         caption: 'Трейд-ин',
         form_id: 'models__traid-in__calculate',
         comment: comment,
-        form_type: 3,
+        form_type: 1,
         utm: this.utm
       };
 
