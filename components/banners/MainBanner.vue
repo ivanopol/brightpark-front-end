@@ -27,7 +27,7 @@
           <a v-if="banner.link"
               :href="'/' + $store.state.city.value + '/' + banner.link"
              :class="'banner-button event ' + banner.buttonColor">
-            Подробнее
+            Узнать подробнее
           </a>
         </swiper-slide>
       </swiper>
@@ -52,11 +52,11 @@ export default {
       banners: [
         {
           key: 1,
-          title: 'avtovaz-edet-k-nam',
+          title: 'tvoya-novaya-lada',
           extension: 'jpg',
-          buttonColor: 'yellow',
-          link: '',
-          type: 2,
+          buttonColor: 'orange',
+          link: 'granta/sedan',
+          type: 3,
         },
         /*      {
                 key: 2,
@@ -536,8 +536,8 @@ export default {
     font-size: 16px;
     padding: 16px 50px;
     border-radius: 6px;
-    right: 13%;
-    bottom: 24%;
+    right: 6%;
+    bottom: 13%;
   }
 
   .banner-button-2 {
@@ -578,8 +578,8 @@ export default {
   @media only screen and (max-width: 900px) {
     #swiper {
       .banner-button {
-        bottom: 12%;
-        right: 5%;
+        bottom: 20%;
+        right: 8%;
       }
 
       .banner-button-2 {
@@ -615,6 +615,7 @@ export default {
         bottom: 5vh;
         right: 50%;
         transform: translate(50%, 0);
+        padding: 16px 24px;
       }
 
       .banner-button-2 {
