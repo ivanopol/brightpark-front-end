@@ -33,7 +33,7 @@
             </p>
 
             <div class="cars-offer__content__item__info__buttons">
-              <a
+             <a v-if="car.credit > 0"
                 class="cars-offer__content__item__info__credit"
                 :href="'/' + $store.state.city.value + '/credit?car_model=' + car.model.title +'&car_type=' + car.type.title_ru"
               >
@@ -41,7 +41,7 @@
               </a>
 
 
-              <button
+              <button v-if="car.credit > 0"
                 class="cars-offer__content__item__informer"
                 @click.prevent="showInformer"
               >
@@ -58,6 +58,7 @@
                   />
                 </svg>
               </button>
+
               <div class="cars-offer__informer-wrap">
                 <button
                   class="cars-offer__informer-wrap__close"

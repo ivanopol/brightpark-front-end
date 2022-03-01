@@ -46,7 +46,7 @@
         <div class="banner__inner__info">
           <h1>{{ newWord }} LADA {{ carName }} в {{ $store.state.city.dative }}</h1>
           <p class="banner__inner__info__price color-secondary-color">от {{ prices.value | formatPrice }} ₽</p>
-          <div class="banner__inner__info__credit">
+          <div class="banner__inner__info__credit" v-if="prices.credit > 0">
             <p>Или в кредит <span> от {{ prices.credit | formatPrice }} ₽ / месяц </span></p>
             <button type="button" class="color-primary-color" @click="scrollTo">Рассчитать кредит</button>
           </div>
