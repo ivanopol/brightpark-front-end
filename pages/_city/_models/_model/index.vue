@@ -168,7 +168,7 @@ export default Vue.extend({
       if (this.model.model.slug === 'granta' && this.model.type.slug === 'sedan') {
         return true
       } else if (this.model.model.slug === 'vesta' && this.model.type.slug === 'sedan') {
-        return false
+        return true
       } else if (this.model.model.slug === 'xray' && this.model.type.slug === 'xray') {
         return true
       } else if (this.model.model.slug === 'largus' && this.model.type.slug === 'universal') {
