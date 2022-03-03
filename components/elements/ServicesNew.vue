@@ -12,7 +12,7 @@
         <a :href="'/' + $store.state.city.value + '/service'" class="event services__item__link" target="_blank"></a>
       </div>
 
-      <div class="services__item">
+      <div class="services__item no-link">
         <h5 class="services__item__title">
           Кредитование
         </h5>
@@ -87,13 +87,13 @@ export default {
       transition: .2s ease-out;
       min-height: 300px;
 
-      &:hover {
+      &:not(.no-link):hover {
         transform: scale(1.1);
         transition: .2s ease-in;
       }
     }
 
-    &:hover {
+    &:not(.no-link):hover {
       .services__item__title {
         color: #FF8351;
         transition: .4s ease;
