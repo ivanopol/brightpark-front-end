@@ -19,7 +19,7 @@
 
         <img src="~static/images/services/bg-2.png" alt="" class="services__item__bg">
 
-        <a :href="'/' + $store.state.city.value + '/credit'" class="event services__item__link" target="_blank"></a>
+<!--        <a :href="'/' + $store.state.city.value + '/credit'" class="event services__item__link" target="_blank"></a>-->
       </div>
 
       <div class="services__item">

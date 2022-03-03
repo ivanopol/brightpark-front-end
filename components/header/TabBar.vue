@@ -84,9 +84,9 @@
                             <li>
                                 <a id="common__menu__about" :href="'/' + $store.state.city.value + '/about'" class="event" itemprop="url"><div class="title bubble">О компании</div></a>
                             </li>
-                            <li>
+<!--                            <li>
                               <a id="common__menu__credit" :href="'/' + $store.state.city.value + '/credit'" class="event" itemprop="url"><div class="title bubble">Кредит</div></a>
-                            </li>
+                            </li>-->
                             <li>
                                 <a id="common__menu__stocks" :href="'/' + $store.state.city.value + '/stocks'" class="event" itemprop="url"><div class="title bubble">Акции</div></a>
                             </li>

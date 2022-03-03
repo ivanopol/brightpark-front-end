@@ -12,5 +12,6 @@
   { "from": "/niva/niva", "to": "/niva/travel" },
   { "from": "/niva/off-road", "to": "/niva/travel" },
   { "from": "/granta/cross", "to": "/granta/sedan" },
-  { "from": "/vesta/cng", "to": "/vesta/sedan" }
+  { "from": "/vesta/cng", "to": "/vesta/sedan" },
+  { "from": "/credit", "to": "/" }
 ]

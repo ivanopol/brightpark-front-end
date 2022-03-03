@@ -19,10 +19,10 @@
     <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
     <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
     <ModelsAbout :about="model.about" />
-    <CreditNew id="creditCalc"
+<!--    <CreditNew id="creditCalc"
          :model="model.model.title"
          :type="model.type.title_ru"
-         :equipments="model.complectations"/>
+         :equipments="model.complectations"/>-->
     <ModelsWarranty :model="model.model.title" :type="model.type.title_ru"/>
     <BookCarNew class="book-section"/>
     <nuxt-child/>
