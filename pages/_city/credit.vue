@@ -1,4 +1,5 @@
 <template>
+  <!-- СТРАНИЦА ОТКЛЮЧЕНА. Чтобы ее включить надо убрать редирект из файла /301.json (в корневой папке сайта) -->
   <div>
     <section class="main-screen">
       <CreditBanner :offer='offer' />
