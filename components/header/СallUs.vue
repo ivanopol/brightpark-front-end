@@ -43,8 +43,8 @@ export default {
           id: 1,
           title: 'Отдел продаж',
           icon: 'sales_department',
-          number: '+7 342 214-84-00',
-          number_nick: '+73422148400',
+          number: '+7 342 214-00-42',
+          number_nick: '+73422140042',
           is_replacement: true
         },
         {
