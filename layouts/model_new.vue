@@ -2,9 +2,11 @@
   <div :class="'wrapper ' + $store.state._background">
     <client-only placeholder="Загрузка...">
       <TabBar />
-      <HeaderSticky />
+      <HeaderSticky v-if="!is_perm"/>
+      <HeaderSticky2 v-else />
     </client-only>
-    <HeaderNew :line="true" :car="$store.state.car" />
+    <HeaderNew :line="true" :car="$store.state.car" v-if="!is_perm"/>
+    <Header3 v-else/>
     <Nuxt keep-alive />
     <client-only placeholder="Загрузка...">
       <Scripts keep-alive/>
@@ -19,6 +21,11 @@
 import HeaderNew from "../components/header/HeaderNew";
 export default {
   components: {HeaderNew},
+  data: function () {
+    return {
+      is_perm: false,
+    }
+  },
   head () {
     const canonical = `${process.env.baseUrl}${this.$route.path
       .toLowerCase()
@@ -38,6 +45,11 @@ export default {
       }
     }
   },
+  created() {
+    if (this.$route.params.city === 'perm') {
+      this.is_perm = true
+    }
+  }
 }
 </script>
 
