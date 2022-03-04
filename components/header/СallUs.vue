@@ -114,6 +114,8 @@ export default {
   display: block;
   margin-bottom: 15px;
 
+
+
   &.callibri_tel {
     text-decoration: none;
   }
@@ -125,6 +127,10 @@ export default {
       border-bottom: unset;
       padding-bottom: 0;
     }
+  }
+
+  &:hover .call-us__list__item__phone {
+    color: #e95909;
   }
 
   span {
