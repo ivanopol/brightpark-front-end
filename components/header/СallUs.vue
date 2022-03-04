@@ -14,7 +14,7 @@
            v-for="phone in phones"
            :key="phone.id"
            class="call-us__list__item event"
-           v-bind:class="{ callibri_tel: phone.is_replacement }"
+           v-bind:class="{ callibri_phone : phone.is_replacement }"
         >
           <p class="call-us__list__item__title">{{ phone.title }}</p>
 
