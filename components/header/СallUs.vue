@@ -51,8 +51,8 @@ export default {
           id: 2,
           title: 'Сервис',
           icon: 'service_department',
-          number: '+7 342 234-56-79',
-          number_nick: '+73422345679',
+          number: '+7 342 214-84-01',
+          number_nick: '+73422148401',
           is_replacement: false
         },
         {
