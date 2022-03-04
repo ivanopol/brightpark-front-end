@@ -9,7 +9,7 @@
     </span>
 
     <transition name="fade">
-      <div class="call-us__list" v-if="opened">
+      <div class="call-us__list" v-show="opened">
         <a :href="'tel:' + phone.number_nick"
            v-for="phone in phones"
            :key="phone.id"
