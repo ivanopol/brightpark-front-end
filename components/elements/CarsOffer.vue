@@ -298,8 +298,9 @@ export default {
 }
 
 .cars-offer__content__item__info__price {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
+  margin-bottom: 5px;
 }
 
 .cars-offer__content__item__info__credit {
