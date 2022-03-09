@@ -2,9 +2,11 @@
   <div :class="'wrapper ' + $store.state._background">
     <client-only placeholder="Загрузка...">
       <TabBar />
-      <HeaderSticky />
+      <HeaderSticky v-if="!is_new_header"/>
+      <HeaderSticky2 v-else />
     </client-only>
-    <Header2 />
+    <Header2 v-if="!is_new_header"/>
+    <Header3 v-else/>
     <Nuxt />
     <client-only placeholder="Загрузка...">
       <Scripts keep-alive/>
@@ -43,7 +45,7 @@ export default {
     }
   },
   created() {
-    if (this.$route.params.city === 'perm') {
+    if (this.$route.params.city === 'perm' || this.$route.params.city === 'magnitogorsk') {
       this.is_new_header = true
     }
   }

@@ -38,32 +38,61 @@ export default {
   name: "CallUs",
   data: function () {
     return {
-      phones: [
-        {
-          id: 1,
-          title: 'Отдел продаж',
-          icon: 'sales_department',
-          number: '+7 342 214-00-42',
-          number_nick: '+73422140042',
-          is_replacement: true
-        },
-        {
-          id: 2,
-          title: 'Сервис',
-          icon: 'service_department',
-          number: '+7 342 214-84-01',
-          number_nick: '+73422148401',
-          is_replacement: false
-        },
-        {
-          id: 3,
-          title: 'Другие вопросы',
-          icon: 'other_questions',
-          number: '+7 342 214-84-00',
-          number_nick: '+73422148400',
-          is_replacement: false
-        }
-      ],
+      phones: [],
+      phones_list: {
+        'perm': [
+          {
+            id: 1,
+            title: 'Отдел продаж',
+            icon: 'sales_department',
+            number: '+7 342 214-00-42',
+            number_nick: '+73422140042',
+            is_replacement: true
+          },
+          {
+            id: 2,
+            title: 'Сервис',
+            icon: 'service_department',
+            number: '+7 342 214-84-01',
+            number_nick: '+73422148401',
+            is_replacement: false
+          },
+          {
+            id: 3,
+            title: 'Другие вопросы',
+            icon: 'other_questions',
+            number: '+7 342 214-84-00',
+            number_nick: '+73422148400',
+            is_replacement: false
+          }
+        ],
+        'magnitogorsk': [
+          {
+            id: 1,
+            title: 'Отдел продаж',
+            icon: 'sales_department',
+            number: '+7 351 939-55-50',
+            number_nick: '+73519395550',
+            is_replacement: true
+          },
+          {
+            id: 2,
+            title: 'Сервис',
+            icon: 'service_department',
+            number: '+7 351 951-58-56',
+            number_nick: '+73519515856',
+            is_replacement: false
+          },
+          {
+            id: 3,
+            title: 'Другие вопросы',
+            icon: 'other_questions',
+            number: '+7 351 958-56-58',
+            number_nick: '+73519585658',
+            is_replacement: false
+          }
+        ],
+      },
       opened: false
     };
   },
@@ -74,6 +103,17 @@ export default {
   },
   mounted () {
     this.popupItem = this.$el
+  },
+  created() {
+    this.phones = this.phones_list[this.$route.params.city]
+/*    switch(this.$route.params.city) {
+      case 'perm':
+
+      break;
+      case 'magnitogorsk':
+
+      break;
+    }*/
   },
   directives: {
     ClickOutside

@@ -2,10 +2,10 @@
   <div :class="'wrapper ' + $store.state._background">
     <client-only placeholder="Загрузка...">
       <TabBar />
-      <HeaderSticky v-if="!is_perm"/>
+      <HeaderSticky v-if="!is_new_header"/>
       <HeaderSticky2 v-else />
     </client-only>
-    <HeaderNew :line="true" :car="$store.state.car" v-if="!is_perm"/>
+    <HeaderNew :line="true" :car="$store.state.car" v-if="!is_new_header"/>
     <Header3 v-else/>
     <Nuxt keep-alive />
     <client-only placeholder="Загрузка...">
@@ -23,7 +23,7 @@ export default {
   components: {HeaderNew},
   data: function () {
     return {
-      is_perm: false,
+      is_new_header: false,
     }
   },
   head () {
@@ -46,8 +46,8 @@ export default {
     }
   },
   created() {
-    if (this.$route.params.city === 'perm') {
-      this.is_perm = true
+    if (this.$route.params.city === 'perm' || this.$route.params.city === 'magnitogorsk') {
+      this.is_new_header = true
     }
   }
 }
