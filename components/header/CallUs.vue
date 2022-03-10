@@ -57,14 +57,14 @@ export default {
             number_nick: '+73422148401',
             is_replacement: false
           },
-          {
+/*          {
             id: 3,
             title: 'Другие вопросы',
             icon: 'other_questions',
             number: '+7 342 214-84-00',
             number_nick: '+73422148400',
             is_replacement: false
-          }
+          }*/
         ],
         'magnitogorsk': [
           {
@@ -83,14 +83,14 @@ export default {
             number_nick: '+73519515856',
             is_replacement: false
           },
-          {
+/*          {
             id: 3,
             title: 'Другие вопросы',
             icon: 'other_questions',
             number: '+7 351 958-56-58',
             number_nick: '+73519585658',
             is_replacement: false
-          }
+          }*/
         ],
         'rostov-na-donu': [
           {
@@ -109,14 +109,14 @@ export default {
             number_nick: '+78633109486',
             is_replacement: false
           },
-          {
+/*          {
             id: 3,
             title: 'Другие вопросы',
             icon: 'other_questions',
             number: '+7 863 308-94-88',
             number_nick: '+78633089488',
             is_replacement: false
-          }
+          }*/
         ],
         'yekaterinburg': [
           {
@@ -135,14 +135,14 @@ export default {
             number_nick: '+73433850395',
             is_replacement: false
           },
-          {
+/*          {
             id: 3,
             title: 'Другие вопросы',
             icon: 'other_questions',
             number: '+7 343 385-03-85',
             number_nick: '+73433850385',
             is_replacement: false
-          }
+          }*/
         ],
         'volgograd': [
           {
@@ -161,14 +161,14 @@ export default {
             number_nick: '+78442525462',
             is_replacement: false
           },
-          {
+/*          {
             id: 3,
             title: 'Другие вопросы',
             icon: 'other_questions',
             number: '+7 844 252-54-52',
             number_nick: '+78442525452',
             is_replacement: false
-          }
+          }*/
         ],
         'moscow': [
           {
@@ -187,14 +187,14 @@ export default {
             number_nick: '+74951458745',
             is_replacement: false
           },
-          {
+/*          {
             id: 3,
             title: 'Другие вопросы',
             icon: 'other_questions',
             number: '+7 495 145-88-45',
             number_nick: '+74951458845',
             is_replacement: false
-          }
+          }*/
         ],
       },
       opened: false
