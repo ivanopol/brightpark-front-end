@@ -45,8 +45,8 @@ export default {
             id: 1,
             title: 'Отдел продаж',
             icon: 'sales_department',
-            number: '+7 342 214-00-42',
-            number_nick: '+73422140042',
+            number: '+7 342 214-84-00',
+            number_nick: '+73422148400',
             is_replacement: true
           },
           {
@@ -71,8 +71,8 @@ export default {
             id: 1,
             title: 'Отдел продаж',
             icon: 'sales_department',
-            number: '+7 351 939-55-50',
-            number_nick: '+73519395550',
+            number: '+7 351 958-56-58',
+            number_nick: '+73519585658',
             is_replacement: true
           },
           {
