@@ -92,6 +92,110 @@ export default {
             is_replacement: false
           }
         ],
+        'rostov-na-donu': [
+          {
+            id: 1,
+            title: 'Отдел продаж',
+            icon: 'sales_department',
+            number: '+7 863 308-94-88',
+            number_nick: '+78633089488',
+            is_replacement: true
+          },
+          {
+            id: 2,
+            title: 'Сервис',
+            icon: 'service_department',
+            number: '+7 863 310-94-86',
+            number_nick: '+78633109486',
+            is_replacement: false
+          },
+          {
+            id: 3,
+            title: 'Другие вопросы',
+            icon: 'other_questions',
+            number: '+7 863 308-94-88',
+            number_nick: '+78633089488',
+            is_replacement: false
+          }
+        ],
+        'yekaterinburg': [
+          {
+            id: 1,
+            title: 'Отдел продаж',
+            icon: 'sales_department',
+            number: '+7 343 385-03-85',
+            number_nick: '+73433850385',
+            is_replacement: true
+          },
+          {
+            id: 2,
+            title: 'Сервис',
+            icon: 'service_department',
+            number: '+7 343 385-03-95',
+            number_nick: '+73433850395',
+            is_replacement: false
+          },
+          {
+            id: 3,
+            title: 'Другие вопросы',
+            icon: 'other_questions',
+            number: '+7 343 385-03-85',
+            number_nick: '+73433850385',
+            is_replacement: false
+          }
+        ],
+        'volgograd': [
+          {
+            id: 1,
+            title: 'Отдел продаж',
+            icon: 'sales_department',
+            number: '+7 844 252-54-52',
+            number_nick: '+78442525452',
+            is_replacement: true
+          },
+          {
+            id: 2,
+            title: 'Сервис',
+            icon: 'service_department',
+            number: '+7 844 252-54-62',
+            number_nick: '+78442525462',
+            is_replacement: false
+          },
+          {
+            id: 3,
+            title: 'Другие вопросы',
+            icon: 'other_questions',
+            number: '+7 844 252-54-52',
+            number_nick: '+78442525452',
+            is_replacement: false
+          }
+        ],
+        'moscow': [
+          {
+            id: 1,
+            title: 'Отдел продаж',
+            icon: 'sales_department',
+            number: '+7 495 145-88-45',
+            number_nick: '+74951458845',
+            is_replacement: true
+          },
+          {
+            id: 2,
+            title: 'Сервис',
+            icon: 'service_department',
+            number: '+7 495 145-87-45',
+            number_nick: '+74951458745',
+            is_replacement: false
+          },
+          {
+            id: 3,
+            title: 'Другие вопросы',
+            icon: 'other_questions',
+            number: '+7 495 145-88-45',
+            number_nick: '+74951458845',
+            is_replacement: false
+          }
+        ],
       },
       opened: false
     };
@@ -106,14 +210,6 @@ export default {
   },
   created() {
     this.phones = this.phones_list[this.$route.params.city]
-/*    switch(this.$route.params.city) {
-      case 'perm':
-
-      break;
-      case 'magnitogorsk':
-
-      break;
-    }*/
   },
   directives: {
     ClickOutside
