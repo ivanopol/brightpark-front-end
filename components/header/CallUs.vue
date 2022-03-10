@@ -123,7 +123,7 @@ export default {
             id: 1,
             title: 'Отдел продаж',
             icon: 'sales_department',
-            number: '+7 343 385 03 85',
+            number: '+7 343 385-03-85',
             number_nick: '+73433850385',
             is_replacement: true
           },
