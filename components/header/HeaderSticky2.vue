@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import CallUs from "@/components/header/СallUs";
+import CallUs from "@/components/header/CallUs";
 export default {
   name: "HeaderSticky",
   components: {CallUs},
