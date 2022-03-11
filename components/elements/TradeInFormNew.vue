@@ -21,7 +21,7 @@
       <advantages-list-mini
         class="trade-in__advantages"
         :tick-color="'#fff'"
-        :advantages="['Выгода при обмене до 50 000 ₽', 'Юридическая чистота сделки', 'Справедливая оценка автомобиля']"
+        :advantages="['Выгода при обмене', 'Юридическая чистота сделки', 'Справедливая оценка автомобиля']"
       />
       <div class="trade-in__form color-svg-traid-in">
         <div class="trade-in__form__toggle">
