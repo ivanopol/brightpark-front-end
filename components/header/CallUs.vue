@@ -57,14 +57,14 @@ export default {
             number_nick: '+73422148401',
             is_replacement: false
           },
-/*          {
+          {
             id: 3,
             title: 'Другие вопросы',
             icon: 'other_questions',
             number: '+7 342 214-84-00',
             number_nick: '+73422148400',
             is_replacement: false
-          }*/
+          }
         ],
         'magnitogorsk': [
           {
