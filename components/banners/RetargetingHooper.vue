@@ -1,11 +1,6 @@
 <template>
     <section>
         <div class="main-screen-wrap" >
-            <picture class="main-screen__new-year-gift">
-                <source srcset="~static/images/banner-new-year-gift-mob.png" media="(max-width: 768px)">
-                <img src="~static/images/banner-new-year-gift.png" alt="Новогодний подарок от Брайт Парк">
-            </picture>
-
             <ul>
                 <li class="retargeting-banner">
                     <div class="asset-container">
