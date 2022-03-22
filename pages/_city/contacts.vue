@@ -28,14 +28,14 @@
               <span class="contacts-field-name">Соц. сети:</span>
               <span class="contacts-field-value"><a id="contacts__left-side__vk" class="event" :href="$store.state.city.vk_url" target="_blank"><img class="social_logos" src="/images/icons/vk-logo.png" alt="Логотип ВК">Вконтакте</a></span>
             </li>
-            <li>
+<!--            <li>
               <span class="contacts-field-name"></span>
               <span class="contacts-field-value"><a id="contacts__left-side__facebook" class="event" :href="$store.state.city.fb_url" target="_blank"><img class="social_logos" src="/images/icons/facebook-logo.png" alt="Логотип Facebook">Facebook</a></span>
             </li>
             <li>
               <span class="contacts-field-name"></span>
               <span class="contacts-field-value"><a id="contacts__left-side__instagram" class="event" :href="$store.state.city.instagram_url" target="_blank"><img class="social_logos" src="/images/icons/instagram-logo.png" alt="Логотип Instagram">Instagram</a></span>
-            </li>
+            </li>-->
             <li>
               <span class="contacts-field-name"></span>
               <span class="contacts-field-value"><a id="contacts__left-side__youtube" class="event" :href="$store.state.city.youtube_url" target="_blank"><img class="social_logos" src="/images/icons/yt-logo.png" alt="Логотип YouTube">Youtube</a></span>
