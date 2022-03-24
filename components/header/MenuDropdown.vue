@@ -4,7 +4,7 @@
       <ul class="" v-if="opened">
         <li v-for="model in $store.state.models_full" v-bind:key="model.id">
           <a :id="'common__menu__' + model.model_slug" class="event" :href="'/' + $store.state.city.value + '/' + model.model_slug + '/' + model.type_slug" itemprop="url">
-            <div class="title bubble" >{{model.title | correction}}</div>
+            <div class="title bubble" >LADA {{model.title | correction}}</div>
           </a>
         </li>
       </ul>
