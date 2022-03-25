@@ -25,7 +25,7 @@
                  alt="" />
           </picture>
           <ButtonPhone  v-if="banner.link" :class="'callibri_tel banner-button ' + banner.buttonColor"
-                       text="Заказать звонок"
+                       text="Позвонить"
           />
 <!--          <a v-if="banner.link"
               :href="'/' + $store.state.city.value + '/' + banner.link"
