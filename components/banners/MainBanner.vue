@@ -24,17 +24,37 @@
                  :srcset="path.mobile + banner.title + '.' + banner.extension + ', ' + path.mobile + banner.title + '.' + banner.extension + ' 2x'"
                  alt="" />
           </picture>
-          <ButtonPhone  v-if="banner.link" :class="'callibri_tel banner-button ' + banner.buttonColor"
-                       text="Позвонить"
-          />
+
+          <ButtonNew
+            buttonColor=""
+            :type="'submit'"
+            :buttonText="'Заказать звонок'"
+            :class="'banner-button ' + banner.buttonColor"
+            @click.native="show(
+                    'Оставить заявку',
+                    $store.state._page + '__modal-banner-new_',
+                    1,
+                    'main_banner_call'
+                  )"
+            />
 <!--          <a v-if="banner.link"
               :href="'/' + $store.state.city.value + '/' + banner.link"
              :class="'banner-button event ' + banner.buttonColor">
-            Узнать подробнее
+            Заказать звонок
           </a>-->
         </swiper-slide>
       </swiper>
     </div>
+    <modal name="form-main-banner" height="auto" :adaptive="true" class="models-banner__modal">
+      <div :id="form_id + '_close'" class="close event" @click="hide"></div>
+      <FormLeadNew
+        :form_id="form_id"
+        :form_title="form_title"
+        :form_type="form_type"
+        :goal="goal"
+      />
+    </modal>
+
   </section>
 </template>
 
@@ -46,6 +66,11 @@ export default {
   name: 'MainBanner',
   data: function () {
     return {
+      form_id: '',
+      goal: '',
+      form_type: 1,
+      form_title: '',
+      colorTitle: '',
       path: {
         mobile: '/images/main/mobile/',
         mobileBig: '/images/main/mobile/big_phones/',
@@ -128,6 +153,20 @@ export default {
         },*/
       }
     };
+  },
+  methods: {
+    show(title, form_id, form_type, goal) {
+      this.form_title = title;
+      this.form_id = form_id;
+      this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
+      this.goal = goal;
+
+      this.$modal.show("form-main-banner");
+    },
+    hide() {
+      this.$modal.hide("form-main-banner");
+    },
+
   },
   computed: {
     swiper() {
@@ -642,6 +681,14 @@ export default {
     }
   }
 
+  .models-banner__modal {
+    .vm--modal {
+      max-width: 570px;
+      border-radius: 0;
+    }
+
+  }
+
 </style>
 
 
@@ -679,5 +726,10 @@ export default {
       bottom: 40%;
       right: -5px;
     }
+  }
+
+  .banner-button {
+    max-width: 250px;
+    height: 50px;
   }
 </style>
