@@ -29,8 +29,8 @@
               <div class="container navigation">
                   <div class="menu-links">
                     <menu-dropdown />
-                    <a :href="'https://prodai-auto.brightpark.ru/?city=' + $store.state.city.value" class="event">Продать</a>
-                    <a :href="'/' + $store.state.city.value + '/service'" class="event">Сервис</a>
+                    <a :href="'https://prodai-auto.brightpark.ru/?city=' + $store.state.city.value" class="event">Выкуп авто</a>
+                    <a :href="'/' + $store.state.city.value + '/service'" class="event">Автосервис</a>
                     <a :href="'/' + $store.state.city.value + '/stocks'" class="event">Акции</a>
                     <a :href="'/' + $store.state.city.value + '/about'" class="event">О компании</a>
                     <a :href="'/' + $store.state.city.value + '/contacts'" class="event">Контакты</a>
