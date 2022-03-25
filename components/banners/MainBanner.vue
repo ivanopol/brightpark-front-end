@@ -52,7 +52,7 @@ export default {
       banners: [
         {
           key: 1,
-          title: 'tvoya-novaya-lada',
+          title: 'tvoya-novaya-lada-vyberi-svoj-paket-opcij',
           extension: 'jpg',
           buttonColor: 'orange',
           link: 'granta/sedan',
@@ -536,8 +536,8 @@ export default {
     font-size: 16px;
     padding: 16px 50px;
     border-radius: 6px;
-    right: 6%;
-    bottom: 13%;
+    left: 8.5%;
+    bottom: 23%;
   }
 
   .banner-button-2 {
@@ -578,8 +578,8 @@ export default {
   @media only screen and (max-width: 900px) {
     #swiper {
       .banner-button {
-        bottom: 20%;
-        right: 8%;
+        bottom: 13%;
+        left: 7%;
       }
 
       .banner-button-2 {
@@ -615,7 +615,7 @@ export default {
         bottom: 5vh;
         right: 50%;
         transform: translate(50%, 0);
-        padding: 16px 24px;
+        padding: 16px 16px;
       }
 
       .banner-button-2 {
