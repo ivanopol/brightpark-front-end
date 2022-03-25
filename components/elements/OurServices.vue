@@ -17,7 +17,6 @@
                                             class="btn btn-primary callibri_phone btn-position green event"
                                             text="Позвонить"
                             />
-<!--                            <a :id="$store.state._page + '__' + service.alias + '_call'" data-goal="zvonok" :href="'tel:' + $store.state.city.phone" class="btn btn-primary callibri_phone btn-position green event">Позвонить</a>-->
                         </div>
                     </template>
                 </BadgerAccordionItem>
@@ -158,101 +157,6 @@
                             },
                         }
                     },
-                    body_repair: {
-                        id: 3,
-                        title: 'Кузовной ремонт',
-                        alias: this.$store.state._page + '__modal-carcass-repair_',
-                        list: {
-                            0: {
-                                title: 'Окраска бампера',
-                                price: 4990,
-                            },
-                            1: {
-                                title: 'Замена лобового стекла',
-                                price: 1990,
-                            },
-                            2: {
-                                title: 'Окраска переднего крыла',
-                                price: 5490,
-                            },
-                            3: {
-                                title: 'Окраска двери',
-                                price: 5490,
-                            },
-                            4: {
-                                title: 'Окраска заднего крыла',
-                                price: 5490,
-                            },
-                            5: {
-                                title: 'Окраска порога',
-                                price: 4490,
-                            },
-                            6: {
-                                title: 'Окраска крышки багажника',
-                                price: 5490,
-                            },
-                            7: {
-                                title: 'Выправление вмятины без окраски',
-                                price: 990,
-                            },
-                            8: {
-                                title: 'Локальная окраска',
-                                price: 2990,
-                            },
-                            9: {
-                                title: 'Бронирование капота',
-                                price: 4990,
-                            },
-                            10: {
-                                title: 'Бронирование фар',
-                                price: 1490,
-                            },
-                            11: {
-                                title: 'Бронирование переднего бампера',
-                                price: 4990,
-                            },
-                            12: {
-                                title: 'Бронирование ниши ручек дверей',
-                                price: 990,
-                            },
-                            13: {
-                                title: 'Бронирование переднего крыла',
-                                price: 2490,
-                            },
-                            14: {
-                                title: 'Бронирование крыши',
-                                price: 4990,
-                            },
-                            15: {
-                                title: 'Бронирование порога',
-                                price: 1990,
-                            },
-                            16: {
-                                title: 'Антикор арки',
-                                price: 490,
-                            },
-                            17: {
-                                title: 'Антикор днища',
-                                price: 1990,
-                            },
-                            18: {
-                                title: 'Окраска панели крыши',
-                                price: 4990,
-                            },
-                            19: {
-                                title: 'Окраска капота',
-                                price: 4990,
-                            },
-                            20: {
-                                title: 'Бронирование крыши (полоса РВО)',
-                                price: 990,
-                            },
-                            21: {
-                                title: 'Антикор днища и арки',
-                                price: 3890,
-                            },
-                        }
-                    },
                     car_care: {
                         id: 4,
                         title: 'Уход за автомобилем',
@@ -317,6 +221,105 @@
         },
         mounted() {
            // this.$refs.myAccordion.open(0);
+        },
+        created() {
+          if (this.$store.state.city.value === 'perm') {
+            this.services['body_repair'] = {
+              id: 3,
+              title: 'Кузовной ремонт',
+              alias: this.$store.state._page + '__modal-carcass-repair_',
+              list: {
+                0: {
+                  title: 'Окраска бампера',
+                  price: 4990,
+                },
+                1: {
+                  title: 'Замена лобового стекла',
+                  price: 1990,
+                },
+                2: {
+                  title: 'Окраска переднего крыла',
+                  price: 5490,
+                },
+                3: {
+                  title: 'Окраска двери',
+                  price: 5490,
+                },
+                4: {
+                  title: 'Окраска заднего крыла',
+                  price: 5490,
+                },
+                5: {
+                  title: 'Окраска порога',
+                  price: 4490,
+                },
+                6: {
+                  title: 'Окраска крышки багажника',
+                  price: 5490,
+                },
+                7: {
+                  title: 'Выправление вмятины без окраски',
+                  price: 990,
+                },
+                8: {
+                  title: 'Локальная окраска',
+                  price: 2990,
+                },
+                9: {
+                  title: 'Бронирование капота',
+                  price: 4990,
+                },
+                10: {
+                  title: 'Бронирование фар',
+                  price: 1490,
+                },
+                11: {
+                  title: 'Бронирование переднего бампера',
+                  price: 4990,
+                },
+                12: {
+                  title: 'Бронирование ниши ручек дверей',
+                  price: 990,
+                },
+                13: {
+                  title: 'Бронирование переднего крыла',
+                  price: 2490,
+                },
+                14: {
+                  title: 'Бронирование крыши',
+                  price: 4990,
+                },
+                15: {
+                  title: 'Бронирование порога',
+                  price: 1990,
+                },
+                16: {
+                  title: 'Антикор арки',
+                  price: 490,
+                },
+                17: {
+                  title: 'Антикор днища',
+                  price: 1990,
+                },
+                18: {
+                  title: 'Окраска панели крыши',
+                  price: 4990,
+                },
+                19: {
+                  title: 'Окраска капота',
+                  price: 4990,
+                },
+                20: {
+                  title: 'Бронирование крыши (полоса РВО)',
+                  price: 990,
+                },
+                21: {
+                  title: 'Антикор днища и арки',
+                  price: 3890,
+                },
+              }
+            }
+          }
         }
     }
 </script>
