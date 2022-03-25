@@ -24,11 +24,14 @@
                  :srcset="path.mobile + banner.title + '.' + banner.extension + ', ' + path.mobile + banner.title + '.' + banner.extension + ' 2x'"
                  alt="" />
           </picture>
-          <a v-if="banner.link"
+          <ButtonPhone  v-if="banner.link" :class="'callibri_tel banner-button ' + banner.buttonColor"
+                       text="Заказать звонок"
+          />
+<!--          <a v-if="banner.link"
               :href="'/' + $store.state.city.value + '/' + banner.link"
              :class="'banner-button event ' + banner.buttonColor">
             Узнать подробнее
-          </a>
+          </a>-->
         </swiper-slide>
       </swiper>
     </div>
