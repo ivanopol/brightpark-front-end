@@ -615,7 +615,7 @@ export default {
         bottom: 5vh;
         right: 50%;
         transform: translate(50%, 0);
-        padding: 16px 16px;
+        padding: 16px 24px;
       }
 
       .banner-button-2 {
