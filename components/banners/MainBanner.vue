@@ -656,6 +656,7 @@ export default {
       .banner-button {
         bottom: 5vh;
         right: 50%;
+        left: auto;
         transform: translate(50%, 0);
         padding: 16px 16px;
         text-align: center;
