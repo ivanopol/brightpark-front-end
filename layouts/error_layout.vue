@@ -2,9 +2,9 @@
   <div :class="'wrapper ' + $store.state._background">
     <client-only placeholder="Загрузка...">
       <TabBar />
-      <HeaderSticky />
+      <HeaderSticky2 />
     </client-only>
-    <Header2 />
+    <Header3 />
     <Nuxt keep-alive />
     <client-only placeholder="Загрузка...">
       <Scripts keep-alive/>
