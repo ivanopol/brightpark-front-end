@@ -1,12 +1,12 @@
 <template>
   <div :class="'wrapper ' + $store.state._background">
-    <client-only placeholder="Загрузка...">
+    <client-only>
       <TabBar />
       <HeaderSticky />
     </client-only>
     <Header2 />
     <Nuxt />
-    <client-only placeholder="Загрузка...">
+    <client-only>
       <Scripts keep-alive/>
       <ScrollEvents />
       <ButtonEvents />
