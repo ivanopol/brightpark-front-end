@@ -2,11 +2,10 @@
   <div :class="'wrapper ' + $store.state._background">
     <client-only placeholder="Загрузка...">
       <TabBar />
-      <HeaderStickyModel />
+      <HeaderSticky2/>
     </client-only>
-    <Header2 :line="true" :head_class="'header-model'" :car="$store.state.car" />
+    <Header3/>
     <Nuxt keep-alive />
-    <Footer :page="$store.state._page" />
     <client-only placeholder="Загрузка...">
       <Scripts keep-alive/>
       <ScrollEvents />
@@ -20,6 +19,11 @@
 import HeaderNew from "../components/header/HeaderNew";
 export default {
   components: {HeaderNew},
+  data: function () {
+    return {
+      is_new_header: false,
+    }
+  },
   head () {
     const canonical = `${process.env.baseUrl}${this.$route.path
       .toLowerCase()
@@ -39,6 +43,11 @@ export default {
       }
     }
   },
+  created() {
+    if (this.$route.params.city === 'perm' || this.$route.params.city === 'magnitogorsk') {
+      this.is_new_header = true
+    }
+  }
 }
 </script>
 

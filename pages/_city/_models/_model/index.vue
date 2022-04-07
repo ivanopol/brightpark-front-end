@@ -44,7 +44,7 @@ export default Vue.extend({
     }
   },
   layout (context) {
-    return 'model_new'
+    return 'model'
   },
   async validate(context) {
 
