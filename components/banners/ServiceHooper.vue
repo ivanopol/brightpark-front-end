@@ -10,7 +10,7 @@
         </div>
         <div class="banner-content bottom-left">
             <div class="banner-title-white">
-                <h1>Сервис<br> Брайт Парка</h1>
+                <h1 v-html="title" />
             </div>
         </div>
     </section>
@@ -19,6 +19,12 @@
 <script>
     export default {
         name: "ServiceBanner",
+        props: {
+          title: {
+            default: 'Сервис<br> Брайт Парка',
+            type: String
+          }
+        },
         data: function () {
             return {};
         },

@@ -1,10 +1,10 @@
 <template>
-  <a href="#" class="dropdown" v-bind:class="{ 'active': opened }" v-click-outside="hide" v-on:click="opened = !opened">Купить
+  <a href="#" class="dropdown" v-bind:class="{ 'active': opened }" v-click-outside="hide" v-on:click="opened = !opened">{{ title }}
     <transition name="fade">
       <ul class="" v-if="opened">
-        <li v-for="model in $store.state.models_full" v-bind:key="model.id">
-          <a :id="'common__menu__' + model.model_slug" class="event" :href="'/' + $store.state.city.value + '/' + model.model_slug + '/' + model.type_slug" itemprop="url">
-            <div class="title bubble" >LADA {{ model.title }}</div>
+        <li v-for="link in links" v-bind:key="link.id">
+          <a :id="'common__menu__' + link.id" class="event" :href="'/' + $store.state.city.value + '/' + link.url" itemprop="url">
+            <div class="title bubble" > {{ link.title }}</div>
           </a>
         </li>
       </ul>
@@ -16,7 +16,17 @@
 import ClickOutside from 'vue-click-outside'
 
 export default {
-  name: "MenuDropdown",
+  name: "MenuDropdownCommon",
+  props: {
+    links: {
+      default: [],
+      type: Array
+    },
+    title: {
+      default: '',
+      type: String
+    },
+  },
   data: function () {
     return {
       opened: false
@@ -77,6 +87,7 @@ a.dropdown {
     z-index: 10;
     border-radius: 6px;
     min-width: 135px;
+    display: inline-table;
 
     li {
       a {
