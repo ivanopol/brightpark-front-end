@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ServiceHooper title="Кузовной<br> ремонт" />
+    <ServiceHooper :title="'Кузовной ремонт в ' + city + ' - Автосервис «Брайт Парк»'" />
     <div class="container_bg_dark">
       <div class="container">
         <div id="advantages" class="advantages_wrap service_wrap">
@@ -81,7 +81,8 @@ export default Vue.extend({
   layout: 'without_footer',
   data: function () {
     return {
-      seo: {}
+      seo: {},
+      city: this.$store.state.city.dative
     }
   },
   async asyncData(context) {
