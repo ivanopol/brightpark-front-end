@@ -7,9 +7,9 @@
 
     <div class="main-screen__swiper-wrap">
       <swiper id="swiper" class="swiper" ref="mySwiper"  :options="swiperOption">
-<!--        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-        <div class="swiper-pagination" slot="pagination"></div>-->
+        <div class="swiper-pagination" slot="pagination"></div>
         <swiper-slide :key="banner.key" v-for="banner in banners">
           <div class="banner_btn-call" v-if="banner.type == 2">
              <ButtonPhone :class="'callibri_tel banner-button-3 ' + banner.buttonColor"
@@ -29,7 +29,7 @@
             buttonColor=""
             :type="'submit'"
             :buttonText="'Заказать звонок'"
-            :class="'banner-button ' + banner.buttonColor"
+            :class="[banner.type == 1 ? 'banner-button-2 ' : 'banner-button ', banner.buttonColor]"
             @click.native="show(
                     'Оставить заявку',
                     $store.state._page + '__modal-banner-new_',
@@ -80,12 +80,21 @@ export default {
       banners: [
         {
           key: 1,
+          title: 'pyat-prichin',
+          extension: 'jpg',
+          buttonColor: 'orange',
+          link: '',
+          type: 1,
+        },
+        {
+          key: 2,
           title: 'tvoya-novaya-lada-vyberi-svoj-paket-opcij',
           extension: 'jpg',
           buttonColor: 'orange',
-          link: 'granta/sedan',
+          link: '',
           type: 3,
         },
+
         /*      {
                 key: 2,
                 title: 'santa',
@@ -128,11 +137,11 @@ export default {
               },*/
       ],
       swiperOption: {
+        autoplay:false,
 /*        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
         },*/
-        autoplay: false,
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
@@ -141,16 +150,14 @@ export default {
         loop: false,
         preventInteractionOnTransition: true,
         loopFillGroupWithBlank: true,
-        navigation: false,
-        pagination: false,
-/*        navigation: {
+        navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
-        },*/
-/*        pagination: {
+        },
+        pagination: {
           el: '.swiper-pagination',
           clickable: true,
-        },*/
+        },
       }
     };
   },
@@ -327,16 +334,6 @@ export default {
 
       .button {
         position: relative;
-
-        .banner-button-2 {
-          position: absolute;
-          color: #fff;
-          font-weight: normal;
-          text-decoration: underline;
-          font-size: 16px;
-          padding: 16px 50px;
-          border-radius: 6px;
-        }
       }
     }
 
@@ -428,9 +425,6 @@ export default {
             display: flex;
             justify-content: center;
 
-            .banner-button-2 {
-              position: relative;
-            }
           }
         }
       }
@@ -570,7 +564,8 @@ export default {
     }
   }
 
-  .banner-button {
+  .banner-button,
+  .banner-button-2 {
     position: absolute;
     color: #fff;
     font-weight: normal;
@@ -578,25 +573,16 @@ export default {
     font-size: 16px;
     padding: 16px 50px;
     border-radius: 6px;
+  }
+
+  .banner-button {
     left: 8.5%;
     bottom: 23%;
   }
 
   .banner-button-2 {
-    position: absolute;
-    color: #000;
-    font-weight: normal;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 16px 50px;
-    border-radius: 6px;
-    left: 5%;
-    bottom: 30%;
-
-
-    &:hover {
-      opacity: 1;
-    }
+    left: 6.3%;
+    bottom: 13%;
   }
 
   .banner_btn-call {
@@ -625,9 +611,8 @@ export default {
       }
 
       .banner-button-2 {
-        bottom: 7%;
-        right: 10%;
-        left: unset;
+        bottom: 13%;
+        left: 7%;
       }
 
       .swiper-pagination {
@@ -663,9 +648,12 @@ export default {
       }
 
       .banner-button-2 {
-        bottom: 20vh;
+        bottom: 5vh;
         right: 50%;
+        left: auto;
         transform: translate(50%, 0);
+        padding: 16px 16px;
+        text-align: center;
       }
 
       .swiper-slide {
@@ -729,7 +717,8 @@ export default {
     }
   }
 
-  .banner-button {
+  .banner-button,
+  .banner-button-2{
     max-width: 250px;
     height: 50px;
   }
