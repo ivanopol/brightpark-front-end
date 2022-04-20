@@ -273,7 +273,26 @@ export default {
         object-fit: cover;
         width: 100%;
         max-width:100%;
-        vertical-align:middle
+        vertical-align:middle;
+        background-color: #d6e7ef;
+      }
+
+      @media only screen and (max-width: 580px) {
+        img {
+          aspect-ratio: 390 / 467;
+        }
+      }
+
+      @media only screen and (min-width: 581px) and (max-width: 900px) {
+        img {
+          aspect-ratio: 900 / 584;
+        }
+      }
+
+      @media only screen and (min-width: 901px) {
+        img {
+          aspect-ratio: 903 / 409;
+        }
       }
 
       .yellow {
