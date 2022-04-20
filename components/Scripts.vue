@@ -51,7 +51,7 @@ export default {
           this.googleAnalytics(tag_body)
           this.appendCityScripts(this.$store.state.city.scripts, tag_body)
         }
-      }, 2000)
+      }, 2500)
     }
 
   },
