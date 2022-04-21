@@ -16,15 +16,15 @@
         <OrderCallForm />
     </div>
     <ModelsFeatures :features="model.features"/>
-    <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
-    <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
-    <ModelsAbout :about="model.about" />
+    <ModelsEquipments keep-alive class="equipments-block" :complectations="model.complectations"/>
+    <TradeInFormNew keep-alive :models="model.type.title" :type="model.type.title_ru"/>
+    <ModelsAbout keep-alive :about="model.about" />
 <!--    <CreditNew id="creditCalc"
          :model="model.model.title"
          :type="model.type.title_ru"
          :equipments="model.complectations"/>-->
-    <ModelsWarranty :model="model.model.title" :type="model.type.title_ru"/>
-    <BookCarNew class="book-section"/>
+    <ModelsWarranty keep-alive :model="model.model.title" :type="model.type.title_ru"/>
+    <BookCarNew keep-alive class="book-section"/>
     <nuxt-child/>
   </div>
 </template>
