@@ -58,9 +58,9 @@
         />
       </form>
 
-      <img src="~static/images/book-car-figure.png" alt="" class="book__inner__figure">
-      <img src="~static/images/book-girl.png" alt="" class="book__inner__girl-mob">
-      <img src="~static/images/book-girl-desk.png" alt="" class="book__inner__girl">
+      <img src="~static/images/book-car-figure.png" alt="Фон Оставьте свои контакты" class="book__inner__figure" loading="lazy">
+      <img src="~static/images/book-girl.png" alt="Оставьте свои контакты" class="book__inner__girl-mob" loading="lazy">
+      <img src="~static/images/book-girl-desk.png" alt="Оставьте свои контакты" class="book__inner__girl" loading="lazy">
 
     </div>
 
