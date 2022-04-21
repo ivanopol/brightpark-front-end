@@ -60,6 +60,8 @@ export default {
         colorId: this.currentColor,
         colorClass: this.colorClass
       });
+
+      this.$modal.hide("color-choose");
     }
   }
 }
