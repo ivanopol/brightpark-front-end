@@ -2,7 +2,7 @@
   <section class="warranty">
     <div class="container warranty__container">
       <div class="warranty__preview">
-        <img :src="path + filename" alt="">
+        <img :src="path + filename" alt="Гарантия 3 года" loading="lazy">
       </div>
 
       <div class="warranty__text">
