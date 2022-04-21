@@ -3,7 +3,7 @@
     <section class="test-drive-banner">
       <div class="container test-drive-banner__container">
         <div class="test-drive-banner__wrapper color-primary-background">
-          <img :src="path.mobile" :alt="path.title" class="test-drive-banner__pic">
+          <img :src="path.mobile" :alt="path.title" class="test-drive-banner__pic" loading="lazy">
 
           <div class="test-drive-banner__text">
             <h2>Испытай новую LADA {{model}} в деле!</h2>

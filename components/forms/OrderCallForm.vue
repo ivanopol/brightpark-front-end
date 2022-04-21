@@ -4,7 +4,7 @@
       <path d="M33.3875 156.178L200 203V0L12.8319 44.9948C3.85682 47.1524 -1.58805 54.8934 0.413581 62.6501L21.7037 145.153C23.0389 150.327 27.48 154.518 33.3875 156.178Z" :class="fillClassSecondary"/>
     </svg>
 
-    <img src="~static/images/order-call-girl.png" alt="" class="order-call__girl">
+    <img src="~static/images/order-call-girl.png" alt="Заказать звонок | Брайт Парк" loading="lazy" class="order-call__girl">
 
 
     <div class="order-call__head">
