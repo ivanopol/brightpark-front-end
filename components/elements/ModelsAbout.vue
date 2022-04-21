@@ -12,7 +12,7 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="path + '/mobile/' + about.exterior.image_mobile" loading="lazy" alt="">
+            <img :src="path + '/mobile/' + about.exterior.image_mobile" loading="lazy" alt="Экстерьер">
 
             <div class="models-about__item__inner__text">
               <p>
@@ -31,7 +31,7 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="path + '/mobile/' + about.interior.image_mobile" loading="lazy" alt="">
+            <img :src="path + '/mobile/' + about.interior.image_mobile" loading="lazy" alt="Интерьер">
 
             <div class="models-about__item__inner__text">
               <p>
@@ -51,7 +51,7 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="path + '/mobile/' + about.comfort.image_mobile" loading="lazy" alt="">
+            <img :src="path + '/mobile/' + about.comfort.image_mobile" loading="lazy" alt="Комфорт">
 
             <div class="models-about__item__inner__text">
               <p>
@@ -71,7 +71,7 @@
           </button>
 
           <div class="models-about__item__inner">
-            <img :src="path + '/mobile/' + about.safety.image_mobile" loading="lazy" alt="">
+            <img :src="path + '/mobile/' + about.safety.image_mobile" loading="lazy" alt="Безопасность">
 
             <div class="models-about__item__inner__text">
               <p>
