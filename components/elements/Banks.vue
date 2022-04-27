@@ -4,35 +4,35 @@
             <h2>Банки-Партнеры</h2>
             <ul>
                 <li>
-                    <img loading=lazy :id="$store.state._page + '__banks__ph-bank'" class="event" src="~static/images/main/banks/ph-bank.png" alt="PH Банк"
+                    <img loading=lazy :id="$store.state._page + '__banks__ph-bank'" class="event" src="~static/images/banks/rn.png" alt="PH Банк"
                     v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-ph-bank_', 'Отправить', 1, 'credit')">
                 </li>
                 <li>
-                    <img loading=lazy :id="$store.state._page + '__banks__vtb'" class="event" src="~static/images/main/banks/vtb.png" alt="ВТБ"
+                    <img loading=lazy :id="$store.state._page + '__banks__vtb'" class="event" src="~static/images/banks/vtb.png" alt="ВТБ"
                     v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-vtb_', 'Отправить', 1, 'credit')">
                 </li>
                 <li>
-                    <img loading=lazy :id="$store.state._page + '__banks__setelem'" class="event" src="~static/images/main/banks/setelem.png" alt="Сетелем"
+                    <img loading=lazy :id="$store.state._page + '__banks__setelem'" class="event" src="~static/images/banks/setelem.png" alt="Сетелем"
                     v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-setelem_', 'Отправить', 1, 'credit')">
                 </li>
                 <li>
-                    <img loading=lazy :id="$store.state._page + '__banks__sovkombank'" class="event" src="~static/images/main/banks/sovkom-bank.png" alt="СовкомБанк"
+                    <img loading=lazy :id="$store.state._page + '__banks__sovkombank'" class="event" src="~static/images/banks/sovkom.png" alt="СовкомБанк"
                     v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-sovkombank_', 'Отправить', 1, 'credit')">
                 </li>
                 <li>
-                    <img loading=lazy :id="$store.state._page + '__banks__uralsib'" class="event" src="~static/images/main/banks/uralsib.png" alt="УРАЛСИБ"
+                    <img loading=lazy :id="$store.state._page + '__banks__uralsib'" class="event" src="~static/images/banks/uralsib.png" alt="УРАЛСИБ"
                     v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-uralsib_', 'Отправить', 1, goal)">
                 </li>
                 <li>
-                    <img loading=lazy :id="$store.state._page + '__banks__rusfinance'" class="event" src="~static/images/main/banks/rusfinance.png" alt="РУСФИНАНС БАНК"
+                    <img loading=lazy :id="$store.state._page + '__banks__rusfinance'" class="event" src="~static/images/banks/rusfinance.png" alt="РУСФИНАНС БАНК"
                     v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-rusfinance_', 'Отправить', 1, goal)">
                 </li>
                 <li>
-                    <img loading=lazy :id="$store.state._page + '__banks__rosgosstrakh'" class="event" src="~static/images/main/banks/rosgosstrakh.png" alt="Росгосстрах Банк"
+                    <img loading=lazy :id="$store.state._page + '__banks__rosgosstrakh'" class="event" src="~static/images/banks/rostrah.png" alt="Росгосстрах Банк"
                     v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-rosgosstrakh_', 'Отправить', 1, goal)">
                 </li>
                 <li>
-                    <img loading=lazy :id="$store.state._page + '__banks__tinkoff'" class="event" src="~static/images/main/banks/tinkoff.png" alt="Тинькофф"
+                    <img loading=lazy :id="$store.state._page + '__banks__tinkoff'" class="event" src="~static/images/banks/tinkoff.png" alt="Тинькофф"
                     v-on:click.prevent="show('Узнать про кредит', $store.state._page + '__modal-banks-tinkoff_', 'Отправить', 1, goal)">
                 </li>
             </ul>
