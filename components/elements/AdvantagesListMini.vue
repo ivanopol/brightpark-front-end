@@ -2,7 +2,7 @@
   <ul class="advantages">
     <li class="advantages__item" v-for="advantage in advantages" :key="advantages.indexOf(advantage)">
       <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 10L4 13L16 1" class="color-primary-stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M1 10L4 13L16 1" :stroke='tickColor' class="color-primary-stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
 
       <p>
