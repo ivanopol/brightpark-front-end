@@ -7,6 +7,7 @@
     <div class="container">
       <Advantages3 />
       <FormConsultation style="margin-bottom: 50px" :form_id="'main__consult_'" goal="consult" />
+      <advantages-cards :items="advCarsList" style="margin: 80px 0;"/>
     </div>
 
     <ServicesNew class="services-block"/>
@@ -46,7 +47,23 @@ import Vue from 'vue'
 export default Vue.extend({
   data: function () {
     return {
-      seo: {}
+      seo: {},
+      advCarsList: [
+        {
+          text: 'Простой выбор',
+          path: '/images/icons/adv-card-1.svg',
+        },
+
+        {
+          text: 'Удобная и выгодная покупка',
+          path: '/images/icons/adv-card-2.svg',
+        },
+
+        {
+          text: 'Надежная поддержка',
+          path: '/images/icons/adv-card-3.svg',
+        }
+      ]
     }
   },
   validate: function ({params, store}) {
