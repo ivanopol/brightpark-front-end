@@ -1,7 +1,7 @@
 <template>
   <section class="advantages">
     
-    <picture class="advantages__car">
+    <picture>
       <source media="(min-width: 1367px)" srcset="../../static/images/car-decor.png">
       <img 
         src="../../static/images/car-decor-2.png" 
@@ -54,6 +54,11 @@ section.advantages {
   @media (max-width: 1367px) {
     border-radius: 5px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 34px;
+    padding: 0 15px;
+  }
 }
 
 
@@ -75,6 +80,10 @@ section.advantages {
   color: $purple;
   text-transform: none;
   font-family: "Bright Park Display";
+
+  @media (max-width: 768px) {
+    font-size: 0.85em;
+  }
 }
 
 .advantages__car {
@@ -90,10 +99,15 @@ section.advantages {
     display: block;
     margin: auto;
   }
+
+  @media (max-width: 660px) {
+    max-height: unset;
+    width: 100%;
+  }
 }
 
 .advantages__list {
-  font-size: 20px;
+  font-size: 0.47em;
   margin-top: 20px;
   color: $purple;
 
