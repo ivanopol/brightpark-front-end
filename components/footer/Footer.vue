@@ -13,6 +13,9 @@
                 <time itemprop="openingHours" :datetime="$store.state.city.opening_hours.days.en + ', ' + $store.state.city.opening_hours.hours">{{$store.state.city.opening_hours.days.ru}}, {{$store.state.city.opening_hours.hours}}</time>
             </div>
         </span>
+
+        <!-- Можно потом удалить -->
+        <!--
         <div class="block-text center mb">
             <h2><span class="c_orange">Брайт Парк </span> всегда на связи</h2>
             <p >Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class="block callibri_tel text-white"/></p>
@@ -27,6 +30,45 @@
             </p>
 
         </div>
+        -->
+
+        <section class="footer__contact">
+
+            <img src="~static/images/3d-decor.png" alt="" class="footer__contact__decor">
+
+            <div class="container footer__contact__container">
+                <h2 class="footer__contact__title">
+                    Брайт Парк всегда на связи
+                </h2>
+
+                <p class="footer__contact__desc">
+                    Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class="block callibri_tel"/>
+                </p>
+
+                <button type="button" class="footer__contact__btn">
+                    Заказать звонок
+                </button>
+
+                <div class="footer__contact__info">
+                    <p>
+                        Брайт парк ближе, чем кажется
+                        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            {{$store.state.city.address}}
+                        </span>
+                        <span itemprop="openingHours" :datetime="$store.state.city.opening_hours.days.en + ', ' + $store.state.city.opening_hours.hours">
+                            Ждем вас ежедневно с {{$store.state.city.opening_hours.hours_split.from}} до {{$store.state.city.opening_hours.hours_split.to}}
+                        </span>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+
         <YandexMapComponent v-if="with_map"
                                 :button="ym_button"
                                 :btn_class="ym_btn_class"
@@ -143,6 +185,8 @@
 </script>
 
 <style scoped lang="scss">
+@import '~/assets/scss/_colors.scss';
+
     .text-white {
       color: #000;
       font-weight: normal;
@@ -206,10 +250,7 @@
                 width: auto;
             }
 
-            &.block p {
-                margin-bottom: 40px;
-                font-size: 18px;
-            }
+           
         }
     }
 
@@ -217,5 +258,93 @@
         footer {
             padding-bottom:0;
         }
+    }
+
+    
+    .footer__contact {
+        background-color: $purple;
+        padding: 70px 0;
+        position: relative;
+    }
+
+    .footer__contact__title {
+        font-size: 50px;
+        text-transform: none;
+        color: white;
+        font-family: "Bright Park Display";
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .footer__contact__desc {
+        font-family: "Bright Park Display";
+        margin-bottom: 20px;
+        color: white;
+        max-width: 665px;
+        font-size: 1.5em;
+
+        .callibri_tel {
+            color: $yellow;
+            font-weight: 400;
+        }
+    }
+
+    .footer__contact__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $yellow;
+        color: $purple;
+        border: none;
+        font-family: "Bright Park Display";
+        border-radius: 5px;
+        padding: 15px 60px;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: .2s;
+
+        &:hover {
+            opacity: .65;
+            transition: .2s;
+        }
+    }
+
+    .footer__contact__container {
+        position: relative;
+        padding-left: 85px;
+        overflow: visible;
+    }
+
+    .footer__contact__info {
+        background-image: url("../../static/images/credit-section/advantages-wrap.svg");
+        background-size: 100% 100%;
+        position: absolute;
+        right: -100px;
+        bottom: -50px;
+        padding: 37px 120px;
+        max-width: 614px;
+        
+        p {
+            color: white;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0 !important;
+            font-family: "Bright Park Display";
+            font-size: 1.2em;
+
+            span {
+                font-weight: 400;
+                font-family: 'Factor A';
+                font-size: .9em;
+            }
+        }
+    }
+
+    .footer__contact__decor {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 350px;
     }
 </style>
