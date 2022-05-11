@@ -4,7 +4,9 @@
     <Advantages2/>
     <CarsOffer style="margin: 40px 0 25px;" />
     
-   
+    <div class="container">
+      <FormConsultation style="margin-bottom: 50px" :form_id="'main__consult_'" goal="consult" />
+    </div>
 
     <ServicesNew class="services-block"/>
     <div class="theme-03" id="traid-in">
@@ -34,7 +36,7 @@
       
       
       <Advantages3 />
-      <FormConsultation style="margin-bottom: 50px" :form_id="'main__consult_'" goal="consult" />
+      
       <advantages-cards :items="advCarsList" style="margin: 80px 0;"/>
      
     </div>
