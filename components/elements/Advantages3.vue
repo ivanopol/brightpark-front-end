@@ -1,10 +1,14 @@
 <template>
   <section class="advantages">
-    <img 
-      src="../../static/images/car-decor.png" 
-      alt="Автосалон «‎Брайт парк»‎ — Официальный дилер LADA"
-      class="advantages__car"
-    >
+    
+    <picture class="advantages__car">
+      <source media="(min-width: 1367px)" srcset="../../static/images/car-decor.png">
+      <img 
+        src="../../static/images/car-decor-2.png" 
+        alt="Автосалон «‎Брайт парк»‎ — Официальный дилер LADA"
+        class="advantages__car"
+      >
+    </picture>
 
     <div class="container advantages__container">
       <div class="advantages__inner">
@@ -46,6 +50,10 @@ section.advantages {
   position: relative;
   font-size: 42px;
   padding: 50px 0;
+
+  @media (max-width: 1367px) {
+    border-radius: 5px;
+  }
 }
 
 
@@ -56,6 +64,10 @@ section.advantages {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 1367px) {
+    margin: auto;
+  }
 }
 
 .advantages__title {
@@ -71,6 +83,13 @@ section.advantages {
   top: 50%;
   transform: translate(0, -50%);
   max-height: 350px;
+
+  @media (max-width: 1367px) {
+    position: static;
+    transform: unset;
+    display: block;
+    margin: auto;
+  }
 }
 
 .advantages__list {
