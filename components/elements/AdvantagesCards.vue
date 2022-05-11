@@ -35,6 +35,15 @@ export default {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 30px;
     row-gap: 20px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 30px;
+    }
+
+    @media (max-width: 530px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .advantages-cards__list__item {
