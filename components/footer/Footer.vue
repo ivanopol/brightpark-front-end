@@ -1,5 +1,5 @@
 <template>
-    <footer class="block footer" v-bind:class="[ footer_class ]" itemscope itemtype="http://schema.org/Organization">
+    <footer class="block footer theme-01" v-bind:class="[ footer_class ]" itemscope itemtype="http://schema.org/Organization">
         <span class="hidden" itemprop="name">Брайт Парк</span>
         <span class="hidden" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
             <img loading=lazy itemprop="contentUrl" src="~static/images/logo_bright_park_02.svg" alt="Logo">
@@ -58,7 +58,11 @@
                 </div>
 
 
-                <button type="button" class="footer__contact__btn">
+                <button 
+                    type="button" 
+                    class="footer__contact__btn"
+                    @click="show('Заказать звонок', 'footer-order-call', 'Заказать звонок', 1, 'goal_hz' ,'form-callback5')"
+                >
                     Заказать звонок
                 </button>
 
@@ -86,6 +90,15 @@
                                  :form_type="form_type"
                                  :goal="goal">
             </FormBuy2Component>
+        </modal>
+
+        <modal name="form-callback5" height="auto" :adaptive="true" class="models-banner__modal">
+            <div :id="form_id + '_close'" class="close event" @click="hide('form-callback5')"></div>
+            <FormLeadNew
+                form_title="Заказать звнок"
+                :form_id="form_id"
+                button_text="Заказать звонок"
+            />
         </modal>
     </footer>
 </template>
@@ -139,16 +152,16 @@
         methods: {
             beforeOpen (event) {
             },
-            show (title, form_id, button_text, form_type, goal) {
+            show (title, form_id, button_text, form_type, goal, form_name) {
                 this.form_title = title;
                 this.form_id = form_id;
                 this.button_text = button_text;
                 this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
                 this.goal = goal;
-                this.$modal.show('form-callback-footer');
+                this.$modal.show(form_name);
             },
-            hide () {
-                this.$modal.hide('form-callback-footer');
+            hide (form_name) {
+                this.$modal.hide(form_name);
             },
             sendGoals: function (goal) {
                 if (goal) {
