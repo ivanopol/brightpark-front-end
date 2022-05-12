@@ -384,6 +384,7 @@ form button {
   font-family: "Factor A";
   text-align: center;
   margin-top: 18px;
+  margin-bottom: 0 !important;
   span {
     font-weight: 700;
     display: inline-block;
