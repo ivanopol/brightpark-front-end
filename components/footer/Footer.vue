@@ -42,13 +42,9 @@
                 </h2>
 
                 <p class="footer__contact__desc">
-                    Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class="block callibri_tel"/>
+                    Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class="block callibri_tel" style="display: inline-block;"/>
                 </p>
-
-                <button type="button" class="footer__contact__btn">
-                    Заказать звонок
-                </button>
-
+                
                 <div class="footer__contact__info">
                     <p>
                         Брайт парк ближе, чем кажется
@@ -60,6 +56,13 @@
                         </span>
                     </p>
                 </div>
+
+
+                <button type="button" class="footer__contact__btn">
+                    Заказать звонок
+                </button>
+
+
 
             </div>
         </section>
@@ -265,10 +268,18 @@
         background-color: $purple;
         padding: 70px 0;
         position: relative;
+
+        @media (max-width: 992px) {
+            padding: 50px 15px;
+        }
+
+        @media (max-width: 550px) {
+            font-size: 14px;
+        }
     }
 
     .footer__contact__title {
-        font-size: 50px;
+        font-size: 3.125em;
         text-transform: none;
         color: white;
         font-family: "Bright Park Display";
@@ -313,6 +324,10 @@
         position: relative;
         padding-left: 85px;
         overflow: visible;
+
+        @media (max-width: 1150px) {
+            padding-left: 0;
+        }
     }
 
     .footer__contact__info {
@@ -338,6 +353,18 @@
                 font-size: .9em;
             }
         }
+
+        @media (max-width: 992px) {
+            position: static;
+            margin-left: -75px;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 550px) {
+            padding: 0;
+            margin-left: 0;
+            background-image: unset;
+        }
     }
 
     .footer__contact__decor {
@@ -346,5 +373,9 @@
         top: 0;
         left: 0;
         max-width: 350px;
+
+        @media (max-width: 1150px) {
+            display: none;
+        }
     }
 </style>
