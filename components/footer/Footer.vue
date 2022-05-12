@@ -14,24 +14,6 @@
             </div>
         </span>
 
-        <!-- Можно потом удалить -->
-        <!--
-        <div class="block-text center mb">
-            <h2><span class="c_orange">Брайт Парк </span> всегда на связи</h2>
-            <p >Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class="block callibri_tel text-white"/></p>
-            <div class="footer-callback-wrap" v-show="!mobile">
-                <a href="#" :id="page + '__footer__request-callback'" class="btn btn btn-primary btn-position green event" v-on:click.prevent="show('Заказать звонок', page + '__modal-footer-request-callback_', 'Отправить', 1, 'callback')" >Заказать звонок</a>
-            </div>
-            <div class="footer-call-wrap" v-show="mobile">
-                <a :href="'tel:' + $store.state.city.phone" :id="page + '__footer__call'" :data-goal="goal_call" @click="sendGoals(goal_call)" class="btn btn btn-primary btn-position green callibri_button event" v-if="mobile">Позвонить</a>
-            </div>
-            <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">Брайт парк ближе, чем кажется<br> <span itemprop="streetAddress">{{$store.state.city.address}}</span><br>
-                <span itemscope itemtype="http://schema.org/LocalBusiness"><time itemprop="openingHours" :datetime="$store.state.city.opening_hours.days.en + ', ' + $store.state.city.opening_hours.hours">Ждем вас ежедневно с {{$store.state.city.opening_hours.hours_split.from}} до {{$store.state.city.opening_hours.hours_split.to}}</time></span>
-            </p>
-
-        </div>
-        -->
-
         <section class="footer__contact">
 
             <img src="~static/images/3d-decor.png" alt="" class="footer__contact__decor">
@@ -44,7 +26,7 @@
                 <p class="footer__contact__desc">
                     Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class="block callibri_tel" style="display: inline-block;"/>
                 </p>
-                
+
                 <div class="footer__contact__info">
                     <p>
                         Брайт парк ближе, чем кажется
@@ -57,24 +39,16 @@
                     </p>
                 </div>
 
-
-                <button 
-                    type="button" 
+                <button
+                    type="button"
                     class="footer__contact__btn"
                     @click="show('Заказать звонок', 'footer-order-call', 'Заказать звонок', 1, 'goal_hz' ,'form-callback5')"
                 >
                     Заказать звонок
                 </button>
 
-
-
             </div>
         </section>
-
-
-
-
-
 
         <YandexMapComponent v-if="with_map"
                                 :button="ym_button"
@@ -95,7 +69,7 @@
         <modal name="form-callback5" height="auto" :adaptive="true" class="models-banner__modal">
             <div :id="form_id + '_close'" class="close event" @click="hide('form-callback5')"></div>
             <FormLeadNew
-                form_title="Заказать звнок"
+                form_title="Заказать звонок"
                 :form_id="form_id"
                 button_text="Заказать звонок"
             />
@@ -266,7 +240,7 @@
                 width: auto;
             }
 
-           
+
         }
     }
 
@@ -276,7 +250,7 @@
         }
     }
 
-    
+
     .footer__contact {
         background-color: $purple;
         padding: 70px 0;
@@ -351,7 +325,7 @@
         bottom: -50px;
         padding: 37px 120px;
         max-width: 614px;
-        
+
         p {
             color: white;
             display: flex;

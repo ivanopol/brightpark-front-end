@@ -3,7 +3,7 @@
     <MainBanner />
     <Advantages2/>
     <CarsOffer style="margin: 40px 0 25px;" />
-    
+
     <div class="container">
       <FormConsultation style="margin-bottom: 50px" :form_id="'main__consult_'" goal="consult" />
     </div>
@@ -14,31 +14,8 @@
     </div>
 
     <div class="container">
-      <!-- <Advantages />
-      <div class="advantages_form">
-        <FormBuyComponent :form_id="'main__advantages_'"
-                          :is_comment="true"
-                          :button_text="'Отправить'"
-                          :form_title="'Оставьте заявку, мы вам перезвоним'"
-                          :goal="'about_model'" />
-
-      </div> -->
-      <!-- <div class="b-desciption">
-        <h2><span>Простой выбор</span></h2>
-        <p><span>У&nbsp;нас можно приобрести по&nbsp;доступной </span><span>цене</span><span> технологичный и&nbsp;современный автомобиль, который соответствует вашему стилю вождения, образу жизни и&nbsp;характеру. Выберите семейную и&nbsp;практичную модель, маневренное и&nbsp;динамичное авто для города или внедорожник для экстремальной езды. </span></p>
-        <p><span>Наши консультанты помогут с&nbsp;подбором машины, организуют тест-драйв и&nbsp;сформируют комплектацию авто по&nbsp;индивидуальным требованиям.</span></p>
-        <h2><span>Удобная и&nbsp;выгодная покупка</span></h2>
-        <p><span>Мы&nbsp;будем сопровождать вас на&nbsp;всех этапах приобретения: от&nbsp;выбора модели до&nbsp;оформления документов. Проконсультируем по&nbsp;финансовым, правовым, страховым и&nbsp;техническим вопросам.</span></p>
-        <p><span>У&nbsp;нас большой перечень финансовых программ от&nbsp;банков-партнеров для быстрой и&nbsp;выгодной покупки. Есть удобная программа обмена: возьмем на&nbsp;себя реализацию вашей старой машины и&nbsp;подарим 40&nbsp;000&nbsp;руб.&nbsp;на&nbsp;новую модель LADA.</span></p>
-        <h2><span>Надежная поддержка</span></h2>
-        <p><span><span>Приобретение авто у&nbsp;</span><span>официального дилера</span><span>&nbsp;— гарантия надежной технической поддержки. Выполняем гарантийное и&nbsp;постгарантийное обслуживание автомобиля. Вы&nbsp;сможете обратиться к&nbsp;нам по&nbsp;любому вопросу на&nbsp;протяжении всего срока службы автомобиля: мы&nbsp;всегда на&nbsp;связи.</span></span></p>
-      </div> -->
-      
-      
       <Advantages3 />
-      
       <advantages-cards :items="advCarsList" style="margin: 80px 0;"/>
-     
     </div>
     <Banks/>
     <nuxt-child/>

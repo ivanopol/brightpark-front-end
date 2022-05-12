@@ -48,14 +48,13 @@
       </span>
     </div>
 
-
     <button
       type="submit"
       class="new-lead__body__submit color-primary-background"
       :class="{ preloader: isLoading }"
       v-bind:disabled="isButtonDisabled"
     >
-      Оставить заявку
+      {{ button_text }}
     </button>
 
     <p class="new-lead__body__copies">
@@ -71,7 +70,7 @@ export default {
   name: "FormLeadNew",
   props: {
     button_text: {
-      default: "Записаться",
+      default: "Оставить заявку",
       type: String
     },
     form_id: {
