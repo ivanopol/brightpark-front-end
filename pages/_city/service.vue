@@ -66,7 +66,7 @@
         ></FormRetarget>
       </div>
     </div>
-    <Footer footer_class="container_bg_dark"
+    <FooterOld footer_class="container_bg_dark"
             :ym_button='true'
             ym_btn_class="green btn-position"
             :page="$store.state._page" />

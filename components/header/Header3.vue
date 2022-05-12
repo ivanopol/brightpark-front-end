@@ -32,7 +32,7 @@
           <div class="menu-links">
             <menu-dropdown />
             <a :href="'https://prodai-auto.brightpark.ru/?city=' + $store.state.city.value" class="event">Выкуп авто</a>
-            <a :href="'/' + $store.state.city.value + '/service'" class="event" v-if="isMoscow" >Автосервис</a>
+<!--            <a :href="'/' + $store.state.city.value + '/service'" class="event" v-if="isMoscow" >Автосервис</a>-->
             <a :href="'/' + $store.state.city.value + '/service'" class="event">Автосервис</a>
 <!--            <menu-dropdown-common
               v-else
