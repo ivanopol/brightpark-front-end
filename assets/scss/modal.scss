@@ -1,5 +1,7 @@
   .vm--modal {
-      border-radius: 30px;
+      border-radius: 0;
+      margin-right: 0;
+      max-width: 570px;
 
       .close {
           right: 12px;
@@ -9,9 +11,7 @@
 
   @media only screen and (max-width: 580px) {
       .vm--modal {
-          border-radius: 15px;
-          width: 90vw;
-          max-width: 90%;
+    
           margin: 0 auto;
       }
   }
