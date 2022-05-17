@@ -90,11 +90,11 @@ export default {
         },
         {
           key: 2,
-          title: 'pyat-prichin',
+          title: 'lada_v_credit',
           extension: 'jpg',
-          buttonColor: 'orange',
-          buttonText: 'ЗАКАЗАТЬ ЗВОНОК',
-          buttonClass: 'banner-button-2',
+          buttonColor: 'purple',
+          buttonText: 'ПОДРОБНЕЕ',
+          buttonClass: 'banner-button-4',
           link: '',
           type: 1,
         },
@@ -598,7 +598,8 @@ export default {
 
   .banner-button,
   .banner-button-2,
-  .banner-button-3 {
+  .banner-button-3,
+  .banner-button-4 {
     position: absolute;
     color: #fff;
     font-weight: normal;
@@ -626,6 +627,11 @@ export default {
     color: #6a32b7 !important;
   }
 
+  .banner-button-4 {
+    right: 6%;
+    bottom: 23%;
+  }
+
   .banner_btn-call {
     position: absolute;
     bottom: 19.9%;
@@ -646,6 +652,11 @@ export default {
 
       .banner-button-3 {
         bottom: 21%;
+        right: 7%;
+      }
+
+      .banner-button-4 {
+        bottom: 20%;
         right: 7%;
       }
 
@@ -691,6 +702,15 @@ export default {
       }
 
       .banner-button-3 {
+        bottom: 5vh;
+        right: 50%;
+        left: auto;
+        transform: translate(50%, 0);
+        padding: 16px 16px;
+        text-align: center;
+      }
+
+      .banner-button-4 {
         bottom: 5vh;
         right: 50%;
         left: auto;
