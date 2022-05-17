@@ -26,6 +26,7 @@
           </picture>
 
           <ButtonNew
+            v-if="banner.buttonType === 'window'"
             buttonColor=""
             :type="'submit'"
             :buttonText="banner.buttonText"
@@ -37,11 +38,11 @@
                     'main_banner_call'
                   )"
             />
-<!--          <a v-if="banner.link"
+          <a v-if="banner.buttonType === 'link'"
               :href="'/' + $store.state.city.value + '/' + banner.link"
-             :class="'banner-button event ' + banner.buttonColor">
-            Заказать звонок
-          </a>-->
+             :class="banner.buttonClass + ' event ' + banner.buttonColor">
+            {{ banner.buttonText }}
+          </a>
         </swiper-slide>
       </swiper>
     </div>
@@ -85,6 +86,7 @@ export default {
           buttonColor: 'yellow',
           buttonText: 'УСПЕЙ КУПИТЬ',
           buttonClass: 'banner-button-3',
+          buttonType: 'window',
           link: '',
           type: 1,
         },
@@ -95,7 +97,8 @@ export default {
           buttonColor: 'purple',
           buttonText: 'ПОДРОБНЕЕ',
           buttonClass: 'banner-button-4',
-          link: '',
+          link: 'stocks/lada_v_credit',
+          buttonType: 'link',
           type: 1,
         },
         {
@@ -105,6 +108,7 @@ export default {
           buttonColor: 'orange',
           buttonText: 'ЗАКАЗАТЬ ЗВОНОК',
           buttonClass: 'banner-button',
+          buttonType: 'window',
           link: '',
           type: 3,
         },
