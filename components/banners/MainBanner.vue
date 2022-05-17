@@ -28,8 +28,8 @@
           <ButtonNew
             buttonColor=""
             :type="'submit'"
-            :buttonText="'Заказать звонок'"
-            :class="[banner.type == 1 ? 'banner-button-2 ' : 'banner-button ', banner.buttonColor]"
+            :buttonText="banner.buttonText"
+            :class="banner.buttonClass + ' ' + banner.buttonColor"
             @click.native="show(
                     'Оставить заявку',
                     $store.state._page + '__modal-banner-new_',
@@ -80,17 +80,31 @@ export default {
       banners: [
         {
           key: 1,
-          title: 'pyat-prichin',
+          title: 'europe',
           extension: 'jpg',
-          buttonColor: 'orange',
+          buttonColor: 'yellow',
+          buttonText: 'УСПЕЙ КУПИТЬ',
+          buttonClass: 'banner-button-3',
           link: '',
           type: 1,
         },
         {
           key: 2,
+          title: 'pyat-prichin',
+          extension: 'jpg',
+          buttonColor: 'orange',
+          buttonText: 'ЗАКАЗАТЬ ЗВОНОК',
+          buttonClass: 'banner-button-2',
+          link: '',
+          type: 1,
+        },
+        {
+          key: 3,
           title: 'tvoya-novaya-lada-vyberi-svoj-paket-opcij',
           extension: 'jpg',
           buttonColor: 'orange',
+          buttonText: 'ЗАКАЗАТЬ ЗВОНОК',
+          buttonClass: 'banner-button',
           link: '',
           type: 3,
         },
@@ -146,7 +160,7 @@ export default {
         slidesPerView: 1,
         spaceBetween: 0,
         slidesPerGroup: 1,
-        loop: false,
+        loop: true,
         preventInteractionOnTransition: true,
         loopFillGroupWithBlank: true,
         navigation: {
@@ -583,7 +597,8 @@ export default {
   }
 
   .banner-button,
-  .banner-button-2 {
+  .banner-button-2,
+  .banner-button-3 {
     position: absolute;
     color: #fff;
     font-weight: normal;
@@ -591,6 +606,8 @@ export default {
     font-size: 16px;
     padding: 16px 50px;
     border-radius: 6px;
+    max-width: 250px;
+    height: 50px;
   }
 
   .banner-button {
@@ -603,23 +620,17 @@ export default {
     bottom: 13%;
   }
 
+  .banner-button-3 {
+    right: 6%;
+    bottom: 25%;
+    color: #6a32b7 !important;
+  }
+
   .banner_btn-call {
     position: absolute;
     bottom: 19.9%;
     left: 6.94%;
   }
-
-  .banner-button-3 {
-    cursor: pointer;
-    font-size: 16px;
-    padding: 16px 50px;
-    border-radius: 6px;
-    color: #582d96;
-    font-weight: normal;
-    text-decoration: underline;
-  }
-
-
 
   @media only screen and (max-width: 900px) {
     #swiper {
@@ -631,6 +642,11 @@ export default {
       .banner-button-2 {
         bottom: 13%;
         left: 7%;
+      }
+
+      .banner-button-3 {
+        bottom: 21%;
+        right: 7%;
       }
 
       .swiper-pagination {
@@ -666,6 +682,15 @@ export default {
       }
 
       .banner-button-2 {
+        bottom: 5vh;
+        right: 50%;
+        left: auto;
+        transform: translate(50%, 0);
+        padding: 16px 16px;
+        text-align: center;
+      }
+
+      .banner-button-3 {
         bottom: 5vh;
         right: 50%;
         left: auto;
@@ -733,11 +758,5 @@ export default {
       bottom: 40%;
       right: -5px;
     }
-  }
-
-  .banner-button,
-  .banner-button-2{
-    max-width: 250px;
-    height: 50px;
   }
 </style>
