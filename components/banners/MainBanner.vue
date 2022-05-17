@@ -81,13 +81,13 @@ export default {
       banners: [
         {
           key: 1,
-          title: 'europe',
+          title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
           extension: 'jpg',
-          buttonColor: 'yellow',
-          buttonText: 'УСПЕЙ КУПИТЬ',
-          buttonClass: 'banner-button-3',
+          buttonColor: 'orange',
+          buttonText: 'ЗАКАЗАТЬ ЗВОНОК',
+          buttonClass: 'banner-button-2',
+          link: 'stocks/vygoda-350-000-rublej-na-pokupku-novoj-lada',
           buttonType: 'window',
-          link: '',
           type: 1,
         },
         {
@@ -103,6 +103,17 @@ export default {
         },
         {
           key: 3,
+          title: 'europe',
+          extension: 'jpg',
+          buttonColor: 'yellow',
+          buttonText: 'УСПЕЙ КУПИТЬ',
+          buttonClass: 'banner-button-3',
+          buttonType: 'window',
+          link: '',
+          type: 1,
+        },
+        {
+          key: 4,
           title: 'tvoya-novaya-lada-vyberi-svoj-paket-opcij',
           extension: 'jpg',
           buttonColor: 'orange',
