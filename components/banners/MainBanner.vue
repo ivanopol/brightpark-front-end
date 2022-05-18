@@ -11,11 +11,6 @@
         <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
         <swiper-slide :key="banner.key" v-for="banner in banners">
-          <div class="banner_btn-call" v-if="banner.type == 2">
-             <ButtonPhone :class="'callibri_tel banner-button-3 ' + banner.buttonColor"
-                          text="Заказать звонок"
-             />
-          </div>
           <picture>
             <source :srcset="path.mobile + banner.title + '.' + banner.extension + ', ' + path.mobile + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 580px)">
             <source :srcset="path.tablet + banner.title + '.' + banner.extension + ', ' + path.tablet + banner.title + '.' + banner.extension + ' 2x'" media="(max-width: 900px)">
@@ -25,24 +20,29 @@
                  alt="" />
           </picture>
 
-          <ButtonNew
-            v-if="banner.buttonType === 'window'"
-            buttonColor=""
-            :type="'submit'"
-            :buttonText="banner.buttonText"
-            :class="banner.buttonClass + ' ' + banner.buttonColor"
-            @click.native="show(
-                    'Оставить заявку',
-                    $store.state._page + '__modal-banner-new_',
-                    1,
-                    'main_banner_call'
-                  )"
-            />
-          <a v-if="banner.buttonType === 'link'"
-              :href="'/' + $store.state.city.value + '/' + banner.link"
-             :class="banner.buttonClass + ' event ' + banner.buttonColor">
-            {{ banner.buttonText }}
-          </a>
+          <div :class="banner.place + ' buttons-wrapper'">
+            <div key="button.key" v-for="button in banner.buttons" >
+              <ButtonNew
+                v-if="button.type === 'window'"
+                buttonColor=""
+                :type="'submit'"
+                :buttonText="button.text"
+                :class="button.color"
+                @click.native="show(
+                        'Оставить заявку',
+                        $store.state._page + '__modal-banner-new_',
+                        1,
+                        'main_banner_call'
+                      )"
+                />
+
+              <a v-if="button.type === 'link'"
+                  :href="'/' + $store.state.city.value + '/' + button.link"
+                 :class="' event ' + button.color">
+                {{ button.text }}
+              </a>
+            </div>
+          </div>
         </swiper-slide>
       </swiper>
     </div>
@@ -83,93 +83,81 @@ export default {
           key: 1,
           title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
           extension: 'jpg',
-          buttonColor: 'orange',
-          buttonText: 'ЗАКАЗАТЬ ЗВОНОК',
-          buttonClass: 'banner-button-2',
-          link: 'stocks/vygoda-350-000-rublej-na-pokupku-novoj-lada',
-          buttonType: 'window',
-          type: 1,
+          place: 'banner-button-2',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              color: 'orange',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              class: 'banner-button-2',
+              link: '',
+            },
+            {
+              key: 2,
+              type: 'link',
+              color: 'no-color',
+              text: 'ПОДРОБНЕЕ',
+              class: 'banner-button-2',
+              link: 'stocks/vygoda-350-000-rublej-na-pokupku-novoj-lada',
+            },
+          ]
         },
         {
           key: 2,
           title: 'lada_v_credit',
           extension: 'jpg',
-          buttonColor: 'purple',
-          buttonText: 'ПОДРОБНЕЕ',
-          buttonClass: 'banner-button-4',
-          link: 'stocks/lada_v_credit',
-          buttonType: 'link',
-          type: 1,
+          place: 'banner-button-4',
+          buttons: [
+            {
+              key: 1,
+              type: 'link',
+              color: 'purple',
+              text: 'ПОДРОБНЕЕ',
+              class: 'banner-button-4',
+              link: 'stocks/lada_v_credit',
+            },
+          ]
         },
         {
           key: 3,
           title: 'europe',
           extension: 'jpg',
-          buttonColor: 'yellow',
-          buttonText: 'УСПЕЙ КУПИТЬ',
-          buttonClass: 'banner-button-3',
-          buttonType: 'window',
-          link: '',
-          type: 1,
+          place: 'banner-button-3',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              color: 'yellow',
+              text: 'УСПЕЙ КУПИТЬ',
+              class: 'banner-button-3',
+              link: '',
+            },
+          ]
         },
         {
           key: 4,
           title: 'tvoya-novaya-lada-vyberi-svoj-paket-opcij',
           extension: 'jpg',
-          buttonColor: 'orange',
-          buttonText: 'ЗАКАЗАТЬ ЗВОНОК',
-          buttonClass: 'banner-button',
-          buttonType: 'window',
-          link: '',
-          type: 3,
+          place: 'banner-button',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              color: 'orange',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              class: 'banner-button',
+              link: '',
+            },
+          ]
         },
-
-        /*      {
-                key: 2,
-                title: 'santa',
-                extension: 'jpg',
-                buttonColor: 'yellow',
-                link: '',
-                type: 1,
-              },
-              {
-                key: 3,
-                title: 'yellow',
-                extension: 'jpg',
-                buttonColor: 'purple',
-                link: 'vesta/sedan',
-                type: 1,
-              },
-              {
-                key: 4,
-                title: 'green',
-                extension: 'jpg',
-                buttonColor: 'orange',
-                link: 'credit',
-                type: 1,
-              },
-              {
-                key: 5,
-                title:'all_inclusive_2',
-                extension: 'jpg',
-                buttonColor: 'green',
-                link: 'vesta/sw',
-                type: 1,
-              },
-             {
-                key: 6,
-                title:'purple',
-                extension: 'jpg',
-                buttonColor: 'green',
-                link: 'granta/sedan',
-                type: 1,
-              },*/
       ],
       swiperOption: {
-        autoplay: {
+        autoplay: false,
+/*        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },
+        },*/
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
@@ -611,19 +599,35 @@ export default {
     }
   }
 
+  .buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > div:first-child {
+      margin-right: 15px;
+      margin-bottom: 0;
+    }
+
+    a,
+    button {
+      display: block;
+      color: #fff;
+      font-weight: normal;
+      text-decoration: underline;
+      font-size: 16px;
+      padding: 16px 50px;
+      border-radius: 6px;
+      max-width: 250px;
+      height: 50px;
+    }
+  }
+
   .banner-button,
   .banner-button-2,
   .banner-button-3,
   .banner-button-4 {
     position: absolute;
-    color: #fff;
-    font-weight: normal;
-    text-decoration: underline;
-    font-size: 16px;
-    padding: 16px 50px;
-    border-radius: 6px;
-    max-width: 250px;
-    height: 50px;
   }
 
   .banner-button {
@@ -639,7 +643,9 @@ export default {
   .banner-button-3 {
     right: 6%;
     bottom: 25%;
-    color: #6a32b7 !important;
+    button {
+      color: #6a32b7 !important;
+    }
   }
 
   .banner-button-4 {
@@ -688,7 +694,16 @@ export default {
 
   @media only screen and (max-width: 580px) {
 
-    .banner_btn-call {
+    .buttons-wrapper {
+      flex-direction: column;
+
+      & > div:first-child {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+    }
+
+      .banner_btn-call {
       left: unset;
       bottom: 10%;
     }
