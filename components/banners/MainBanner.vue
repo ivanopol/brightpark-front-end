@@ -714,7 +714,7 @@ export default {
       }
 
       .banner-button {
-        bottom: 5vh;
+        bottom: 0;
         right: 50%;
         left: auto;
         transform: translate(50%, 0);
@@ -723,7 +723,7 @@ export default {
       }
 
       .banner-button-2 {
-        bottom: 5vh;
+        bottom: 0;
         right: 50%;
         left: auto;
         transform: translate(50%, 0);
@@ -732,7 +732,7 @@ export default {
       }
 
       .banner-button-3 {
-        bottom: 5vh;
+        bottom: 0;
         right: 50%;
         left: auto;
         transform: translate(50%, 0);
@@ -741,7 +741,7 @@ export default {
       }
 
       .banner-button-4 {
-        bottom: 5vh;
+        bottom: 0;
         right: 50%;
         left: auto;
         transform: translate(50%, 0);
