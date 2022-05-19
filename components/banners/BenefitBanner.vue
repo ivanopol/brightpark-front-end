@@ -32,7 +32,6 @@
         :form_title="form_title"
         :form_type="form_type"
         :goal="goal"
-        :comment="$store.state.car.model_full + ', цвет: ' + colorTitle"
       />
     </modal>
   </div>
