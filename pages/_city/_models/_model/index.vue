@@ -15,15 +15,13 @@
     <div class="container order-call-wrap">
         <OrderCallForm />
     </div>
-    <client-only>
-      <ModelsFeatures :features="model.features"/>
-      <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
-      <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
-      <ModelsAbout :about="model.about" />
-      <ModelsWarranty :model="model.model.title" :type="model.type.title_ru"/>
-      <BookCarNew class="book-section"/>
-      <nuxt-child/>
-    </client-only>
+    <ModelsFeatures :features="model.features"/>
+    <ModelsEquipments class="equipments-block" :complectations="model.complectations"/>
+    <TradeInFormNew :models="model.type.title" :type="model.type.title_ru"/>
+    <ModelsAbout :about="model.about" />
+    <ModelsWarranty :model="model.model.title" :type="model.type.title_ru"/>
+    <BookCarNew class="book-section"/>
+    <nuxt-child/>
   </div>
 </template>
 
@@ -182,6 +180,7 @@ export default Vue.extend({
   },
   created() {
     this.theme = this.changeTheme()
+    console.log(this.model.type)
   }
 })
 </script>
