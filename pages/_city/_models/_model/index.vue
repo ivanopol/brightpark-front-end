@@ -10,7 +10,7 @@
       :type="model.type.title_ru"
       @scrollTo="scrollToCredit"
       :isHit="getHit()" />
-    <TestDriveBanner :model="model.model.title" :type="model.type.title_ru"/>
+    <BenefitBanner :model="model.model.title" :type="model.type.title_ru"/>
     <AdvantagesNew class="models-advantages"/>
     <div class="container order-call-wrap">
         <OrderCallForm />

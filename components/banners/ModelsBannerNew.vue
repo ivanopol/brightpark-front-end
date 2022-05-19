@@ -177,7 +177,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "./assets/scss/_colors.scss";
+@import "../../assets/scss/colors";
 
 
 .banner__container {

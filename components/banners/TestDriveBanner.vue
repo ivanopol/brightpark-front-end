@@ -85,7 +85,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "./assets/scss/_colors.scss";
+  @import "../../assets/scss/colors";
 
   .test-drive-banner__wrapper {
     padding: 30px 20px 40px;
