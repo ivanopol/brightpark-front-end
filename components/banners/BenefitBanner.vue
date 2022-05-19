@@ -6,7 +6,8 @@
           <img :src="path.mobile" :alt="path.title" class="benefit-banner__pic" loading="lazy">
 
           <div class="benefit-banner__text">
-            <h2>Выгода 350 000 ₽ на покупку новой LADA {{model}} в кредит!</h2>
+            <h2>Выгода 350 000 ₽ </h2>
+            <p>на покупку новой LADA {{model}} в кредит!</p>
           </div>
 
           <ButtonNew
@@ -119,7 +120,7 @@ export default {
 
     h2 {
       text-transform: unset;
-      font-size: 24px;
+      font-size: 28px;
       font-family: 'Bright Park Display';
       margin-bottom: 9px;
     }
@@ -134,7 +135,7 @@ export default {
       margin: 0;
 
       h2 {
-        font-size: 24px;
+        font-size: 32px;
       }
     }
   }
