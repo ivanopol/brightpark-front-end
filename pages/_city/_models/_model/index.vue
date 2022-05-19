@@ -180,7 +180,6 @@ export default Vue.extend({
   },
   created() {
     this.theme = this.changeTheme()
-    console.log(this.model.type)
   }
 })
 </script>
