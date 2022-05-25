@@ -47,6 +47,10 @@ export default {
             this.ruTarget(tag_body)
           }
 
+          if (this.$store.state._page === 'service') {
+            this.callibri(tag_body)
+          }
+
           this.jivosite(tag_body)
           this.googleAnalytics(tag_body)
           this.appendCityScripts(this.$store.state.city.scripts, tag_body)
@@ -85,6 +89,15 @@ export default {
       this.mailRuCity(id.mailru, tag_body)
       this.vkCity(id.vk, tag_body)
       this.tiktokCity(id.tiktok, tag_body)
+    },
+    callibri (tag_body) {
+      let callibri = document.createElement('script')
+      callibri.src = "//cdn.callibri.ru/callibri.js"
+      callibri.type = "text/javascript"
+      callibri.charset = "utf-8"
+      callibri.async = true
+
+      tag_body.appendChild(callibri)
     },
     ruTarget (tag_body) {
       var ru_target = document.createElement('script')
