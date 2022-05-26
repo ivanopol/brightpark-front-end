@@ -2,9 +2,9 @@
   <div :class="'wrapper ' + $store.state._background">
     <client-only>
       <TabBar />
-      <HeaderSticky2 />
+      <HeaderSticky />
     </client-only>
-    <Header3 />
+    <Header2 />
     <Nuxt />
     <client-only>
       <Scripts keep-alive/>
@@ -43,7 +43,7 @@ export default {
     }
   },
   created() {
-    if (this.$route.params.city === 'perm' || this.$route.params.city === 'magnitogorsk') {
+    if (this.$route.params.city === 'perm') {
       this.is_new_header = true
     }
   }

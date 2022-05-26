@@ -85,7 +85,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  layout: 'without_footer2',
+  layout: 'without_footer',
   data: function () {
     return {
       seo: {}
