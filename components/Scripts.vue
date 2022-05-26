@@ -92,7 +92,6 @@ export default {
       callibri.src = "//cdn.callibri.ru/callibri.js"
       callibri.type = "text/javascript"
       callibri.charset = "utf-8"
-      callibri.async = true
 
       tag_body.appendChild(callibri)
     },
