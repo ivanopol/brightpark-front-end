@@ -2,7 +2,7 @@
   <a :href="'tel:' + phoneSelection(1)"
      :id="id"
      :class="classList"
-     class="event callibri_tel"
+     class="event"
      :data-goal="goal"
      @click="sendGoals(goal)"
   >{{phoneSelection(0)}}</a>
@@ -17,7 +17,7 @@ export default {
       type: String
     },
     classList: {
-      default: '',
+      default: 'callibri_tel',
       type: String
     },
     text: {
