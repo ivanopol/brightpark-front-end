@@ -14,7 +14,7 @@
            v-for="phone in phones"
            :key="phone.id"
            class="call-us__list__item event"
-           v-bind:class="{ calltouch_phone : phone.is_replacement }"
+           v-bind:class="phone.replacement"
         >
           <p class="call-us__list__item__title">{{ phone.title }}</p>
 
@@ -47,7 +47,8 @@ export default {
             icon: 'sales_department',
             number: '+7 342 214-84-00',
             number_nick: '+73422148400',
-            is_replacement: true
+            is_replacement: true,
+            replacement: 'calltouch_phone'
           },
           {
             id: 2,
@@ -55,7 +56,8 @@ export default {
             icon: 'service_department',
             number: '+7 342 214-84-01',
             number_nick: '+73422148401',
-            is_replacement: false
+            is_replacement: true,
+            replacement: 'callibri_phone_service'
           },
           {
             id: 3,
@@ -63,7 +65,8 @@ export default {
             icon: 'other_questions',
             number: '+7 342 214-84-00',
             number_nick: '+73422148400',
-            is_replacement: false
+            is_replacement: false,
+            replacement: ''
           }
         ],
         'magnitogorsk': [
@@ -73,7 +76,8 @@ export default {
             icon: 'sales_department',
             number: '+7 351 958-56-58',
             number_nick: '+73519585658',
-            is_replacement: true
+            is_replacement: true,
+             replacement: 'calltouch_phone'
           },
           {
             id: 2,
@@ -81,7 +85,8 @@ export default {
             icon: 'service_department',
             number: '+7 351 951-58-56',
             number_nick: '+73519515856',
-            is_replacement: false
+            is_replacement: true,
+            replacement: 'callibri_phone_service'
           },
           {
             id: 3,
@@ -89,7 +94,8 @@ export default {
             icon: 'other_questions',
             number: '+7 351 958-56-58',
             number_nick: '+73519585658',
-            is_replacement: false
+            is_replacement: false,
+            replacement: ''
           }
         ],
         'rostov-na-donu': [
@@ -99,7 +105,8 @@ export default {
             icon: 'sales_department',
             number: '+7 863 308-94-88',
             number_nick: '+78633089488',
-            is_replacement: true
+            is_replacement: true,
+            replacement: 'calltouch_phone'
           },
           {
             id: 2,
@@ -107,7 +114,8 @@ export default {
             icon: 'service_department',
             number: '+7 863 310-94-86',
             number_nick: '+78633109486',
-            is_replacement: false
+            is_replacement: true,
+            replacement: 'callibri_phone_service'
           },
           {
             id: 3,
@@ -115,7 +123,8 @@ export default {
             icon: 'other_questions',
             number: '+7 863 308-94-88',
             number_nick: '+78633089488',
-            is_replacement: false
+            is_replacement: false,
+            replacement: ''
           }
         ],
         'yekaterinburg': [
@@ -125,7 +134,8 @@ export default {
             icon: 'sales_department',
             number: '+7 343 385-03-85',
             number_nick: '+73433850385',
-            is_replacement: true
+            is_replacement: true,
+            replacement: 'calltouch_phone'
           },
           {
             id: 2,
@@ -133,7 +143,8 @@ export default {
             icon: 'service_department',
             number: '+7 343 385-03-95',
             number_nick: '+73433850395',
-            is_replacement: false
+            is_replacement: true,
+             replacement: 'callibri_phone_service'
           },
           {
             id: 3,
@@ -141,7 +152,8 @@ export default {
             icon: 'other_questions',
             number: '+7 343 385-03-85',
             number_nick: '+73433850385',
-            is_replacement: false
+            is_replacement: false,
+            replacement: ''
           }
         ],
         'volgograd': [
@@ -151,7 +163,8 @@ export default {
             icon: 'sales_department',
             number: '+7 844 252-54-52',
             number_nick: '+78442525452',
-            is_replacement: true
+            is_replacement: true,
+            replacement: 'calltouch_phone'
           },
           {
             id: 2,
@@ -159,7 +172,8 @@ export default {
             icon: 'service_department',
             number: '+7 844 252-54-62',
             number_nick: '+78442525462',
-            is_replacement: false
+            is_replacement: true,
+            replacement: 'callibri_phone_service'
           },
           {
             id: 3,
@@ -167,7 +181,8 @@ export default {
             icon: 'other_questions',
             number: '+7 844 252-54-52',
             number_nick: '+78442525452',
-            is_replacement: false
+            is_replacement: false,
+            replacement: ''
           }
         ],
         'moscow': [
@@ -177,7 +192,8 @@ export default {
             icon: 'sales_department',
             number: '+7 495 145-88-45',
             number_nick: '+74951458845',
-            is_replacement: true
+            is_replacement: true,
+            replacement: 'calltouch_phone'
           },
           {
             id: 2,
@@ -185,7 +201,8 @@ export default {
             icon: 'service_department',
             number: '+7 495 145-87-45',
             number_nick: '+74951458745',
-            is_replacement: false
+            is_replacement: true,
+            replacement: 'callibri_phone_service'
           },
           {
             id: 3,
@@ -193,7 +210,8 @@ export default {
             icon: 'other_questions',
             number: '+7 495 145-88-45',
             number_nick: '+74951458845',
-            is_replacement: false
+            is_replacement: false,
+            replacement: ''
           }
         ],
       },
