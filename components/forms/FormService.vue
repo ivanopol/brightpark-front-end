@@ -11,7 +11,7 @@
                          :form_id="form_id"
                          :form_type="form_type"
                          :goal="goal"
-                         class_list="callibri_phone_service btn-position event feedback__form__call"
+                         :class_list="class_list"
                          >
             </form-common>
         </div>
@@ -23,6 +23,10 @@
     export default {
         name: 'FormService',
         props: {
+            class_list: {
+              default: "callibri_phone_service btn-position event feedback__form__call",
+              type: String
+            },
             button_text: {
                 default: "Записаться",
                 type: String
