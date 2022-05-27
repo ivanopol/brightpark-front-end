@@ -18,7 +18,7 @@
             </li>
             <li>
               <span class="contacts-field-name">Телефон:</span>
-              <span class="contacts-field-value"><a id="contacts__left-side__phone" class="callibri_tel event" :href="'tel:' + $store.state.city.phone" >{{ $store.state.city.phone_format }}</a></span>
+              <span class="contacts-field-value"><a id="contacts__left-side__phone" class="calltouch_phone event" :href="'tel:' + $store.state.city.phone" >{{ $store.state.city.phone_format }}</a></span>
             </li>
             <li>
               <span class="contacts-field-name">E-Mail:</span>

@@ -6,7 +6,7 @@
         <div class="form-wrapper">
             <p class="note_1" v-if="form_title">{{form_title}}</p>
             <a :id="form_id + '__button'" class="btn btn-primary btn-position ms_booking event" >Записаться</a>
-            <a :id="form_id + '__call'" :href="'tel:' + $store.state.city.phone" class="btn btn-primary callibri_phone btn-position green event">Позвонить</a>
+            <a :id="form_id + '__call'" :href="'tel:' + $store.state.city.phone" class="btn btn-primary calltouch_phone btn-position green event">Позвонить</a>
         </div>
     </section>
 </template>

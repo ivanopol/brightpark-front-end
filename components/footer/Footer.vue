@@ -24,7 +24,7 @@
                 </h2>
 
                 <p class="footer__contact__desc">
-                    Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class="block callibri_tel" style="display: inline-block;"/>
+                    Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class-list="block calltouch_phone" style="display: inline-block;"/>
                 </p>
 
                 <div class="footer__contact__info">
@@ -281,7 +281,7 @@
         max-width: 665px;
         font-size: 1.5em;
 
-        .callibri_tel {
+        a {
             color: $yellow;
             font-weight: 400;
         }
