@@ -160,7 +160,7 @@
 
     <PhoneSelection :id="form_id + '_call'"
                     :goal="goal_call"
-                    class-list="calltouch_phone btn-position event feedback__form__call"
+                    :class-list="class_list"
                     text="Позвонить"/>
 
     <div class="validation-message-wrap">
@@ -181,6 +181,10 @@
 export default {
   name: "FormCommon",
   props: {
+    class_list: {
+      default: "calltouch_phone btn-position event feedback__form__call",
+      type: String
+    },
     button_text: {
       default: "Записаться",
       type: String

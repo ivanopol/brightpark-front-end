@@ -11,6 +11,7 @@
                          :form_id="form_id"
                          :form_type="form_type"
                          :goal="goal"
+                         class_list="callibri_phone_service btn-position event feedback__form__call"
                          >
             </form-common>
         </div>

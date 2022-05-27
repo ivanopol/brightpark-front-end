@@ -8,7 +8,9 @@
                      :is_comment="is_comment"
                      :form_id="form_id"
                      :form_type="form_type"
-                     :goal="goal" />
+                     :goal="goal"
+                      :class_list="class_list"
+        />
     </section>
 </template>
 
@@ -16,6 +18,10 @@
     export default {
         name: 'FormInline',
         props: {
+            class_list: {
+              default: "",
+              type: String
+            },
             button_text: {
                 default: "Записаться",
                 type: String

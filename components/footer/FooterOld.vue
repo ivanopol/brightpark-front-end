@@ -15,12 +15,12 @@
         </span>
     <div class="block-text center mb">
       <h2><span class="c_orange">Брайт Парк </span> всегда на связи</h2>
-      <p >Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class="block callibri_tel text-white"/></p>
+      <p >Наш менеджер с&nbsp;удовольствием ответит на&nbsp;ваши вопросы по&nbsp;телефону&nbsp;<PhoneSelection class-list="block callibri_phone_service  text-white"/></p>
       <div class="footer-callback-wrap" v-show="!mobile">
         <a href="#" :id="page + '__footer__request-callback'" class="btn btn btn-primary btn-position green event" v-on:click.prevent="show('Заказать звонок', page + '__modal-footer-request-callback_', 'Отправить', 1, 'callback')" >Заказать звонок</a>
       </div>
       <div class="footer-call-wrap" v-show="mobile">
-        <a :href="'tel:' + $store.state.city.phone" :id="page + '__footer__call'" :data-goal="goal_call" @click="sendGoals(goal_call)" class="btn btn btn-primary btn-position green callibri_button event" v-if="mobile">Позвонить</a>
+        <a :href="'tel:' + $store.state.city.phone" :id="page + '__footer__call'" :data-goal="goal_call" @click="sendGoals(goal_call)" class="btn btn btn-primary btn-position green callibri_phone_service event" v-if="mobile">Позвонить</a>
       </div>
       <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">Брайт парк ближе, чем кажется<br> <span itemprop="streetAddress">{{$store.state.city.address}}</span><br>
         <span itemscope itemtype="http://schema.org/LocalBusiness"><time itemprop="openingHours" :datetime="$store.state.city.opening_hours.days.en + ', ' + $store.state.city.opening_hours.hours">Ждем вас ежедневно с {{$store.state.city.opening_hours.hours_split.from}} до {{$store.state.city.opening_hours.hours_split.to}}</time></span>
@@ -39,7 +39,9 @@
                          :form_id="form_id"
                          :button_text="button_text"
                          :form_type="form_type"
-                         :goal="goal">
+                         :goal="goal"
+                         class_list="callibri_phone_service btn-position event feedback__form__call"
+                          >
       </FormBuy2Component>
     </modal>
   </footer>

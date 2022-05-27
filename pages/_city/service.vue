@@ -63,6 +63,7 @@
                       form_class="mobile_white_bg"
                       :form_type='2'
                       goal="service"
+                      class_list="callibri_phone_service btn-position event feedback__form__call"
         ></FormRetarget>
       </div>
     </div>

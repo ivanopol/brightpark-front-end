@@ -14,7 +14,7 @@
                             <a :id="$store.state._page + '__' + service.alias + '__button'" class="btn btn-primary btn-position event" v-on:click.prevent="show(service.title, service.alias)">Записаться</a>
                             <PhoneSelection :id="$store.state._page + '__' + service.alias + '_call'"
                                             goal="zvonok"
-                                            class="btn btn-primary calltouch_phone btn-position green event"
+                                            class-list="btn btn-primary callibri_phone_service btn-position green event"
                                             text="Позвонить"
                             />
                         </div>
@@ -31,6 +31,7 @@
                                :is_comment="is_comment"
                                :form_type='2'
                                goal="service"
+                               class_list="callibri_phone_service btn-position event feedback__form__call"
                                 />
         </modal>
     </section>

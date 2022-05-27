@@ -9,6 +9,7 @@
                          :form_id="form_id"
                          :form_type="form_type"
                          :goal="goal"
+                         :class_list="class_list"
                          />
         </div>
     </section>
@@ -18,6 +19,10 @@
     export default {
         name: 'FormRetarget',
         props: {
+            class_list: {
+              default: "",
+              type: String
+            },
             button_text: {
                 default: "Получить лучшие условия",
                 type: String
