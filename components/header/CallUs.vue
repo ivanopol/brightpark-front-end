@@ -16,9 +16,9 @@
            class="call-us__list__item event"
            v-bind:class="phone.replacement"
         >
-          <p class="call-us__list__item__title">{{ phone.title }}</p>
+          <p class="call-us__list__item__title" v-if="phone.replacement !== 'callibri_phone_service_header'">{{ phone.title }}</p>
 
-          <span>
+          <span v-if="phone.replacement !== 'callibri_phone_service_header'">
             <img :src="'/images/icons/header/' + phone.icon + '.svg'"
                  :alt="phone.title"
                  class="call-us__list__item__icon"
