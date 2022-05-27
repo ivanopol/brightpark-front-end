@@ -57,7 +57,7 @@ export default {
             number: '+7 342 214-84-01',
             number_nick: '+73422148401',
             is_replacement: true,
-            replacement: 'callibri_phone_service'
+            replacement: 'callibri_phone_service_header'
           },
           {
             id: 3,
@@ -86,7 +86,7 @@ export default {
             number: '+7 351 951-58-56',
             number_nick: '+73519515856',
             is_replacement: true,
-            replacement: 'callibri_phone_service'
+            replacement: 'callibri_phone_service_header'
           },
           {
             id: 3,
@@ -115,7 +115,7 @@ export default {
             number: '+7 863 310-94-86',
             number_nick: '+78633109486',
             is_replacement: true,
-            replacement: 'callibri_phone_service'
+            replacement: 'callibri_phone_service_header'
           },
           {
             id: 3,
@@ -144,7 +144,7 @@ export default {
             number: '+7 343 385-03-95',
             number_nick: '+73433850395',
             is_replacement: true,
-             replacement: 'callibri_phone_service'
+             replacement: 'callibri_phone_service_header'
           },
           {
             id: 3,
@@ -173,7 +173,7 @@ export default {
             number: '+7 844 252-54-62',
             number_nick: '+78442525462',
             is_replacement: true,
-            replacement: 'callibri_phone_service'
+            replacement: 'callibri_phone_service_header'
           },
           {
             id: 3,
@@ -202,7 +202,7 @@ export default {
             number: '+7 495 145-87-45',
             number_nick: '+74951458745',
             is_replacement: true,
-            replacement: 'callibri_phone_service'
+            replacement: 'callibri_phone_service_header'
           },
           {
             id: 3,
