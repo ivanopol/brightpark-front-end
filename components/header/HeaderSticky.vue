@@ -14,7 +14,7 @@
             <div class="header-contacts">
               <span class="header-contacts-address">{{$store.state.city.address | address}}</span>
               <span class="header-contacts-phone">
-                <PhoneSelection/>
+                <PhoneSelection class-list="callibri_phone_service"/>
               </span>
             </div>
 
