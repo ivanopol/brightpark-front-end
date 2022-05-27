@@ -37,7 +37,7 @@ export default {
         this.calltouchCity(this.$store.state.city.scripts.calltouch, tag_body)
         this.yaMetrika(tag_body)
         this.roiStat(tag_body)
-        this.callibri(tag_body)
+       // this.callibri(tag_body)
       }
 
       setTimeout(() => {
