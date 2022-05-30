@@ -50,6 +50,9 @@
         methods: {
         },
         mounted() {
+          $(function() {
+            callibriInit()
+          });
         }
     }
 </script>
