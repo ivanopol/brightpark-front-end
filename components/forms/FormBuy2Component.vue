@@ -50,10 +50,7 @@
         methods: {
         },
         mounted() {
-          console.log('mounted');
-          $(function() {
-            callibriInit()
-          });
+          callibriInit()
         }
     }
 </script>
