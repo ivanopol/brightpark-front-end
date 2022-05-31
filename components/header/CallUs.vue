@@ -235,7 +235,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 
 .call-us__wrap {
   position: relative;
