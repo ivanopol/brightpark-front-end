@@ -48,6 +48,22 @@
       </span>
     </div>
 
+    <div class="new-lead__field" v-if="needCity">
+      <select v-model="city" name="city">
+        <option 
+          v-for="ct in cities" 
+          :key="cities.indexOf(ct)"
+          :value="ct.value"
+        >
+          {{ ct.label }}
+        </option>
+      </select>
+
+      <span class="new-lead__field__placeholder" :class="[city !== '' ? activePlaceholder : '']">
+        Город
+      </span>
+    </div>
+
     <button
       type="submit"
       class="new-lead__body__submit color-primary-background"
@@ -100,7 +116,12 @@ export default {
     comment: {
       default: '',
       type: String
-    }
+    },
+    needCity: {
+      default: false,
+      type: Boolean,
+    },
+  
   },
   data: function () {
     return {
@@ -111,6 +132,8 @@ export default {
       phone: '',
       activePlaceholder: 'active',
       isProduction: process.env.NODE_ENV === 'production',
+      city: '',
+      cities: {},
     }
   },
   computed: {
@@ -129,6 +152,20 @@ export default {
     },
   },
   methods: {
+    makeCitiesList: function () {
+      // let cities_list = this.$store.state.cities.filter((el) => {
+      //   return el.value !== this.$store.state.city.value
+      // })
+
+      let cities_list = this.$store.state.cities;
+      this.cities = cities_list.map(function(city) {
+        let segments = window.location.pathname.slice(1).split('/');
+        segments[0] = city.value;
+        city['url'] = segments.join('/');
+        return city
+      })
+    },
+
     focusedInput (field) {
       if (field === 'name') {
         this.name = ' ';
@@ -249,6 +286,10 @@ export default {
     if (this.$cookies.get("bp_uid") !== undefined) {
       this.utm = this.decodeCookie(this.$cookies.get("bp_uid"));
     }
+
+    if (this.needCity) {
+      this.makeCitiesList();
+    }
   },
   beforeMount() {
     this.attachHandler();
@@ -304,6 +345,7 @@ form button {
 
 .new-lead__head {
   text-align: center;
+  margin-bottom: 22px;
 }
 
 .new-lead__title {
@@ -316,7 +358,6 @@ form button {
 .new-lead__desc {
   font-size: 18px;
   line-height: 26px;
-  margin-bottom: 22px;
   color: rgba(0, 0, 0, .7);
   font-family: "Factor A";
 }
@@ -332,7 +373,9 @@ form button {
     margin-bottom: 0;
   }
 
-  input {
+  input, select {
+    margin-bottom: 11px;
+    border: 1px solid #E9E9E9;
     max-width: unset;
     width: 100%;
     height: 100%;
@@ -387,6 +430,12 @@ form button {
   span {
     font-weight: 700;
     display: inline-block;
+  }
+}
+
+.theme-05-special {
+  .new-lead__desc {
+    display: none;
   }
 }
 </style>
