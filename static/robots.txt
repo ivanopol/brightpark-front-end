@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /*?*
 Disallow: /*?block*
+Disallow: /*special-form*
 Allow: *.css
 Allow: *.js
 Allow: *.jpeg
@@ -12,6 +13,7 @@ Allow: /_nuxt/img/
 User-agent: Yandex
 Disallow: /*?*
 Disallow: /*?block*
+Disallow: /*special-form*
 Allow: *.css
 Allow: *.js
 Allow: *.jpeg
@@ -23,6 +25,7 @@ Allow: /_nuxt/img/
 User-agent: Googlebot
 Disallow: /*?*
 Disallow: /*?block*
+Disallow: /*special-form*
 Allow: *.css
 Allow: *.js
 Allow: *.jpeg
