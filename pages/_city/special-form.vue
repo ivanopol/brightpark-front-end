@@ -5,13 +5,14 @@
       form_title='Оставить заявку'
       :needCity='true'
       goal="viber_mailing"
+      form_title_special='Заявка на рассылку Вайбер'
     />
   </section>
 </template>
 
 <script>
 export default {
-  
+
 }
 </script>
 

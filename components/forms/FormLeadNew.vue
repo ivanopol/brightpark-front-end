@@ -50,8 +50,8 @@
 
     <div class="new-lead__field" v-if="needCity">
       <select v-model="city" name="city">
-        <option 
-          v-for="ct in cities" 
+        <option
+          v-for="ct in cities"
           :key="cities.indexOf(ct)"
           :value="ct.value"
         >
@@ -97,6 +97,10 @@ export default {
       default: "",
       type: String
     },
+    form_title_special: {
+      default: "",
+      type: String
+    },
     is_comment: {
       default: false,
       type: Boolean
@@ -121,7 +125,7 @@ export default {
       default: false,
       type: Boolean,
     },
-  
+
   },
   data: function () {
     return {
@@ -191,7 +195,7 @@ export default {
         name: this.name,
         city: this.$store.state.city.value,
         url: this.url,
-        caption: this.form_title,
+        caption: this.form_title_special ? this.form_title_special : this.form_title,
         form_id: this.form_id,
         comment: this.comment,
         form_type: this.form_type,
