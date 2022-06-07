@@ -103,7 +103,7 @@ export default {
             },
           ]
         },
-        {
+/*        {
           key: 2,
           title: 'lada_v_credit',
           extension: 'jpg',
@@ -118,7 +118,7 @@ export default {
               link: 'stocks/lada_v_credit',
             },
           ]
-        },
+        },*/
         {
           key: 3,
           title: 'europe',
