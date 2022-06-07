@@ -72,7 +72,7 @@ button {
   font-size: 16px;
   text-transform: uppercase;
   color: white;
-  padding: 10px 15px;
+  padding: 10px 15px 6px;
   background: none;
   border: none;
   width: 100%;

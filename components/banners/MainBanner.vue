@@ -163,10 +163,11 @@ export default {
         },
       ],
       swiperOption: {
-        autoplay: {
+/*        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },
+        },*/
+        autoplay: false,
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
@@ -623,7 +624,7 @@ export default {
       display: block;
       color: #fff;
       font-weight: normal;
-      text-decoration: underline;
+      text-decoration: none;
       font-size: 16px;
       padding: 16px 50px;
       border-radius: 6px;
