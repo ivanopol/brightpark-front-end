@@ -619,17 +619,18 @@ export default {
       margin-bottom: 0;
     }
 
-    a,
-    button {
-      display: block;
-      color: #fff;
-      font-weight: normal;
-      text-decoration: none;
-      font-size: 16px;
-      padding: 16px 50px;
-      border-radius: 6px;
-      max-width: 250px;
-      height: 50px;
+    div {
+      a,
+      button {
+        color: #fff;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px 32px 6px;
+        border-radius: 6px;
+        max-width: 250px;
+        height: 50px;
+      }
     }
   }
 
