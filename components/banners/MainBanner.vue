@@ -96,6 +96,21 @@ export default {
         },
         {
           key: 1,
+          title: 'letnyaya-programma-granta-finance',
+          extension: 'jpg',
+          place: 'banner-button-4',
+          buttons: [
+            {
+              key: 1,
+              type: 'link',
+              color: 'purple',
+              text: 'ПОДРОБНЕЕ',
+              link: 'stocks/letnyaya-programma-granta-finance',
+            },
+          ]
+        },
+        {
+          key: 2,
           title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
           extension: 'jpg',
           place: 'banner-button-2',
@@ -146,7 +161,7 @@ export default {
             },
           ]
         },
-        {
+/*        {
           key: 4,
           title: 'tvoya-novaya-lada-vyberi-svoj-paket-opcij',
           extension: 'jpg',
@@ -160,14 +175,13 @@ export default {
               link: '',
             },
           ]
-        },
+        },*/
       ],
       swiperOption: {
-/*        autoplay: {
+        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },*/
-        autoplay: false,
+        },
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
