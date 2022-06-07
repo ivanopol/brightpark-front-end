@@ -626,7 +626,7 @@ export default {
         font-weight: normal;
         text-decoration: none;
         font-size: 16px;
-        padding: 10px 32px 6px;
+        padding: 10px 16px 6px;
         border-radius: 6px;
         max-width: 250px;
         height: 50px;
