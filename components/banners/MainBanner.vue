@@ -80,6 +80,21 @@ export default {
       },
       banners: [
         {
+          key: 0,
+          title: 'letnyaya-rasprodazha-lada-granta-po-cene-2021-goda',
+          extension: 'jpg',
+          place: 'banner-button-5',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              color: 'orange',
+              text: 'ОСТАВИТЬ ЗАЯВКУ',
+              link: '',
+            },
+          ]
+        },
+        {
           key: 1,
           title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
           extension: 'jpg',
@@ -90,7 +105,6 @@ export default {
               type: 'window',
               color: 'orange',
               text: 'ЗАКАЗАТЬ ЗВОНОК',
-              class: 'banner-button-2',
               link: '',
             },
             {
@@ -98,7 +112,6 @@ export default {
               type: 'link',
               color: 'no-color',
               text: 'ПОДРОБНЕЕ',
-              class: 'banner-button-2',
               link: 'stocks/vygoda-350-000-rublej-na-pokupku-novoj-lada',
             },
           ]
@@ -114,7 +127,6 @@ export default {
               type: 'link',
               color: 'purple',
               text: 'ПОДРОБНЕЕ',
-              class: 'banner-button-4',
               link: 'stocks/lada_v_credit',
             },
           ]
@@ -130,7 +142,6 @@ export default {
               type: 'window',
               color: 'yellow',
               text: 'УСПЕЙ КУПИТЬ',
-              class: 'banner-button-3',
               link: '',
             },
           ]
@@ -146,17 +157,17 @@ export default {
               type: 'window',
               color: 'orange',
               text: 'ЗАКАЗАТЬ ЗВОНОК',
-              class: 'banner-button',
               link: '',
             },
           ]
         },
       ],
       swiperOption: {
-        autoplay: {
+/*        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },
+        },*/
+        autoplay: false,
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
@@ -625,7 +636,8 @@ export default {
   .banner-button,
   .banner-button-2,
   .banner-button-3,
-  .banner-button-4 {
+  .banner-button-4,
+  .banner-button-5 {
     position: absolute;
   }
 
@@ -650,6 +662,11 @@ export default {
   .banner-button-4 {
     right: 6%;
     bottom: 23%;
+  }
+
+  .banner-button-5 {
+    right: 11%;
+    top: 38%;
   }
 
   .banner_btn-call {
@@ -678,6 +695,11 @@ export default {
       .banner-button-4 {
         bottom: 20%;
         right: 7%;
+      }
+
+      .banner-button-5 {
+        top: 36%;
+        right: 9%;
       }
 
       .swiper-pagination {
@@ -719,6 +741,9 @@ export default {
         transform: translate(50%, 0);
         padding: 16px 16px;
         text-align: center;
+        button {
+          font-size: 14px
+        }
       }
 
       .banner-button-2 {
@@ -728,6 +753,9 @@ export default {
         transform: translate(50%, 0);
         padding: 16px 16px;
         text-align: center;
+        button {
+          font-size: 14px
+        }
       }
 
       .banner-button-3 {
@@ -737,6 +765,9 @@ export default {
         transform: translate(50%, 0);
         padding: 16px 16px;
         text-align: center;
+        button {
+          font-size: 14px
+        }
       }
 
       .banner-button-4 {
@@ -746,6 +777,22 @@ export default {
         transform: translate(50%, 0);
         padding: 16px 16px;
         text-align: center;
+        button {
+          font-size: 14px
+        }
+      }
+
+      .banner-button-5 {
+        bottom: 0;
+        right: 50%;
+        left: auto;
+        transform: translate(50%, 0);
+        padding: 16px 0px;
+        text-align: center;
+
+        button {
+          font-size: 14px
+        }
       }
 
       .swiper-slide {
