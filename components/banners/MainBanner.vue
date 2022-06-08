@@ -178,10 +178,11 @@ export default {
         },*/
       ],
       swiperOption: {
-        autoplay: {
+ /*       autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },
+        },*/
+        autoplay: false,
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
@@ -636,6 +637,9 @@ export default {
     div {
       a,
       button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: #fff;
         font-weight: normal;
         text-decoration: none;
