@@ -1,10 +1,5 @@
 <template>
   <section class="main-screen">
-<!--    <picture class="main-screen__new-year-gift">
-      <source srcset="~static/images/banner-new-year-gift-mob.png" media="(max-width: 768px)">
-      <img src="~static/images/banner-new-year-gift.png" alt="Новогодний подарок от Брайт Парк">
-    </picture>-->
-
     <div class="main-screen__swiper-wrap">
       <swiper id="swiper" class="swiper" ref="mySwiper"  :options="swiperOption">
         <div class="swiper-button-prev" slot="button-prev"></div>
@@ -31,7 +26,7 @@
                 @click.native="show(
                         'Оставить заявку',
                         $store.state._page + '__modal-banner-new_',
-                        1,
+                        button.form_type ? button.form_type : 1,
                         'main_banner_call'
                       )"
                 />
@@ -88,6 +83,7 @@ export default {
             {
               key: 1,
               type: 'window',
+              form_type: 1,
               color: 'orange',
               text: 'ОСТАВИТЬ ЗАЯВКУ',
               link: '',
@@ -118,6 +114,7 @@ export default {
             {
               key: 1,
               type: 'window',
+              form_type: 1,
               color: 'orange',
               text: 'ЗАКАЗАТЬ ЗВОНОК',
               link: '',
@@ -131,54 +128,41 @@ export default {
             },
           ]
         },
-/*        {
-          key: 2,
-          title: 'lada_v_credit',
-          extension: 'jpg',
-          place: 'banner-button-4',
-          buttons: [
-            {
-              key: 1,
-              type: 'link',
-              color: 'purple',
-              text: 'ПОДРОБНЕЕ',
-              link: 'stocks/lada_v_credit',
-            },
-          ]
-        },*/
         {
           key: 3,
-          title: 'europe',
+          title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
-          place: 'banner-button-3',
+          place: 'banner-button-6',
           buttons: [
             {
               key: 1,
               type: 'window',
-              color: 'yellow',
-              text: 'УСПЕЙ КУПИТЬ',
+              form_type: 2,
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
               link: '',
             },
           ]
         },
-/*        {
+        {
           key: 4,
-          title: 'tvoya-novaya-lada-vyberi-svoj-paket-opcij',
+          title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
-          place: 'banner-button',
+          place: 'banner-button-7',
           buttons: [
             {
               key: 1,
               type: 'window',
+              form_type: 2,
               color: 'orange',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              text: 'ЗАПИСАТЬСЯ',
               link: '',
             },
           ]
-        },*/
+        },
       ],
       swiperOption: {
- /*       autoplay: {
+/*        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
         },*/
@@ -656,7 +640,9 @@ export default {
   .banner-button-2,
   .banner-button-3,
   .banner-button-4,
-  .banner-button-5 {
+  .banner-button-5,
+  .banner-button-6,
+  .banner-button-7 {
     position: absolute;
   }
 
@@ -687,6 +673,17 @@ export default {
     right: 11%;
     top: 38%;
   }
+
+  .banner-button-6 {
+    right: 7%;
+    bottom: 16%;
+  }
+
+  .banner-button-7 {
+    right: 15%;
+    bottom: 13%;
+  }
+
 
   .banner_btn-call {
     position: absolute;
@@ -719,6 +716,16 @@ export default {
       .banner-button-5 {
         top: 36%;
         right: 9%;
+      }
+
+      .banner-button-6 {
+        bottom: 10%;
+        right: 8%;
+      }
+
+      .banner-button-7 {
+        bottom: 10%;
+        right: 8%;
       }
 
       .swiper-pagination {
@@ -809,6 +816,30 @@ export default {
         padding: 16px 0px;
         text-align: center;
 
+        button {
+          font-size: 14px
+        }
+      }
+
+      .banner-button-6 {
+        bottom: 0;
+        right: 50%;
+        left: auto;
+        transform: translate(50%, 0);
+        padding: 16px 16px;
+        text-align: center;
+        button {
+          font-size: 14px
+        }
+      }
+
+      .banner-button-7 {
+        bottom: 0;
+        right: 50%;
+        left: auto;
+        transform: translate(50%, 0);
+        padding: 16px 16px;
+        text-align: center;
         button {
           font-size: 14px
         }
