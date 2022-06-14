@@ -27,7 +27,9 @@
                         'Оставить заявку',
                         $store.state._page + '__modal-banner-new_',
                         button.form_type ? button.form_type : 1,
-                        'main_banner_call'
+                        'main_banner_call',
+                        button.form_title_special,
+
                       )"
                 />
 
@@ -48,6 +50,7 @@
         :form_title="form_title"
         :form_type="form_type"
         :goal="goal"
+        :form_title_special="form_title_special"
       />
     </modal>
 
@@ -66,6 +69,7 @@ export default {
       goal: '',
       form_type: 1,
       form_title: '',
+      form_title_special: '',
       colorTitle: '',
       path: {
         mobile: '/images/main/mobile/',
@@ -84,6 +88,7 @@ export default {
               key: 1,
               type: 'window',
               form_type: 1,
+              form_title_special: '',
               color: 'orange',
               text: 'ОСТАВИТЬ ЗАЯВКУ',
               link: '',
@@ -115,6 +120,7 @@ export default {
               key: 1,
               type: 'window',
               form_type: 1,
+              form_title_special: '',
               color: 'orange',
               text: 'ЗАКАЗАТЬ ЗВОНОК',
               link: '',
@@ -138,6 +144,7 @@ export default {
               key: 1,
               type: 'window',
               form_type: 2,
+              form_title_special: 'Диагностика  «сервис»',
               color: 'orange',
               text: 'ЗАПИСАТЬСЯ',
               link: '',
@@ -154,6 +161,7 @@ export default {
               key: 1,
               type: 'window',
               form_type: 2,
+              form_title_special: 'Новые клиенты «сервис»',
               color: 'orange',
               text: 'ЗАПИСАТЬСЯ',
               link: '',
@@ -186,11 +194,12 @@ export default {
     };
   },
   methods: {
-    show(title, form_id, form_type, goal) {
+    show(title, form_id, form_type, goal, form_title_special) {
       this.form_title = title;
       this.form_id = form_id;
       this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
       this.goal = goal;
+      this.form_title_special = form_title_special
 
       this.$modal.show("form-main-banner");
     },
