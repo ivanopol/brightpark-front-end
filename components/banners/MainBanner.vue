@@ -162,11 +162,10 @@ export default {
         },
       ],
       swiperOption: {
-/*        autoplay: {
+        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },*/
-        autoplay: false,
+        },
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
