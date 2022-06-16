@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ServiceHooper />
+    <ServiceBanner />
     <div class="container_bg_dark">
       <div class="container">
         <div id="advantages" class="advantages_wrap service_wrap">
