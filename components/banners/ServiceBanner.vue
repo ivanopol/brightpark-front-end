@@ -586,61 +586,62 @@ export default {
       height: 65px;
     }
   }
-}
 
-.banner-button,
-.banner-button-2,
-.banner-button-3,
-.banner-button-4,
-.banner-button-5,
-.banner-button-6,
-.banner-button-7 {
-  position: absolute;
-}
 
-.banner-button {
-  left: 8.5%;
-  bottom: 23%;
-}
-
-.banner-button-2 {
-  left: 6.3%;
-  bottom: 13%;
-}
-
-.banner-button-3 {
-  right: 6%;
-  bottom: 25%;
-  button {
-    color: #6a32b7 !important;
+  .banner-button,
+  .banner-button-2,
+  .banner-button-3,
+  .banner-button-4,
+  .banner-button-5,
+  .banner-button-6,
+  .banner-button-7 {
+    position: absolute;
   }
-}
 
-.banner-button-4 {
-  right: 6%;
-  bottom: 23%;
-}
+  .banner-button {
+    left: 8.5%;
+    bottom: 23%;
+  }
 
-.banner-button-5 {
-  right: 11%;
-  top: 38%;
-}
+  .banner-button-2 {
+    left: 6.3%;
+    bottom: 13%;
+  }
 
-.banner-button-6 {
-  right: 9%;
-  bottom: 20%;
-}
+  .banner-button-3 {
+    right: 6%;
+    bottom: 25%;
+    button {
+      color: #6a32b7 !important;
+    }
+  }
 
-.banner-button-7 {
-  right: 7%;
-  bottom: 28%;
-}
+  .banner-button-4 {
+    right: 6%;
+    bottom: 23%;
+  }
+
+  .banner-button-5 {
+    right: 11%;
+    top: 38%;
+  }
+
+  .banner-button-6 {
+    right: 54%;
+    bottom: 20%;
+  }
+
+  .banner-button-7 {
+    right: 7%;
+    bottom: 28%;
+  }
 
 
-.banner_btn-call {
-  position: absolute;
-  bottom: 19.9%;
-  left: 6.94%;
+  .banner_btn-call {
+    position: absolute;
+    bottom: 19.9%;
+    left: 6.94%;
+  }
 }
 
 @media only screen and (max-width: 900px) {
