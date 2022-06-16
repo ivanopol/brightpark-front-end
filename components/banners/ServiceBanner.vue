@@ -627,13 +627,13 @@ export default {
 }
 
 .banner-button-6 {
-  right: 8%;
-  bottom: 19%;
+  right: 9%;
+  bottom: 20%;
 }
 
 .banner-button-7 {
-  right: 8%;
-  bottom: 26%;
+  right: 7%;
+  bottom: 28%;
 }
 
 
