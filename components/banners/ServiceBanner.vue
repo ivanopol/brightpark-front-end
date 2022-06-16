@@ -1,7 +1,7 @@
 <template>
   <section class="service-screen">
     <div class="service-screen__swiper-wrap">
-      <swiper id="swiper-service" class="swiper" ref="mySwiper"  :options="swiperOption">
+      <swiper id="swiper-service" class="swiper" ref="mySwiper2"  :options="swiperOption">
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -154,7 +154,7 @@ export default {
   },
   computed: {
     swiper() {
-      return this.$refs.mySwiper.$swiper
+      return this.$refs.mySwiper2.$swiper
     }
   },
   components: {
