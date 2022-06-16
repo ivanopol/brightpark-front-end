@@ -82,7 +82,7 @@ export default {
           key: 1,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
-          place: 'banner-button-6',
+          place: 'banner-button-service-6',
           buttons: [
             {
               key: 1,
@@ -99,14 +99,14 @@ export default {
           key: 2,
           title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
-          place: 'banner-button-7',
+          place: 'banner-button-service-7',
           buttons: [
             {
               key: 1,
               type: 'window',
               form_type: 2,
               form_title_special: 'Заявка на сервис. Новые клиенты',
-              color: 'green',
+              color: 'orange',
               text: 'ЗАПИСАТЬСЯ',
               link: '',
             },
@@ -586,29 +586,30 @@ export default {
       height: 65px;
     }
   }
+}
 
 
-  .banner-button,
-  .banner-button-2,
-  .banner-button-3,
-  .banner-button-4,
-  .banner-button-5,
-  .banner-button-6,
-  .banner-button-7 {
+  .banner-button-service,
+  .banner-button-service-2,
+  .banner-button-service-3,
+  .banner-button-service-4,
+  .banner-button-service-5,
+  .banner-button-service-6,
+  .banner-button-service-7 {
     position: absolute;
   }
 
-  .banner-button {
+  .banner-button-service {
     left: 8.5%;
     bottom: 23%;
   }
 
-  .banner-button-2 {
+  .banner-button-service-2 {
     left: 6.3%;
     bottom: 13%;
   }
 
-  .banner-button-3 {
+  .banner-button-service-3 {
     right: 6%;
     bottom: 25%;
     button {
@@ -616,22 +617,22 @@ export default {
     }
   }
 
-  .banner-button-4 {
+  .banner-button-service-4 {
     right: 6%;
     bottom: 23%;
   }
 
-  .banner-button-5 {
+  .banner-button-service-5 {
     right: 11%;
     top: 38%;
   }
 
-  .banner-button-6 {
+  .banner-button-service-6 {
     right: 54%;
-    bottom: 20%;
+    bottom: 32%;
   }
 
-  .banner-button-7 {
+  .banner-button-service-7 {
     right: 7%;
     bottom: 28%;
   }
@@ -642,41 +643,41 @@ export default {
     bottom: 19.9%;
     left: 6.94%;
   }
-}
+
 
 @media only screen and (max-width: 900px) {
   #swiper {
-    .banner-button {
+    .banner-button-service {
       bottom: 13%;
       left: 7%;
     }
 
-    .banner-button-2 {
+    .banner-button-service-2 {
       bottom: 13%;
       left: 7%;
     }
 
-    .banner-button-3 {
+    .banner-button-service-3 {
       bottom: 21%;
       right: 7%;
     }
 
-    .banner-button-4 {
+    .banner-button-service-4 {
       bottom: 20%;
       right: 7%;
     }
 
-    .banner-button-5 {
+    .banner-button-service-5 {
       top: 36%;
       right: 9%;
     }
 
-    .banner-button-6 {
+    .banner-button-service-6 {
       bottom: 10%;
       right: 8%;
     }
 
-    .banner-button-7 {
+    .banner-button-service-7 {
       bottom: 10%;
       right: 8%;
     }
@@ -713,7 +714,7 @@ export default {
       display: none;
     }
 
-    .banner-button {
+    .banner-button-service {
       bottom: 0;
       right: 50%;
       left: auto;
@@ -725,7 +726,7 @@ export default {
       }
     }
 
-    .banner-button-2 {
+    .banner-button-service-2 {
       bottom: 0;
       right: 50%;
       left: auto;
@@ -737,7 +738,7 @@ export default {
       }
     }
 
-    .banner-button-3 {
+    .banner-button-service-3 {
       bottom: 0;
       right: 50%;
       left: auto;
@@ -749,7 +750,7 @@ export default {
       }
     }
 
-    .banner-button-4 {
+    .banner-button-service-4 {
       bottom: 0;
       right: 50%;
       left: auto;
@@ -761,7 +762,7 @@ export default {
       }
     }
 
-    .banner-button-5 {
+    .banner-button-service-5 {
       bottom: 0;
       right: 50%;
       left: auto;
@@ -774,7 +775,7 @@ export default {
       }
     }
 
-    .banner-button-6 {
+    .banner-button-service-6 {
       bottom: 0;
       right: 50%;
       left: auto;
@@ -786,7 +787,7 @@ export default {
       }
     }
 
-    .banner-button-7 {
+    .banner-button-service-7 {
       bottom: 0;
       right: 50%;
       left: auto;
