@@ -15,7 +15,7 @@
                  alt="" />
           </picture>
 
-          <div :class="banner.place + ' buttons-wrapper'">
+          <div :class="banner.place + ' buttons-service-wrapper'">
             <div key="button.key" v-for="button in banner.buttons" >
               <ButtonNew
                 v-if="button.type === 'window'"
@@ -43,7 +43,7 @@
         </swiper-slide>
       </swiper>
     </div>
-    <modal name="form-main-banner" height="auto" :adaptive="true" class="models-banner__modal">
+    <modal name="form-service-banner" height="auto" :adaptive="true" class="models-banner__modal">
       <div :id="form_id + '_close'" class="close event" @click="hide"></div>
       <FormLeadNew
         :form_id="form_id"
@@ -89,7 +89,7 @@ export default {
               type: 'window',
               form_type: 2,
               form_title_special: 'Заявка на сервис. Диагностика',
-              color: 'orange',
+              color: 'green',
               text: 'ЗАПИСАТЬСЯ',
               link: '',
             },
@@ -106,7 +106,7 @@ export default {
               type: 'window',
               form_type: 2,
               form_title_special: 'Заявка на сервис. Новые клиенты',
-              color: 'orange',
+              color: 'green',
               text: 'ЗАПИСАТЬСЯ',
               link: '',
             },
@@ -145,10 +145,10 @@ export default {
       this.goal = goal;
       this.form_title_special = form_title_special
 
-      this.$modal.show("form-main-banner");
+      this.$modal.show("form-service-banner");
     },
     hide() {
-      this.$modal.hide("form-main-banner");
+      this.$modal.hide("form-service-banner");
     },
 
   },
@@ -560,7 +560,7 @@ export default {
   }
 }
 
-.buttons-wrapper {
+.buttons-service-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -580,10 +580,10 @@ export default {
       font-weight: normal;
       text-decoration: none;
       font-size: 16px;
-      padding: 10px 16px 6px;
+      padding: 10px 32px 6px;
       border-radius: 6px;
-      max-width: 250px;
-      height: 50px;
+      max-width: 300px;
+      height: 65px;
     }
   }
 }
@@ -627,13 +627,13 @@ export default {
 }
 
 .banner-button-6 {
-  right: 7%;
-  bottom: 16%;
+  right: 8%;
+  bottom: 19%;
 }
 
 .banner-button-7 {
-  right: 15%;
-  bottom: 13%;
+  right: 8%;
+  bottom: 26%;
 }
 
 
@@ -693,7 +693,7 @@ export default {
 
 @media only screen and (max-width: 580px) {
 
-  .buttons-wrapper {
+  .buttons-service-wrapper {
     flex-direction: column;
 
     & > div:first-child {
