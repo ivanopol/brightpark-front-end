@@ -628,8 +628,8 @@ export default {
   }
 
   .banner-button-service-6 {
-    right: 54%;
-    bottom: 32%;
+    right: 9%;
+    bottom: 19%;
   }
 
   .banner-button-service-7 {
