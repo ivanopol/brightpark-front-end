@@ -79,7 +79,7 @@ export default {
       },
       banners: [
         {
-          key: 1,
+          key: 0,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
           place: 'banner-button-service-6',
@@ -96,7 +96,7 @@ export default {
           ]
         },
         {
-          key: 2,
+          key: 1,
           title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
           place: 'banner-button-service-7',
@@ -646,7 +646,7 @@ export default {
 
 
 @media only screen and (max-width: 900px) {
-  #swiper {
+  #swiper-service {
     .banner-button-service {
       bottom: 13%;
       left: 7%;
@@ -709,7 +709,7 @@ export default {
     bottom: 10%;
   }
 
-  #swiper {
+  #swiper-service {
     .swiper-pagination {
       display: none;
     }
