@@ -16,20 +16,19 @@
           </picture>
 
           <div :class="banner.place + ' buttons-service-wrapper'">
-            <div key="button.key" v-for="button in banner.buttons" >
+            <div :key="button.key" v-for="button in banner.buttons" >
               <ButtonNew
                 v-if="button.type === 'window'"
                 buttonColor=""
-                :type="'submit'"
+                :type="'button'"
                 :buttonText="button.text"
                 :class="button.color"
                 @click.native="show(
                         'Оставить заявку',
                         $store.state._page + '__modal-banner-new_',
                         button.form_type ? button.form_type : 1,
-                        'main_banner_call',
+                        'service_banner_call',
                         button.form_title_special,
-
                       )"
               />
 
@@ -43,7 +42,7 @@
         </swiper-slide>
       </swiper>
     </div>
-    <modal name="form-service-banner" height="auto" :adaptive="true" class="models-banner__modal">
+    <modal name="form-service-banner" height="auto" :adaptive="true" class="service-banner__modal">
       <div :id="form_id + '_close'" class="close event" @click="hide"></div>
       <FormLeadNew
         :form_id="form_id"
@@ -123,7 +122,7 @@ export default {
         slidesPerView: 1,
         spaceBetween: 0,
         slidesPerGroup: 1,
-        loop: true,
+        loop: false,
         preventInteractionOnTransition: true,
         loopFillGroupWithBlank: true,
         navigation: {
@@ -139,6 +138,7 @@ export default {
   },
   methods: {
     show(title, form_id, form_type, goal, form_title_special) {
+      console.log("Click!");
       this.form_title = title;
       this.form_id = form_id;
       this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
@@ -813,7 +813,7 @@ export default {
   }
 }
 
-.models-banner__modal {
+.service-banner__modal {
   .vm--modal {
     max-width: 570px;
     border-radius: 0;

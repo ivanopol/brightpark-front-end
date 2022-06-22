@@ -16,11 +16,11 @@
           </picture>
 
           <div :class="banner.place + ' buttons-wrapper'">
-            <div key="button.key" v-for="button in banner.buttons" >
+            <div :key="button.key" v-for="button in banner.buttons" >
               <ButtonNew
                 v-if="button.type === 'window'"
                 buttonColor=""
-                :type="'submit'"
+                :type="'button'"
                 :buttonText="button.text"
                 :class="button.color"
                 @click.native="show(
@@ -179,7 +179,7 @@ export default {
         slidesPerView: 1,
         spaceBetween: 0,
         slidesPerGroup: 1,
-        loop: true,
+        loop: false,
         preventInteractionOnTransition: true,
         loopFillGroupWithBlank: true,
         navigation: {
