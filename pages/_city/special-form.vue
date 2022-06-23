@@ -6,6 +6,7 @@
       :needCity='true'
       goal="viber_mailing"
       form_title_special='Заявка на рассылку Вайбер'
+      :form_type="5"
     />
   </section>
 </template>
