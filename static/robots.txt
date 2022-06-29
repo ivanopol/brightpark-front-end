@@ -2,6 +2,9 @@ User-agent: *
 Disallow: /*?*
 Disallow: /*?block*
 Disallow: /*special-form*
+Disallow: /*special-service*
+Disallow: /*special-prolongation*
+Disallow: /*special-sale*
 Allow: *.css
 Allow: *.js
 Allow: *.jpeg
@@ -14,6 +17,9 @@ User-agent: Yandex
 Disallow: /*?*
 Disallow: /*?block*
 Disallow: /*special-form*
+Disallow: /*special-service*
+Disallow: /*special-prolongation*
+Disallow: /*special-sale*
 Allow: *.css
 Allow: *.js
 Allow: *.jpeg
@@ -26,6 +32,9 @@ User-agent: Googlebot
 Disallow: /*?*
 Disallow: /*?block*
 Disallow: /*special-form*
+Disallow: /*special-service*
+Disallow: /*special-prolongation*
+Disallow: /*special-sale*
 Allow: *.css
 Allow: *.js
 Allow: *.jpeg
