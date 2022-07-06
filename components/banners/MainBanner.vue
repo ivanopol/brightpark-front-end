@@ -80,6 +80,23 @@ export default {
       banners: [
         {
           key: 0,
+          title: 'kompleksnaya-diagnostika',
+          extension: 'jpg',
+          place: 'banner-button-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: 'Заявка на сервис. Диагностика',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 1,
           title: 'letnyaya-rasprodazha-lada-granta-po-cene-2021-goda',
           extension: 'jpg',
           place: 'banner-button-5',
@@ -96,7 +113,7 @@ export default {
           ]
         },
         {
-          key: 1,
+          key: 2,
           title: 'letnyaya-programma-granta-finance',
           extension: 'jpg',
           place: 'banner-button-4',
@@ -111,7 +128,7 @@ export default {
           ]
         },
         {
-          key: 2,
+          key: 3,
           title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
           extension: 'jpg',
           place: 'banner-button-2',
@@ -131,23 +148,6 @@ export default {
               color: 'no-color',
               text: 'ПОДРОБНЕЕ',
               link: 'stocks/vygoda-350-000-rublej-na-pokupku-novoj-lada',
-            },
-          ]
-        },
-        {
-          key: 3,
-          title: 'kompleksnaya-diagnostika',
-          extension: 'jpg',
-          place: 'banner-button-6',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 2,
-              form_title_special: 'Заявка на сервис. Диагностика',
-              color: 'orange',
-              text: 'ЗАПИСАТЬСЯ',
-              link: '',
             },
           ]
         },
