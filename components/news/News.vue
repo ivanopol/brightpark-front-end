@@ -1,7 +1,7 @@
 <template>
   <div class="container p-top-90">
     <div class="news">
-      <h1>Новости Брайт Парка в {{ $store.state.city.city_dative }}</h1>
+      <h1>Новости Брайт Парка в {{ $store.state.city.dative }}</h1>
       <div v-for="item in news" :key="item.id" class="news-row">
         <nuxt-link :to="'/' + $store.state.city.value + '/news/' + item.slug"
                    :id="'news__news-one__title-' + item.id"
