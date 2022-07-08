@@ -193,7 +193,7 @@ export default {
       let formData = {
         phone: this.clearMask(this.phone),
         name: this.name,
-        city: this.$store.state.city.value,
+        city: this.city,
         url: this.url,
         caption: this.form_title_special ? this.form_title_special : this.form_title,
         form_id: this.form_id,
