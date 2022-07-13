@@ -168,6 +168,21 @@ export default {
             },
           ]
         },
+        {
+          key: 5,
+          title: 'lada_v_credit',
+          extension: 'jpg',
+          place: 'banner-button-7',
+          buttons: [
+            {
+              key: 1,
+              type: 'link',
+              color: 'purple',
+              text: 'ПОДРОБНЕЕ',
+              link: 'stocks/lada_v_credit',
+            },
+          ]
+        },
       ],
       swiperOption: {
         autoplay: {
