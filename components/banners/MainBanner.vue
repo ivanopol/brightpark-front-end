@@ -78,81 +78,27 @@ export default {
         desktop: '/images/main/desktop/',
       },
       banners: [
+
         {
           key: 0,
-          title: 'kompleksnaya-diagnostika',
-          extension: 'jpg',
-          place: 'banner-button-6',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 2,
-              form_title_special: 'Заявка на сервис. Диагностика',
-              color: 'orange',
-              text: 'ЗАПИСАТЬСЯ',
-              link: '',
-            },
-          ]
-        },
-        {
-          key: 1,
-          title: 'letnyaya-rasprodazha-lada-granta-po-cene-2021-goda',
-          extension: 'jpg',
-          place: 'banner-button-5',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: '',
-              color: 'orange',
-              text: 'ОСТАВИТЬ ЗАЯВКУ',
-              link: '',
-            },
-          ]
-        },
-        {
-          key: 2,
-          title: 'letnyaya-programma-granta-finance',
+          title: 'letnyaya-gosprogramma',
           extension: 'jpg',
           place: 'banner-button-4',
           buttons: [
             {
               key: 1,
-              type: 'link',
-              color: 'purple',
-              text: 'ПОДРОБНЕЕ',
-              link: 'stocks/letnyaya-programma-granta-finance',
-            },
-          ]
-        },
-        {
-          key: 3,
-          title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
-          extension: 'jpg',
-          place: 'banner-button-2',
-          buttons: [
-            {
-              key: 1,
               type: 'window',
               form_type: 1,
               form_title_special: '',
-              color: 'orange',
+              color: 'purple',
               text: 'ЗАКАЗАТЬ ЗВОНОК',
               link: '',
             },
-            {
-              key: 2,
-              type: 'link',
-              color: 'no-color',
-              text: 'ПОДРОБНЕЕ',
-              link: 'stocks/vygoda-350-000-rublej-na-pokupku-novoj-lada',
-            },
           ]
         },
+
         {
-          key: 4,
+          key: 1,
           title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
           place: 'banner-button-7',
@@ -168,8 +114,27 @@ export default {
             },
           ]
         },
+
         {
-          key: 5,
+          key: 2,
+          title: 'kompleksnaya-diagnostika',
+          extension: 'jpg',
+          place: 'banner-button-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: 'Заявка на сервис. Диагностика',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+
+        {
+          key: 3,
           title: 'lada_v_credit',
           extension: 'jpg',
           place: 'banner-button-7',
@@ -183,6 +148,96 @@ export default {
             },
           ]
         },
+        // {
+        //   key: 1,
+        //   title: 'letnyaya-rasprodazha-lada-granta-po-cene-2021-goda',
+        //   extension: 'jpg',
+        //   place: 'banner-button-5',
+        //   buttons: [
+        //     {
+        //       key: 1,
+        //       type: 'window',
+        //       form_type: 1,
+        //       form_title_special: '',
+        //       color: 'orange',
+        //       text: 'ОСТАВИТЬ ЗАЯВКУ',
+        //       link: '',
+        //     },
+        //   ]
+        // },
+        // {
+        //   key: 2,
+        //   title: 'letnyaya-programma-granta-finance',
+        //   extension: 'jpg',
+        //   place: 'banner-button-4',
+        //   buttons: [
+        //     {
+        //       key: 1,
+        //       type: 'link',
+        //       color: 'purple',
+        //       text: 'ПОДРОБНЕЕ',
+        //       link: 'stocks/letnyaya-programma-granta-finance',
+        //     },
+        //   ]
+        // } 
+
+        
+        // {
+        //   key: 3,
+        //   title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
+        //   extension: 'jpg',
+        //   place: 'banner-button-2',
+        //   buttons: [
+        //     {
+        //       key: 1,
+        //       type: 'window',
+        //       form_type: 1,
+        //       form_title_special: '',
+        //       color: 'orange',
+        //       text: 'ЗАКАЗАТЬ ЗВОНОК',
+        //       link: '',
+        //     },
+        //     {
+        //       key: 2,
+        //       type: 'link',
+        //       color: 'no-color',
+        //       text: 'ПОДРОБНЕЕ',
+        //       link: 'stocks/vygoda-350-000-rublej-na-pokupku-novoj-lada',
+        //     },
+        //   ]
+        // },
+        // {
+        //   key: 4,
+        //   title: 'dlya-novyh-klientov-servisa',
+        //   extension: 'jpg',
+        //   place: 'banner-button-7',
+        //   buttons: [
+        //     {
+        //       key: 1,
+        //       type: 'window',
+        //       form_type: 2,
+        //       form_title_special: 'Заявка на сервис. Новые клиенты',
+        //       color: 'orange',
+        //       text: 'ЗАПИСАТЬСЯ',
+        //       link: '',
+        //     },
+        //   ]
+        // },
+        // {
+        //   key: 5,
+        //   title: 'lada_v_credit',
+        //   extension: 'jpg',
+        //   place: 'banner-button-7',
+        //   buttons: [
+        //     {
+        //       key: 1,
+        //       type: 'link',
+        //       color: 'purple',
+        //       text: 'ПОДРОБНЕЕ',
+        //       link: 'stocks/lada_v_credit',
+        //     },
+        //   ]
+        // },
       ],
       swiperOption: {
         autoplay: {
@@ -688,8 +743,8 @@ export default {
   }
 
   .banner-button-4 {
-    right: 6%;
-    bottom: 23%;
+    right: 13%;
+    bottom: 14%;
   }
 
   .banner-button-5 {
@@ -732,8 +787,8 @@ export default {
       }
 
       .banner-button-4 {
-        bottom: 20%;
-        right: 7%;
+        bottom: 13%;
+        right: 5%;
       }
 
       .banner-button-5 {
