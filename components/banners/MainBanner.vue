@@ -786,10 +786,7 @@ export default {
         right: 7%;
       }
 
-      .banner-button-4 {
-        bottom: 13%;
-        right: 5%;
-      }
+    
 
       .banner-button-5 {
         top: 36%;
@@ -815,6 +812,11 @@ export default {
       bottom: 19.9%;
       left: 5.2%;
     }
+
+    .banner-button-4 {
+        bottom: 13%;
+        right: 5%;
+      }
   }
 
   @media only screen and (max-width: 580px) {
@@ -832,6 +834,18 @@ export default {
       left: unset;
       bottom: 10%;
     }
+
+    .banner-button-4 {
+        bottom: 0;
+        right: 50%;
+        left: auto;
+        transform: translate(50%, 0);
+        padding: 16px 16px;
+        text-align: center;
+        button {
+          font-size: 14px
+        }
+      }
 
     #swiper {
       .swiper-pagination {
