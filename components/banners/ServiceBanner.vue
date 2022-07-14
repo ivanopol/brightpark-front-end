@@ -77,8 +77,27 @@ export default {
         desktop: '/images/main/desktop/',
       },
       banners: [
+
         {
           key: 0,
+          title: 'kompleksnaya-diagnostika',
+          extension: 'jpg',
+          place: 'banner-button-service-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: 'Заявка на сервис. Диагностика',
+              color: 'green',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+
+        {
+          key: 1,
           title: 'letnyaya-gosprogramma',
           extension: 'jpg',
           place: 'banner-button-4',
@@ -95,24 +114,6 @@ export default {
           ]
         },
 
-        {
-          key: 1,
-          title: 'kompleksnaya-diagnostika',
-          extension: 'jpg',
-          place: 'banner-button-service-6',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 2,
-              form_title_special: 'Заявка на сервис. Диагностика',
-              color: 'green',
-              text: 'ЗАПИСАТЬСЯ',
-              link: '',
-            },
-          ]
-        },
-        
         {
           key: 2,
           title: 'dlya-novyh-klientov-servisa',
