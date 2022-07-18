@@ -4,7 +4,7 @@
       <div class="banner__inner">
         <div class="banner__inner__car color-svg-figure">
           <div class="banner__inner__car__hit">
-            <img src="~static/images/model-sale.png" alt="" style="width: 150px;height: 150px;">
+            <img src="~static/images/model-sale.png" alt="">
           
           </div>
 
@@ -597,7 +597,14 @@ export default {
 }
 
 .banner__inner__car__hit {
-  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
 
   @media (min-width: 1024px) {
     width: 136px;
@@ -608,6 +615,11 @@ export default {
     position: absolute;
     right: 0;
     top: 0;
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
 
     span {
       color: white;
