@@ -80,7 +80,7 @@ export default {
       banners: [
         {
           key: 0,
-          title: 'kompleksnaya-diagnostika',
+          title: 'skidki-do-70-na-samye-populyarnye-letnie-raboty',
           extension: 'jpg',
           place: 'banner-button-6',
           buttons: [
@@ -88,7 +88,7 @@ export default {
               key: 1,
               type: 'window',
               form_type: 2,
-              form_title_special: 'Заявка на сервис. Диагностика',
+              form_title_special: 'Записаться',
               color: 'orange',
               text: 'ЗАПИСАТЬСЯ',
               link: '',
@@ -97,6 +97,23 @@ export default {
         },
         {
           key: 1,
+          title: 'kompleksnaya-diagnostika',
+          extension: 'jpg',
+          place: 'banner-button-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: '',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 2,
           title: 'letnyaya-rasprodazha-lada-granta-po-cene-2021-goda',
           extension: 'jpg',
           place: 'banner-button-5',
@@ -113,7 +130,7 @@ export default {
           ]
         },
         {
-          key: 2,
+          key: 3,
           title: 'letnyaya-programma-granta-finance',
           extension: 'jpg',
           place: 'banner-button-4',
@@ -128,7 +145,7 @@ export default {
           ]
         },
         {
-          key: 3,
+          key: 4,
           title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
           extension: 'jpg',
           place: 'banner-button-2',
@@ -152,7 +169,7 @@ export default {
           ]
         },
         {
-          key: 4,
+          key: 5,
           title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
           place: 'banner-button-7',
@@ -169,7 +186,7 @@ export default {
           ]
         },
         {
-          key: 5,
+          key: 6,
           title: 'lada_v_credit',
           extension: 'jpg',
           place: 'banner-button-7',
