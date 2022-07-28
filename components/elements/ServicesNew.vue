@@ -50,7 +50,8 @@
 
 <script>
 export default {
-  name: "ServicesNew"
+  name: 'ServicesNew',
+
 }
 </script>
 

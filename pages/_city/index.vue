@@ -2,6 +2,7 @@
   <div>
     <MainBanner />
     <Advantages2/>
+<!--    <ServiceOnlineRegistration />-->
     <CarsOffer style="margin: 40px 0 25px;" />
 
     <div class="container">
