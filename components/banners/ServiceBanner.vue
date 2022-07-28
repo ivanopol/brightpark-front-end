@@ -77,9 +77,25 @@ export default {
         desktop: '/images/main/desktop/',
       },
       banners: [
-
         {
           key: 0,
+          title: 'skidki-do-70-na-samye-populyarnye-letnie-raboty',
+          extension: 'jpg',
+          place: 'banner-button-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: 'Записаться',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 1,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
           place: 'banner-button-service-6',
@@ -97,7 +113,7 @@ export default {
         },
 
         {
-          key: 1,
+          key: 2,
           title: 'letnyaya-gosprogramma',
           extension: 'jpg',
           place: 'banner-button-4',
@@ -115,7 +131,7 @@ export default {
         },
 
         {
-          key: 2,
+          key: 3,
           title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
           place: 'banner-button-service-7',
