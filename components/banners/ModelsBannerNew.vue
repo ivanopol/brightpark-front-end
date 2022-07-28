@@ -3,14 +3,19 @@
     <div class="container banner__container">
       <div class="banner__inner">
         <div class="banner__inner__car color-svg-figure">
-          <div class="banner__inner__car__hit" v-if="isHit">
-             <span>
+          <div class="banner__inner__car__hit">
+            <img src="~static/images/model-sale.png" alt="">
+          
+          </div>
+
+          <!-- <div class="banner__inner__car__hit" v-if="isHit">
+              <span>
               хит продаж
             </span>
             <svg width="135" height="104" viewBox="0 0 135 104" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill="#FFCA0D" d="M129.936 93.5843L134.387 11.3205C134.713 5.31105 129.695 0.377862 123.692 0.805412L9.34428 8.94953C3.69317 9.35202 -0.495308 14.3642 0.112402 19.9969L7.03662 84.1761C7.54539 88.8919 11.2969 92.6014 16.018 93.0572L118.99 102.998C124.652 103.544 129.629 99.2643 129.936 93.5843Z" />
-            </svg>
-          </div>
+            </svg> 
+          </div> -->
 
           <img :src="currentImage" :alt="colorTitle" :title="colorTitle" class="banner__inner__car__image">
 
@@ -592,7 +597,14 @@ export default {
 }
 
 .banner__inner__car__hit {
-  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
 
   @media (min-width: 1024px) {
     width: 136px;
@@ -603,6 +615,11 @@ export default {
     position: absolute;
     right: 0;
     top: 0;
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
 
     span {
       color: white;

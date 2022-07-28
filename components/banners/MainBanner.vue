@@ -97,79 +97,24 @@ export default {
         },
         {
           key: 1,
-          title: 'kompleksnaya-diagnostika',
-          extension: 'jpg',
-          place: 'banner-button-6',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 2,
-              form_title_special: '',
-              color: 'orange',
-              text: 'ЗАПИСАТЬСЯ',
-              link: '',
-            },
-          ]
-        },
-        {
-          key: 2,
-          title: 'letnyaya-rasprodazha-lada-granta-po-cene-2021-goda',
-          extension: 'jpg',
-          place: 'banner-button-5',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: '',
-              color: 'orange',
-              text: 'ОСТАВИТЬ ЗАЯВКУ',
-              link: '',
-            },
-          ]
-        },
-        {
-          key: 3,
-          title: 'letnyaya-programma-granta-finance',
+          title: 'letnyaya-gosprogramma',
           extension: 'jpg',
           place: 'banner-button-4',
           buttons: [
             {
               key: 1,
-              type: 'link',
-              color: 'purple',
-              text: 'ПОДРОБНЕЕ',
-              link: 'stocks/letnyaya-programma-granta-finance',
-            },
-          ]
-        },
-        {
-          key: 4,
-          title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
-          extension: 'jpg',
-          place: 'banner-button-2',
-          buttons: [
-            {
-              key: 1,
               type: 'window',
               form_type: 1,
               form_title_special: '',
-              color: 'orange',
+              color: 'purple',
               text: 'ЗАКАЗАТЬ ЗВОНОК',
               link: '',
             },
-            {
-              key: 2,
-              type: 'link',
-              color: 'no-color',
-              text: 'ПОДРОБНЕЕ',
-              link: 'stocks/vygoda-350-000-rublej-na-pokupku-novoj-lada',
-            },
           ]
         },
+
         {
-          key: 5,
+          key: 2,
           title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
           place: 'banner-button-7',
@@ -185,8 +130,27 @@ export default {
             },
           ]
         },
+
         {
-          key: 6,
+          key: 3,
+          title: 'kompleksnaya-diagnostika',
+          extension: 'jpg',
+          place: 'banner-button-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: 'Заявка на сервис. Диагностика',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+
+        {
+          key: 4,
           title: 'lada_v_credit',
           extension: 'jpg',
           place: 'banner-button-7',
@@ -200,6 +164,96 @@ export default {
             },
           ]
         },
+        // {
+        //   key: 1,
+        //   title: 'letnyaya-rasprodazha-lada-granta-po-cene-2021-goda',
+        //   extension: 'jpg',
+        //   place: 'banner-button-5',
+        //   buttons: [
+        //     {
+        //       key: 1,
+        //       type: 'window',
+        //       form_type: 1,
+        //       form_title_special: '',
+        //       color: 'orange',
+        //       text: 'ОСТАВИТЬ ЗАЯВКУ',
+        //       link: '',
+        //     },
+        //   ]
+        // },
+        // {
+        //   key: 2,
+        //   title: 'letnyaya-programma-granta-finance',
+        //   extension: 'jpg',
+        //   place: 'banner-button-4',
+        //   buttons: [
+        //     {
+        //       key: 1,
+        //       type: 'link',
+        //       color: 'purple',
+        //       text: 'ПОДРОБНЕЕ',
+        //       link: 'stocks/letnyaya-programma-granta-finance',
+        //     },
+        //   ]
+        // }
+
+
+        // {
+        //   key: 3,
+        //   title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
+        //   extension: 'jpg',
+        //   place: 'banner-button-2',
+        //   buttons: [
+        //     {
+        //       key: 1,
+        //       type: 'window',
+        //       form_type: 1,
+        //       form_title_special: '',
+        //       color: 'orange',
+        //       text: 'ЗАКАЗАТЬ ЗВОНОК',
+        //       link: '',
+        //     },
+        //     {
+        //       key: 2,
+        //       type: 'link',
+        //       color: 'no-color',
+        //       text: 'ПОДРОБНЕЕ',
+        //       link: 'stocks/vygoda-350-000-rublej-na-pokupku-novoj-lada',
+        //     },
+        //   ]
+        // },
+        // {
+        //   key: 4,
+        //   title: 'dlya-novyh-klientov-servisa',
+        //   extension: 'jpg',
+        //   place: 'banner-button-7',
+        //   buttons: [
+        //     {
+        //       key: 1,
+        //       type: 'window',
+        //       form_type: 2,
+        //       form_title_special: 'Заявка на сервис. Новые клиенты',
+        //       color: 'orange',
+        //       text: 'ЗАПИСАТЬСЯ',
+        //       link: '',
+        //     },
+        //   ]
+        // },
+        // {
+        //   key: 5,
+        //   title: 'lada_v_credit',
+        //   extension: 'jpg',
+        //   place: 'banner-button-7',
+        //   buttons: [
+        //     {
+        //       key: 1,
+        //       type: 'link',
+        //       color: 'purple',
+        //       text: 'ПОДРОБНЕЕ',
+        //       link: 'stocks/lada_v_credit',
+        //     },
+        //   ]
+        // },
       ],
       swiperOption: {
         autoplay: {
@@ -705,8 +759,8 @@ export default {
   }
 
   .banner-button-4 {
-    right: 6%;
-    bottom: 23%;
+    right: 13%;
+    bottom: 14%;
   }
 
   .banner-button-5 {
@@ -748,10 +802,7 @@ export default {
         right: 7%;
       }
 
-      .banner-button-4 {
-        bottom: 20%;
-        right: 7%;
-      }
+
 
       .banner-button-5 {
         top: 36%;
@@ -777,6 +828,11 @@ export default {
       bottom: 19.9%;
       left: 5.2%;
     }
+
+    .banner-button-4 {
+        bottom: 13%;
+        right: 5%;
+      }
   }
 
   @media only screen and (max-width: 580px) {
@@ -794,6 +850,18 @@ export default {
       left: unset;
       bottom: 10%;
     }
+
+    .banner-button-4 {
+        bottom: 0;
+        right: 50%;
+        left: auto;
+        transform: translate(50%, 0);
+        padding: 16px 16px;
+        text-align: center;
+        button {
+          font-size: 14px
+        }
+      }
 
     #swiper {
       .swiper-pagination {

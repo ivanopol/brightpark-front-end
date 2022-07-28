@@ -77,6 +77,7 @@ export default {
         desktop: '/images/main/desktop/',
       },
       banners: [
+
         {
           key: 0,
           title: 'kompleksnaya-diagnostika',
@@ -94,8 +95,27 @@ export default {
             },
           ]
         },
+
         {
           key: 1,
+          title: 'letnyaya-gosprogramma',
+          extension: 'jpg',
+          place: 'banner-button-4',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 1,
+              form_title_special: '',
+              color: 'purple',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              link: '',
+            },
+          ]
+        },
+
+        {
+          key: 2,
           title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
           place: 'banner-button-service-7',
