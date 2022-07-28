@@ -97,6 +97,23 @@ export default {
         },
         {
           key: 1,
+          title: 'kompleksnaya-diagnostika',
+          extension: 'jpg',
+          place: 'banner-button-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: 'Заявка на сервис. Диагностика',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 2,
           title: 'letnyaya-gosprogramma',
           extension: 'jpg',
           place: 'banner-button-4',
@@ -114,7 +131,7 @@ export default {
         },
 
         {
-          key: 2,
+          key: 3,
           title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
           place: 'banner-button-7',
@@ -130,25 +147,6 @@ export default {
             },
           ]
         },
-
-        {
-          key: 3,
-          title: 'kompleksnaya-diagnostika',
-          extension: 'jpg',
-          place: 'banner-button-6',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 2,
-              form_title_special: 'Заявка на сервис. Диагностика',
-              color: 'orange',
-              text: 'ЗАПИСАТЬСЯ',
-              link: '',
-            },
-          ]
-        },
-
         {
           key: 4,
           title: 'lada_v_credit',
