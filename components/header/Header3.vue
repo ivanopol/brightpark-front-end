@@ -159,6 +159,7 @@ header {
   z-index: 5;
   width: 100%;
   position: relative;
+  font-family: 'Factor A', sans-serif;
 
   .logo-wrap {
 

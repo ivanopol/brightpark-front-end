@@ -2,17 +2,18 @@
   <div :class="'service-online-registration ' + style">
     <div class="service-online-registration__wrapper">
       <div class="service-online-registration__content">
-        <div class="service-online-registration__row service-online-registration__header">
+        <div class="service-online-registration__header">
           <p class="service-online-registration__title">Онлайн запись на сервис</p>
           <p class="service-online-registration__desc">Оставьте заявку на ремонт и обслуживание автомобиля в 3 шага - это займет не более 1 минуты</p>
+          <ul class="service-online-registration__step-list">
+            <li :class="{ active : step.active }" :key="step.number" v-for="step in steps">
+              <span>{{ step.number }}</span>
+            </li>
+          </ul>
         </div>
         <div class="service-online-registration__body">
           <div class="service-online-registration__row">
-            <ul class="service-online-registration__step-list">
-              <li :class="{ active : step.active }" :key="step.number" v-for="step in steps">
-                <span>{{ step.number }}</span>
-              </li>
-            </ul>
+
           </div>
         </div>
       </div>
@@ -57,6 +58,7 @@ export default {
     }
   },
   mounted() {
+    this.setStep(1)
   }
 }
 </script>
@@ -137,7 +139,6 @@ export default {
     }
 
     &__body {
-      margin-bottom: 30px;
     }
 
     &__header {
@@ -159,12 +160,12 @@ export default {
       font-size: 16px;
       line-height: 1.4;
       font-family: 'Factor A';
+      margin-bottom: 30px;
     }
 
     &__step-list {
       font-family: PragmaticaLightC;
       font-size: 32px;
-      margin-bottom: 30px;
       display: flex;
       align-items: center;
 

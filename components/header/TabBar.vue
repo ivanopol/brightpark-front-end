@@ -426,7 +426,7 @@ export default {
 
         ul {
             li {
-                font-family: PragmaticaLightC, Helvetica, sans-serif;
+                font-family: 'Factor A';//PragmaticaLightC, Helvetica, sans-serif;
                 padding: 10px;
             }
         }
