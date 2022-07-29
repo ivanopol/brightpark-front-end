@@ -88,7 +88,7 @@ export default {
               key: 1,
               type: 'window',
               form_type: 2,
-              form_title_special: 'Записаться',
+              form_title_special: 'Заявка на сервис. Баннер скидки до 70%',
               color: 'orange',
               text: 'ЗАПИСАТЬСЯ',
               link: '',
