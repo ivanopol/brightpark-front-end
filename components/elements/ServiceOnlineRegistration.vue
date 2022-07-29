@@ -6,10 +6,14 @@
           <p class="service-online-registration__title">Онлайн запись на сервис</p>
           <p class="service-online-registration__desc">Оставьте заявку на ремонт и обслуживание автомобиля в 3 шага - это займет не более 1 минуты</p>
         </div>
-        <div class="service-online-registration__row">
-
-        </div>
-        <div class="service-online-registration__row">
+        <div class="service-online-registration__body">
+          <div class="service-online-registration__row">
+            <ul class="service-online-registration__step-list">
+              <li :class="{ active : step.active }" :key="step.number" v-for="step in steps">
+                <span>{{ step.number }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -27,19 +31,90 @@ export default {
   },
   data: function () {
     return {
-
+      steps: [
+        {
+          number: 1,
+          active: true
+        },
+        {
+          number: 2,
+          active: false
+        },
+        {
+          number: 3,
+          active: false
+        },
+      ]
     }
   },
   methods: {
-
+    setStep: function (step) {
+      this.clearSteps()
+      this.steps[step].active = true
+    },
+    clearSteps: function () {
+      this.steps.forEach(el => el.active = false )
+    }
+  },
+  mounted() {
   }
 }
 </script>
 
 <style scoped lang="scss">
   .purple {
+    .service-online-registration {
+      &__wrapper {
+        background-color: #504ea0;
+        color: #fff;
+        border-color: #fff;
+
+      }
+
+      &__step-list {
+        li {
+          border-color: #fff;
+
+          &:after {
+            background-color: #fff;
+          }
+
+          &.active {
+            background-color: #FFCA0D;
+            border-color: #FFCA0D;
+          }
+        }
+      }
+    }
+  }
+
+  .white {
+    .service-online-registration {
+      &__wrapper {
+        background-color: #fff;
+        color: #000;
+        border-radius: 16px;
+      }
+
+      &__step-list {
+        li {
+          border-color: #000;
+
+          &:after {
+            background-color: #000;
+          }
+
+          &.active {
+            color: #fff;
+            background-color: #e95909;
+            border-color: #e95909;
+          }
+        }
+      }
+    }
+
     .service-online-registration__wrapper {
-      background-color: #504ea0;
+
     }
   }
 
@@ -61,13 +136,17 @@ export default {
       box-sizing: border-box;
     }
 
-    &__row {
-
+    &__body {
+      margin-bottom: 30px;
     }
 
     &__header {
-      color: #fff;
       text-align: left;
+      margin-bottom: 30px;
+    }
+
+    &__row {
+
     }
 
     &__title {
@@ -78,7 +157,55 @@ export default {
 
     &__desc {
       font-size: 16px;
+      line-height: 1.4;
       font-family: 'Factor A';
+    }
+
+    &__step-list {
+      font-family: PragmaticaLightC;
+      font-size: 32px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+
+      li {
+        margin-right: 40px;
+        border: 2px solid;
+        padding: 10px 15px;
+        line-height: 0.95em;
+        border-radius: 15px;
+        position: relative;
+        box-sizing: border-box;
+
+        span {
+          display: block;
+          margin-bottom: -5px;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: 40px;
+          height: 2px;
+          right: -42px;
+          background-color: #fff;
+          top: 50%;
+          transform: translate(0, -50%);
+        }
+
+        &:last-child {
+         margin-right: 0;
+
+          &:after {
+            display: none;
+          }
+        }
+
+        &.active {
+          background-color: #FFCA0D;
+          border-color: #FFCA0D;
+        }
+      }
     }
   }
 </style>

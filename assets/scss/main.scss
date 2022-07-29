@@ -12,6 +12,16 @@
   url(~assets/fonts/PragmaticaLightCBold/PragmaticaLightC-Bold.svg) format("svg");
 }
 
+@font-face {
+  font-family: "PragmaticaLightC";
+  font-display: swap;
+  src: url(~assets/fonts/PragmaticaLightC/PragmaticaLightC.eot);
+  src: url(~assets/fonts/PragmaticaLightC/PragmaticaLightC.eot?#iefix)format("embedded-opentype"),
+  url(~assets/fonts/PragmaticaLightC/PragmaticaLightC.woff) format("woff"),
+  url(~assets/fonts/PragmaticaLightC/PragmaticaLightC.ttf) format("truetype"),
+  url(~assets/fonts/PragmaticaLightC/PragmaticaLightC.svg) format("svg");
+}
+
 .client-only-placeholder {
   text-align: center;
   font-size: 14px;
