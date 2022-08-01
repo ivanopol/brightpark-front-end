@@ -80,6 +80,23 @@ export default {
       banners: [
         {
           key: 1,
+          title: 'letnyaya-gosprogramma-2',
+          extension: 'jpg',
+          place: 'banner-button-8',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 1,
+              form_title_special: '',
+              color: 'yellow',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 2,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
           place: 'banner-button-6',
@@ -95,24 +112,6 @@ export default {
             },
           ]
         },
-        {
-          key: 2,
-          title: 'letnyaya-gosprogramma',
-          extension: 'jpg',
-          place: 'banner-button-4',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: '',
-              color: 'purple',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
-              link: '',
-            },
-          ]
-        },
-
         {
           key: 3,
           title: 'dlya-novyh-klientov-servisa',
@@ -145,96 +144,6 @@ export default {
             },
           ]
         },
-        // {
-        //   key: 1,
-        //   title: 'letnyaya-rasprodazha-lada-granta-po-cene-2021-goda',
-        //   extension: 'jpg',
-        //   place: 'banner-button-5',
-        //   buttons: [
-        //     {
-        //       key: 1,
-        //       type: 'window',
-        //       form_type: 1,
-        //       form_title_special: '',
-        //       color: 'orange',
-        //       text: 'ОСТАВИТЬ ЗАЯВКУ',
-        //       link: '',
-        //     },
-        //   ]
-        // },
-        // {
-        //   key: 2,
-        //   title: 'letnyaya-programma-granta-finance',
-        //   extension: 'jpg',
-        //   place: 'banner-button-4',
-        //   buttons: [
-        //     {
-        //       key: 1,
-        //       type: 'link',
-        //       color: 'purple',
-        //       text: 'ПОДРОБНЕЕ',
-        //       link: 'stocks/letnyaya-programma-granta-finance',
-        //     },
-        //   ]
-        // }
-
-
-        // {
-        //   key: 3,
-        //   title: 'vygoda-350-000-rublej-na-pokupku-novoj-lada',
-        //   extension: 'jpg',
-        //   place: 'banner-button-2',
-        //   buttons: [
-        //     {
-        //       key: 1,
-        //       type: 'window',
-        //       form_type: 1,
-        //       form_title_special: '',
-        //       color: 'orange',
-        //       text: 'ЗАКАЗАТЬ ЗВОНОК',
-        //       link: '',
-        //     },
-        //     {
-        //       key: 2,
-        //       type: 'link',
-        //       color: 'no-color',
-        //       text: 'ПОДРОБНЕЕ',
-        //       link: 'stocks/vygoda-350-000-rublej-na-pokupku-novoj-lada',
-        //     },
-        //   ]
-        // },
-        // {
-        //   key: 4,
-        //   title: 'dlya-novyh-klientov-servisa',
-        //   extension: 'jpg',
-        //   place: 'banner-button-7',
-        //   buttons: [
-        //     {
-        //       key: 1,
-        //       type: 'window',
-        //       form_type: 2,
-        //       form_title_special: 'Заявка на сервис. Новые клиенты',
-        //       color: 'orange',
-        //       text: 'ЗАПИСАТЬСЯ',
-        //       link: '',
-        //     },
-        //   ]
-        // },
-        // {
-        //   key: 5,
-        //   title: 'lada_v_credit',
-        //   extension: 'jpg',
-        //   place: 'banner-button-7',
-        //   buttons: [
-        //     {
-        //       key: 1,
-        //       type: 'link',
-        //       color: 'purple',
-        //       text: 'ПОДРОБНЕЕ',
-        //       link: 'stocks/lada_v_credit',
-        //     },
-        //   ]
-        // },
       ],
       swiperOption: {
         autoplay: {
@@ -717,7 +626,8 @@ export default {
   .banner-button-4,
   .banner-button-5,
   .banner-button-6,
-  .banner-button-7 {
+  .banner-button-7,
+  .banner-button-8 {
     position: absolute;
   }
 
@@ -759,6 +669,14 @@ export default {
     bottom: 13%;
   }
 
+  .banner-button-8 {
+    left: 8.5%;
+    bottom: 27%;
+    button {
+      color: #6a32b7 !important;
+    }
+  }
+
 
   .banner_btn-call {
     position: absolute;
@@ -783,8 +701,6 @@ export default {
         right: 7%;
       }
 
-
-
       .banner-button-5 {
         top: 36%;
         right: 9%;
@@ -798,6 +714,11 @@ export default {
       .banner-button-7 {
         bottom: 10%;
         right: 8%;
+      }
+
+      .banner-button-8 {
+        bottom: 29%;
+        left: 7%;
       }
 
       .swiper-pagination {
@@ -832,96 +753,16 @@ export default {
       bottom: 10%;
     }
 
-    .banner-button-4 {
-        bottom: 0;
-        right: 50%;
-        left: auto;
-        transform: translate(50%, 0);
-        padding: 16px 16px;
-        text-align: center;
-        button {
-          font-size: 14px
-        }
-      }
-
     #swiper {
       .swiper-pagination {
         display: none;
       }
 
-      .banner-button {
-        bottom: 0;
-        right: 50%;
-        left: auto;
-        transform: translate(50%, 0);
-        padding: 16px 16px;
-        text-align: center;
-        button {
-          font-size: 14px
-        }
-      }
-
-      .banner-button-2 {
-        bottom: 0;
-        right: 50%;
-        left: auto;
-        transform: translate(50%, 0);
-        padding: 16px 16px;
-        text-align: center;
-        button {
-          font-size: 14px
-        }
-      }
-
-      .banner-button-3 {
-        bottom: 0;
-        right: 50%;
-        left: auto;
-        transform: translate(50%, 0);
-        padding: 16px 16px;
-        text-align: center;
-        button {
-          font-size: 14px
-        }
-      }
-
-      .banner-button-4 {
-        bottom: 0;
-        right: 50%;
-        left: auto;
-        transform: translate(50%, 0);
-        padding: 16px 16px;
-        text-align: center;
-        button {
-          font-size: 14px
-        }
-      }
-
-      .banner-button-5 {
-        bottom: 0;
-        right: 50%;
-        left: auto;
-        transform: translate(50%, 0);
-        padding: 16px 0px;
-        text-align: center;
-
-        button {
-          font-size: 14px
-        }
-      }
-
-      .banner-button-6 {
-        bottom: 0;
-        right: 50%;
-        left: auto;
-        transform: translate(50%, 0);
-        padding: 16px 16px;
-        text-align: center;
-        button {
-          font-size: 14px
-        }
-      }
-
+      .banner-button,
+      .banner-button-2,
+      .banner-button-3,
+      .banner-button-4,
+      .banner-button-6,
       .banner-button-7 {
         bottom: 0;
         right: 50%;
@@ -932,6 +773,24 @@ export default {
         button {
           font-size: 14px
         }
+      }
+
+      .banner-button-5,
+      .banner-button-8 {
+        bottom: 0;
+        right: 50%;
+        left: auto;
+        transform: translate(50%, 0);
+        padding: 16px 0;
+        text-align: center;
+        button {
+          font-size: 14px
+        }
+      }
+
+      .banner-button-8 button {
+        color: #fff!important;
+        background-color: #504ea0!important;
       }
 
       .swiper-slide {

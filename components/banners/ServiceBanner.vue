@@ -79,6 +79,23 @@ export default {
       banners: [
         {
           key: 1,
+          title: 'letnyaya-gosprogramma-2',
+          extension: 'jpg',
+          place: 'banner-button-service-8',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 1,
+              form_title_special: '',
+              color: 'yellow',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 2,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
           place: 'banner-button-service-6',
@@ -94,26 +111,7 @@ export default {
             },
           ]
         },
-
-        {
-          key: 2,
-          title: 'letnyaya-gosprogramma',
-          extension: 'jpg',
-          place: 'banner-button-4',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: '',
-              color: 'purple',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
-              link: '',
-            },
-          ]
-        },
-
-        {
+       {
           key: 3,
           title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
@@ -614,7 +612,8 @@ export default {
   .banner-button-service-4,
   .banner-button-service-5,
   .banner-button-service-6,
-  .banner-button-service-7 {
+  .banner-button-service-7,
+  .banner-button-service-8 {
     position: absolute;
   }
 
@@ -654,6 +653,14 @@ export default {
   .banner-button-service-7 {
     right: 7%;
     bottom: 28%;
+  }
+
+.banner-button-service-8 {
+  left: 8.5%;
+  bottom: 27%;
+  button {
+    color: #6a32b7 !important;
+    }
   }
 
 
@@ -699,6 +706,11 @@ export default {
     .banner-button-service-7 {
       bottom: 10%;
       right: 8%;
+    }
+
+    .banner-button-service-8 {
+      bottom: 29%;
+      left: 7%;
     }
 
     .swiper-pagination {
@@ -816,6 +828,23 @@ export default {
       button {
         font-size: 14px
       }
+    }
+
+    .banner-button-service-8 {
+      bottom: 0;
+      right: 50%;
+      left: auto;
+      transform: translate(50%, 0);
+      padding: 16px 0;
+      text-align: center;
+      button {
+        font-size: 14px
+      }
+    }
+
+    .banner-button-service-8 button {
+      color: #fff!important;
+      background-color: #504ea0!important;
     }
 
     .swiper-slide {
