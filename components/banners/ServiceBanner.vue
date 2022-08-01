@@ -79,23 +79,6 @@ export default {
       banners: [
         {
           key: 1,
-          title: 'letnyaya-gosprogramma-2',
-          extension: 'jpg',
-          place: 'banner-button-service-8',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: '',
-              color: 'yellow',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
-              link: '',
-            },
-          ]
-        },
-        {
-          key: 2,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
           place: 'banner-button-service-6',
@@ -107,6 +90,23 @@ export default {
               form_title_special: 'Заявка на сервис. Диагностика',
               color: 'green',
               text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 2,
+          title: 'letnyaya-gosprogramma-2',
+          extension: 'jpg',
+          place: 'banner-button-service-8',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 1,
+              form_title_special: '',
+              color: 'yellow',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
               link: '',
             },
           ]
