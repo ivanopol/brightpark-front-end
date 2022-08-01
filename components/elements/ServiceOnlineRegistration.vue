@@ -1,5 +1,5 @@
 <template>
-  <div :class="'service-online-registration ' + style">
+  <div :class="'service-online-registration ' + theme">
     <div class="service-online-registration__wrapper">
       <div class="service-online-registration__content">
         <div class="service-online-registration__header">
@@ -13,7 +13,32 @@
         </div>
         <div class="service-online-registration__body">
           <div class="service-online-registration__row">
+            <div class="step-1" v-if="currentStep === 1">
+              <div class="step-1__title">
+                <p>Заполнение информации</p>
+              </div>
+              <div class="step-1__fields">
 
+              </div>
+            </div>
+
+            <div class="step-2" v-else-if="currentStep === 2">
+              <div class="step-2__title">
+                <p>Выбор услуги и сервиса</p>
+              </div>
+              <div class="step-2__fields">
+
+              </div>
+            </div>
+
+            <div class="step-3" v-else-if="currentStep === 3">
+              <div class="step-3__title">
+                <p>Выбор даты и времени</p>
+              </div>
+              <div class="step-3__fields">
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -25,13 +50,14 @@
 export default {
   name: "ServiceOnlineRegistration",
   props: {
-    style: {
+    theme: {
       default: 'purple',
       type: String
     }
   },
   data: function () {
     return {
+      currentStep: 1,
       steps: [
         {
           number: 1,
@@ -50,11 +76,15 @@ export default {
   },
   methods: {
     setStep: function (step) {
+      let number = step - 1
       this.clearSteps()
-      this.steps[step].active = true
+      this.steps[number].active = true
     },
     clearSteps: function () {
-      this.steps.forEach(el => el.active = false )
+      this.steps.forEach((el, index) => {
+        el.active = false
+        this.currentStep = index + 1
+      })
     }
   },
   mounted() {
