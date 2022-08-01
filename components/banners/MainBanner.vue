@@ -79,23 +79,6 @@ export default {
       },
       banners: [
         {
-          key: 0,
-          title: 'skidki-do-70-na-samye-populyarnye-letnie-raboty',
-          extension: 'jpg',
-          place: 'banner-button-6',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 2,
-              form_title_special: 'Заявка на сервис. Баннер скидки до 70%',
-              color: 'orange',
-              text: 'ЗАПИСАТЬСЯ',
-              link: '',
-            },
-          ]
-        },
-        {
           key: 1,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
