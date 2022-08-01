@@ -60,7 +60,7 @@
         <FormRetarget :form_id="$store.state._page + '__sign-up-to-our-service_'"
                       :button_text="'Записаться на сервис'"
                       :form_title="'<span class=\'c_orange\'>Запишись</span> к нам на сервис'"
-                      :form_pre_title="'и получи скидку 5% при визите в день обращения'"
+                      :form_pre_title="'и получи скидку 10% при визите в день обращения'"
                       :is_comment='true'
                       form_class="mobile_white_bg"
                       :form_type='2'
