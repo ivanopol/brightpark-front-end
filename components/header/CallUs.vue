@@ -261,7 +261,7 @@ export default {
   z-index: 10;
   border-radius: 6px;
   padding: 24px 24px 24px 46px;
-  min-width: 200px;
+  min-width: 210px;
 }
 
 .call-us__list__item {
