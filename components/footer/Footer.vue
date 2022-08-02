@@ -29,7 +29,7 @@
 
                 <div class="footer__contact__info">
                     <p>
-                        Брайт парк ближе, чем кажется
+                        Брайт Парк ближе, чем кажется
                         <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                             {{$store.state.city.address}}
                         </span>
