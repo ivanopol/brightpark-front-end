@@ -647,7 +647,7 @@ export default {
 
   .banner-button-service-6 {
     right: 9%;
-    bottom: 19%;
+    bottom: 15%;
   }
 
   .banner-button-service-7 {
