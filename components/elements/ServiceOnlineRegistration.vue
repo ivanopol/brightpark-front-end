@@ -14,7 +14,7 @@
         <div class="service-online-registration__body">
           <div class="service-online-registration__row">
             <div class="step-1" v-if="currentStep === 1">
-              <div class="step-1__title">
+              <div class="step__title">
                 <p>Заполнение информации</p>
               </div>
               <div class="step-1__fields">
@@ -23,7 +23,7 @@
             </div>
 
             <div class="step-2" v-else-if="currentStep === 2">
-              <div class="step-2__title">
+              <div class="step__title">
                 <p>Выбор услуги и сервиса</p>
               </div>
               <div class="step-2__fields">
@@ -32,7 +32,7 @@
             </div>
 
             <div class="step-3" v-else-if="currentStep === 3">
-              <div class="step-3__title">
+              <div class="step__title">
                 <p>Выбор даты и времени</p>
               </div>
               <div class="step-3__fields">
@@ -144,10 +144,6 @@ export default {
         }
       }
     }
-
-    .service-online-registration__wrapper {
-
-    }
   }
 
   .service-online-registration {
@@ -237,6 +233,10 @@ export default {
           border-color: #FFCA0D;
         }
       }
+    }
+
+    .step__title {
+      font-family: 'Bright Park Display';
     }
   }
 </style>
