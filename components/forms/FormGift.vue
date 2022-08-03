@@ -226,6 +226,7 @@ export default {
         }),
         time: this.fields.time,
         city: this.$store.state.city.value,
+        gift: this.fields.gift,
         url: this.url,
         caption: this.form_title_special ? this.form_title_special : this.form_title,
         form_id: this.form_id,
