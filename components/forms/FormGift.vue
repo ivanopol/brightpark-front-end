@@ -74,7 +74,7 @@
           </v-date-picker>
 
           <span class="gift__field__placeholder" :class="[fields.date !== null ? activePlaceholder : '']">
-            Дата
+            Дата перезвона
           </span>
         </div>
 
@@ -97,11 +97,6 @@
 
     <div class="gift__field gift__field-block">
 
-<!--      <label :id="prefix + 'credit-program__' + credit_program['title_en']" class="control control-radio event" :for="'credit-program__' + credit_program['title_en']" @click="handleCreditProgram(index)">{{credit_program['name']}} <span
-        class="program-cost">{{credit_program['monthly_payment'] | formatPrice}}</span> руб./мес
-        <input :id="'credit-program__' + credit_program['title_en']" :value="'p_' + index" type="radio" name="program" v-model="picked">
-        <div class="control_indicator"></div>
-      </label>-->
       <span class="gift__field__heading">
         Выберите подарок
       </span>

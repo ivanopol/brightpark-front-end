@@ -3,9 +3,9 @@
     <FormGift
       class='special-form'
       form_title='Оставить заявку'
+      form_title_special='Заявка. День строителя'
       button_text='Отправить'
       goal=""
-      form_title_special=''
       :form_type="1"
     />
   </section>
