@@ -112,7 +112,7 @@ export default {
             },
           ]
         },
-        {
+/*        {
           key: 3,
           title: 'dlya-novyh-klientov-servisa',
           extension: 'jpg',
@@ -128,7 +128,7 @@ export default {
               link: '',
             },
           ]
-        },
+        },*/
         {
           key: 4,
           title: 'lada_v_credit',
