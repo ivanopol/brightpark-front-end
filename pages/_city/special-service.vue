@@ -2,6 +2,7 @@
   <section class="theme-05-special">
     <h3>{{ phone }}</h3>
     <h3>{{ date }}</h3>
+    <h3>{{ title }}</h3>
     <FormLeadNew
       class='special-form'
       form_title='Оставить заявку'
@@ -20,7 +21,8 @@ export default Vue.extend({
   data: function () {
     return {
       phone : '',
-      date : ''
+      date : '',
+      title : ''
     }
   },
   created() {
@@ -30,6 +32,10 @@ export default Vue.extend({
 
     if (this.$route.query.dateMailing !== undefined) {
       this.date = this.$route.query.dateMailing
+    }
+
+    if (this.$route.query.titleMailing !== undefined) {
+      this.title = this.$route.query.titleMailing
     }
 
   }
