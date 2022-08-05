@@ -21,7 +21,31 @@
                 <p>Заполнение информации</p>
               </div>
               <div class="step-1__fields">
+                <div class="service-online-registration__row">
+                  <input type="text"
+                         placeholder="Имя"
+                         v-model="name"
+                         class="service-online-registration__row__form-input"
+                  />
 
+                  <the-mask
+                    :id="form_id + '_input_phone'"
+                    pattern=".{18,}"
+                    mask="+# (###)-###-##-##"
+                    v-model="phone"
+                    type="tel"
+                    required="true"
+                    placeholder="Телефон"
+                    class="service-online-registration__row__form-input"
+                  ></the-mask>
+                </div>
+
+                <div class="service-online-registration__row">
+
+                </div>
+                <div class="service-online-registration__row-single">
+
+                </div>
               </div>
             </div>
 
@@ -188,10 +212,37 @@ export default {
       width: 60%;
       padding: 40px 0 40px 100px;
       box-sizing: border-box;
+      max-width: 650px;
     }
 
     &__body {
     }
+
+    &__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+
+      &__form-input {
+        width: 100%;
+        max-width: unset;
+        background-color: unset;
+        height: 40px;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, .7);
+        }
+
+      }
+    }
+
+    &__row-double {
+      display: grid;
+      grid-template-columns: 1fr;
+
+    }
+
+
 
     &__header {
       text-align: left;
@@ -261,4 +312,5 @@ export default {
       font-family: 'Bright Park Display';
     }
   }
+
 </style>
