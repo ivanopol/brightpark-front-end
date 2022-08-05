@@ -104,6 +104,15 @@ export default {
         color: #fff;
         border-color: #fff;
 
+        &:before {
+          content: '';
+          background: url("../../static/images/element.svg") no-repeat 0 0;
+          height: 130px;
+          width: 58px;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
       }
 
       &__step-list {
