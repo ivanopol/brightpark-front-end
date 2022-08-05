@@ -1,6 +1,9 @@
 <template>
   <div :class="'service-online-registration ' + theme">
     <div class="service-online-registration__wrapper">
+      <img src="~static/images/serviceman.png"
+           class="service-online-registration__serviceman"
+           alt="Онлайн регистрация на сервисное обслуживание">
       <div class="service-online-registration__content">
         <div class="service-online-registration__header">
           <p class="service-online-registration__title">Онлайн запись на сервис</p>
@@ -12,7 +15,7 @@
           </ul>
         </div>
         <div class="service-online-registration__body">
-          <div class="service-online-registration__row">
+          <form>
             <div class="step-1" v-if="currentStep === 1">
               <div class="step__title">
                 <p>Заполнение информации</p>
@@ -39,7 +42,7 @@
 
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -79,11 +82,11 @@ export default {
       let number = step - 1
       this.clearSteps()
       this.steps[number].active = true
+      this.currentStep = step
     },
     clearSteps: function () {
       this.steps.forEach((el, index) => {
         el.active = false
-        this.currentStep = index + 1
       })
     }
   },
@@ -150,17 +153,31 @@ export default {
     &__wrapper {
       width: 100%;
       margin: 0 auto;
+      position: relative;
 
       @media only screen and (min-width: 900px) {
         & {
           max-width: 1440px;
         }
       }
+
+      .service-online-registration__serviceman {
+        position: absolute;
+        right: 150px;
+        bottom: 0;
+        width: 390px;
+        z-index: 1;
+        pointer-events: none;
+
+        @media (max-width: 1366px) {
+          display: none;
+        }
+      }
     }
 
     &__content {
       width: 60%;
-      padding: 40px 0 40px 60px;
+      padding: 40px 0 40px 100px;
       box-sizing: border-box;
     }
 
@@ -170,10 +187,6 @@ export default {
     &__header {
       text-align: left;
       margin-bottom: 30px;
-    }
-
-    &__row {
-
     }
 
     &__title {
@@ -190,7 +203,7 @@ export default {
     }
 
     &__step-list {
-      font-family: PragmaticaLightC;
+      font-family: 'Factor A';
       font-size: 32px;
       display: flex;
       align-items: center;
@@ -206,7 +219,7 @@ export default {
 
         span {
           display: block;
-          margin-bottom: -5px;
+          margin-bottom: -8px;
         }
 
         &:after {
