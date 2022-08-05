@@ -41,7 +41,7 @@ export default Vue.extend({
     }
 
     if (this.$route.query.name !== undefined) {
-      this.title = this.$route.query.name
+      this.name = this.$route.query.name
     }
 
   }
