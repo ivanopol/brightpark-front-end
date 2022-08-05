@@ -3,6 +3,7 @@
     <h3>{{ phone }}</h3>
     <h3>{{ date }}</h3>
     <h3>{{ title }}</h3>
+    <h3>{{ name }}</h3>
     <FormLeadNew
       class='special-form'
       form_title='Оставить заявку'
@@ -22,7 +23,8 @@ export default Vue.extend({
     return {
       phone : '',
       date : '',
-      title : ''
+      title : '',
+      name : ''
     }
   },
   created() {
@@ -36,6 +38,10 @@ export default Vue.extend({
 
     if (this.$route.query.titleMailing !== undefined) {
       this.title = this.$route.query.titleMailing
+    }
+
+    if (this.$route.query.name !== undefined) {
+      this.title = this.$route.query.name
     }
 
   }
