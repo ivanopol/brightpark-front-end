@@ -1,17 +1,16 @@
 <template>
   <section class="theme-05-special">
-    <h3>{{ phone }}</h3>
-    <h3>{{ date }}</h3>
-    <h3>{{ title }}</h3>
-    <h3>{{ name }}</h3>
-    <FormLeadNew
-      class='special-form'
-      form_title='Оставить заявку'
-      :needCity='true'
-      goal="viber_mailing"
-      form_title_special='Заявка с вайбера/сервис'
-      :form_type="5"
-    />
+     <div class="container">
+       <div class="block-one" v-show="success" >
+         <h1>Спасибо за ответ!</h1>
+         <p>Наш специалист перезвонит в ближайшее время!</p>
+       </div>
+
+       <div class="block-one" v-show="error" >
+         <h1>Что-то пошло не так!</h1>
+         <p>Наши специалисты скоро решать проблему!</p>
+       </div>
+     </div>
   </section>
 </template>
 
@@ -24,10 +23,47 @@ export default Vue.extend({
       phone : '',
       date : '',
       title : '',
-      name : ''
+      name : '',
+      success : false,
+      error : false
     }
   },
-  created() {
+  methods: {
+    createLead: function () {
+      let formData = {
+        name : this.name,
+        phone : this.phone,
+        date : this.date,
+        title : this.title,
+        form_type : 5,
+        form_id: 'viber-service',
+        goal : 'viber_mailing',
+        caption: 'Заявка с вайбера/сервис',
+        city: this.$store.state.city.value,
+        url: this.url
+      }
+
+      this.$axios({
+        method: "post",
+        url: process.env.apiUrl + "/api/send_contact_form",
+        data: formData
+      }).then(response => {
+        this.success = true
+      }).catch(error => {
+        this.error = true
+        return {};
+      });
+    }
+  },  computed: {
+    url: function () {
+      return {
+        href: window.location.href,
+        search: window.location.search
+      };
+    }
+  },
+
+  mounted() {
     if (this.$route.query.phone !== undefined) {
       this.phone = this.$route.query.phone
     }
@@ -44,6 +80,7 @@ export default Vue.extend({
       this.name = this.$route.query.name
     }
 
+    this.createLead()
   }
 })
 </script>
@@ -55,5 +92,27 @@ export default Vue.extend({
 .special-form {
   color: $purple;
   margin: auto;
+}
+
+.block-one {
+  padding: 30px;
+  line-height: 1.4;
+
+  p {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+
+  .block-one {
+    padding: 30px 0;
+    max-width: 650px;
+    margin: 0 auto;
+    p {
+      margin-bottom: 15px;
+    }
+  }
 }
 </style>
