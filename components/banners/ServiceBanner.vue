@@ -78,6 +78,23 @@ export default {
       },
       banners: [
         {
+          key: 0,
+          title: 'akciya-mesyaca-na-kuzovnye-raboty',
+          extension: 'jpg',
+          place: 'banner-button-service-9',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 1,
+              form_title_special: '',
+              color: 'orange',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              link: '',
+            },
+          ]
+        },
+        {
           key: 1,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
@@ -600,6 +617,7 @@ export default {
       padding: 10px 32px 6px;
       border-radius: 6px;
       max-width: 300px;
+      white-space: nowrap;
       height: 65px;
     }
   }
@@ -613,7 +631,8 @@ export default {
   .banner-button-service-5,
   .banner-button-service-6,
   .banner-button-service-7,
-  .banner-button-service-8 {
+  .banner-button-service-8,
+  .banner-button-service-9 {
     position: absolute;
   }
 
@@ -663,12 +682,16 @@ export default {
     }
   }
 
+.banner-button-service-9 {
+  right: 8%;
+  bottom: 12%;
+}
 
-  .banner_btn-call {
-    position: absolute;
-    bottom: 19.9%;
-    left: 6.94%;
-  }
+.banner_btn-call {
+  position: absolute;
+  bottom: 19.9%;
+  left: 6.94%;
+}
 
 
 @media only screen and (max-width: 900px) {
@@ -713,6 +736,11 @@ export default {
       left: 7%;
     }
 
+    .banner-button-service-9 {
+      bottom: 8%;
+      left: 7%;
+    }
+
     .swiper-pagination {
       bottom: 15px;
     }
@@ -745,7 +773,13 @@ export default {
       display: none;
     }
 
-    .banner-button-service {
+    .banner-button-service,
+    .banner-button-service-2,
+    .banner-button-service-3,
+    .banner-button-service-4,
+    .banner-button-service-6,
+    .banner-button-service-7,
+    .banner-button-service-9 {
       bottom: 0;
       right: 50%;
       left: auto;
@@ -757,79 +791,7 @@ export default {
       }
     }
 
-    .banner-button-service-2 {
-      bottom: 0;
-      right: 50%;
-      left: auto;
-      transform: translate(50%, 0);
-      padding: 16px 16px;
-      text-align: center;
-      button {
-        font-size: 14px
-      }
-    }
-
-    .banner-button-service-3 {
-      bottom: 0;
-      right: 50%;
-      left: auto;
-      transform: translate(50%, 0);
-      padding: 16px 16px;
-      text-align: center;
-      button {
-        font-size: 14px
-      }
-    }
-
-    .banner-button-service-4 {
-      bottom: 0;
-      right: 50%;
-      left: auto;
-      transform: translate(50%, 0);
-      padding: 16px 16px;
-      text-align: center;
-      button {
-        font-size: 14px
-      }
-    }
-
-    .banner-button-service-5 {
-      bottom: 0;
-      right: 50%;
-      left: auto;
-      transform: translate(50%, 0);
-      padding: 16px 0px;
-      text-align: center;
-
-      button {
-        font-size: 14px
-      }
-    }
-
-    .banner-button-service-6 {
-      bottom: 0;
-      right: 50%;
-      left: auto;
-      transform: translate(50%, 0);
-      padding: 16px 16px;
-      text-align: center;
-      button {
-        font-size: 14px
-      }
-    }
-
-    .banner-button-service-7 {
-      bottom: 0;
-      right: 50%;
-      left: auto;
-      transform: translate(50%, 0);
-      padding: 16px 16px;
-      text-align: center;
-      button {
-        font-size: 14px
-      }
-    }
-
+    .banner-button-service-5,
     .banner-button-service-8 {
       bottom: 0;
       right: 50%;
@@ -841,6 +803,7 @@ export default {
         font-size: 14px
       }
     }
+
 
     .banner-button-service-8 button {
       color: #fff!important;
