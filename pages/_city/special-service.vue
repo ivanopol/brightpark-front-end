@@ -34,11 +34,10 @@ export default Vue.extend({
         name : this.name,
         phone : this.phone,
         date : this.date,
-        title : this.title,
         form_type : 5,
         form_id: 'viber-service',
         goal : 'viber_mailing',
-        caption: 'Заявка с вайбера/сервис',
+        caption: this.title,
         city: this.$store.state.city.value,
         url: this.url
       }
