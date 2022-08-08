@@ -80,23 +80,6 @@ export default {
       banners: [
         {
           key: 0,
-          title: 'akciya-mesyaca-na-kuzovnye-raboty',
-          extension: 'jpg',
-          place: 'banner-button-4',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: '',
-              color: 'orange',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
-              link: '',
-            },
-          ]
-        },
-        {
-          key: 1,
           title: 'letnyaya-gosprogramma-2',
           extension: 'jpg',
           place: 'banner-button-8',
@@ -107,6 +90,23 @@ export default {
               form_type: 1,
               form_title_special: '',
               color: 'yellow',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 1,
+          title: 'akciya-mesyaca-na-kuzovnye-raboty',
+          extension: 'jpg',
+          place: 'banner-button-4',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 1,
+              form_title_special: '',
+              color: 'orange',
               text: 'ЗАКАЗАТЬ ЗВОНОК',
               link: '',
             },
