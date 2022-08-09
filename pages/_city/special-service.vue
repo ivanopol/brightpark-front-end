@@ -10,6 +10,11 @@
          <h1>Что-то пошло не так!</h1>
          <p>Наши специалисты скоро решать проблему!</p>
        </div>
+
+       <div class="block-one" v-show="!valid" >
+         <h1>Что-то пошло не так!</h1>
+         <p>Данные не переданы!</p>
+       </div>
      </div>
   </section>
 </template>
@@ -25,7 +30,8 @@ export default Vue.extend({
       title : '',
       name : '',
       success : false,
-      error : false
+      error : false,
+      valid : true
     }
   },
   methods: {
@@ -33,7 +39,7 @@ export default Vue.extend({
       let formData = {
         name : this.name,
         phone : this.phone,
-        date : this.date,
+        date_sending : this.date,
         form_type : 5,
         form_id: 'viber-service',
         goal : 'viber_mailing',
@@ -79,7 +85,11 @@ export default Vue.extend({
       this.name = this.$route.query.name
     }
 
-    this.createLead()
+    if (this.phone) {
+      this.createLead()
+    } else {
+      this.valid = false
+    }
   }
 })
 </script>
