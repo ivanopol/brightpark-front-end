@@ -21,27 +21,33 @@
                 <p>Заполнение информации</p>
               </div>
               <div class="step-1__fields">
-                <div class="service-online-registration__row">
+                <div class="service-online-registration__row-double">
                   <input type="text"
                          placeholder="Имя"
-                         v-model="name"
-                         class="service-online-registration__row__form-input"
+                         v-model="form.name"
+                         class="service-online-registration__form-input"
                   />
 
                   <the-mask
-                    :id="form_id + '_input_phone'"
                     pattern=".{18,}"
                     mask="+# (###)-###-##-##"
-                    v-model="phone"
+                    v-model="form.phone"
                     type="tel"
                     required="true"
                     placeholder="Телефон"
-                    class="service-online-registration__row__form-input"
+                    class="service-online-registration__form-input"
                   ></the-mask>
                 </div>
 
-                <div class="service-online-registration__row">
-
+                <div class="service-online-registration__row-double">
+                  <v-select
+                    :options="allMarks"
+                    :get-option-label="(option) => option.label"
+                    class="v-select-field"
+                    @input="getModels"
+                    v-model="form.mark"
+                  >
+                  </v-select>
                 </div>
                 <div class="service-online-registration__row-single">
 
@@ -98,7 +104,19 @@ export default {
           number: 3,
           active: false
         },
-      ]
+      ],
+      allMarks: [],
+      allModels: [],
+      form : {
+        name : '',
+        phone : '',
+        mark: {
+          label: '',
+        },
+        model: {
+          label: '',
+        }
+      },
     }
   },
   methods: {
@@ -108,15 +126,51 @@ export default {
       this.steps[number].active = true
       this.currentStep = step
     },
+
     clearSteps: function () {
       this.steps.forEach((el, index) => {
         el.active = false
       })
+    },
+
+    getModels: function () {
+
+    },
+
+    arrayFormat(object, field = 'name', additional = []) {
+      let newObject = []
+
+      Object.keys(object).forEach(function (key){
+        newObject[key] = {
+          id: object[key].id,
+          label: object[key][field],
+          code: object[key][field]
+        }
+        if (additional) {
+          additional.forEach(function (add_key){
+            newObject[key][add_key] = object[key][add_key]
+          })
+        }
+      });
+
+      return newObject
     }
   },
-  mounted() {
-    this.setStep(1)
-  }
+  async fetch() {
+    const myInit = {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
+      }
+    };
+
+    let brands = await fetch(
+      process.env.crmUrl + `/ajax/getMarksCORS?city=` + this.$store.state.city.value, myInit
+    ).then(res => res.json())
+
+    this.allMarks = this.arrayFormat(brands.models)
+  },
 }
 </script>
 
@@ -218,31 +272,32 @@ export default {
     &__body {
     }
 
-    &__row {
+    &__row-single {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 20px;
-
-      &__form-input {
-        width: 100%;
-        max-width: unset;
-        background-color: unset;
-        height: 40px;
-
-        &::placeholder {
-          color: rgba(255, 255, 255, .7);
-        }
-
-      }
+      grid-template-columns: 1fr;
     }
 
     &__row-double {
       display: grid;
-      grid-template-columns: 1fr;
-
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
     }
 
+    &__form-input {
+      width: 100%;
+      max-width: unset;
+      background-color: unset;
+      height: 40px;
+      color: #fff;
 
+      &::placeholder {
+        color: rgba(255, 255, 255, .7);
+      }
+    }
+
+    .v-select-field {
+
+    }
 
     &__header {
       text-align: left;
@@ -310,6 +365,7 @@ export default {
 
     .step__title {
       font-family: 'Bright Park Display';
+      margin-bottom: 20px;
     }
   }
 
