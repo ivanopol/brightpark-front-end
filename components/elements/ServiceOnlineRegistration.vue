@@ -41,11 +41,15 @@
 
                 <div class="service-online-registration__row-double">
                   <v-select
+                    required
                     :options="allMarks"
                     :get-option-label="(option) => option.label"
                     class="v-select-field"
                     @input="getModels"
                     v-model="form.mark"
+                    :searchable="false"
+                    :multiple="false"
+                    placeholder="Марка"
                   >
                   </v-select>
                 </div>
@@ -110,12 +114,8 @@ export default {
       form : {
         name : '',
         phone : '',
-        mark: {
-          label: '',
-        },
-        model: {
-          label: '',
-        }
+        mark: "",
+        model: ""
       },
     }
   },
@@ -283,20 +283,18 @@ export default {
       column-gap: 20px;
     }
 
+    .v-select-field,
     &__form-input {
       width: 100%;
       max-width: unset;
       background-color: unset;
       height: 40px;
       color: #fff;
+      border-color: #fff;
 
       &::placeholder {
         color: rgba(255, 255, 255, .7);
       }
-    }
-
-    .v-select-field {
-
     }
 
     &__header {
@@ -369,4 +367,62 @@ export default {
     }
   }
 
+</style>
+
+<style lang="scss">
+.service-online-registration {
+  .v-select-field {
+    border: 1px solid #E9E9E9;
+    color: #393840;
+
+    border-radius: 5px;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    position: relative;
+
+    .vs__dropdown-toggle {
+      height: 100%;
+      border-color: #e9e9e9;
+    }
+
+    .vs__selected-options {
+      padding: 4px 6px 0 0;
+    }
+    .vs__search,
+    .vs__selected {
+      line-height: 1;
+      padding: 6px 10px;
+      margin: 0;
+    }
+
+    .toggle {
+      display: block;
+      position: absolute;
+      top: 50%;
+      margin-top: -3px;
+      right: 18px;
+      width: 10px;
+      height: 10px;
+      border: 8px solid transparent; border-top: 8px solid #fff;
+      transform: none;
+    }
+
+    input {
+      &::placeholder {
+        color: rgba(255, 255, 255, .7);
+      }
+    }
+
+    .vs__search {
+      font-size: 16px;
+      font-weight: normal;
+      font-family: arial,serif;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 14px;
+    }
+  }
+}
 </style>
