@@ -52,6 +52,19 @@
                     placeholder="Марка"
                   >
                   </v-select>
+
+                  <v-select
+                    required
+                    :options="allModels"
+                    :get-option-label="(option) => option.label"
+                    class="v-select-field"
+                    v-model="form.model"
+                    :searchable="false"
+                    :multiple="false"
+                    placeholder="Модель"
+                    :disabled="allModels.length === 0"
+                  >
+                  </v-select>
                 </div>
                 <div class="service-online-registration__row-single">
 
@@ -84,6 +97,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "ServiceOnlineRegistration",
   props: {
@@ -133,8 +148,29 @@ export default {
       })
     },
 
-    getModels: function () {
+    getModels(data) {
+      if (!data) {
+        return false;
+      }
+      axios.get(
+        process.env.crmUrl +`/ajax/getModelsCORS`, {
+          params: {
+            city: this.$store.state.city.value,
+            mark_id: data.id
+          }
+        }
+      ).then((response) => {
+        this.clearData(1)
+        this.allModels = this.arrayFormat(response.data.models)
+      })
+    },
 
+    clearData: function(step) {
+      switch(step) {
+        case 1:
+          this.allModels = []
+          this.form.model = ''
+      }
     },
 
     arrayFormat(object, field = 'name', additional = []) {
