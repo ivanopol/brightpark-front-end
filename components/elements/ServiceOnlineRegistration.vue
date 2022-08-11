@@ -78,6 +78,11 @@
                     class="service-online-registration__form-input"
                   ></the-mask>
                 </div>
+                <div class="service-online-registration__row-double">
+                  <button class="service-online-registration__button-next start-2"
+                          @click.prevent="next(2)"
+                  >Далее</button>
+                </div>
               </div>
             </div>
 
@@ -152,17 +157,29 @@ export default {
     }
   },
   methods: {
+    next: function (next) {
+      this.checkFields()
+      this.setStep(next)
+      return {}
+    },
+
+    checkFields: function () {
+
+    },
+
     setStep: function (step) {
       let number = step - 1
       this.clearSteps()
       this.steps[number].active = true
       this.currentStep = step
+      return {}
     },
 
     clearSteps: function () {
       this.steps.forEach((el, index) => {
         el.active = false
       })
+      return {}
     },
 
     getModels(data) {
@@ -231,6 +248,24 @@ export default {
 <style scoped lang="scss">
   .purple {
     .service-online-registration {
+
+      &__button-next {
+        border-radius: 5px;
+        color: #504ea0;
+        background: #ffca0d;
+        width: 100%;
+        font-size: 16px;
+        margin: 0 0 0 auto;
+        transition: 0.2s;
+        font-family: "Bright Park Display";
+        position: relative;
+
+        &:hover {
+          transition: 0.2s;
+          opacity: 0.6;
+        }
+      }
+
       &__wrapper {
         background-color: #504ea0;
         color: #fff;
@@ -272,6 +307,10 @@ export default {
         border-radius: 16px;
       }
 
+      &__button-next {
+
+      }
+
       &__step-list {
         li {
           border-color: #000;
@@ -291,6 +330,10 @@ export default {
   }
 
   .service-online-registration {
+    .start-2 {
+      grid-column-start:2;
+    }
+
     &__wrapper {
       width: 100%;
       margin: 0 auto;
