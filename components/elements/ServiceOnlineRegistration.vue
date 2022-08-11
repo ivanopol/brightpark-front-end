@@ -67,11 +67,16 @@
                   </v-select>
                 </div>
                 <div class="service-online-registration__row-single">
-                  <input type="text"
-                         placeholder="Гос. номер"
-                         v-model="form.gosnumber"
-                         class="service-online-registration__form-input"
-                  />
+                  <the-mask
+                    pattern=".{18,}"
+                    mask="F###FF##"
+                    :tokens="carNumberTokens"
+                    v-model="form.gosnumber"
+                    type="text"
+                    required="true"
+                    placeholder="Гос. номер"
+                    class="service-online-registration__form-input"
+                  ></the-mask>
                 </div>
               </div>
             </div>
@@ -137,6 +142,13 @@ export default {
         model: '',
         gosnumber : ''
       },
+      carNumberTokens: {
+        F: {
+          pattern: /[авекмнорстухАВЕКМНОРСТУХ]/,
+          transform: v => v.toLocaleUpperCase()
+        },
+        '#': {pattern: /\d/},
+      }
     }
   },
   methods: {
