@@ -67,7 +67,11 @@
                   </v-select>
                 </div>
                 <div class="service-online-registration__row-single">
-
+                  <input type="text"
+                         placeholder="Гос. номер"
+                         v-model="form.gosnumber"
+                         class="service-online-registration__form-input"
+                  />
                 </div>
               </div>
             </div>
@@ -129,8 +133,9 @@ export default {
       form : {
         name : '',
         phone : '',
-        mark: "",
-        model: ""
+        mark: '',
+        model: '',
+        gosnumber : ''
       },
     }
   },
@@ -160,14 +165,14 @@ export default {
           }
         }
       ).then((response) => {
-        this.clearData(1)
+        this.clearData('model')
         this.allModels = this.arrayFormat(response.data.models)
       })
     },
 
     clearData: function(step) {
       switch(step) {
-        case 1:
+        case 'model':
           this.allModels = []
           this.form.model = ''
       }
@@ -193,6 +198,7 @@ export default {
     }
   },
   async fetch() {
+
     const myInit = {
       headers: {
         'Access-Control-Allow-Origin': '*',
@@ -407,6 +413,10 @@ export default {
 
 <style lang="scss">
 .service-online-registration {
+  .v-select {
+    margin-bottom: 11px;
+  }
+
   .v-select-field {
     border: 1px solid #E9E9E9;
     color: #393840;
