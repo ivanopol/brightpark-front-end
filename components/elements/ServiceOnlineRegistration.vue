@@ -246,9 +246,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .purple {
-    .service-online-registration {
 
+
+.purple.service-online-registration {
       &__button-next {
         border-radius: 5px;
         color: #504ea0;
@@ -297,33 +297,31 @@ export default {
         }
       }
     }
-  }
 
-  .white {
-    .service-online-registration {
-      &__wrapper {
-        background-color: #fff;
-        color: #000;
-        border-radius: 16px;
-      }
 
-      &__button-next {
+  .white.service-online-registration {
+    &__wrapper {
+      background-color: #fff;
+      color: #000;
+      border-radius: 16px;
+    }
 
-      }
+    &__button-next {
 
-      &__step-list {
-        li {
-          border-color: #000;
+    }
 
-          &:after {
-            background-color: #000;
-          }
+    &__step-list {
+      li {
+        border-color: #000;
 
-          &.active {
-            color: #fff;
-            background-color: #e95909;
-            border-color: #e95909;
-          }
+        &:after {
+          background-color: #000;
+        }
+
+        &.active {
+          color: #fff;
+          background-color: #e95909;
+          border-color: #e95909;
         }
       }
     }
@@ -386,12 +384,12 @@ export default {
       max-width: unset;
       background-color: unset;
       height: 40px;
-      color: #fff;
-      border-color: #fff;
+/*      color: #fff;
+      border-color: #fff;*/
 
-      &::placeholder {
+/*      &::placeholder {
         color: rgba(255, 255, 255, .7);
-      }
+      }*/
     }
 
     &__header {
@@ -509,11 +507,11 @@ export default {
       transform: none;
     }
 
-    input {
+/*    input {
       &::placeholder {
         color: rgba(255, 255, 255, .7);
       }
-    }
+    }*/
 
     .vs__search {
       font-size: 16px;
@@ -526,4 +524,32 @@ export default {
     }
   }
 }
+
+ .purple.service-online-registration {
+  .v-select-field {
+    border: 1px solid #E9E9E9;
+    color: #393840;
+  }
+
+  input {
+    &::placeholder {
+      color: rgba(0, 0, 0, .7);
+    }
+  }
+}
+
+ .white.service-online-registration {
+  .v-select-field {
+    border: 1px solid #000;
+    color: #000;
+  }
+
+  input {
+    &::placeholder {
+      color: rgba(0, 0, 0, .7);
+    }
+  }
+}
+
+
 </style>
