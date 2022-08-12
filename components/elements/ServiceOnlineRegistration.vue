@@ -91,7 +91,47 @@
                 <p>Выбор услуги и сервиса</p>
               </div>
               <div class="step-2__fields">
-
+                <div class="service-online-registration__row-single">
+                  <v-select
+                    required
+                    :options="allWorks"
+                    class="v-select-field"
+                    v-model="form.workType"
+                    :searchable="false"
+                    :multiple="false"
+                    placeholder="Вид работ"
+                  >
+                  </v-select>
+                </div>
+                <div class="service-online-registration__row-single">
+                  <v-select
+                    required
+                    :options="allCities"
+                    class="v-select-field"
+                    v-model="form.city"
+                    :searchable="false"
+                    :multiple="false"
+                    placeholder="Город"
+                  >
+                  </v-select>
+                </div>
+                <div class="service-online-registration__row-single">
+                  <v-select
+                    required
+                    :options="allServices"
+                    class="v-select-field"
+                    v-model="form.service"
+                    :searchable="false"
+                    :multiple="false"
+                    placeholder="Сервис"
+                  >
+                  </v-select>
+                </div>
+                <div class="service-online-registration__row-double">
+                  <button class="service-online-registration__button-next start-2"
+                          @click.prevent="next(3)"
+                  >Далее</button>
+                </div>
               </div>
             </div>
 
@@ -140,12 +180,29 @@ export default {
       ],
       allMarks: [],
       allModels: [],
-      form : {
-        name : '',
-        phone : '',
+      allWorks: [
+        'ТО',
+        'Диагностика',
+        'Замена жидкостей',
+        'Ремонт',
+        'Шиномонтаж',
+        'Кузовные работы',
+        'Химчистка, полировка и т.д.',
+        'Другое',
+      ],
+      allCities: this.$store.state.cities,
+      allServices: [
+
+      ],
+      form: {
+        name: '',
+        phone: '',
         mark: '',
         model: '',
-        gosnumber : ''
+        gosnumber: '',
+        workType: '',
+        city: '',
+        service: ''
       },
       carNumberTokens: {
         'F': {
@@ -246,6 +303,8 @@ export default {
 
     this.allMarks = this.arrayFormat(brands.models)
   },
+  mounted() {
+  }
 }
 </script>
 
