@@ -245,229 +245,139 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+.service-online-registration {
+  .start-2 {
+    grid-column-start:2;
+  }
 
+  &__wrapper {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
 
-.purple.service-online-registration {
-      &__button-next {
-        border-radius: 5px;
-        color: #504ea0;
-        background: #ffca0d;
-        width: 100%;
-        font-size: 16px;
-        margin: 0 0 0 auto;
-        transition: 0.2s;
-        font-family: "Bright Park Display";
-        position: relative;
-
-        &:hover {
-          transition: 0.2s;
-          opacity: 0.6;
-        }
-      }
-
-      &__wrapper {
-        background-color: #504ea0;
-        color: #fff;
-        border-color: #fff;
-
-        &:before {
-          content: '';
-          background: url("../../static/images/element.svg") no-repeat 0 0;
-          height: 130px;
-          width: 58px;
-          position: absolute;
-          left: 0;
-          top: 0;
-        }
-      }
-
-      &__step-list {
-        li {
-          border-color: #fff;
-
-          &:after {
-            background-color: #fff;
-          }
-
-          &.active {
-            background-color: #FFCA0D;
-            border-color: #FFCA0D;
-          }
-        }
+    @media only screen and (min-width: 900px) {
+      & {
+        max-width: 1440px;
       }
     }
 
+    .service-online-registration__serviceman {
+      position: absolute;
+      right: 150px;
+      bottom: 0;
+      width: 390px;
+      z-index: 1;
+      pointer-events: none;
 
-  .white.service-online-registration {
-    &__wrapper {
-      background-color: #fff;
-      color: #000;
-      border-radius: 16px;
-    }
-
-    &__button-next {
-
-    }
-
-    &__step-list {
-      li {
-        border-color: #000;
-
-        &:after {
-          background-color: #000;
-        }
-
-        &.active {
-          color: #fff;
-          background-color: #e95909;
-          border-color: #e95909;
-        }
+      @media (max-width: 1366px) {
+        display: none;
       }
     }
   }
 
-  .service-online-registration {
-    .start-2 {
-      grid-column-start:2;
-    }
+  &__content {
+    width: 60%;
+    padding: 40px 0 40px 100px;
+    box-sizing: border-box;
+    max-width: 650px;
+  }
 
-    &__wrapper {
-      width: 100%;
-      margin: 0 auto;
+  &__body {
+  }
+
+  &__row-single {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__row-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  .v-select-field,
+  &__form-input {
+    width: 100%;
+    max-width: unset;
+    background-color: unset;
+    height: 40px;
+    /*      color: #fff;
+          border-color: #fff;*/
+
+    /*      &::placeholder {
+            color: rgba(255, 255, 255, .7);
+          }*/
+  }
+
+  &__header {
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-family: 'Bright Park Display';
+    margin-bottom: 15px;
+  }
+
+  &__desc {
+    font-size: 16px;
+    line-height: 1.4;
+    font-family: 'Factor A';
+    margin-bottom: 30px;
+  }
+
+  &__step-list {
+    font-family: 'Factor A';
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+
+    li {
+      margin-right: 40px;
+      border: 2px solid;
+      padding: 10px 15px;
+      line-height: 0.95em;
+      border-radius: 15px;
       position: relative;
+      box-sizing: border-box;
 
-      @media only screen and (min-width: 900px) {
-        & {
-          max-width: 1440px;
-        }
+      span {
+        display: block;
+        margin-bottom: -8px;
       }
 
-      .service-online-registration__serviceman {
+      &:after {
+        content: '';
         position: absolute;
-        right: 150px;
-        bottom: 0;
-        width: 390px;
-        z-index: 1;
-        pointer-events: none;
+        width: 40px;
+        height: 2px;
+        right: -42px;
+        background-color: #fff;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
 
-        @media (max-width: 1366px) {
+      &:last-child {
+        margin-right: 0;
+
+        &:after {
           display: none;
         }
       }
-    }
 
-    &__content {
-      width: 60%;
-      padding: 40px 0 40px 100px;
-      box-sizing: border-box;
-      max-width: 650px;
-    }
-
-    &__body {
-    }
-
-    &__row-single {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    &__row-double {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 20px;
-    }
-
-    .v-select-field,
-    &__form-input {
-      width: 100%;
-      max-width: unset;
-      background-color: unset;
-      height: 40px;
-/*      color: #fff;
-      border-color: #fff;*/
-
-/*      &::placeholder {
-        color: rgba(255, 255, 255, .7);
-      }*/
-    }
-
-    &__header {
-      text-align: left;
-      margin-bottom: 30px;
-    }
-
-    &__title {
-      font-size: 32px;
-      font-family: 'Bright Park Display';
-      margin-bottom: 15px;
-    }
-
-    &__desc {
-      font-size: 16px;
-      line-height: 1.4;
-      font-family: 'Factor A';
-      margin-bottom: 30px;
-    }
-
-    &__step-list {
-      font-family: 'Factor A';
-      font-size: 32px;
-      display: flex;
-      align-items: center;
-
-      li {
-        margin-right: 40px;
-        border: 2px solid;
-        padding: 10px 15px;
-        line-height: 0.95em;
-        border-radius: 15px;
-        position: relative;
-        box-sizing: border-box;
-
-        span {
-          display: block;
-          margin-bottom: -8px;
-        }
-
-        &:after {
-          content: '';
-          position: absolute;
-          width: 40px;
-          height: 2px;
-          right: -42px;
-          background-color: #fff;
-          top: 50%;
-          transform: translate(0, -50%);
-        }
-
-        &:last-child {
-         margin-right: 0;
-
-          &:after {
-            display: none;
-          }
-        }
-
-        &.active {
-          background-color: #FFCA0D;
-          border-color: #FFCA0D;
-        }
+      &.active {
+        background-color: #FFCA0D;
+        border-color: #FFCA0D;
       }
-    }
-
-    .step__title {
-      font-family: 'Bright Park Display';
-      margin-bottom: 20px;
     }
   }
 
-</style>
-
-<style lang="scss">
-.service-online-registration {
-  .v-select {
-    margin-bottom: 11px;
+  .step__title {
+    font-family: 'Bright Park Display';
+    margin-bottom: 20px;
   }
 
   .v-select-field {
@@ -479,6 +389,10 @@ export default {
     width: 100%;
     font-size: 16px;
     position: relative;
+
+    &.v-select {
+      margin-bottom: 11px;
+    }
 
     .vs__dropdown-toggle {
       height: 100%;
@@ -507,11 +421,11 @@ export default {
       transform: none;
     }
 
-/*    input {
+    input {
       &::placeholder {
         color: rgba(255, 255, 255, .7);
       }
-    }*/
+    }
 
     .vs__search {
       font-size: 16px;
@@ -525,28 +439,52 @@ export default {
   }
 }
 
- .purple.service-online-registration {
-  .v-select-field {
-    border: 1px solid #E9E9E9;
-    color: #393840;
-  }
+.purple {
+  .service-online-registration__wrapper {
+    background-color: #504ea0;
+    color: #fff;
+    border-color: #fff;
 
-  input {
-    &::placeholder {
-      color: rgba(0, 0, 0, .7);
+    &:before {
+      content: '';
+      background: url("../../static/images/element.svg") no-repeat 0 0;
+      height: 130px;
+      width: 58px;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
-  }
-}
 
- .white.service-online-registration {
-  .v-select-field {
-    border: 1px solid #000;
-    color: #000;
-  }
+    .service-online-registration__button-next {
+      border-radius: 5px;
+      color: #504ea0;
+      background: #ffca0d;
+      width: 100%;
+      font-size: 16px;
+      margin: 0 0 0 auto;
+      transition: 0.2s;
+      font-family: "Bright Park Display";
+      position: relative;
 
-  input {
-    &::placeholder {
-      color: rgba(0, 0, 0, .7);
+      &:hover {
+        transition: 0.2s;
+        opacity: 0.6;
+      }
+    }
+
+    .service-online-registration__step-list {
+      li {
+        border-color: #fff;
+
+        &:after {
+          background-color: #fff;
+        }
+
+        &.active {
+          background-color: #FFCA0D;
+          border-color: #FFCA0D;
+        }
+      }
     }
   }
 }
