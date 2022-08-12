@@ -68,9 +68,9 @@
                 </div>
                 <div class="service-online-registration__row-single">
                   <the-mask
-                    pattern=".{18,}"
-                    mask="F###FF##"
+                    mask="F###FF###"
                     :tokens="carNumberTokens"
+                    :oninput="transformUpper()"
                     v-model="form.gosnumber"
                     type="text"
                     required="true"
@@ -148,15 +148,19 @@ export default {
         gosnumber : ''
       },
       carNumberTokens: {
-        F: {
-          pattern: /[авекмнорстухАВЕКМНОРСТУХ]/,
-          transform: v => v.toLocaleUpperCase()
+        'F': {
+          pattern: /[авекмнорстухАВЕКМНОРСТУХ]/
         },
-        '#': {pattern: /\d/},
+        '#': { pattern: /\d/ },
       }
     }
   },
   methods: {
+
+    transformUpper: function () {
+      this.form.gosnumber = this.form.gosnumber.toUpperCase()
+    },
+
     next: function (next) {
       this.checkFields()
       this.setStep(next)
@@ -303,12 +307,6 @@ export default {
     max-width: unset;
     background-color: unset;
     height: 40px;
-    /*      color: #fff;
-          border-color: #fff;*/
-
-    /*      &::placeholder {
-            color: rgba(255, 255, 255, .7);
-          }*/
   }
 
   &__header {
@@ -318,19 +316,19 @@ export default {
 
   &__title {
     font-size: 32px;
-    font-family: 'Bright Park Display';
+    font-family: 'Bright Park Display',serif;
     margin-bottom: 15px;
   }
 
   &__desc {
     font-size: 16px;
     line-height: 1.4;
-    font-family: 'Factor A';
+    font-family: 'Factor A',serif;
     margin-bottom: 30px;
   }
 
   &__step-list {
-    font-family: 'Factor A';
+    font-family: 'Factor A',serif;
     font-size: 32px;
     display: flex;
     align-items: center;
@@ -376,14 +374,11 @@ export default {
   }
 
   .step__title {
-    font-family: 'Bright Park Display';
+    font-family: 'Bright Park Display',serif;
     margin-bottom: 20px;
   }
 
   .v-select-field {
-    border: 1px solid #E9E9E9;
-    color: #393840;
-
     border-radius: 5px;
     height: 40px;
     width: 100%;
@@ -417,7 +412,8 @@ export default {
       right: 18px;
       width: 10px;
       height: 10px;
-      border: 8px solid transparent; border-top: 8px solid #fff;
+      border: 8px solid transparent;
+      border-top: 8px solid #fff;
       transform: none;
     }
 
@@ -455,6 +451,30 @@ export default {
       top: 0;
     }
 
+    .v-select-field,
+    .service-online-registration__form-input {
+      color: #fff;
+      border: 1px solid #fff;
+
+      &::placeholder,
+      input::placeholder {
+        color: rgba(255, 255, 255, .7);
+      }
+    }
+
+    .vs--disabled {
+      border: 1px solid rgba(255, 255, 255, .5);
+
+      .toggle {
+        border-top-color: rgba(255, 255, 255, .5);
+      }
+
+      input::placeholder {
+        color: rgba(255, 255, 255, .3);
+      }
+    }
+
+
     .service-online-registration__button-next {
       border-radius: 5px;
       color: #504ea0;
@@ -463,7 +483,7 @@ export default {
       font-size: 16px;
       margin: 0 0 0 auto;
       transition: 0.2s;
-      font-family: "Bright Park Display";
+      font-family: "Bright Park Display",serif;
       position: relative;
 
       &:hover {
@@ -488,6 +508,4 @@ export default {
     }
   }
 }
-
-
 </style>
