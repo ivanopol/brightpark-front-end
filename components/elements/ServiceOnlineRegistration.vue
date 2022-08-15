@@ -424,17 +424,27 @@ export default {
           display: none;
         }
       }
-
-      &.active {
-        background-color: #FFCA0D;
-        border-color: #FFCA0D;
-      }
     }
   }
 
   .step__title {
     font-family: 'Bright Park Display',serif;
     margin-bottom: 20px;
+  }
+
+  .service-online-registration__button-next {
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    margin: 0 0 0 auto;
+    transition: 0.2s;
+    font-family: "Bright Park Display",serif;
+    position: relative;
+
+    &:hover {
+      transition: 0.2s;
+      opacity: 0.6;
+    }
   }
 
   .v-select-field {
@@ -472,14 +482,7 @@ export default {
       width: 10px;
       height: 10px;
       border: 8px solid transparent;
-      border-top: 8px solid #fff;
       transform: none;
-    }
-
-    input {
-      &::placeholder {
-        color: rgba(255, 255, 255, .7);
-      }
     }
 
     .vs__search {
@@ -515,6 +518,14 @@ export default {
       color: #fff;
       border: 1px solid #fff;
 
+      .vs__selected {
+        color: #fff;
+      }
+
+      .toggle {
+        border-top: 8px solid #fff;
+      }
+
       &::placeholder,
       input::placeholder {
         color: rgba(255, 255, 255, .7);
@@ -535,20 +546,8 @@ export default {
 
 
     .service-online-registration__button-next {
-      border-radius: 5px;
       color: #504ea0;
       background: #ffca0d;
-      width: 100%;
-      font-size: 16px;
-      margin: 0 0 0 auto;
-      transition: 0.2s;
-      font-family: "Bright Park Display",serif;
-      position: relative;
-
-      &:hover {
-        transition: 0.2s;
-        opacity: 0.6;
-      }
     }
 
     .service-online-registration__step-list {
@@ -567,4 +566,67 @@ export default {
     }
   }
 }
+
+.white {
+  .service-online-registration__wrapper {
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+
+    .v-select-field,
+    .service-online-registration__form-input {
+      color: #000;
+      border: 1px solid #000;
+
+      .vs__selected {
+        color: #000;
+      }
+
+      .toggle {
+        border-top: 8px solid #000;
+      }
+
+      &::placeholder,
+      input::placeholder {
+        color: rgba(0, 0, 0, .7);
+      }
+    }
+
+    .vs--disabled {
+      border: 1px solid rgba(0, 0, 0, .5);
+
+      .toggle {
+        border-top-color: rgba(0, 0, 0, .5);
+      }
+
+      input::placeholder {
+        color: rgba(0, 0, 0, .3);
+      }
+    }
+
+
+    .service-online-registration__button-next {
+      color: #fff;
+      background: #FD8355;
+    }
+
+    .service-online-registration__step-list {
+      li {
+        border-color: #000;
+        color: #FD8355;
+
+        &:after {
+          background-color: #000;
+        }
+
+        &.active {
+          background-color: #FD8355;
+          border-color: #FD8355;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
 </style>
