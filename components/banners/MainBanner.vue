@@ -80,6 +80,23 @@ export default {
       banners: [
         {
           key: 0,
+          title: 'den-otkrytyh-dverej',
+          extension: 'jpg',
+          place: 'banner-button-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 1,
+              form_title_special: '',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 1,
           title: 'letnyaya-gosprogramma-2',
           extension: 'jpg',
           place: 'banner-button-8',
@@ -96,7 +113,7 @@ export default {
           ]
         },
         {
-          key: 1,
+          key: 2,
           title: 'akciya-mesyaca-na-kuzovnye-raboty',
           extension: 'jpg',
           place: 'banner-button-4',
@@ -113,7 +130,7 @@ export default {
           ]
         },
         {
-          key: 2,
+          key: 3,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
           place: 'banner-button-6',
