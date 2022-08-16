@@ -87,7 +87,7 @@ export default {
             {
               key: 1,
               type: 'window',
-              form_type: 1,
+              form_type: 2,
               form_title_special: '',
               color: 'orange',
               text: 'ЗАПИСАТЬСЯ',
