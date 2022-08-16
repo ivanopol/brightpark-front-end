@@ -80,23 +80,6 @@ export default {
       banners: [
         {
           key: 0,
-          title: 'den-otkrytyh-dverej',
-          extension: 'jpg',
-          place: 'banner-button-6',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 2,
-              form_title_special: '',
-              color: 'orange',
-              text: 'ЗАПИСАТЬСЯ',
-              link: '',
-            },
-          ]
-        },
-        {
-          key: 1,
           title: 'letnyaya-gosprogramma-2',
           extension: 'jpg',
           place: 'banner-button-8',
@@ -108,6 +91,23 @@ export default {
               form_title_special: '',
               color: 'yellow',
               text: 'ЗАКАЗАТЬ ЗВОНОК',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 1,
+          title: 'den-otkrytyh-dverej',
+          extension: 'jpg',
+          place: 'banner-button-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: '',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
               link: '',
             },
           ]
