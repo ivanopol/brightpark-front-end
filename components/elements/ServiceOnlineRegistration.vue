@@ -164,6 +164,14 @@
                     </template>
                   </v-date-picker>
                 </div>
+                <div class="service-online-registration__row-single">
+                  <textarea class="service-online-registration__form-input"
+                            placeholder="Комментарий"
+                            v-model="form.comment">
+                  </textarea>
+
+
+                </div>
               </div>
             </div>
           </form>
@@ -227,7 +235,8 @@ export default {
         workType: '',
         city: '',
         service: '',
-        date: ''
+        date: '',
+        comment: ''
       },
       carNumberTokens: {
         'F': {
@@ -391,6 +400,14 @@ export default {
     max-width: unset;
     background-color: unset;
     height: 40px;
+
+
+  }
+
+  textarea.service-online-registration__form-input {
+    resize: vertical;
+    height: auto;
+    max-height: 100px;
   }
 
   &__form-date {
