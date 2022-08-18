@@ -169,8 +169,10 @@
                             placeholder="Комментарий"
                             v-model="form.comment">
                   </textarea>
-
-
+                </div>
+                <div class="service-online-registration__row-double">
+                  <button class="service-online-registration__button-next start-2"
+                  >Записаться</button>
                 </div>
               </div>
             </div>
