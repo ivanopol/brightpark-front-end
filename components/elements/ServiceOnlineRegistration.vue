@@ -140,7 +140,30 @@
                 <p>Выбор даты и времени</p>
               </div>
               <div class="step-3__fields">
-
+                <div class="service-online-registration__row-single">
+                  <v-date-picker
+                    :popover="{ visibility: 'click' }"
+                    :min-date='new Date()'
+                    v-model="form.date"
+                    :input-debounce="500"
+                    :locale="calendarLocale"
+                    class="service-online-registration__form-date"
+                  >
+                    <template v-slot="{ inputValue, inputEvents }">
+                      <input
+                        class="service-online-registration__form-input"
+                        :value="inputValue"
+                        v-on="inputEvents"
+                        placeholder="Дата и время"
+                      />
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path
+                          d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z"
+                        />
+                      </svg>
+                    </template>
+                  </v-date-picker>
+                </div>
               </div>
             </div>
           </form>
@@ -178,6 +201,7 @@ export default {
           active: false
         },
       ],
+      calendarLocale: 'ru-RU',
       allMarks: [],
       allModels: [],
       allWorks: [
@@ -202,7 +226,8 @@ export default {
         gosnumber: '',
         workType: '',
         city: '',
-        service: ''
+        service: '',
+        date: ''
       },
       carNumberTokens: {
         'F': {
@@ -366,6 +391,29 @@ export default {
     max-width: unset;
     background-color: unset;
     height: 40px;
+  }
+
+  &__form-date {
+    position: relative;
+    margin-bottom: 14px;
+
+    input {
+      padding-left: 35px;
+      margin-bottom: 0;
+    }
+
+    svg {
+      position: absolute;
+      left: 10px;
+      width: 15px;
+      height: 15px;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      path {
+        fill: rgb(255, 255, 255);
+      }
+    }
   }
 
   &__header {
