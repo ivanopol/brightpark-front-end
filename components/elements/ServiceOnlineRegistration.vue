@@ -402,8 +402,6 @@ export default {
     max-width: unset;
     background-color: unset;
     height: 40px;
-
-
   }
 
   textarea.service-online-registration__form-input {
@@ -428,10 +426,6 @@ export default {
       height: 15px;
       top: 50%;
       transform: translate(0, -50%);
-
-      path {
-        fill: rgb(255, 255, 255);
-      }
     }
   }
 
@@ -599,6 +593,10 @@ export default {
       }
     }
 
+    .service-online-registration__form-date svg path {
+      fill: rgb(255, 255, 255);
+    }
+
     .vs--disabled {
       border: 1px solid rgba(255, 255, 255, .5);
 
@@ -657,6 +655,10 @@ export default {
       input::placeholder {
         color: rgba(0, 0, 0, .7);
       }
+    }
+
+    .service-online-registration__form-date svg path {
+      fill: rgb(0, 0, 0);
     }
 
     .vs--disabled {
