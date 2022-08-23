@@ -8,7 +8,7 @@
         <div class="service-online-registration__content">
           <div class="service-online-registration__header">
             <p class="service-online-registration__title">Онлайн запись на сервис</p>
-            <p class="service-online-registration__desc">Оставьте заявку на ремонт и обслуживание автомобиля в 3 шага - это займет не более 1 минуты</p>
+            <p class="service-online-registration__desc">Оставьте заявку на&nbsp;ремонт и&nbsp;обслуживание автомобиля в&nbsp;3&nbsp;шага&nbsp;&mdash; это займет не&nbsp;более 1&nbsp;минуты</p>
             <ul class="service-online-registration__step-list">
               <li :class="{ active : step.active }" :key="step.number" v-for="step in steps">
                 <span>{{ step.number }}</span>
@@ -470,7 +470,7 @@ export default {
   }
 
   &__title {
-    font-size: 32px;
+    font-size: 30px;
     font-family: 'Bright Park Display',serif;
     margin-bottom: 15px;
 
@@ -481,11 +481,18 @@ export default {
   }
 
   &__desc {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
     font-family: 'Factor A',serif;
     margin-bottom: 30px;
   }
+
+  .step__title {
+    font-family: 'Bright Park Display',serif;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+
 
   &__step-list {
     font-family: 'Factor A',serif;
@@ -493,6 +500,7 @@ export default {
     display: flex;
     align-items: center;
     position: relative;
+    justify-content: space-around;
 
     &:before {
       content: '';
@@ -500,13 +508,12 @@ export default {
       width: 70%;
       margin: 0 auto;
       height: 2px;
-     // background-color: #fff;
       top: 50%;
       transform: translate(0, -50%);
     }
 
-    @media only screen and (max-width: 580px) {
-      justify-content: space-around;
+    @media only screen and (min-width: 581px) {
+      width: 50%;
     }
 
     li {
@@ -535,11 +542,6 @@ export default {
         }
       }
     }
-  }
-
-  .step__title {
-    font-family: 'Bright Park Display',serif;
-    margin-bottom: 20px;
   }
 
   .service-online-registration__button-next {
