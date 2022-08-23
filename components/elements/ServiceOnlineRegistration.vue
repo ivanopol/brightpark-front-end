@@ -1,182 +1,184 @@
 <template>
   <div :class="'service-online-registration ' + theme">
     <div class="service-online-registration__wrapper">
-      <img src="~static/images/serviceman.png"
-           class="service-online-registration__serviceman"
-           alt="Онлайн регистрация на сервисное обслуживание">
-      <div class="service-online-registration__content">
-        <div class="service-online-registration__header">
-          <p class="service-online-registration__title">Онлайн запись на сервис</p>
-          <p class="service-online-registration__desc">Оставьте заявку на ремонт и обслуживание автомобиля в 3 шага - это займет не более 1 минуты</p>
-          <ul class="service-online-registration__step-list">
-            <li :class="{ active : step.active }" :key="step.number" v-for="step in steps">
-              <span>{{ step.number }}</span>
-            </li>
-          </ul>
-        </div>
-        <div class="service-online-registration__body">
-          <form>
-            <div class="step-1" v-if="currentStep === 1">
-              <div class="step__title">
-                <p>Заполнение информации</p>
-              </div>
-              <div class="step-1__fields">
-                <div class="service-online-registration__row-double">
-                  <input type="text"
-                         placeholder="Имя"
-                         v-model="form.name"
-                         class="service-online-registration__form-input"
-                  />
+      <div class="service-online-registration__block">
+        <img src="~static/images/serviceman.png"
+             class="service-online-registration__serviceman"
+             alt="Онлайн регистрация на сервисное обслуживание">
+        <div class="service-online-registration__content">
+          <div class="service-online-registration__header">
+            <p class="service-online-registration__title">Онлайн запись на сервис</p>
+            <p class="service-online-registration__desc">Оставьте заявку на ремонт и обслуживание автомобиля в 3 шага - это займет не более 1 минуты</p>
+            <ul class="service-online-registration__step-list">
+              <li :class="{ active : step.active }" :key="step.number" v-for="step in steps">
+                <span>{{ step.number }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="service-online-registration__body">
+            <form>
+              <div class="step-1" v-if="currentStep === 1">
+                <div class="step__title">
+                  <p>Заполнение информации</p>
+                </div>
+                <div class="step-1__fields">
+                  <div class="service-online-registration__row-double">
+                    <input type="text"
+                           placeholder="Имя"
+                           v-model="form.name"
+                           class="service-online-registration__form-input"
+                    />
 
-                  <the-mask
-                    pattern=".{18,}"
-                    mask="+# (###)-###-##-##"
-                    v-model="form.phone"
-                    type="tel"
-                    required="true"
-                    placeholder="Телефон"
-                    class="service-online-registration__form-input"
-                  ></the-mask>
-                </div>
+                    <the-mask
+                      pattern=".{18,}"
+                      mask="+# (###)-###-##-##"
+                      v-model="form.phone"
+                      type="tel"
+                      required="true"
+                      placeholder="Телефон"
+                      class="service-online-registration__form-input"
+                    ></the-mask>
+                  </div>
 
-                <div class="service-online-registration__row-double">
-                  <v-select
-                    required
-                    :options="allMarks"
-                    :get-option-label="(option) => option.label"
-                    class="v-select-field"
-                    @input="getModels"
-                    v-model="form.mark"
-                    :searchable="false"
-                    :multiple="false"
-                    placeholder="Марка"
-                  >
-                  </v-select>
+                  <div class="service-online-registration__row-double">
+                    <v-select
+                      required
+                      :options="allMarks"
+                      :get-option-label="(option) => option.label"
+                      class="v-select-field"
+                      @input="getModels"
+                      v-model="form.mark"
+                      :searchable="false"
+                      :multiple="false"
+                      placeholder="Марка"
+                    >
+                    </v-select>
 
-                  <v-select
-                    required
-                    :options="allModels"
-                    :get-option-label="(option) => option.label"
-                    class="v-select-field"
-                    v-model="form.model"
-                    :searchable="false"
-                    :multiple="false"
-                    placeholder="Модель"
-                    :disabled="allModels.length === 0"
-                  >
-                  </v-select>
-                </div>
-                <div class="service-online-registration__row-single">
-                  <the-mask
-                    mask="F###FF###"
-                    :tokens="carNumberTokens"
-                    :oninput="transformUpper()"
-                    v-model="form.gosnumber"
-                    type="text"
-                    required="true"
-                    placeholder="Гос. номер"
-                    class="service-online-registration__form-input"
-                  ></the-mask>
-                </div>
-                <div class="service-online-registration__row-double">
-                  <button class="service-online-registration__button-next start-2"
-                          @click.prevent="next(2)"
-                  >Далее</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="step-2" v-else-if="currentStep === 2">
-              <div class="step__title">
-                <p>Выбор услуги и сервиса</p>
-              </div>
-              <div class="step-2__fields">
-                <div class="service-online-registration__row-single">
-                  <v-select
-                    required
-                    :options="allWorks"
-                    class="v-select-field"
-                    v-model="form.workType"
-                    :searchable="false"
-                    :multiple="false"
-                    placeholder="Вид работ"
-                  >
-                  </v-select>
-                </div>
-                <div class="service-online-registration__row-single">
-                  <v-select
-                    required
-                    :options="allCities"
-                    class="v-select-field"
-                    v-model="form.city"
-                    :searchable="false"
-                    :multiple="false"
-                    placeholder="Город"
-                  >
-                  </v-select>
-                </div>
-                <div class="service-online-registration__row-single">
-                  <v-select
-                    required
-                    :options="allServices"
-                    class="v-select-field"
-                    v-model="form.service"
-                    :searchable="false"
-                    :multiple="false"
-                    placeholder="Сервис"
-                  >
-                  </v-select>
-                </div>
-                <div class="service-online-registration__row-double">
-                  <button class="service-online-registration__button-next start-2"
-                          @click.prevent="next(3)"
-                  >Далее</button>
+                    <v-select
+                      required
+                      :options="allModels"
+                      :get-option-label="(option) => option.label"
+                      class="v-select-field"
+                      v-model="form.model"
+                      :searchable="false"
+                      :multiple="false"
+                      placeholder="Модель"
+                      :disabled="allModels.length === 0"
+                    >
+                    </v-select>
+                  </div>
+                  <div class="service-online-registration__row-single">
+                    <the-mask
+                      mask="F###FF###"
+                      :tokens="carNumberTokens"
+                      :oninput="transformUpper()"
+                      v-model="form.gosnumber"
+                      type="text"
+                      required="true"
+                      placeholder="Гос. номер"
+                      class="service-online-registration__form-input"
+                    ></the-mask>
+                  </div>
+                  <div class="service-online-registration__row-double">
+                    <button class="service-online-registration__button-next start-2"
+                            @click.prevent="next(2)"
+                    >Далее</button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="step-3" v-else-if="currentStep === 3">
-              <div class="step__title">
-                <p>Выбор даты и времени</p>
+              <div class="step-2" v-else-if="currentStep === 2">
+                <div class="step__title">
+                  <p>Выбор услуги и сервиса</p>
+                </div>
+                <div class="step-2__fields">
+                  <div class="service-online-registration__row-single">
+                    <v-select
+                      required
+                      :options="allWorks"
+                      class="v-select-field"
+                      v-model="form.workType"
+                      :searchable="false"
+                      :multiple="false"
+                      placeholder="Вид работ"
+                    >
+                    </v-select>
+                  </div>
+                  <div class="service-online-registration__row-single">
+                    <v-select
+                      required
+                      :options="allCities"
+                      class="v-select-field"
+                      v-model="form.city"
+                      :searchable="false"
+                      :multiple="false"
+                      placeholder="Город"
+                    >
+                    </v-select>
+                  </div>
+                  <div class="service-online-registration__row-single">
+                    <v-select
+                      required
+                      :options="allServices"
+                      class="v-select-field"
+                      v-model="form.service"
+                      :searchable="false"
+                      :multiple="false"
+                      placeholder="Сервис"
+                    >
+                    </v-select>
+                  </div>
+                  <div class="service-online-registration__row-double">
+                    <button class="service-online-registration__button-next start-2"
+                            @click.prevent="next(3)"
+                    >Далее</button>
+                  </div>
+                </div>
               </div>
-              <div class="step-3__fields">
-                <div class="service-online-registration__row-single">
-                  <v-date-picker
-                    :popover="{ visibility: 'click' }"
-                    :min-date='new Date()'
-                    v-model="form.date"
-                    :input-debounce="500"
-                    :locale="calendarLocale"
-                    class="service-online-registration__form-date"
-                  >
-                    <template v-slot="{ inputValue, inputEvents }">
-                      <input
-                        class="service-online-registration__form-input"
-                        :value="inputValue"
-                        v-on="inputEvents"
-                        placeholder="Дата и время"
-                      />
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path
-                          d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z"
+
+              <div class="step-3" v-else-if="currentStep === 3">
+                <div class="step__title">
+                  <p>Выбор даты и времени</p>
+                </div>
+                <div class="step-3__fields">
+                  <div class="service-online-registration__row-single">
+                    <v-date-picker
+                      :popover="{ visibility: 'click' }"
+                      :min-date='new Date()'
+                      v-model="form.date"
+                      :input-debounce="500"
+                      :locale="calendarLocale"
+                      class="service-online-registration__form-date"
+                    >
+                      <template v-slot="{ inputValue, inputEvents }">
+                        <input
+                          class="service-online-registration__form-input"
+                          :value="inputValue"
+                          v-on="inputEvents"
+                          placeholder="Дата и время"
                         />
-                      </svg>
-                    </template>
-                  </v-date-picker>
-                </div>
-                <div class="service-online-registration__row-single">
-                  <textarea class="service-online-registration__form-input"
-                            placeholder="Комментарий"
-                            v-model="form.comment">
-                  </textarea>
-                </div>
-                <div class="service-online-registration__row-double">
-                  <button class="service-online-registration__button-next start-2"
-                  >Записаться</button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path
+                            d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z"
+                          />
+                        </svg>
+                      </template>
+                    </v-date-picker>
+                  </div>
+                  <div class="service-online-registration__row-single">
+                    <textarea class="service-online-registration__form-input"
+                              placeholder="Комментарий"
+                              v-model="form.comment">
+                    </textarea>
+                  </div>
+                  <div class="service-online-registration__row-double">
+                    <button class="service-online-registration__button-next start-2"
+                    >Записаться</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -348,6 +350,10 @@ export default {
 .service-online-registration {
   .start-2 {
     grid-column-start:2;
+
+    @media only screen and (max-width: 580px) {
+      grid-column-start:1;
+    }
   }
 
   &__wrapper {
@@ -363,26 +369,50 @@ export default {
 
     .service-online-registration__serviceman {
       position: absolute;
-      right: 150px;
+      right: 0;
       bottom: 0;
-      width: 390px;
+      width: 450px;
       z-index: 1;
       pointer-events: none;
 
-      @media (max-width: 1366px) {
+      @media (max-width: 1100px) {
+        width: 400px;
+      }
+      @media (max-width: 900px) {
         display: none;
       }
     }
   }
 
+  &__block {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px 0;
+
+
+    @media (min-width: 1101px) and (max-width: 1366px) {
+      width: 85%;
+    }
+
+    @media (max-width: 1100px) {
+      width: 90%;
+    }
+  }
+
   &__content {
-    width: 60%;
-    padding: 40px 0 40px 100px;
+    width: 50%;
     box-sizing: border-box;
-    max-width: 650px;
+
+    @media (max-width: 900px) {
+      width: 100%;
+    }
   }
 
   &__body {
+    form > * {
+      width: 100%;
+    }
   }
 
   &__row-single {
@@ -394,6 +424,11 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
+
+    @media only screen and (max-width: 580px) {
+      grid-template-columns: 1fr;
+      column-gap: unset;
+    }
   }
 
   .v-select-field,
@@ -438,6 +473,11 @@ export default {
     font-size: 32px;
     font-family: 'Bright Park Display',serif;
     margin-bottom: 15px;
+
+    @media only screen and (max-width: 580px) {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
   }
 
   &__desc {
@@ -452,6 +492,22 @@ export default {
     font-size: 32px;
     display: flex;
     align-items: center;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 70%;
+      margin: 0 auto;
+      height: 2px;
+     // background-color: #fff;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+    @media only screen and (max-width: 580px) {
+      justify-content: space-around;
+    }
 
     li {
       margin-right: 40px;
@@ -462,20 +518,13 @@ export default {
       position: relative;
       box-sizing: border-box;
 
+      @media only screen and (max-width: 580px) {
+        margin-right: unset;
+      }
+
       span {
         display: block;
         margin-bottom: -8px;
-      }
-
-      &:after {
-        content: '';
-        position: absolute;
-        width: 40px;
-        height: 2px;
-        right: -42px;
-        background-color: #fff;
-        top: 50%;
-        transform: translate(0, -50%);
       }
 
       &:last-child {
@@ -505,6 +554,11 @@ export default {
     &:hover {
       transition: 0.2s;
       opacity: 0.6;
+    }
+
+    @media only screen and (max-width: 580px) {
+      max-width: unset;
+      margin-top: 20px;
     }
   }
 
@@ -572,6 +626,10 @@ export default {
       position: absolute;
       left: 0;
       top: 0;
+
+      @media (max-width: 1100px) {
+        display: none;
+      }
     }
 
     .v-select-field,
@@ -616,12 +674,13 @@ export default {
     }
 
     .service-online-registration__step-list {
+      &:before {
+        background-color: #fff;
+      }
+
       li {
         border-color: #fff;
-
-        &:after {
-          background-color: #fff;
-        }
+        background-color: #504ea0;
 
         &.active {
           background-color: #FFCA0D;
@@ -680,13 +739,14 @@ export default {
     }
 
     .service-online-registration__step-list {
+      &:before {
+        background-color: #000;
+      }
+
       li {
         border-color: #000;
+        background-color: #fff;
         color: #FD8355;
-
-        &:after {
-          background-color: #000;
-        }
 
         &.active {
           background-color: #FD8355;
