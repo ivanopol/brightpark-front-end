@@ -146,23 +146,6 @@ export default {
             },
           ]
         },
-/*        {
-          key: 3,
-          title: 'dlya-novyh-klientov-servisa',
-          extension: 'jpg',
-          place: 'banner-button-7',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 2,
-              form_title_special: 'Заявка на сервис. Новые клиенты',
-              color: 'orange',
-              text: 'ЗАПИСАТЬСЯ',
-              link: '',
-            },
-          ]
-        },*/
         {
           key: 4,
           title: 'lada_v_credit',
@@ -231,7 +214,12 @@ export default {
     swiper: directive
   },
   mounted: function() {
-  }
+  },
+  created: function() {
+    if ( this.$store.state.city.value == 'magnitogorsk' ) {
+      this.banners.splice(1,1)
+    }
+  },
 };
 </script>
 

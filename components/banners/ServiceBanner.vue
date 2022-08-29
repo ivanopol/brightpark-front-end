@@ -216,7 +216,12 @@ export default {
     swiper: directive
   },
   mounted: function() {
-  }
+  },
+  created: function() {
+    if ( this.$store.state.city.value == 'magnitogorsk' ) {
+      this.banners.splice(0,1)
+    }
+  },
 };
 </script>
 
