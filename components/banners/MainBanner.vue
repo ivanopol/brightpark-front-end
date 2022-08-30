@@ -217,7 +217,25 @@ export default {
   },
   created: function() {
     if ( this.$store.state.city.value == 'magnitogorsk' ) {
-      this.banners.splice(1,1)
+      this.banners.splice(1,1,
+        {
+          key: 1,
+          title: 'den-otkrytyh-dverej-2',
+          extension: 'jpg',
+          place: 'banner-button-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: '',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+      )
     }
   },
 };
