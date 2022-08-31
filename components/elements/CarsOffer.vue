@@ -154,7 +154,8 @@ export default {
 
     cars[1] = cars[5]
     cars[2] = cars[4]
-    cars[3] = tmp[0]
+    cars[3] = cars[0]
+    cars[0] = tmp[0]
     cars[4] = tmp[1]
     cars[5] = tmp[2]
 
