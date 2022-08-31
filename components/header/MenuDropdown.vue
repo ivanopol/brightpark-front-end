@@ -19,6 +19,7 @@ export default {
   name: "MenuDropdown",
   data: function () {
     return {
+      models: this.$store.state.models_full,
       opened: false
     };
   },
@@ -28,7 +29,16 @@ export default {
       this.opened = false
     }
   },
+  created: function() {
+
+  },
   mounted: function () {
+    let tmp = [this.models[1], this.models[2]]
+    this.models[1] = this.models[4]
+    this.models[2] = this.models[5]
+    this.models[4] = tmp[0]
+    this.models[5] = tmp[1]
+
     this.popupItem = this.$el
   },
   directives: {
@@ -69,6 +79,7 @@ a.dropdown {
 
   ul {
     position: absolute;
+    display: inline-table;
     left: 0;
     right: 0;
     top: 30px;
