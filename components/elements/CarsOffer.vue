@@ -150,6 +150,14 @@ export default {
       process.env.apiUrl + `/api/cars_offer`
     ).then(res => res.json());
 
+    let tmp = [cars[1], cars[2],cars[3]]
+
+    cars[1] = cars[5]
+    cars[2] = cars[4]
+    cars[3] = tmp[0]
+    cars[4] = tmp[1]
+    cars[5] = tmp[2]
+
     this.cars = cars;
   },
 
