@@ -94,7 +94,7 @@ export default {
             },
           ]
         },
-        {
+/*        {
           key: 1,
           title: 'akciya-mesyaca-na-kuzovnye-raboty',
           extension: 'jpg',
@@ -110,7 +110,7 @@ export default {
               link: '',
             },
           ]
-        },
+        },*/
         {
           key: 2,
           title: 'kompleksnaya-diagnostika',
