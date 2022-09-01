@@ -5,7 +5,7 @@
         <div class="banner__inner__car color-svg-figure">
           <div class="banner__inner__car__hit">
             <img src="~static/images/model-sale.png" alt="">
-          
+
           </div>
 
           <!-- <div class="banner__inner__car__hit" v-if="isHit">
@@ -14,7 +14,7 @@
             </span>
             <svg width="135" height="104" viewBox="0 0 135 104" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill="#FFCA0D" d="M129.936 93.5843L134.387 11.3205C134.713 5.31105 129.695 0.377862 123.692 0.805412L9.34428 8.94953C3.69317 9.35202 -0.495308 14.3642 0.112402 19.9969L7.03662 84.1761C7.54539 88.8919 11.2969 92.6014 16.018 93.0572L118.99 102.998C124.652 103.544 129.629 99.2643 129.936 93.5843Z" />
-            </svg> 
+            </svg>
           </div> -->
 
           <img :src="currentImage" :alt="colorTitle" :title="colorTitle" class="banner__inner__car__image">
@@ -39,7 +39,12 @@
 
         <div class="banner__inner__info">
           <h1>{{ newWord }} LADA {{ carName }} в {{ $store.state.city.dative }}</h1>
-          <p class="banner__inner__info__price color-secondary-color">от {{ prices.value | formatPrice }} ₽</p>
+          <div class="banner__inner__info__price_wrap" v-if="prices.value < prices.without_discount">
+            <p class="banner__inner__info__price_old">от {{ prices.without_discount | formatPrice }} ₽</p>
+            <p class="banner__inner__info__price color-secondary-color">от {{ prices.value | formatPrice }} ₽</p>
+          </div>
+          <p class="banner__inner__info__price color-secondary-color" v-else>от {{ prices.value | formatPrice }} ₽</p>
+
           <div class="banner__inner__info__credit" v-if="prices.credit > 0">
             <p>Или в кредит <span> от {{ prices.credit | formatPrice }} ₽ / месяц </span></p>
             <button type="button" class="color-primary-color" @click="scrollTo">Рассчитать кредит</button>
@@ -525,7 +530,6 @@ export default {
   background: #1B65F5;
 }
 
-
 .banner__inner__info__price {
   font-weight: 700;
   text-align: center;
@@ -536,6 +540,52 @@ export default {
   @media (min-width: 1000px) {
     text-align: left;
     font-size: 44px;
+  }
+}
+
+.banner__inner__info__price_wrap {
+  display: flex;
+  justify-content: left;
+
+  @media (max-width: 999px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 580px) {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  &>p:first-child {
+    margin-right: 12px;
+  }
+
+  .banner__inner__info__price_old,
+  .banner__inner__info__price {
+    text-align: center;
+    font-size: 36px;
+    font-family: 'Factor A';
+    margin: 20px 0;
+
+    @media (min-width: 1000px) {
+      text-align: left;
+      font-size: 32px;
+    }
+
+    @media (max-width: 580px) {
+      font-size: 28px;
+      margin: 10px 0;
+    }
+  }
+
+  .banner__inner__info__price_old {
+    font-weight: normal;
+    margin-right: 15px;
+    text-decoration: line-through;
+  }
+
+  .banner__inner__info__price {
+    font-weight: 700;
   }
 }
 

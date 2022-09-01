@@ -28,7 +28,7 @@
           </h4>
 
           <div class="cars-offer__content__item__info">
-            <div class="cars-offer__content__item__info__price_wrap" v-if="car.price_old !== car.price">
+            <div class="cars-offer__content__item__info__price_wrap" v-if="car.price < car.price_old">
               <p class="cars-offer__content__item__info__price_old">
                 от {{car.price_old | formatPrice}} ₽
               </p>
