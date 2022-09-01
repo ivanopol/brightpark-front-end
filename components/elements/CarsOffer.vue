@@ -28,7 +28,16 @@
           </h4>
 
           <div class="cars-offer__content__item__info">
-            <p class="cars-offer__content__item__info__price">
+            <div class="cars-offer__content__item__info__price_wrap" v-if="car.price_old !== car.price">
+              <p class="cars-offer__content__item__info__price_old">
+                от {{car.price_old | formatPrice}} ₽
+              </p>
+
+              <p class="cars-offer__content__item__info__price">
+                от {{car.price | formatPrice}} ₽
+              </p>
+            </div>
+            <p class="cars-offer__content__item__info__price" v-else>
               от {{car.price | formatPrice}} ₽
             </p>
 
@@ -310,6 +319,22 @@ export default {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 5px;
+}
+
+.cars-offer__content__item__info__price_old {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 5px;
+  text-decoration: line-through;
+}
+
+.cars-offer__content__item__info__price_wrap {
+  display: flex;
+  justify-content: left;
+
+  &>p:first-child {
+    margin-right: 12px;
+  }
 }
 
 .cars-offer__content__item__info__credit {
