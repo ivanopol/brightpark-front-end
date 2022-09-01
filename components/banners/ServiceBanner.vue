@@ -128,7 +128,7 @@ export default {
             },
           ]
         },
-        {
+/*        {
           key: 3,
           title: 'letnyaya-gosprogramma-2',
           extension: 'jpg',
@@ -144,7 +144,7 @@ export default {
               link: '',
             },
           ]
-        },
+        },*/
 /*       {
           key: 3,
           title: 'dlya-novyh-klientov-servisa',

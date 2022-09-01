@@ -96,23 +96,6 @@ export default {
           ]
         },
         {
-          key: 1,
-          title: 'letnyaya-gosprogramma-2',
-          extension: 'jpg',
-          place: 'banner-button-8',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: '',
-              color: 'yellow',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
-              link: '',
-            },
-          ]
-        },
-        {
           key: 2,
           title: 'den-otkrytyh-dverej',
           extension: 'jpg',
