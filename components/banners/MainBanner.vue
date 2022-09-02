@@ -82,7 +82,7 @@ export default {
           key: 0,
           title: 'lada-peredvigatsya-s-komfortom',
           extension: 'jpg',
-          place: 'banner-button-2',
+          place: 'banner-button-4',
           buttons: [
             {
               key: 1,
