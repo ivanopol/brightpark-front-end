@@ -358,7 +358,7 @@ export default {
       }
 
       .purple {
-        background-color: #504ea0;
+        background-color: #5f2ea4; //#504ea0;
       }
     }
   }
