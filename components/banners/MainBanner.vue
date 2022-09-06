@@ -96,7 +96,7 @@ export default {
           ]
         },
         {
-          key: 2,
+          key: 1,
           title: 'den-otkrytyh-dverej',
           extension: 'jpg',
           place: 'banner-button-6',
@@ -112,25 +112,42 @@ export default {
             },
           ]
         },
-/*        {
+        {
           key: 2,
-          title: 'akciya-mesyaca-na-kuzovnye-raboty',
+          title: 'niva-legend-pozvol-sebe-bolshe',
           extension: 'jpg',
-          place: 'banner-button-4',
+          place: 'banner-button-2',
           buttons: [
             {
               key: 1,
               type: 'window',
-              form_type: 1,
+              form_type: 2,
               form_title_special: '',
-              color: 'orange',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              color: 'yellow black-text',
+              text: 'Заказать звонок',
               link: '',
             },
           ]
-        },*/
+        },
         {
           key: 3,
+          title: 'niva-travel-pozvol-sebe-bolshe',
+          extension: 'jpg',
+          place: 'banner-button-2',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: '',
+              color: 'yellow black-text',
+              text: 'Заказать звонок',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 4,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
           place: 'banner-button-6',
@@ -147,7 +164,7 @@ export default {
           ]
         },
         {
-          key: 4,
+          key: 5,
           title: 'lada_v_credit',
           extension: 'jpg',
           place: 'banner-button-7',
@@ -657,6 +674,10 @@ export default {
         max-width: 250px;
         height: 50px;
       }
+    }
+
+    button.black-text {
+      color: #000 !important;
     }
   }
 
