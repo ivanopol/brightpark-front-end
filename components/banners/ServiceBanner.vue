@@ -87,7 +87,7 @@ export default {
               key: 1,
               type: 'window',
               form_type: 2,
-              form_title_special: '',
+              form_title_special: 'Заявка на сервис. День открытых дверей',
               color: 'orange',
               text: 'ЗАПИСАТЬСЯ',
               link: '',
