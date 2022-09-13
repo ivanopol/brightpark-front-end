@@ -37,6 +37,7 @@ export default Vue.extend({
       seo: {},
       isHitOfSales: false,
       theme: 'theme-01',
+      is_niva: false
     }
   },
   layout (context) {
