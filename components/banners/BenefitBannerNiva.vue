@@ -1,18 +1,16 @@
 <template>
   <div>
-    <section class="benefit-banner">
-      <div class="container benefit-banner__container">
-        <div class="benefit-banner__wrapper color-primary-background">
-          <img :src="path.mobile" :alt="path.title" class="benefit-banner__pic" loading="lazy">
-
-          <div class="benefit-banner__text">
-            <h2>Выгода 350 000 ₽ </h2>
-            <p>на покупку новой LADA {{model}} в кредит!</p>
+    <section class="benefit-banner-niva">
+      <div class="container benefit-banner-niva__container">
+        <div class="benefit-banner-niva__wrapper">
+          <div class="benefit-banner-niva__text">
+            <h2>Ежемесячный платеж</h2>
+            <p class="text-price"><span class="test-mini">от</span> 4 735 ₽<span class="test-mini"> в мес</span></p>
           </div>
 
           <ButtonNew
             buttonColor="color-secondary-background"
-            class="benefit-banner__signup"
+            class="benefit-banner-niva__signup"
             :button-text="'Успей купить'"
             :button-type="'button'"
             @click.native="show(
@@ -39,11 +37,14 @@
 </template>
 
 <script>
+import format_price from "@/mixins/format_price";
+
 export default {
   name: 'BenefitBanner',
   props: {
     model: String,
     type: String,
+    credit: Number
   },
   data: function () {
     return {
@@ -54,7 +55,7 @@ export default {
       path: {},
     }
   },
-
+  mixins: [format_price],
   methods: {
     show(title, form_id, form_type, goal) {
       this.form_title = title;
@@ -75,31 +76,35 @@ export default {
   computed: {
     carName: function() {
       return this.model === this.type ? this.model : this.model + ' ' + this.type
-    }
+    },
   },
-  created() {
-    this.path = {
-      title: this.model + ' ' + this.type,
-      mobile: '/images/credit-section/' + this.$route.params.models + '/' + this.$route.params.model.replace("-", "_") + '/photo_mobile.png',
-    }
-  }
 }
 </script>
 
 <style lang="scss" scoped>
   @import "../../assets/scss/colors";
 
-  .benefit-banner__wrapper {
+  .benefit-banner-niva__wrapper {
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('~static/images/benefit-banner/bg-mobile.jpg') #000 no-repeat 50% 50%;
+    background-size: cover;
     padding: 30px 20px 40px;
     position: relative;
 
-    @media (min-width: 1367px) {
+    @media (min-width: 980px) {
+      background: url('~static/images/benefit-banner/bg-desktop.jpg') #000 no-repeat 50% 50%;
+      //background-size: 100%;
       display: flex;
-      padding: 30px 40px 30px 200px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 80px;
+    }
+
+    @media (min-width: 980px) and (max-width: 1366px) {
+      padding: 30px 40px;
     }
   }
 
-  .benefit-banner__pic {
+  .benefit-banner-niva__pic {
     display: block;
     margin: auto;
     width: 100%;
@@ -113,40 +118,49 @@ export default {
     }
   }
 
-  .benefit-banner__text {
+  .benefit-banner-niva__text {
     color: white;
     text-align: center;
     margin: 24px 0;
 
-    h2 {
-      text-transform: unset;
-      font-size: 28px;
-      font-family: 'Bright Park Display';
-      margin-bottom: 9px;
-    }
-
-    p {
-      font-family: 'Factor A';
-      font-size: 16px;
-    }
-
-    @media (min-width: 1367px) {
+    @media (min-width: 980px) {
       text-align: left;
       margin: 0;
 
       h2 {
-        font-size: 32px;
+        font-size: 20px;
       }
+    }
+
+    h2 {
+      font-size: 20px;
+      font-family: 'Bright Park Display';
+      font-weight: bold;
+      margin-bottom: 9px;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-family: 'Factor A';
+
+      &.text-price {
+        font-family: 'Bright Park Display';
+        font-size: 38px;
+        .test-mini {
+          font-size: 14px;
+        }
+      }
+      font-size: 16px;
     }
   }
 
-  .benefit-banner__signup {
+  .benefit-banner-niva__signup {
     height: 50px;
     max-width: 280px;
     font-size: 13px;
     margin: auto;
 
-    @media (min-width: 1367px) {
+    @media (min-width: 980px) {
       margin: 0 0 0 auto;
     }
 

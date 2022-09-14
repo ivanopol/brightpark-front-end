@@ -10,7 +10,8 @@
       :type="model.type.title_ru"
       @scrollTo="scrollToCredit"
       :isHit="getHit()" />
-    <BenefitBanner :model="model.model.title" :type="model.type.title_ru"/>
+    <BenefitBannerNiva :model="model.model.title" :type="model.type.title_ru" :credit="model.price.credit" v-if="is_niva"/>
+    <BenefitBanner :model="model.model.title" :type="model.type.title_ru" v-else/>
     <AdvantagesNew class="models-advantages"/>
     <div class="container order-call-wrap">
         <OrderCallForm />
@@ -139,6 +140,14 @@ export default Vue.extend({
   computed: {
   },
   methods: {
+    setPageType: function() {
+      if (this.$route.params.models === 'niva' ||
+          this.$route.params.models === 'niva-legend' )
+      {
+        this.is_niva = true
+      }
+      return {}
+    },
     changeTheme: function() {
       let theme = ''
       switch (this.$route.params.models) {
@@ -181,6 +190,7 @@ export default Vue.extend({
   },
   created() {
     this.theme = this.changeTheme()
+    this.setPageType()
   }
 })
 </script>
