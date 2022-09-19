@@ -80,6 +80,23 @@ export default {
       banners: [
         {
           key: 0,
+          title: 'lada-granta-banner',
+          extension: 'jpg',
+          place: 'banner-button-2',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 1,
+              form_title_special: 'Заявка с сайта. Lada Granta баннер',
+              color: 'orange',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 1,
           title: 'lada-peredvigatsya-s-komfortom',
           extension: 'jpg',
           place: 'banner-button-6',
@@ -96,7 +113,7 @@ export default {
           ]
         },
         {
-          key: 1,
+          key: 2,
           title: 'den-otkrytyh-dverej',
           extension: 'jpg',
           place: 'banner-button-6',
@@ -113,7 +130,7 @@ export default {
           ]
         },
         {
-          key: 2,
+          key: 3,
           title: 'niva-legend-pozvol-sebe-bolshe',
           extension: 'jpg',
           place: 'banner-button-2',
@@ -130,7 +147,7 @@ export default {
           ]
         },
         {
-          key: 3,
+          key: 4,
           title: 'niva-travel-pozvol-sebe-bolshe',
           extension: 'jpg',
           place: 'banner-button-2',
@@ -147,7 +164,7 @@ export default {
           ]
         },
         {
-          key: 4,
+          key: 5,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
           place: 'banner-button-6',
@@ -159,23 +176,6 @@ export default {
               form_title_special: 'Заявка на сервис. Диагностика',
               color: 'orange',
               text: 'ЗАПИСАТЬСЯ',
-              link: '',
-            },
-          ]
-        },
-        {
-          key: 5,
-          title: 'lada-granta-banner',
-          extension: 'jpg',
-          place: 'banner-button-2',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: 'Заявка с сайта. Lada Granta баннер',
-              color: 'orange',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
               link: '',
             },
           ]
