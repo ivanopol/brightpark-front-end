@@ -165,16 +165,18 @@ export default {
         },
         {
           key: 5,
-          title: 'lada_v_credit',
+          title: 'lada-granta-banner',
           extension: 'jpg',
-          place: 'banner-button-7',
+          place: 'banner-button-2',
           buttons: [
             {
               key: 1,
-              type: 'link',
-              color: 'purple',
-              text: 'ПОДРОБНЕЕ',
-              link: 'stocks/lada_v_credit',
+              type: 'window',
+              form_type: 1,
+              form_title_special: 'Заявка с сайта. Lada Granta баннер',
+              color: 'orange',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              link: '',
             },
           ]
         },
