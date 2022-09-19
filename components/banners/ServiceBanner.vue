@@ -79,6 +79,74 @@ export default {
       banners: [
         {
           key: 0,
+          title: 'dlya-novyh-klientov-servisa-skidka-20',
+          extension: 'jpg',
+          place: 'banner-button-service-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: 'Заявка на сервис. Для новых клиентов сервиса скидка 20',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 1,
+          title: 'skidka-10-procentov-na-lyubye-raboty-pri-zaezde',
+          extension: 'jpg',
+          place: 'banner-button-service-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: 'Заявка на сервис. скидка 10 процентов на любые работы при заезде',
+              color: 'purple',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 2,
+          title: 'antikor-arok-za-nol-rublej',
+          extension: 'jpg',
+          place: 'banner-button-service-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: 'Заявка на сервис. Антикор арок за ноль рублей',
+              color: 'green',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 3,
+          title: 'polnaya-mojka-v-podarok-pri-to',
+          extension: 'jpg',
+          place: 'banner-button-service-6',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 2,
+              form_title_special: 'Заявка на сервис. Полная мойка в подарок при ТО',
+              color: 'orange',
+              text: 'ЗАПИСАТЬСЯ',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 4,
           title: 'den-otkrytyh-dverej',
           extension: 'jpg',
           place: 'banner-button-service-6',
@@ -94,25 +162,8 @@ export default {
             },
           ]
         },
-/*        {
-          key: 1,
-          title: 'akciya-mesyaca-na-kuzovnye-raboty',
-          extension: 'jpg',
-          place: 'banner-button-service-9',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: '',
-              color: 'orange',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
-              link: '',
-            },
-          ]
-        },*/
         {
-          key: 2,
+          key: 5,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
           place: 'banner-button-service-6',
@@ -128,40 +179,6 @@ export default {
             },
           ]
         },
-/*        {
-          key: 3,
-          title: 'letnyaya-gosprogramma-2',
-          extension: 'jpg',
-          place: 'banner-button-service-8',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: '',
-              color: 'yellow',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
-              link: '',
-            },
-          ]
-        },*/
-/*       {
-          key: 3,
-          title: 'dlya-novyh-klientov-servisa',
-          extension: 'jpg',
-          place: 'banner-button-service-7',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 2,
-              form_title_special: 'Заявка на сервис. Новые клиенты',
-              color: 'orange',
-              text: 'ЗАПИСАТЬСЯ',
-              link: '',
-            },
-          ]
-        },*/
       ],
       swiperOption: {
         autoplay: {
