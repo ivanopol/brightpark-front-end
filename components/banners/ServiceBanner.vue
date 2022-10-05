@@ -145,7 +145,7 @@ export default {
             },
           ]
         },
-        {
+/*        {
           key: 4,
           title: 'den-otkrytyh-dverej',
           extension: 'jpg',
@@ -161,7 +161,7 @@ export default {
               link: '',
             },
           ]
-        },
+        },*/
         {
           key: 5,
           title: 'kompleksnaya-diagnostika',
