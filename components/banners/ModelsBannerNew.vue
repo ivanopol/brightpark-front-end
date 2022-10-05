@@ -47,7 +47,7 @@
 
           <div class="banner__inner__info__credit" v-if="prices.credit > 0">
             <p>Или в кредит <span> от {{ prices.credit | formatPrice }} ₽ / месяц </span></p>
-            <button type="button" class="color-primary-color" @click="scrollTo">Рассчитать кредит</button>
+<!--            <button type="button" class="color-primary-color" @click="scrollTo">Рассчитать кредит</button>-->
           </div>
 
           <ButtonNew
@@ -181,6 +181,7 @@ export default {
     this.currentImage = this.colors[0].image;
     this.colorClass = this.colors[0].class;
     this.colorTitle = this.colors[0].title;
+    console.log()
   },
 
 }
@@ -625,6 +626,7 @@ export default {
   }
 
   @media (min-width: 1000px) {
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0 22px;

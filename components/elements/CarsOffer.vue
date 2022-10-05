@@ -42,12 +42,12 @@
             </p>
 
             <div class="cars-offer__content__item__info__buttons">
-             <a v-if="car.credit > 0"
+<!--             <a v-if="car.credit > 0"
                 class="cars-offer__content__item__info__credit"
                 :href="'/' + $store.state.city.value + '/credit?car_model=' + car.model.title +'&car_type=' + car.type.title_ru"
-              >
-                <span>кредит от {{car.credit | formatPrice}} ₽/мес.</span>
-              </a>
+              >-->
+                <span v-if="car.credit > 0" class="cars-offer__content__item__info__credit">кредит от {{car.credit | formatPrice}} ₽/мес.</span>
+              <!-- </a>-->
 
 
               <button v-if="car.credit > 0"
