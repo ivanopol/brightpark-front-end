@@ -145,7 +145,7 @@ export default {
             },
           ]
         },
-/*        {
+        {
           key: 4,
           title: 'den-otkrytyh-dverej',
           extension: 'jpg',
@@ -161,7 +161,7 @@ export default {
               link: '',
             },
           ]
-        },*/
+        },
         {
           key: 5,
           title: 'kompleksnaya-diagnostika',
@@ -206,7 +206,7 @@ export default {
   },
   methods: {
     show(title, form_id, form_type, goal, form_title_special) {
-      console.log("Click!");
+
       this.form_title = title;
       this.form_id = form_id;
       this.form_type = form_type; // 1 - обычная форма, 2 - форма сервиса
@@ -236,7 +236,7 @@ export default {
   },
   created: function() {
     if ( this.$store.state.city.value == 'magnitogorsk' ) {
-      this.banners.splice(0,1,{
+      this.banners.splice(4,1,{
         key: 0,
         title: 'den-otkrytyh-dverej-2',
         extension: 'jpg',
