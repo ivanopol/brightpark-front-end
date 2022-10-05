@@ -236,7 +236,7 @@ export default {
   },
   created: function() {
     if ( this.$store.state.city.value == 'magnitogorsk' ) {
-      this.banners.splice(1,1,
+      this.banners.splice(2,1,
         {
           key: 1,
           title: 'den-otkrytyh-dverej-2',
