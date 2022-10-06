@@ -80,6 +80,23 @@ export default {
       banners: [
         {
           key: 0,
+          title: 'skidka-po-gosprogramme-na-lada-granta',
+          extension: 'jpg',
+          place: 'banner-button-2',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 1,
+              form_title_special: 'Заявка с сайта. Выгода до 25% по госпрограмме на Lada Granta',
+              color: 'orange',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              link: '',
+            },
+          ]
+        },
+        {
+          key: 1,
           title: 'lada-granta-banner',
           extension: 'jpg',
           place: 'banner-button-2',
@@ -90,23 +107,6 @@ export default {
               form_type: 1,
               form_title_special: 'Заявка с сайта. Lada Granta баннер',
               color: 'orange',
-              text: 'ЗАКАЗАТЬ ЗВОНОК',
-              link: '',
-            },
-          ]
-        },
-        {
-          key: 1,
-          title: 'lada-peredvigatsya-s-komfortom',
-          extension: 'jpg',
-          place: 'banner-button-6',
-          buttons: [
-            {
-              key: 1,
-              type: 'window',
-              form_type: 1,
-              form_title_special: 'Заявка с сайта. Lada передвигайся с комфортом',
-              color: 'purple',
               text: 'ЗАКАЗАТЬ ЗВОНОК',
               link: '',
             },
