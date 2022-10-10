@@ -235,6 +235,31 @@ export default {
   mounted: function() {
   },
   created: function() {
+    if ( this.$store.state.city.value == 'perm' ||
+        this.$store.state.city.value == 'yekaterinburg'
+    ) {
+      this.banners.splice(0,1,
+        {
+          key: 0,
+          title: 'skidka-po-gosprogramme-na-lada-granta2',
+          extension: 'jpg',
+          place: 'banner-button-2',
+          buttons: [
+            {
+              key: 1,
+              type: 'window',
+              form_type: 1,
+              form_title_special: 'Заявка с сайта. Выгода до 25% по госпрограмме на Lada Granta 2',
+              color: 'orange',
+              text: 'ЗАКАЗАТЬ ЗВОНОК',
+              link: '',
+            },
+          ]
+        },
+      )
+    }
+
+
     if ( this.$store.state.city.value == 'magnitogorsk' ) {
       this.banners.splice(2,1,
         {
