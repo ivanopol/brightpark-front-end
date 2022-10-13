@@ -38,7 +38,8 @@ export default Vue.extend({
       seo: {},
       isHitOfSales: false,
       theme: 'theme-01',
-      is_niva: false
+      is_niva: false,
+      mortgage: 0
     }
   },
   layout (context) {
@@ -141,7 +142,8 @@ export default Vue.extend({
   },
   methods: {
     setPageType: function() {
-      if (this.$route.params.models === 'niva' ||
+      if (this.$route.params.models === 'granta' ||
+        this.$route.params.models === 'niva' ||
           this.$route.params.models === 'niva-legend' )
       {
         this.is_niva = true

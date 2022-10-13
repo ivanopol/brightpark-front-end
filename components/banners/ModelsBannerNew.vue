@@ -170,7 +170,7 @@ export default {
 
   computed: {
     carName: function() {
-      return this.model === this.type ? this.model : this.model + ' ' + this.type
+      return this.model === this.type || this.model == 'Niva Travel' ? this.model : this.model + ' ' + this.type
     },
     newWord: function() {
       return this.model.toLowerCase() === 'largus' ?  "Новый" : "Новая"

@@ -15,7 +15,7 @@
               </div>
               <div class="carcasses-list-description bubble" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                 <div class="carcasses-list-title bubble">
-                  <span class="carcasses-list-title-el bubble" itemprop="name">{{carcasses.title}} {{carcass.title_ru}}</span>
+                  <span class="carcasses-list-title-el bubble" itemprop="name">{{ carName(carcasses.title, carcass.title_ru) }}</span>
                   <span itemprop="description" class="carcasses-list-title-slogan bubble" v-html="carcass.pivot.slogan"></span>
                 </div>
                 <div class="carcasses-list-prices" >
@@ -53,6 +53,11 @@ export default {
     this.$store.commit('set_model', carcasses[0])
     this.carcasses = carcasses[0]
   },
+  methods: {
+    carName(model, type) {
+      return model === type || model == 'Niva Travel' ? model : model + ' ' + type
+    }
+  }
 }
 </script>
 

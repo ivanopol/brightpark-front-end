@@ -5,7 +5,7 @@
         <div class="benefit-banner-niva__wrapper">
           <div class="benefit-banner-niva__text">
             <h2>Ежемесячный платеж</h2>
-            <p class="text-price"><span class="test-mini">от</span> 4 735 ₽<span class="test-mini"> в мес</span></p>
+            <p class="text-price"><span class="test-mini">от</span> {{ credit | formatPrice }} ₽<span class="test-mini"> в мес</span></p>
           </div>
 
           <ButtonNew
