@@ -142,7 +142,7 @@ export default Vue.extend({
   },
   methods: {
     setPageType: function() {
-      if (this.$route.params.models === 'granta' ||
+      if (
         this.$route.params.models === 'niva' ||
           this.$route.params.models === 'niva-legend' )
       {
