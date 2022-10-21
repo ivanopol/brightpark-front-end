@@ -138,8 +138,8 @@ export default {
             {
               key: 1,
               type: 'window',
-              form_type: 2,
-              form_title_special: 'Заявка на сервис. Нива Legend позволь себе больше',
+              form_type: 1,
+              form_title_special: 'Заявка с сайта. Нива Legend позволь себе больше',
               color: 'yellow black-text',
               text: 'Заказать звонок',
               link: '',
@@ -155,8 +155,8 @@ export default {
             {
               key: 1,
               type: 'window',
-              form_type: 2,
-              form_title_special: 'Заявка на сервис. Нива Travel позволь себе больше',
+              form_type: 1,
+              form_title_special: 'Заявка с сайта. Нива Travel позволь себе больше',
               color: 'yellow black-text',
               text: 'Заказать звонок',
               link: '',
