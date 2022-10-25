@@ -10,7 +10,7 @@
           <FormBuyComponent :form_id="$store.state._page + '__advantages_'"
                             :button_text="'Отправить'"
                             :form_title="'Оставьте заявку, мы вам перезвоним'"
-                            :goal="'about_model'" />
+                            :goal="'specialoffer'" />
 
         </div>
       </div>
