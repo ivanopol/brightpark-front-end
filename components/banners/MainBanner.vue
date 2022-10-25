@@ -80,6 +80,23 @@ export default {
       banners: [
         {
           key: 0,
+          title: 'vygodnye-dni-v-brajt-parke',
+          extension: 'jpg',
+          place: 'banner-button-9',
+          buttons: [
+            {
+              key: 1,
+              type: 'link',
+              form_type: 1,
+              form_title_special: 'Заявка с сайта. Black Days, подарки всем',
+              color: 'orange',
+              text: 'Подробнее',
+              link: 'stocks/vygodnye-dni-v-brajt-parke',
+            },
+          ]
+        },
+        {
+          key: 1,
           title: 'skidka-po-gosprogramme-na-lada-granta',
           extension: 'jpg',
           place: 'banner-button-2',
@@ -96,7 +113,7 @@ export default {
           ]
         },
         {
-          key: 1,
+          key: 2,
           title: 'lada-granta-banner',
           extension: 'jpg',
           place: 'banner-button-2',
@@ -113,7 +130,7 @@ export default {
           ]
         },
         {
-          key: 2,
+          key: 3,
           title: 'den-otkrytyh-dverej',
           extension: 'jpg',
           place: 'banner-button-6',
@@ -130,7 +147,7 @@ export default {
           ]
         },
         {
-          key: 3,
+          key: 4,
           title: 'niva-legend-pozvol-sebe-bolshe',
           extension: 'jpg',
           place: 'banner-button-2',
@@ -147,7 +164,7 @@ export default {
           ]
         },
         {
-          key: 4,
+          key: 5,
           title: 'niva-travel-pozvol-sebe-bolshe',
           extension: 'jpg',
           place: 'banner-button-2',
@@ -164,7 +181,7 @@ export default {
           ]
         },
         {
-          key: 5,
+          key: 6,
           title: 'kompleksnaya-diagnostika',
           extension: 'jpg',
           place: 'banner-button-6',
@@ -238,7 +255,7 @@ export default {
     if ( this.$store.state.city.value == 'perm' ||
         this.$store.state.city.value == 'yekaterinburg'
     ) {
-      this.banners.splice(0,1,
+      this.banners.splice(1,1,
         {
           key: 0,
           title: 'skidka-po-gosprogramme-na-lada-granta2',
@@ -261,7 +278,7 @@ export default {
 
 
     if ( this.$store.state.city.value == 'magnitogorsk' ) {
-      this.banners.splice(2,1,
+      this.banners.splice(3,1,
         {
           key: 1,
           title: 'den-otkrytyh-dverej-2',
@@ -715,7 +732,8 @@ export default {
   .banner-button-5,
   .banner-button-6,
   .banner-button-7,
-  .banner-button-8 {
+  .banner-button-8,
+  .banner-button-9 {
     position: absolute;
   }
 
@@ -765,6 +783,10 @@ export default {
     }
   }
 
+  .banner-button-9 {
+    right: 17.5%;
+    bottom: 13%;
+  }
 
   .banner_btn-call {
     position: absolute;
@@ -809,6 +831,11 @@ export default {
         left: 7%;
       }
 
+      .banner-button-9 {
+        bottom: 13%;
+        left: 9%;
+      }
+
       .swiper-pagination {
         bottom: 15px;
       }
@@ -851,7 +878,8 @@ export default {
       .banner-button-3,
       .banner-button-4,
       .banner-button-6,
-      .banner-button-7 {
+      .banner-button-7,
+      .banner-button-9 {
         bottom: 0;
         right: 50%;
         left: auto;
