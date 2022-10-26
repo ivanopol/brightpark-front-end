@@ -23,6 +23,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
+  layout: 'without_footer',
   data: function () {
     return {
       phone : '',
