@@ -90,7 +90,7 @@ export default {
               form_type: 1,
               form_title_special: 'Заявка с сайта. Black Days, подарки всем',
               color: 'orange',
-              text: 'Подробнее',
+              text: 'ПОДРОБНЕЕ',
               link: 'stocks/vygodnye-dni-v-brajt-parke',
             },
           ]
