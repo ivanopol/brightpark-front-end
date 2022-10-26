@@ -43,10 +43,7 @@ export default {
 <style lang="scss" scoped>
 
 
-  .stocks-one-body b,
-  .stocks-one-body strong {
-    font-weight: bold;
-  }
+
 
   .stocks-dates {
     padding: 15px 0 0;
@@ -62,4 +59,15 @@ export default {
       padding: 15px 30px 0
     }
   }
+</style>
+
+<style lang="scss">
+.stocks-one-body .b,
+.stocks-one-body strong {
+  font-weight: bold;
+}
+
+.stocks-one-body .orange {
+  color: #FF8351;
+}
 </style>
