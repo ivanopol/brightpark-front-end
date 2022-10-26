@@ -199,10 +199,11 @@ export default {
         },
       ],
       swiperOption: {
-        autoplay: {
+/*        autoplay: {
           delay: 7000,
           disableOnInteraction: false,
-        },
+        },*/
+        autoplay: false,
         cssMode: false,
         autoHeight: false,
         slidesPerView: 1,
@@ -713,9 +714,9 @@ export default {
         font-weight: normal;
         text-decoration: none;
         font-size: 16px;
-        padding: 10px 16px 6px;
+        padding: 10px 32px 6px;
         border-radius: 6px;
-        max-width: 250px;
+        min-width: 180px;
         height: 50px;
       }
     }
