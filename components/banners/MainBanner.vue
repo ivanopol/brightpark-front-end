@@ -79,23 +79,6 @@ export default {
       },
       banners: [
         {
-          key: 0,
-          title: 'vygodnye-dni-v-brajt-parke',
-          extension: 'jpg',
-          place: 'banner-button-9',
-          buttons: [
-            {
-              key: 1,
-              type: 'link',
-              form_type: 1,
-              form_title_special: 'Заявка с сайта. Black Days, подарки всем',
-              color: 'orange',
-              text: 'ПОДРОБНЕЕ',
-              link: 'stocks/vygodnye-dni-v-brajt-parke',
-            },
-          ]
-        },
-        {
           key: 1,
           title: 'skidka-po-gosprogramme-na-lada-granta',
           extension: 'jpg',
@@ -255,7 +238,7 @@ export default {
     if ( this.$store.state.city.value == 'perm' ||
         this.$store.state.city.value == 'yekaterinburg'
     ) {
-      this.banners.splice(1,1,
+      this.banners.splice(0,1,
         {
           key: 0,
           title: 'skidka-po-gosprogramme-na-lada-granta2',
@@ -278,7 +261,7 @@ export default {
 
 
     if ( this.$store.state.city.value == 'magnitogorsk' ) {
-      this.banners.splice(3,1,
+      this.banners.splice(2,1,
         {
           key: 1,
           title: 'den-otkrytyh-dverej-2',
