@@ -50,7 +50,7 @@
         methods: {
         },
         mounted() {
-          callibriInit()
+        //  callibriInit()
         }
     }
 </script>

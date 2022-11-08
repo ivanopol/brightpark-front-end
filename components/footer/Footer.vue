@@ -42,7 +42,7 @@
                 <button
                     type="button"
                     class="footer__contact__btn"
-                    @click="show('Заказать звонок', 'footer-order-call', 'Заказать звонок', 1, 'goal_hz' ,'form-callback5')"
+                    @click="show('Заказать звонок', 'footer-order-call', 'Заказать звонок', 1, goal ,'form-callback5')"
                 >
                     Заказать звонок
                 </button>
@@ -55,16 +55,6 @@
                                 :btn_class="ym_btn_class"
                                 :prefix="'service__'"
         ></YandexMapComponent>
-        <modal name="form-callback-footer" height="auto" :adaptive="true" @before-open="beforeOpen">
-            <div class="close" @click="hide"></div>
-            <FormBuy2Component :cities="cities"
-                                 :form_title="form_title"
-                                 :form_id="form_id"
-                                 :button_text="button_text"
-                                 :form_type="form_type"
-                                 :goal="goal">
-            </FormBuy2Component>
-        </modal>
 
         <modal name="form-callback5" height="auto" :adaptive="true" class="models-banner__modal">
             <div :id="form_id + '_close'" class="close event" @click="hide('form-callback5')"></div>
@@ -72,6 +62,7 @@
                 form_title="Заказать звонок"
                 :form_id="form_id"
                 button_text="Заказать звонок"
+                :goal="goal"
             />
         </modal>
     </footer>
@@ -120,7 +111,7 @@
                 form_title: '',
                 button_text: '',
                 form_type: 1,
-                goal: '',
+                goal: 'callback',
             };
         },
         methods: {
