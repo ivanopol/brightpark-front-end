@@ -81,7 +81,7 @@ export default {
 .models {
   display: none;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1366px) {
     display: block;
     border-top: 1px solid #D9DADA;
     width: 100%;
